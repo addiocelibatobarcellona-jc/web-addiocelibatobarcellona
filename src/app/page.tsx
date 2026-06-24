@@ -1,7 +1,17 @@
 import { Metadata } from "next";
-import { Phone, MessageCircle, Star, ArrowRight } from "lucide-react";
+import {
+  Phone, MessageCircle, Star, ArrowRight,
+  Sparkles, Flame, Crown, Music, Zap, UtensilsCrossed, Bus, Car,
+  Anchor, Ship, Bike, CircleDot, Target, Lock, Navigation, Trophy, Waves,
+  type LucideIcon,
+} from "lucide-react";
 import { getContent } from "@/lib/content";
 import type { Activity, PercheItem, Testimonial } from "@/lib/content";
+
+const ICONS: Record<string, LucideIcon> = {
+  Sparkles, Flame, Crown, Music, Zap, UtensilsCrossed, Bus, Car,
+  Anchor, Ship, Bike, CircleDot, Target, Lock, Navigation, Trophy, Waves,
+};
 
 import LEDGrid from "@/components/LEDGrid";
 import MagneticButton from "@/components/MagneticButton";
@@ -19,7 +29,8 @@ export const metadata: Metadata = {
 
 // ── Notturne card (portrait, for drag carousel) ──────────────────────────────
 
-function NottCard({ emoji, name, desc, price, href, tag }: Activity) {
+function NottCard({ icon, name, desc, price, href, tag }: Activity) {
+  const Icon = ICONS[icon] ?? Sparkles;
   return (
     <a href={href} className="nott-card">
       {tag && (
@@ -34,7 +45,9 @@ function NottCard({ emoji, name, desc, price, href, tag }: Activity) {
         </span>
       )}
 
-      <div style={{ fontSize: "2.25rem", marginBottom: "auto" }}>{emoji}</div>
+      <div style={{ marginBottom: "auto", color: "rgba(232,160,32,0.5)" }}>
+        <Icon size={28} strokeWidth={1.25} />
+      </div>
 
       <div style={{ marginTop: "auto" }}>
         <h3 style={{
@@ -73,7 +86,8 @@ function NottCard({ emoji, name, desc, price, href, tag }: Activity) {
 
 // ── Pomeridiane card (variable height, for masonry) ───────────────────────────
 
-function PomCard({ emoji, name, desc, price, href, tag }: Activity) {
+function PomCard({ icon, name, desc, price, href, tag }: Activity) {
+  const Icon = ICONS[icon] ?? Waves;
   return (
     <a href={href} className="pom-card masonry-item">
       {tag && (
@@ -87,7 +101,9 @@ function PomCard({ emoji, name, desc, price, href, tag }: Activity) {
           {tag}
         </span>
       )}
-      <div style={{ fontSize: "1.75rem" }}>{emoji}</div>
+      <div style={{ color: "rgba(0,196,179,0.5)" }}>
+        <Icon size={24} strokeWidth={1.25} />
+      </div>
       <h3 style={{
         fontFamily: "var(--font-bebas)", fontSize: "1.4rem",
         letterSpacing: "0.04em", color: "#fff", lineHeight: 1.1,

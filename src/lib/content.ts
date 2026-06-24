@@ -11,7 +11,7 @@ export interface NavLink {
 }
 
 export interface Activity {
-  emoji: string;
+  icon: string;
   name: string;
   desc: string;
   price: string;

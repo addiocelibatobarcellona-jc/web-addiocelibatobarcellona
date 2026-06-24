@@ -8,21 +8,37 @@
     "address": "Avenida Paralelo Nº91 Bis, Barcelona",
     "founded": "2017"
   },
-
   "navbar": {
     "logo_line1": "ADDIO AL CELIBATO",
     "logo_line2": "BARCELLONA",
     "cta_label": "PREVENTIVO GRATIS",
     "links": [
-      { "href": "/chi-siamo",        "label": "Chi Siamo" },
-      { "href": "/notturne",         "label": "Notturne" },
-      { "href": "/pomeridiane",      "label": "Pomeridiane" },
-      { "href": "/addio-al-nubilato","label": "Nubilato" },
-      { "href": "/blog",             "label": "Blog" },
-      { "href": "/contattaci",       "label": "Contattaci" }
+      {
+        "href": "/chi-siamo",
+        "label": "Chi Siamo"
+      },
+      {
+        "href": "/notturne",
+        "label": "Notturne"
+      },
+      {
+        "href": "/pomeridiane",
+        "label": "Pomeridiane"
+      },
+      {
+        "href": "/addio-al-nubilato",
+        "label": "Nubilato"
+      },
+      {
+        "href": "/blog",
+        "label": "Blog"
+      },
+      {
+        "href": "/contattaci",
+        "label": "Contattaci"
+      }
     ]
   },
-
   "hero": {
     "badge": "Barcellona · Dal 2017",
     "headline_line1": "ADDIO AL CELIBATO",
@@ -40,7 +56,6 @@
       "📍 Solo Barcellona"
     ]
   },
-
   "marquee": [
     "ADDIO AL CELIBATO",
     "BARCELLONA",
@@ -51,14 +66,28 @@
     "LIMOUSINE",
     "NUBILATO"
   ],
-
   "stats": [
-    { "value": 500, "suffix": "+", "label": "Gruppi Festeggiati" },
-    { "value": 9,   "suffix": "",  "label": "Anni di Esperienza" },
-    { "value": 100, "suffix": "%", "label": "Clienti Soddisfatti" },
-    { "value": 0,   "suffix": "",  "label": "Costi Nascosti" }
+    {
+      "value": 500,
+      "suffix": "+",
+      "label": "Gruppi Festeggiati"
+    },
+    {
+      "value": 9,
+      "suffix": "",
+      "label": "Anni di Esperienza"
+    },
+    {
+      "value": 100,
+      "suffix": "%",
+      "label": "Clienti Soddisfatti"
+    },
+    {
+      "value": 0,
+      "suffix": "",
+      "label": "Costi Nascosti"
+    }
   ],
-
   "notturne": {
     "section_label": "Quando cala il sole",
     "section_title_line1": "ATTIVITÀ",
@@ -67,72 +96,71 @@
     "cta_all_href": "/notturne",
     "activities": [
       {
-        "emoji": "🥂",
         "name": "Addio Classico",
         "desc": "Cena + Strip + Disco. La formula classica per una serata indimenticabile con i tuoi amici.",
         "price": "€79 / persona",
         "href": "/attivita/notturne/addio-al-celibato-con-spogliarellista/",
-        "tag": "Best Seller"
+        "tag": "Best Seller",
+        "icon": "Sparkles"
       },
       {
-        "emoji": "🎉",
         "name": "Spicy Mix",
         "desc": "Cena collettiva con open bar di sangria, animazioni, spettacoli internazionali e striptease. Minimo 6 persone.",
         "price": "€79 / persona",
         "href": "/attivita/notturne/addio-al-celibato-collettivo/",
-        "tag": "Più venduto"
+        "tag": "Più venduto",
+        "icon": "Flame"
       },
       {
-        "emoji": "⭐",
         "name": "All Inclusive",
         "desc": "La formula completa: Cena + Strip + Limousine + Disco. Nessun pensiero, solo divertimento.",
         "price": "€115 / persona",
         "href": "/attivita/notturne/addio-al-celibato-con-spogliarellista-e-limousine/",
-        "tag": "Premium"
+        "tag": "Premium",
+        "icon": "Crown"
       },
       {
-        "emoji": "💃",
         "name": "Strip Show",
         "desc": "Lo spettacolo con performer professionisti. Semplice, diretto e sempre efficace.",
         "price": "€27 / persona",
         "href": "/attivita/notturne/addio-al-celibato-spogliarellista-show/",
-        "tag": null
+        "tag": null,
+        "icon": "Music"
       },
       {
-        "emoji": "🔥",
         "name": "XXX Show",
         "desc": "La trasgressione massima per i più audaci. Solo per chi vuole davvero alzare l'asticella.",
         "price": "€69 / persona",
         "href": "/attivita/notturne/xxx-show-trasgressione-massima/",
-        "tag": "Adrenalina"
+        "tag": "Adrenalina",
+        "icon": "Zap"
       },
       {
-        "emoji": "🍣",
         "name": "Body Sushi",
         "desc": "Cena sushi servita su una modella. Un'esperienza unica che stupirà tutti i presenti.",
         "price": "€59 / persona",
         "href": "/attivita/notturne/body-sushi/",
-        "tag": null
+        "tag": null,
+        "icon": "UtensilsCrossed"
       },
       {
-        "emoji": "🚌",
         "name": "LimoBus",
         "desc": "Un innovativo modo di girare Barcellona: open bar in movimento su un limo-bus esclusivo.",
         "price": "€35 / persona",
         "href": "/attivita/notturne/addio-al-celibato-barcellona-limobus/",
-        "tag": null
+        "tag": null,
+        "icon": "Bus"
       },
       {
-        "emoji": "🚗",
         "name": "Giretto in Limo",
         "desc": "Giro panoramico di Barcellona a bordo di una limousine di lusso con open bar incluso.",
         "price": "€25 / persona",
         "href": "/attivita/notturne/addio-al-celibato-giretto-in-limo/",
-        "tag": null
+        "tag": null,
+        "icon": "Car"
       }
     ]
   },
-
   "pomeridiane": {
     "section_label": "Prima del tramonto",
     "section_title_line1": "ATTIVITÀ",
@@ -141,80 +169,79 @@
     "cta_all_href": "/pomeridiane",
     "activities": [
       {
-        "emoji": "⛵",
         "name": "Crazy Catamaran Party",
         "desc": "Festa in incredibile catamarano sul mare di Barcellona. Il modo perfetto per iniziare la giornata.",
         "price": "€74 / persona",
         "href": "/attivita/pomeridiane/catamaran/",
-        "tag": "Mare"
+        "tag": "Mare",
+        "icon": "Anchor"
       },
       {
-        "emoji": "🪝",
         "name": "Barca a Vela Privata",
         "desc": "Giro in barca a vela privato con tutta la crew. Sole, mare e Barcellona vista dall'acqua.",
         "price": "€60 / persona",
         "href": "/attivita/pomeridiane/barca-a-vela/",
-        "tag": null
+        "tag": null,
+        "icon": "Ship"
       },
       {
-        "emoji": "🍺",
         "name": "La Beerbike",
         "desc": "Un innovativo modo di andare in giro a bere per le strade di Barcellona. Pedalate e birre!",
         "price": "€50 / persona",
         "href": "/attivita/pomeridiane/beerbike/",
-        "tag": "Classico"
+        "tag": "Classico",
+        "icon": "Bike"
       },
       {
-        "emoji": "⚽",
         "name": "Bubble Football",
         "desc": "Un nuovo modo di giocare a calcio dentro enormi bolle di plastica. Risate garantite.",
         "price": "€45 / persona",
         "href": "/attivita/pomeridiane/bubble-football/",
-        "tag": "Adrenalina"
+        "tag": "Adrenalina",
+        "icon": "CircleDot"
       },
       {
-        "emoji": "🎯",
         "name": "Paintball Outdoor",
         "desc": "Battaglia adrenalinica all'aria aperta nella campagna di Barcellona. Chi sopravvive vince.",
         "price": "€26 / persona",
         "href": "/attivita/pomeridiane/paintball/",
-        "tag": null
+        "tag": null,
+        "icon": "Target"
       },
       {
-        "emoji": "🔐",
         "name": "Escape Room",
         "desc": "Prova d'ingegno con la tua crew. 60 minuti per uscire: riuscirete a farcela?",
         "price": "€25 / persona",
         "href": "/attivita/pomeridiane/escape-room/",
-        "tag": null
+        "tag": null,
+        "icon": "Lock"
       },
       {
-        "emoji": "🏍️",
         "name": "Vespa GPS",
         "desc": "Giro di Barcellona in Vespa con mappa GPS. Libertà totale per scoprire la città in stile.",
         "price": "€45 / persona",
         "href": "/attivita/pomeridiane/vespa-gps/",
-        "tag": null
+        "tag": null,
+        "icon": "Navigation"
       },
       {
-        "emoji": "🏟️",
         "name": "Camp Nou Experience",
         "desc": "Un tempio del calcio. Visita esclusiva al Camp Nou, casa del Barcellona. Per i veri tifosi.",
         "price": "€45 / persona",
         "href": "/attivita/pomeridiane/camp-nou-experience/",
-        "tag": null
+        "tag": null,
+        "icon": "Trophy"
       },
       {
-        "emoji": "🏄",
         "name": "Paddle Surf",
         "desc": "Surf e sole sulla costa barcellonese con istruttore esperto. Divertimento assicurato.",
         "price": "€20 / persona",
         "href": "/attivita/pomeridiane/paddle-surf/",
-        "tag": "Outdoor"
+        "tag": "Outdoor",
+        "icon": "Waves"
       }
     ]
   },
-
   "perche": {
     "section_label": "La nostra differenza",
     "section_title_line1": "PERCHÉ",
@@ -244,7 +271,6 @@
       }
     ]
   },
-
   "testimonials": {
     "section_label": "Chi ha già festeggiato",
     "section_title_line1": "COSA DICONO",
@@ -272,7 +298,6 @@
     "rating_google": "⭐ 4.9/5",
     "rating_trustpilot": "⭐ Eccellente"
   },
-
   "cta_banner": {
     "label": "Pronto a partire?",
     "headline_line1": "VOGLIAMO CHE IL TUO",
@@ -282,21 +307,41 @@
     "cta_primary": "RICHIEDI IL PREVENTIVO GRATIS",
     "cta_secondary": "CHIAMA ORA"
   },
-
   "footer": {
     "logo_line1": "ADDIO AL CELIBATO BCN",
     "logo_line2": "Barcellona · Dal 2017",
     "description": "Un'agenzia di Italiani che vivono a Barcellona da più di 10 anni e conoscono la città alla perfezione. Organizziamo feste SOLO a Barcellona, dal 2017. Miglior prezzo garantito.",
     "activity_links": [
-      { "href": "/notturne",          "label": "Attività Notturne" },
-      { "href": "/pomeridiane",       "label": "Attività Diurne" },
-      { "href": "/addio-al-nubilato", "label": "Addio al Nubilato" },
-      { "href": "/chi-siamo",         "label": "Chi Siamo" },
-      { "href": "/blog",              "label": "Blog" }
+      {
+        "href": "/notturne",
+        "label": "Attività Notturne"
+      },
+      {
+        "href": "/pomeridiane",
+        "label": "Attività Diurne"
+      },
+      {
+        "href": "/addio-al-nubilato",
+        "label": "Addio al Nubilato"
+      },
+      {
+        "href": "/chi-siamo",
+        "label": "Chi Siamo"
+      },
+      {
+        "href": "/blog",
+        "label": "Blog"
+      }
     ],
     "legal_links": [
-      { "href": "/privacy-policy", "label": "Privacy Policy" },
-      { "href": "/cookie-policy",  "label": "Cookie Policy" }
+      {
+        "href": "/privacy-policy",
+        "label": "Privacy Policy"
+      },
+      {
+        "href": "/cookie-policy",
+        "label": "Cookie Policy"
+      }
     ],
     "copyright": "Addio al Celibato Barcellona. Tutti i diritti riservati."
   }
