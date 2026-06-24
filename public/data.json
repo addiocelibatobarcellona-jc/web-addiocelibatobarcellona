@@ -44,9 +44,9 @@
     "headline_line1": "ADDIO AL CELIBATO",
     "headline_line2": "A BARCELLONA",
     "headline_accent": "SENZA INGANNI",
-    "subheadline": "Alla ricerca di idee per un Addio al Celibato a Barcellona unico?",
-    "description": "Siamo italiani, viviamo qui da più di 10 anni e conosciamo la città meglio di chiunque altro.",
-    "description_strong": "Miglior prezzo garantito.",
+    "subheadline": "Alla ricerca di idee per un Addio al Celibato a Barcellona unico? Sei nel posto giusto.",
+    "description": "Siamo italiani, viviamo a Barcellona e conosciamo la città meglio di qualsiasi altra agenzia.",
+    "description_strong": "Miglior prezzo garantito, preventivo gratis.",
     "cta_primary": "SCOPRI I PACCHETTI",
     "cta_secondary": "WHATSAPP GRATIS",
     "trust_badges": [
@@ -246,28 +246,28 @@
     "section_label": "La nostra differenza",
     "section_title_line1": "PERCHÉ",
     "section_title_accent": "SCEGLIERCI",
-    "highlight_text": "Noi ci viviamo qui — siamo un team di italiani a Barcellona da più di 10 anni. Siamo esperti di feste di addio al celibato a Barcellona perché la città è casa nostra, non solo una destinazione.",
+    "highlight_text": "Organizzare una festa di addio al celibato come si deve è il dovere di ogni buon amico. A volte può essere difficile trovare idee per l'addio al celibato, però di questo ce ne occupiamo noi! Non esitare e contattaci, il PREVENTIVO È GRATIS!",
     "highlight_cta": "CHIEDI ORA",
     "items": [
       {
-        "icon": "🏙️",
+        "icon": "MapPin",
         "title": "Viviamo a Barcellona",
-        "desc": "Noi VIVIAMO a Barcellona, e conosciamo la città meglio di qualsiasi altra agenzia. Non vediamo la città attraverso una brochure."
+        "desc": "Noi VIVIAMO a Barcellona, e conosciamo la città meglio di qualsiasi altra agenzia."
       },
       {
-        "icon": "🎯",
+        "icon": "Target",
         "title": "Solo Barcellona",
-        "desc": "Organizziamo feste di addio al celibato SOLO a Barcellona. Diffida di agenzie multi-destination che non conoscono davvero la città."
+        "desc": "Organizziamo feste di addio al celibato SOLO a Barcellona. Diffida di agenzie multi-destination."
       },
       {
-        "icon": "💬",
+        "icon": "MessageCircle",
         "title": "Consigli Su Misura",
-        "desc": "Diamo raccomandazioni e consigli su misura a tutti i nostri clienti. Ogni gruppo è diverso, ogni festa è unica."
+        "desc": "Diamo raccomandazioni e consigli su misura a tutti i nostri clienti."
       },
       {
-        "icon": "⭐",
+        "icon": "Star",
         "title": "Recensioni Dal 2017",
-        "desc": "Otteniamo dal 2017 recensioni positive. Controlla SEMPRE le opinioni prima di scegliere un'agenzia."
+        "desc": "Otteniamo dal 2017 recensioni positive. Controlla SEMPRE le opinioni."
       }
     ]
   },
@@ -326,7 +326,8 @@
       }
     ],
     "rating_google": "⭐ 4.9/5",
-    "rating_trustpilot": "⭐ Eccellente"
+    "rating_trustpilot": "⭐ Eccellente",
+    "trustpilot_url": "https://it.trustpilot.com/review/addioalcelibato-barcellona.it?utm_medium=trustbox&utm_source=MicroReviewCount"
   },
   "cta_banner": {
     "label": "Pronto a partire?",

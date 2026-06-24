@@ -99,6 +99,7 @@ export interface SiteContent {
     items: Testimonial[];
     rating_google: string;
     rating_trustpilot: string;
+    trustpilot_url: string;
   };
   cta_banner: {
     label: string;

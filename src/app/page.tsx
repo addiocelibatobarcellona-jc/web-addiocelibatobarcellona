@@ -572,7 +572,7 @@ export default function HomePage() {
             })}
           </div>
 
-          {/* Ratings */}
+          {/* Ratings + TrustPilot link */}
           <ChapterReveal delay={300}>
             <div style={{
               display: "flex", alignItems: "center",
@@ -584,10 +584,16 @@ export default function HomePage() {
                 {" "}su Google
               </span>
               <span style={{ width: 1, height: 16, background: "#2a2a2a" }} />
-              <span style={{ fontSize: "0.75rem", color: "#444", letterSpacing: "0.1em" }}>
+              <a
+                href={c.testimonials.trustpilot_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-contact-link"
+                style={{ fontSize: "0.75rem", letterSpacing: "0.1em", gap: "0.4rem" }}
+              >
                 <span style={{ color: "var(--gold)", fontWeight: 600 }}>{c.testimonials.rating_trustpilot}</span>
-                {" "}su TrustPilot
-              </span>
+                {" "}su TrustPilot ↗
+              </a>
             </div>
           </ChapterReveal>
         </div>
