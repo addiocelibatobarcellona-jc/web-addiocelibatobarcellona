@@ -537,38 +537,39 @@ export default function HomePage() {
             </h2>
           </ChapterReveal>
 
-          {/* Cards with rotation offsets — fan effect */}
+          {/* 4-col grid, subtle rotation alternates every card */}
           <div style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "1.5rem",
-          }}>
-            {c.testimonials.items.map((t: Testimonial, i: number) => (
-              <StaggerReveal key={t.name} index={i}>
-                <div
-                  className="quote-card"
-                  style={{
-                    transform: `rotate(${[-1.5, 0.8, -0.5][i] ?? 0}deg)`,
-                  }}
-                >
-                  <div style={{ display: "flex", gap: "2px", marginBottom: "1.25rem" }}>
-                    {Array.from({ length: t.stars }).map((_, s) => (
-                      <Star key={s} size={12} fill="#E8A020" color="#E8A020" />
-                    ))}
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: "1rem",
+          }} className="testimonials-grid">
+            {c.testimonials.items.map((t: Testimonial, i: number) => {
+              const rotations = [-1.2, 0.6, -0.4, 1, -0.8, 0.5, -1, 0.7];
+              return (
+                <StaggerReveal key={t.name} index={i}>
+                  <div
+                    className="quote-card"
+                    style={{ transform: `rotate(${rotations[i] ?? 0}deg)` }}
+                  >
+                    <div style={{ display: "flex", gap: "2px", marginBottom: "1rem" }}>
+                      {Array.from({ length: t.stars }).map((_, s) => (
+                        <Star key={s} size={10} fill="#E8A020" color="#E8A020" />
+                      ))}
+                    </div>
+                    <p style={{
+                      fontSize: "0.82rem", lineHeight: 1.75, color: "#bbb",
+                      marginBottom: "1.25rem", fontStyle: "italic",
+                    }}>
+                      &ldquo;{t.text}&rdquo;
+                    </p>
+                    <div style={{ borderTop: "1px solid #1e1e1e", paddingTop: "0.875rem" }}>
+                      <p style={{ fontWeight: 600, fontSize: "0.82rem", color: "#fff" }}>{t.name}</p>
+                      <p style={{ fontSize: "0.7rem", color: "#555", marginTop: "0.1rem" }}>{t.city}</p>
+                    </div>
                   </div>
-                  <p style={{
-                    fontSize: "0.875rem", lineHeight: 1.8, color: "#bbb",
-                    marginBottom: "1.5rem", fontStyle: "italic",
-                  }}>
-                    &ldquo;{t.text}&rdquo;
-                  </p>
-                  <div style={{ borderTop: "1px solid #1e1e1e", paddingTop: "1rem" }}>
-                    <p style={{ fontWeight: 600, fontSize: "0.875rem", color: "#fff" }}>{t.name}</p>
-                    <p style={{ fontSize: "0.75rem", color: "#555", marginTop: "0.125rem" }}>{t.city}</p>
-                  </div>
-                </div>
-              </StaggerReveal>
-            ))}
+                </StaggerReveal>
+              );
+            })}
           </div>
 
           {/* Ratings */}
@@ -589,91 +590,6 @@ export default function HomePage() {
               </span>
             </div>
           </ChapterReveal>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════════════
-          CHAPTER 6 — CTA BANNER  full gold inversion  #E8A020
-      ════════════════════════════════════════════════════════════════ */}
-      <section
-        className="chapter"
-        style={{
-          background: "#E8A020",
-          padding: "8rem 6vw 9rem",
-          position: "relative", overflow: "hidden",
-        }}
-      >
-        {/* Subtle texture lines */}
-        <div style={{
-          position: "absolute", inset: 0, pointerEvents: "none",
-          backgroundImage: "repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 1px, transparent 1px, transparent 40px)",
-        }} />
-
-        <div style={{ maxWidth: "1100px", margin: "0 auto", position: "relative", zIndex: 1 }}>
-          <p style={{
-            fontSize: "0.65rem", letterSpacing: "0.35em",
-            textTransform: "uppercase", color: "rgba(0,0,0,0.4)",
-            fontFamily: "var(--font-jakarta)", fontWeight: 700,
-            marginBottom: "1.5rem",
-          }}>
-            {c.cta_banner.label}
-          </p>
-
-          <ChapterReveal>
-            <h2 style={{
-              fontFamily: "var(--font-bebas)",
-              fontSize: "clamp(4.5rem, 16vw, 15rem)",
-              letterSpacing: "-0.02em", lineHeight: 0.85,
-              color: "#000", margin: 0,
-            }}>
-              {c.cta_banner.headline_line1}
-              <br />
-              {c.cta_banner.headline_accent}
-            </h2>
-          </ChapterReveal>
-
-          <p style={{
-            fontSize: "clamp(1rem, 2vw, 1.2rem)",
-            color: "rgba(0,0,0,0.55)", lineHeight: 1.75,
-            maxWidth: "48ch", margin: "2rem 0 2.5rem",
-          }}>
-            Non esitare e contattaci:{" "}
-            <strong style={{ color: "#000" }}>{c.cta_banner.description_strong}</strong>{" "}
-            Siamo disponibili su WhatsApp e risponderemo in pochi minuti.
-          </p>
-
-          <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-            <MagneticButton
-              href={`https://wa.me/${c.site.whatsapp}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                background: "#000", color: "#E8A020",
-                fontFamily: "var(--font-bebas)", fontSize: "1rem",
-                letterSpacing: "0.1em", padding: "1.1rem 2rem",
-                display: "inline-flex", alignItems: "center", gap: "0.5rem",
-                textDecoration: "none",
-              }}
-            >
-              <MessageCircle size={16} />
-              {c.cta_banner.cta_primary}
-            </MagneticButton>
-
-            <MagneticButton
-              href={`tel:${c.site.phone}`}
-              style={{
-                border: "2px solid rgba(0,0,0,0.25)", color: "#000",
-                fontFamily: "var(--font-bebas)", fontSize: "1rem",
-                letterSpacing: "0.1em", padding: "1.1rem 2rem",
-                display: "inline-flex", alignItems: "center", gap: "0.5rem",
-                textDecoration: "none",
-                transition: "border-color 0.2s, background 0.2s",
-              }}
-            >
-              <Phone size={16} />
-              {c.cta_banner.cta_secondary}
-            </MagneticButton>
-          </div>
         </div>
       </section>
 

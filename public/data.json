@@ -280,19 +280,49 @@
         "name": "Marco R.",
         "city": "Milano",
         "stars": 5,
-        "text": "Organizzazione perfetta dall'inizio alla fine. Addio Classico con strip e discoteca: una serata che ricorderemo per sempre. Grazie a tutto il team di Barcellona!"
+        "text": "Organizzazione impeccabile, tutto puntuale e senza sorprese. Strip show al top, la disco perfetta. Lo rifarei domani."
       },
       {
         "name": "Luca F.",
         "city": "Roma",
         "stars": 5,
-        "text": "Lo Spicy Mix è stato incredibile. Cena collettiva, animazioni, spettacoli... tutto al massimo livello. Prezzo imbattibile e assistenza immediata. Consigliato!"
+        "text": "Avevo paura di essere fregato come con altre agenzie, invece zero costi nascosti. Prezzo onesto, serata indimenticabile. Grazie ragazzi!"
       },
       {
         "name": "Andrea M.",
         "city": "Torino",
         "stars": 5,
-        "text": "Body Sushi + disco VIP. Roba da cinema. Team super disponibile, tutto come promesso, zero sorprese sui prezzi. 10/10 senza dubbi."
+        "text": "Il catamaran party è stato assurdo, tutti impazziti. Barcellona vista dal mare con open bar... impossibile fare meglio."
+      },
+      {
+        "name": "Stefano B.",
+        "city": "Napoli",
+        "stars": 5,
+        "text": "All Inclusive vale ogni centesimo. Limousine, cena, strip e disco tutto incluso. Nessun pensiero, solo divertimento puro."
+      },
+      {
+        "name": "Davide C.",
+        "city": "Firenze",
+        "stars": 5,
+        "text": "Risposta su WhatsApp in 5 minuti, disponibili sempre. Hanno gestito tutto loro, noi ci siamo solo divertiti. Perfetti."
+      },
+      {
+        "name": "Giovanni P.",
+        "city": "Bologna",
+        "stars": 5,
+        "text": "Body Sushi + disco: combo vincente. Non credevo fosse possibile organizzarlo così bene. Il gruppo era scettico, alla fine erano tutti entusiasti."
+      },
+      {
+        "name": "Matteo S.",
+        "city": "Venezia",
+        "stars": 5,
+        "text": "LimoBus pazzesco, siamo saliti alle 11 di sera e non volevamo più scendere. Open bar infinito e musica a palla per tutta Barcellona."
+      },
+      {
+        "name": "Francesco L.",
+        "city": "Palermo",
+        "stars": 5,
+        "text": "Eravamo 12 persone e temevo casino organizzativo. Invece tutto filato liscio: prenotazioni, tavoli, ingressi. Zero stress totale."
       }
     ],
     "rating_google": "⭐ 4.9/5",
