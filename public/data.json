@@ -1,0 +1,303 @@
+{
+  "site": {
+    "name": "Addio al Celibato Barcellona",
+    "tagline": "Dal 2017 – Miglior Prezzo Garantito",
+    "email": "addiocelibatobarcellona@gmail.com",
+    "phone": "+34673180796",
+    "whatsapp": "34673180796",
+    "address": "Avenida Paralelo Nº91 Bis, Barcelona",
+    "founded": "2017"
+  },
+
+  "navbar": {
+    "logo_line1": "ADDIO AL CELIBATO",
+    "logo_line2": "BARCELLONA",
+    "cta_label": "PREVENTIVO GRATIS",
+    "links": [
+      { "href": "/chi-siamo",        "label": "Chi Siamo" },
+      { "href": "/notturne",         "label": "Notturne" },
+      { "href": "/pomeridiane",      "label": "Pomeridiane" },
+      { "href": "/addio-al-nubilato","label": "Nubilato" },
+      { "href": "/blog",             "label": "Blog" },
+      { "href": "/contattaci",       "label": "Contattaci" }
+    ]
+  },
+
+  "hero": {
+    "badge": "Barcellona · Dal 2017",
+    "headline_line1": "ADDIO AL CELIBATO",
+    "headline_line2": "A BARCELLONA",
+    "headline_accent": "SENZA INGANNI",
+    "subheadline": "Alla ricerca di idee per un Addio al Celibato a Barcellona unico?",
+    "description": "Siamo italiani, viviamo qui da più di 10 anni e conosciamo la città meglio di chiunque altro.",
+    "description_strong": "Miglior prezzo garantito.",
+    "cta_primary": "SCOPRI I PACCHETTI",
+    "cta_secondary": "WHATSAPP GRATIS",
+    "trust_badges": [
+      "⭐ Google 4.9/5",
+      "🏆 TrustPilot Eccellente",
+      "✅ Oltre 500 Gruppi",
+      "📍 Solo Barcellona"
+    ]
+  },
+
+  "marquee": [
+    "ADDIO AL CELIBATO",
+    "BARCELLONA",
+    "DAL 2017",
+    "MIGLIOR PREZZO",
+    "PREVENTIVO GRATIS",
+    "STRIP SHOW",
+    "LIMOUSINE",
+    "NUBILATO"
+  ],
+
+  "stats": [
+    { "value": 500, "suffix": "+", "label": "Gruppi Festeggiati" },
+    { "value": 9,   "suffix": "",  "label": "Anni di Esperienza" },
+    { "value": 100, "suffix": "%", "label": "Clienti Soddisfatti" },
+    { "value": 0,   "suffix": "",  "label": "Costi Nascosti" }
+  ],
+
+  "notturne": {
+    "section_label": "Quando cala il sole",
+    "section_title_line1": "ATTIVITÀ",
+    "section_title_accent": "NOTTURNE",
+    "cta_all": "Vedi Tutte",
+    "cta_all_href": "/notturne",
+    "activities": [
+      {
+        "emoji": "🥂",
+        "name": "Addio Classico",
+        "desc": "Cena + Strip + Disco. La formula classica per una serata indimenticabile con i tuoi amici.",
+        "price": "€79 / persona",
+        "href": "/attivita/notturne/addio-al-celibato-con-spogliarellista/",
+        "tag": "Best Seller"
+      },
+      {
+        "emoji": "🎉",
+        "name": "Spicy Mix",
+        "desc": "Cena collettiva con open bar di sangria, animazioni, spettacoli internazionali e striptease. Minimo 6 persone.",
+        "price": "€79 / persona",
+        "href": "/attivita/notturne/addio-al-celibato-collettivo/",
+        "tag": "Più venduto"
+      },
+      {
+        "emoji": "⭐",
+        "name": "All Inclusive",
+        "desc": "La formula completa: Cena + Strip + Limousine + Disco. Nessun pensiero, solo divertimento.",
+        "price": "€115 / persona",
+        "href": "/attivita/notturne/addio-al-celibato-con-spogliarellista-e-limousine/",
+        "tag": "Premium"
+      },
+      {
+        "emoji": "💃",
+        "name": "Strip Show",
+        "desc": "Lo spettacolo con performer professionisti. Semplice, diretto e sempre efficace.",
+        "price": "€27 / persona",
+        "href": "/attivita/notturne/addio-al-celibato-spogliarellista-show/",
+        "tag": null
+      },
+      {
+        "emoji": "🔥",
+        "name": "XXX Show",
+        "desc": "La trasgressione massima per i più audaci. Solo per chi vuole davvero alzare l'asticella.",
+        "price": "€69 / persona",
+        "href": "/attivita/notturne/xxx-show-trasgressione-massima/",
+        "tag": "Adrenalina"
+      },
+      {
+        "emoji": "🍣",
+        "name": "Body Sushi",
+        "desc": "Cena sushi servita su una modella. Un'esperienza unica che stupirà tutti i presenti.",
+        "price": "€59 / persona",
+        "href": "/attivita/notturne/body-sushi/",
+        "tag": null
+      },
+      {
+        "emoji": "🚌",
+        "name": "LimoBus",
+        "desc": "Un innovativo modo di girare Barcellona: open bar in movimento su un limo-bus esclusivo.",
+        "price": "€35 / persona",
+        "href": "/attivita/notturne/addio-al-celibato-barcellona-limobus/",
+        "tag": null
+      },
+      {
+        "emoji": "🚗",
+        "name": "Giretto in Limo",
+        "desc": "Giro panoramico di Barcellona a bordo di una limousine di lusso con open bar incluso.",
+        "price": "€25 / persona",
+        "href": "/attivita/notturne/addio-al-celibato-giretto-in-limo/",
+        "tag": null
+      }
+    ]
+  },
+
+  "pomeridiane": {
+    "section_label": "Prima del tramonto",
+    "section_title_line1": "ATTIVITÀ",
+    "section_title_accent": "DIURNE",
+    "cta_all": "Vedi Tutte",
+    "cta_all_href": "/pomeridiane",
+    "activities": [
+      {
+        "emoji": "⛵",
+        "name": "Crazy Catamaran Party",
+        "desc": "Festa in incredibile catamarano sul mare di Barcellona. Il modo perfetto per iniziare la giornata.",
+        "price": "€74 / persona",
+        "href": "/attivita/pomeridiane/catamaran/",
+        "tag": "Mare"
+      },
+      {
+        "emoji": "🪝",
+        "name": "Barca a Vela Privata",
+        "desc": "Giro in barca a vela privato con tutta la crew. Sole, mare e Barcellona vista dall'acqua.",
+        "price": "€60 / persona",
+        "href": "/attivita/pomeridiane/barca-a-vela/",
+        "tag": null
+      },
+      {
+        "emoji": "🍺",
+        "name": "La Beerbike",
+        "desc": "Un innovativo modo di andare in giro a bere per le strade di Barcellona. Pedalate e birre!",
+        "price": "€50 / persona",
+        "href": "/attivita/pomeridiane/beerbike/",
+        "tag": "Classico"
+      },
+      {
+        "emoji": "⚽",
+        "name": "Bubble Football",
+        "desc": "Un nuovo modo di giocare a calcio dentro enormi bolle di plastica. Risate garantite.",
+        "price": "€45 / persona",
+        "href": "/attivita/pomeridiane/bubble-football/",
+        "tag": "Adrenalina"
+      },
+      {
+        "emoji": "🎯",
+        "name": "Paintball Outdoor",
+        "desc": "Battaglia adrenalinica all'aria aperta nella campagna di Barcellona. Chi sopravvive vince.",
+        "price": "€26 / persona",
+        "href": "/attivita/pomeridiane/paintball/",
+        "tag": null
+      },
+      {
+        "emoji": "🔐",
+        "name": "Escape Room",
+        "desc": "Prova d'ingegno con la tua crew. 60 minuti per uscire: riuscirete a farcela?",
+        "price": "€25 / persona",
+        "href": "/attivita/pomeridiane/escape-room/",
+        "tag": null
+      },
+      {
+        "emoji": "🏍️",
+        "name": "Vespa GPS",
+        "desc": "Giro di Barcellona in Vespa con mappa GPS. Libertà totale per scoprire la città in stile.",
+        "price": "€45 / persona",
+        "href": "/attivita/pomeridiane/vespa-gps/",
+        "tag": null
+      },
+      {
+        "emoji": "🏟️",
+        "name": "Camp Nou Experience",
+        "desc": "Un tempio del calcio. Visita esclusiva al Camp Nou, casa del Barcellona. Per i veri tifosi.",
+        "price": "€45 / persona",
+        "href": "/attivita/pomeridiane/camp-nou-experience/",
+        "tag": null
+      },
+      {
+        "emoji": "🏄",
+        "name": "Paddle Surf",
+        "desc": "Surf e sole sulla costa barcellonese con istruttore esperto. Divertimento assicurato.",
+        "price": "€20 / persona",
+        "href": "/attivita/pomeridiane/paddle-surf/",
+        "tag": "Outdoor"
+      }
+    ]
+  },
+
+  "perche": {
+    "section_label": "La nostra differenza",
+    "section_title_line1": "PERCHÉ",
+    "section_title_accent": "SCEGLIERCI",
+    "highlight_text": "Noi ci viviamo qui — siamo un team di italiani a Barcellona da più di 10 anni. Siamo esperti di feste di addio al celibato a Barcellona perché la città è casa nostra, non solo una destinazione.",
+    "highlight_cta": "CHIEDI ORA",
+    "items": [
+      {
+        "icon": "🏙️",
+        "title": "Viviamo a Barcellona",
+        "desc": "Noi VIVIAMO a Barcellona, e conosciamo la città meglio di qualsiasi altra agenzia. Non vediamo la città attraverso una brochure."
+      },
+      {
+        "icon": "🎯",
+        "title": "Solo Barcellona",
+        "desc": "Organizziamo feste di addio al celibato SOLO a Barcellona. Diffida di agenzie multi-destination che non conoscono davvero la città."
+      },
+      {
+        "icon": "💬",
+        "title": "Consigli Su Misura",
+        "desc": "Diamo raccomandazioni e consigli su misura a tutti i nostri clienti. Ogni gruppo è diverso, ogni festa è unica."
+      },
+      {
+        "icon": "⭐",
+        "title": "Recensioni Dal 2017",
+        "desc": "Otteniamo dal 2017 recensioni positive. Controlla SEMPRE le opinioni prima di scegliere un'agenzia."
+      }
+    ]
+  },
+
+  "testimonials": {
+    "section_label": "Chi ha già festeggiato",
+    "section_title_line1": "COSA DICONO",
+    "section_title_accent": "I NOSTRI GRUPPI",
+    "items": [
+      {
+        "name": "Marco R.",
+        "city": "Milano",
+        "stars": 5,
+        "text": "Organizzazione perfetta dall'inizio alla fine. Addio Classico con strip e discoteca: una serata che ricorderemo per sempre. Grazie a tutto il team di Barcellona!"
+      },
+      {
+        "name": "Luca F.",
+        "city": "Roma",
+        "stars": 5,
+        "text": "Lo Spicy Mix è stato incredibile. Cena collettiva, animazioni, spettacoli... tutto al massimo livello. Prezzo imbattibile e assistenza immediata. Consigliato!"
+      },
+      {
+        "name": "Andrea M.",
+        "city": "Torino",
+        "stars": 5,
+        "text": "Body Sushi + disco VIP. Roba da cinema. Team super disponibile, tutto come promesso, zero sorprese sui prezzi. 10/10 senza dubbi."
+      }
+    ],
+    "rating_google": "⭐ 4.9/5",
+    "rating_trustpilot": "⭐ Eccellente"
+  },
+
+  "cta_banner": {
+    "label": "Pronto a partire?",
+    "headline_line1": "VOGLIAMO CHE IL TUO",
+    "headline_accent": "ADDIO SIA UNICO!",
+    "description": "Non esitare e contattaci: il preventivo è GRATIS! Siamo disponibili su WhatsApp e risponderemo in pochi minuti.",
+    "description_strong": "il preventivo è GRATIS!",
+    "cta_primary": "RICHIEDI IL PREVENTIVO GRATIS",
+    "cta_secondary": "CHIAMA ORA"
+  },
+
+  "footer": {
+    "logo_line1": "ADDIO AL CELIBATO BCN",
+    "logo_line2": "Barcellona · Dal 2017",
+    "description": "Un'agenzia di Italiani che vivono a Barcellona da più di 10 anni e conoscono la città alla perfezione. Organizziamo feste SOLO a Barcellona, dal 2017. Miglior prezzo garantito.",
+    "activity_links": [
+      { "href": "/notturne",          "label": "Attività Notturne" },
+      { "href": "/pomeridiane",       "label": "Attività Diurne" },
+      { "href": "/addio-al-nubilato", "label": "Addio al Nubilato" },
+      { "href": "/chi-siamo",         "label": "Chi Siamo" },
+      { "href": "/blog",              "label": "Blog" }
+    ],
+    "legal_links": [
+      { "href": "/privacy-policy", "label": "Privacy Policy" },
+      { "href": "/cookie-policy",  "label": "Cookie Policy" }
+    ],
+    "copyright": "Addio al Celibato Barcellona. Tutti i diritti riservati."
+  }
+}

@@ -1,26 +1,283 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --gold: #E8A020;
+  --gold-light: #f5c055;
+  --red: #d01b3f;
+  --bg: #070707;
+  --muted: #555555;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+* { box-sizing: border-box; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: #f0f0f0;
+  font-family: var(--font-jakarta), -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+
+.font-bebas {
+  font-family: var(--font-bebas), 'Arial Black', sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-track { background: #070707; }
+::-webkit-scrollbar-thumb { background: var(--gold); }
+
+/* Selection */
+::selection { background: var(--gold); color: #000; }
+
+/* Hide scrollbar utility */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+
+/* ── Nav responsive ── */
+@media (max-width: 767px) {
+  .nav-links { display: none !important; }
+  .nav-cta-label { display: none; }
+  .nav-burger { display: flex !important; }
+}
+@media (min-width: 768px) {
+  .nav-burger { display: none !important; }
+}
+
+/* ── Grain texture overlay ── */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 180px;
+  z-index: 1;
+}
+
+/* ── Chapter section base ── */
+.chapter {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Outlined title ── */
+.title-outlined {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.25);
+  color: transparent;
+  transition: color 0.5s ease, -webkit-text-stroke-color 0.5s ease;
+}
+.chapter:hover .title-outlined {
+  color: rgba(255, 255, 255, 0.85);
+  -webkit-text-stroke-color: transparent;
+}
+
+/* ── Chapter: Notturne outlined title (red fill on hover) ── */
+.chapter-notturne .title-outlined {
+  -webkit-text-stroke: 1.5px rgba(255, 60, 60, 0.3);
+}
+.chapter-notturne:hover .title-outlined {
+  color: rgba(255, 60, 60, 0.7);
+}
+
+/* ── Chapter: Pomeridiane outlined title (teal fill on hover) ── */
+.chapter-pomeridiane .title-outlined {
+  -webkit-text-stroke: 1.5px rgba(0, 196, 179, 0.3);
+}
+.chapter-pomeridiane:hover .title-outlined {
+  color: rgba(0, 196, 179, 0.75);
+}
+
+/* ── Activity card — notturne ── */
+.nott-card {
+  flex-shrink: 0;
+  width: 260px;
+  height: 400px;
+  background: #100000;
+  border: 1px solid rgba(255, 60, 60, 0.12);
+  border-left: 3px solid rgba(255, 60, 60, 0.4);
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.35s cubic-bezier(0.33,1,0.68,1);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+.nott-card:hover {
+  border-color: rgba(232,160,32,0.6);
+  border-left-color: var(--gold);
+  transform: translateY(-6px);
+}
+.nott-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(200,0,0,0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* ── Activity card — pomeridiane ── */
+.pom-card {
+  background: #000D14;
+  border: 1px solid rgba(0,196,179,0.1);
+  border-top: 2px solid rgba(0,196,179,0.3);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.3s ease, transform 0.35s cubic-bezier(0.33,1,0.68,1);
+  text-decoration: none;
+  color: inherit;
+}
+.pom-card:hover {
+  border-top-color: #00C4B3;
+  border-color: rgba(0,196,179,0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,196,179,0.08);
+}
+
+/* ── Masonry grid ── */
+.masonry {
+  columns: 3;
+  column-gap: 1.25rem;
+}
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1.25rem;
+}
+@media (max-width: 900px) {
+  .masonry { columns: 2; }
+}
+@media (max-width: 560px) {
+  .masonry { columns: 1; }
+}
+
+/* ── Perché editorial rows ── */
+.perche-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid #1a1a1a;
+}
+.perche-num {
+  font-family: var(--font-bebas);
+  font-size: clamp(4rem, 8vw, 7rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  -webkit-text-stroke: 1px rgba(232,160,32,0.3);
+  color: transparent;
+  flex-shrink: 0;
+  width: clamp(80px, 12vw, 130px);
+  transition: color 0.4s ease, -webkit-text-stroke-color 0.4s ease;
+}
+.perche-row:hover .perche-num {
+  color: var(--gold);
+  -webkit-text-stroke-color: transparent;
+}
+
+/* ── Testimonial quote cards ── */
+.quote-card {
+  background: #111;
+  border: 1px solid #1e1e1e;
+  padding: 2rem;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.33,1,0.68,1), border-color 0.3s ease;
+}
+.quote-card:hover {
+  border-color: rgba(232,160,32,0.3);
+  transform: translateY(-4px) rotate(0deg) !important;
+}
+
+/* ── Footer links ── */
+.footer-link {
+  font-size: 0.82rem;
+  color: #444;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-link:hover { color: #fff; }
+
+.footer-contact-link {
+  font-size: 0.78rem;
+  color: #444;
+  text-decoration: none;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.footer-contact-link:hover { color: var(--gold); }
+
+.footer-legal-link {
+  font-size: 0.72rem;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-legal-link:hover { color: #fff; }
+
+/* ── Btn gold (server-safe hover via CSS) ── */
+.cta-gold {
+  background: var(--gold);
+  color: #000;
+  font-family: var(--font-bebas);
+  letter-spacing: 0.1em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.cta-gold:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.cta-outline {
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  font-family: var(--font-bebas);
+  letter-spacing: 0.1em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.cta-outline:hover {
+  border-color: var(--gold);
+  background: rgba(232,160,32,0.06);
+}
+
+/* ── Keyframes ── */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes badge-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse-border {
+  0%, 100% { border-color: rgba(232,160,32,0.18); }
+  50%       { border-color: rgba(232,160,32,0.45); }
+}
+
+/* Pulse nav border subtly */
+nav[aria-label="Navigazione principale"] {
+  animation: pulse-border 4s ease-in-out infinite;
 }
