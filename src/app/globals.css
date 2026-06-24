@@ -209,7 +209,7 @@ body {
 /* ── Footer links ── */
 .footer-link {
   font-size: 0.82rem;
-  color: #444;
+  color: #aaa;
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -217,7 +217,7 @@ body {
 
 .footer-contact-link {
   font-size: 0.78rem;
-  color: #444;
+  color: #aaa;
   text-decoration: none;
   transition: color 0.2s;
   display: flex;
@@ -228,7 +228,7 @@ body {
 
 .footer-legal-link {
   font-size: 0.72rem;
-  color: #333;
+  color: #777;
   text-decoration: none;
   transition: color 0.2s;
 }

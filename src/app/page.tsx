@@ -633,7 +633,7 @@ export default function HomePage() {
                   {c.footer.logo_line2}
                 </span>
               </div>
-              <p style={{ fontSize: "0.82rem", lineHeight: 1.75, color: "#555", maxWidth: "36ch" }}>
+              <p style={{ fontSize: "0.82rem", lineHeight: 1.75, color: "#aaa", maxWidth: "36ch" }}>
                 {c.footer.description}
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem", marginTop: "1.25rem" }}>
@@ -643,7 +643,7 @@ export default function HomePage() {
                 <a href={`mailto:${c.site.email}`} className="footer-contact-link">
                   {c.site.email}
                 </a>
-                <span style={{ fontSize: "0.78rem", color: "#333" }}>{c.site.address}</span>
+                <span style={{ fontSize: "0.78rem", color: "#777" }}>{c.site.address}</span>
               </div>
             </div>
 
@@ -692,7 +692,7 @@ export default function HomePage() {
             display: "flex", alignItems: "center", justifyContent: "space-between",
             flexWrap: "wrap", gap: "1rem",
           }}>
-            <p style={{ fontSize: "0.72rem", color: "#333" }}>
+            <p style={{ fontSize: "0.72rem", color: "#666" }}>
               © {new Date().getFullYear()} {c.footer.copyright}
             </p>
             <div style={{ display: "flex", gap: "1.5rem" }}>
