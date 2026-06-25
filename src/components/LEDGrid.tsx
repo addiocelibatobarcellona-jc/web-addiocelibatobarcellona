@@ -73,9 +73,9 @@ export default function LEDGrid() {
           ctx.globalAlpha = Math.min(glow, 1);
 
           if (dist < RADIUS) {
-            ctx.fillStyle = "#E8A020";
-            ctx.shadowColor = "#E8A020";
-            ctx.shadowBlur = 12 * glow;
+            ctx.fillStyle = "#3a75ff";
+            ctx.shadowColor = "#3a75ff";
+            ctx.shadowBlur = 16 * glow;
           } else {
             ctx.fillStyle = "rgba(255,255,255,0.9)";
             ctx.shadowColor = "rgba(255,255,255,0.5)";

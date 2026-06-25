@@ -72,7 +72,7 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
       >
         {/* Logo */}
         <a href="/" style={{ display: "flex", flexDirection: "column", lineHeight: 1, textDecoration: "none" }}>
-          <span style={{ fontFamily: "var(--font-bebas)", fontSize: "0.95rem", letterSpacing: "0.14em", color: "#E8A020" }}>
+          <span style={{ fontFamily: "var(--font-bebas)", fontSize: "0.95rem", letterSpacing: "0.14em", color: "var(--blue)" }}>
             {logoLine1}
           </span>
           <span style={{ fontFamily: "var(--font-bebas)", fontSize: "0.58rem", letterSpacing: "0.28em", color: "#555", marginTop: "-1px" }}>
@@ -108,15 +108,15 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
           rel="noopener noreferrer"
           className="nav-cta"
           style={{
-            background: "#E8A020", color: "#000", borderRadius: "100px",
+            background: "var(--blue)", color: "#fff", borderRadius: "100px",
             padding: "0.65rem 1.2rem",
             fontFamily: "var(--font-bebas)", fontSize: "0.72rem", letterSpacing: "0.12em",
             display: "flex", alignItems: "center", gap: "0.35rem",
             flexShrink: 0, textDecoration: "none",
             transition: "background 0.2s, transform 0.2s",
           }}
-          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "#f5c055"; (e.currentTarget as HTMLElement).style.transform = "scale(1.04)"; }}
-          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "#E8A020"; (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}
+          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "#6b96ff"; (e.currentTarget as HTMLElement).style.transform = "scale(1.04)"; }}
+          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "var(--blue)"; (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}
         >
           <MessageCircle size={12} />
           <span className="nav-cta-label">{ctaLabel}</span>
@@ -149,7 +149,7 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
             display: "flex", alignItems: "center", justifyContent: "space-between",
             padding: "1.5rem", borderBottom: "1px solid #1a1a1a",
           }}>
-            <span style={{ fontFamily: "var(--font-bebas)", fontSize: "1rem", letterSpacing: "0.14em", color: "#E8A020" }}>
+            <span style={{ fontFamily: "var(--font-bebas)", fontSize: "1rem", letterSpacing: "0.14em", color: "var(--blue)" }}>
               {logoLine1}
             </span>
             <button
@@ -184,10 +184,10 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
                   textDecoration: "none", display: "block",
                   transition: "color 0.15s, padding-left 0.2s",
                 }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "#E8A020"; (e.currentTarget as HTMLElement).style.paddingLeft = "0.5rem"; }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "var(--blue)"; (e.currentTarget as HTMLElement).style.paddingLeft = "0.5rem"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "#fff"; (e.currentTarget as HTMLElement).style.paddingLeft = "0"; }}
               >
-                <span style={{ color: "#E8A020", fontSize: "0.6em", marginRight: "0.5rem", opacity: 0.6 }}>
+                <span style={{ color: "var(--blue)", fontSize: "0.6em", marginRight: "0.5rem", opacity: 0.6 }}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 {link.label}
@@ -204,7 +204,7 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
               style={{
                 display: "flex", alignItems: "center", justifyContent: "center",
                 gap: "0.5rem", width: "100%", padding: "1.1rem",
-                background: "#E8A020", color: "#000",
+                background: "var(--blue)", color: "#fff",
                 fontFamily: "var(--font-bebas)", fontSize: "1.1rem",
                 letterSpacing: "0.1em", borderRadius: "100px",
                 textDecoration: "none",

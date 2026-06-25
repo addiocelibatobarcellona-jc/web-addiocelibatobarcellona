@@ -1,10 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --gold: #E8A020;
-  --gold-light: #f5c055;
-  --red: #d01b3f;
-  --bg: #070707;
+  --blue: #3a75ff;
+  --blue-light: #6b96ff;
+  --blue-dim: rgba(58, 117, 255, 0.12);
+  --blue-dim2: rgba(58, 117, 255, 0.06);
+  --gold: #3a75ff;      /* alias — todos los var(--gold) toman el azul */
+  --gold-light: #6b96ff;
+  --bg: #050505;
+  --card-bg: #0e0e0e;
   --muted: #555555;
 }
 
@@ -19,18 +23,17 @@ body {
   overflow-x: hidden;
 }
 
-
 .font-bebas {
   font-family: var(--font-bebas), 'Arial Black', sans-serif;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 2px; }
-::-webkit-scrollbar-track { background: #070707; }
-::-webkit-scrollbar-thumb { background: var(--gold); }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: var(--blue); }
 
 /* Selection */
-::selection { background: var(--gold); color: #000; }
+::selection { background: var(--blue); color: #fff; }
 
 /* Hide scrollbar utility */
 .hide-scrollbar::-webkit-scrollbar { display: none; }
@@ -52,7 +55,7 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-size: 180px;
   z-index: 1;
@@ -64,98 +67,131 @@ body {
   overflow: hidden;
 }
 
-/* ── Outlined title ── */
+/* ── Outlined title — unified blue ── */
 .title-outlined {
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.25);
+  -webkit-text-stroke: 1.5px rgba(58, 117, 255, 0.3);
   color: transparent;
   transition: color 0.5s ease, -webkit-text-stroke-color 0.5s ease;
 }
 .chapter:hover .title-outlined {
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--blue);
   -webkit-text-stroke-color: transparent;
 }
 
-/* ── Chapter: Notturne outlined title (red fill on hover) ── */
-.chapter-notturne .title-outlined {
-  -webkit-text-stroke: 1.5px rgba(255, 60, 60, 0.3);
+/* ── Service card grid ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: #0a0a0a;
 }
-.chapter-notturne:hover .title-outlined {
-  color: rgba(255, 60, 60, 0.7);
+@media (max-width: 900px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
 }
-
-/* ── Chapter: Pomeridiane outlined title (teal fill on hover) ── */
-.chapter-pomeridiane .title-outlined {
-  -webkit-text-stroke: 1.5px rgba(0, 196, 179, 0.3);
-}
-.chapter-pomeridiane:hover .title-outlined {
-  color: rgba(0, 196, 179, 0.75);
+@media (max-width: 480px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* ── Activity card — notturne ── */
-.nott-card {
-  flex-shrink: 0;
-  width: 260px;
-  height: 400px;
-  background: #100000;
-  border: 1px solid rgba(255, 60, 60, 0.12);
-  border-left: 3px solid rgba(255, 60, 60, 0.4);
-  padding: 1.75rem 1.5rem;
+/* ── Service card ── */
+.service-card {
+  background: var(--card-bg);
+  padding: 2rem 1.75rem;
   display: flex;
   flex-direction: column;
+  min-height: 280px;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.3s ease, transform 0.35s cubic-bezier(0.33,1,0.68,1);
-  cursor: pointer;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
-.nott-card:hover {
-  border-color: rgba(232,160,32,0.6);
-  border-left-color: var(--gold);
-  transform: translateY(-6px);
-}
-.nott-card::before {
+
+/* Blue fill sweeps up on hover */
+.service-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(200,0,0,0.05) 0%, transparent 60%);
-  pointer-events: none;
+  background: var(--blue);
+  transform: translateY(100%);
+  transition: transform 0.45s cubic-bezier(0.33, 1, 0.68, 1);
+  z-index: 0;
+}
+.service-card:hover::before { transform: translateY(0); }
+
+.service-card > * { position: relative; z-index: 1; }
+
+.service-card .card-icon {
+  color: var(--blue);
+  transition: color 0.3s;
+  margin-bottom: auto;
+}
+.service-card:hover .card-icon { color: rgba(255,255,255,0.9); }
+
+.service-card .card-name {
+  font-family: var(--font-bebas);
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  letter-spacing: 0.04em;
+  color: #fff;
+  line-height: 1.05;
+  margin-bottom: 0.5rem;
+  transition: color 0.2s;
 }
 
-/* ── Activity card — pomeridiane ── */
-.pom-card {
-  background: #000D14;
-  border: 1px solid rgba(0,196,179,0.1);
-  border-top: 2px solid rgba(0,196,179,0.3);
-  padding: 1.5rem;
+.service-card .card-desc {
+  font-size: 0.8rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s 0.08s, transform 0.3s 0.08s;
+  max-height: 0;
+  overflow: hidden;
+}
+.service-card:hover .card-desc {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 200px;
+}
+
+.service-card .card-price {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  transition: border-color 0.3s ease, transform 0.35s cubic-bezier(0.33,1,0.68,1);
-  text-decoration: none;
-  color: inherit;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 0.875rem;
+  margin-top: auto;
 }
-.pom-card:hover {
-  border-top-color: #00C4B3;
-  border-color: rgba(0,196,179,0.3);
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(0,196,179,0.08);
-}
+.service-card:hover .card-price { border-top-color: rgba(255,255,255,0.25); }
 
-/* ── Masonry grid ── */
-.masonry {
-  columns: 3;
-  column-gap: 1.25rem;
+.service-card .card-price-val {
+  font-family: var(--font-bebas);
+  font-size: 1.6rem;
+  letter-spacing: 0.02em;
+  color: var(--blue);
+  transition: color 0.2s;
 }
-.masonry-item {
-  break-inside: avoid;
-  margin-bottom: 1.25rem;
+.service-card:hover .card-price-val { color: #fff; }
+
+.service-card .card-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 100px;
+  background: var(--blue-dim);
+  color: var(--blue);
+  border: 1px solid var(--blue-dim);
+  transition: background 0.3s, color 0.3s;
 }
-@media (max-width: 900px) {
-  .masonry { columns: 2; }
-}
-@media (max-width: 560px) {
-  .masonry { columns: 1; }
+.service-card:hover .card-tag {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  border-color: transparent;
 }
 
 /* ── Perché editorial rows ── */
@@ -164,21 +200,21 @@ body {
   align-items: flex-start;
   gap: 2rem;
   padding: 2.5rem 0;
-  border-bottom: 1px solid #1a1a1a;
+  border-bottom: 1px solid #111;
 }
 .perche-num {
   font-family: var(--font-bebas);
   font-size: clamp(4rem, 8vw, 7rem);
   line-height: 1;
   letter-spacing: -0.02em;
-  -webkit-text-stroke: 1px rgba(232,160,32,0.3);
+  -webkit-text-stroke: 1px rgba(58, 117, 255, 0.3);
   color: transparent;
   flex-shrink: 0;
   width: clamp(80px, 12vw, 130px);
   transition: color 0.4s ease, -webkit-text-stroke-color 0.4s ease;
 }
 .perche-row:hover .perche-num {
-  color: var(--gold);
+  color: var(--blue);
   -webkit-text-stroke-color: transparent;
 }
 
@@ -195,14 +231,14 @@ body {
 
 /* ── Testimonial quote cards ── */
 .quote-card {
-  background: #111;
-  border: 1px solid #1e1e1e;
-  padding: 2rem;
+  background: #0e0e0e;
+  border: 1px solid #1a1a1a;
+  padding: 1.75rem;
   position: relative;
   transition: transform 0.4s cubic-bezier(0.33,1,0.68,1), border-color 0.3s ease;
 }
 .quote-card:hover {
-  border-color: rgba(232,160,32,0.3);
+  border-color: var(--blue-dim);
   transform: translateY(-4px) rotate(0deg) !important;
 }
 
@@ -224,7 +260,7 @@ body {
   align-items: center;
   gap: 0.4rem;
 }
-.footer-contact-link:hover { color: var(--gold); }
+.footer-contact-link:hover { color: var(--blue); }
 
 .footer-legal-link {
   font-size: 0.72rem;
@@ -233,39 +269,6 @@ body {
   transition: color 0.2s;
 }
 .footer-legal-link:hover { color: #fff; }
-
-/* ── Btn gold (server-safe hover via CSS) ── */
-.cta-gold {
-  background: var(--gold);
-  color: #000;
-  font-family: var(--font-bebas);
-  letter-spacing: 0.1em;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.2s;
-}
-.cta-gold:hover {
-  background: var(--gold-light);
-  transform: translateY(-2px);
-}
-
-.cta-outline {
-  border: 1px solid rgba(255,255,255,0.18);
-  color: #fff;
-  font-family: var(--font-bebas);
-  letter-spacing: 0.1em;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  transition: border-color 0.2s, background 0.2s;
-}
-.cta-outline:hover {
-  border-color: var(--gold);
-  background: rgba(232,160,32,0.06);
-}
 
 /* ── Keyframes ── */
 @keyframes ticker {
@@ -284,8 +287,8 @@ body {
 }
 
 @keyframes pulse-border {
-  0%, 100% { border-color: rgba(232,160,32,0.18); }
-  50%       { border-color: rgba(232,160,32,0.45); }
+  0%, 100% { border-color: rgba(58, 117, 255, 0.18); }
+  50%       { border-color: rgba(58, 117, 255, 0.45); }
 }
 
 /* Pulse nav border subtly */
