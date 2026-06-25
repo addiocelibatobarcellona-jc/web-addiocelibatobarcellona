@@ -224,6 +224,7 @@ export default function HomePage() {
           HERO — BRIGHT BLUE background, massive white type
       ════════════════════════════════════════════════════════════════ */}
       <section
+        className="hero-section-pad"
         style={{
           background: "var(--blue)",
           minHeight: "100svh",
@@ -339,7 +340,7 @@ export default function HomePage() {
             <span style={{
               display: "block",
               fontFamily: "var(--font-bebas)",
-              fontSize: "clamp(5.5rem, 20vw, 19rem)",
+              fontSize: "clamp(2.5rem, 18vw, 19rem)",
               letterSpacing: "-0.025em",
               lineHeight: 0.85,
               color: "#fff",
@@ -597,7 +598,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════════
           NUBILATO PROMO BANNER — on blue bg, just above altre attività
       ════════════════════════════════════════════════════════════════ */}
-      <section style={{
+      <section className="nubilato-promo-section" style={{
         background: "var(--blue)",
         padding: "8rem 6vw 4rem",
       }}>

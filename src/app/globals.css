@@ -247,7 +247,7 @@ nav[aria-label="Navigazione principale"] {
 }
 .back-home-link:hover { color: rgba(0,0,0,0.75); }
 @media (max-width: 767px) {
-  .back-home-link { display: none !important; }
+  .back-home-link { font-size: 0.7rem; margin-bottom: 1rem; }
 }
 
 /* ── Activities grid ── */
@@ -282,6 +282,43 @@ nav[aria-label="Navigazione principale"] {
 @media (max-width: 860px) {
   .activity-detail-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
   .activity-detail-grid > div:last-child { position: static !important; }
+}
+
+/* ── Footer responsive ── */
+@media (max-width: 640px) {
+  .footer-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+}
+
+/* ── Nav: push CTA + burger to the right on mobile (nav-links is hidden so loses its margin-left:auto) ── */
+@media (max-width: 767px) {
+  .nav-cta { margin-left: auto !important; }
+}
+
+/* ── Featured cards: reduce height on mobile ── */
+@media (max-width: 520px) {
+  .featured-card { min-height: 320px !important; }
+}
+
+/* ── Nubilato promo banner section: reduce top padding on mobile ── */
+@media (max-width: 767px) {
+  .nubilato-promo-section { padding-top: 2.5rem !important; padding-bottom: 2rem !important; }
+}
+
+/* ── Hero sections: reduce padding on mobile ── */
+@media (max-width: 767px) {
+  .hero-section-pad { padding-bottom: 3rem !important; }
+}
+
+/* ── Nubilato contact strip: stack buttons on mobile ── */
+@media (max-width: 640px) {
+  .nubilato-contact-strip { flex-direction: column !important; align-items: flex-start !important; }
+  .nubilato-contact-strip > div { width: 100% !important; }
+  .nubilato-contact-strip a { width: 100% !important; justify-content: center !important; }
+}
+
+/* ── Activity detail: reduce hero padding on mobile ── */
+@media (max-width: 767px) {
+  .activity-hero { padding: 5rem 6vw 3rem !important; min-height: 50svh !important; }
 }
 
 /* ── Contact page link rows ── */

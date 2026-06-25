@@ -168,7 +168,7 @@ export default async function ActivityDetailPage({ params }: { params: Promise<P
       />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section style={{
+      <section className="activity-hero" style={{
         background: heroImage ? undefined : "var(--blue)",
         minHeight: "65svh",
         display: "flex",

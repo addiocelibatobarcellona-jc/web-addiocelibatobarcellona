@@ -7,7 +7,7 @@ export default function SiteFooter() {
   return (
     <footer style={{ background: "#000", borderTop: "1px solid #0e0e0e", padding: "5rem 6vw 9rem" }}>
       <div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr auto auto", gap: "4rem" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr auto auto", gap: "4rem" }} className="footer-grid">
 
           <div>
             <div style={{ marginBottom: "1.25rem" }}>
