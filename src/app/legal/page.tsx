@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getContent } from "@/lib/content";
 import BottomNav from "@/components/BottomNav";
 import SiteFooter from "@/components/SiteFooter";
+import BackHome from "@/components/BackHome";
 
 export const metadata: Metadata = {
   title: "Cookie Policy | Addio al Celibato Barcellona",
@@ -75,6 +76,7 @@ export default function CookiePolicy() {
         borderBottom: "1px solid rgba(255,255,255,0.08)",
         padding: "8rem 6vw 4rem",
       }}>
+        <BackHome light />
         <p style={{
           fontFamily: "var(--font-bebas)",
           fontSize: "0.85rem",

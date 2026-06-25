@@ -29,36 +29,25 @@ const ICONS: Record<string, LucideIcon> = {
 };
 
 // ── Scalloped badge path ──────────────────────────────────────────────────────
-// Each bump = circular arc (A command) of radius bumpR → perfectly round domes.
-// Valleys = short arc along inner circle (concave from outside).
+// Sinusoidal polar curve: R(θ) = rAvg + amplitude·cos(n·θ)
+// Dense polyline → perfectly smooth, no kinks anywhere.
 
-function makeScallop(cx: number, cy: number, r: number, bumpR: number, n: number): string {
-  const step = (2 * Math.PI) / n;
-  // half-angle the bump chord subtends at the inner circle
-  const alpha = Math.asin(Math.min(bumpR / r, 0.999));
-
+function makeScallop(cx: number, cy: number, rAvg: number, amplitude: number, n: number): string {
+  const steps = n * 16; // 16 segments per bump = visually smooth
   const f = (v: number) => v.toFixed(2);
-  const ptx = (a: number, rad: number) => cx + rad * Math.cos(a);
-  const pty = (a: number, rad: number) => cy + rad * Math.sin(a);
-
   let d = "";
-  for (let i = 0; i < n; i++) {
-    const peakA = i * step - Math.PI / 2;
-    const bL = peakA - alpha;          // bump left on inner circle
-    const bR = peakA + alpha;          // bump right on inner circle
-    const nBL = peakA + step - alpha;  // next bump left on inner circle
-
-    if (i === 0) d = `M${f(ptx(bL, r))},${f(pty(bL, r))}`;
-
-    // Outward circular arc for the bump dome (sweep=1 = CW = outward)
-    d += ` A${f(bumpR)},${f(bumpR)} 0 0,1 ${f(ptx(bR, r))},${f(pty(bR, r))}`;
-    // Short CW arc along inner circle to next bump (concave valley)
-    d += ` A${f(r)},${f(r)} 0 0,1 ${f(ptx(nBL, r))},${f(pty(nBL, r))}`;
+  for (let i = 0; i <= steps; i++) {
+    // θ starts at -π/2 (top). cos(n·(θ+π/2)) = 1 at top → peak at top.
+    const theta = (2 * Math.PI * i) / steps - Math.PI / 2;
+    const r = rAvg + amplitude * Math.cos(n * (theta + Math.PI / 2));
+    const x = cx + r * Math.cos(theta);
+    const y = cy + r * Math.sin(theta);
+    d += i === 0 ? `M${f(x)},${f(y)}` : ` L${f(x)},${f(y)}`;
   }
   return d + "Z";
 }
 
-const SCALLOP_PATH = makeScallop(130, 130, 102, 14, 16);
+const SCALLOP_PATH = makeScallop(130, 130, 107, 9, 14);
 
 // ── Wave divider between sections ────────────────────────────────────────────
 
@@ -566,6 +555,83 @@ export default function HomePage() {
 
       {/* Wave: black → blue */}
       <Wave from="#000" to="var(--blue)" flip />
+
+      {/* ════════════════════════════════════════════════════════════════
+          NUBILATO PROMO BANNER — on blue bg, just above altre attività
+      ════════════════════════════════════════════════════════════════ */}
+      <section style={{
+        background: "var(--blue)",
+        padding: "8rem 6vw 4rem",
+      }}>
+        <div style={{
+          position: "relative",
+          overflow: "hidden",
+          minHeight: "260px",
+          display: "flex",
+          alignItems: "center",
+          background: `linear-gradient(to right, rgba(0,0,0,0.92) 35%, rgba(0,0,0,0.5) 100%), url(https://addioalcelibato-barcellona.it/wp-content/uploads/2026/02/addio-nubilato-home-page-scaled.jpg) center/cover no-repeat`,
+        }}>
+          <div style={{
+            padding: "3.5rem 4vw",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            width: "100%",
+            flexWrap: "wrap",
+            gap: "2rem",
+          }}>
+            <div>
+              <p style={{
+                fontFamily: "var(--font-bebas)",
+                fontSize: "clamp(0.7rem, 1.2vw, 0.85rem)",
+                letterSpacing: "0.3em",
+                color: "rgba(255,255,255,0.4)",
+                marginBottom: "0.5rem",
+              }}>
+                — ORGANIZZATE UN ADDIO AL NUBILATO?
+              </p>
+              <h2 style={{
+                fontFamily: "var(--font-bebas)",
+                fontSize: "clamp(2rem, 4.5vw, 4rem)",
+                letterSpacing: "-0.02em",
+                lineHeight: 0.88,
+                color: "#fff",
+                margin: "0 0 1rem",
+              }}>
+                ATTIVITÀ PER<br />
+                <span style={{ color: "var(--blue)" }}>ADDIO AL NUBILATO</span>
+              </h2>
+              <p style={{
+                fontSize: "0.9rem",
+                color: "rgba(255,255,255,0.75)",
+                lineHeight: 1.65,
+                maxWidth: "50ch",
+                fontWeight: 400,
+              }}>
+                Abbiamo un&apos;intera sezione dedicata con strip show maschile, cocktail lab, caccia al tesoro e molto altro pensato appositamente per voi.
+              </p>
+            </div>
+            <a
+              href="/addio-al-nubilato"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.6rem",
+                fontFamily: "var(--font-bebas)",
+                fontSize: "0.9rem",
+                letterSpacing: "0.14em",
+                padding: "1.1rem 2.25rem",
+                background: "#fff",
+                color: "#000",
+                textDecoration: "none",
+                flexShrink: 0,
+              }}
+            >
+              SCOPRI IL NUBILATO <ArrowUpRight size={16} />
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* ════════════════════════════════════════════════════════════════
           POMERIDIANE — BLUE bg, dark portrait cards

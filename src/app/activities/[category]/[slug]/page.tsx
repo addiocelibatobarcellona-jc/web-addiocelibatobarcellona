@@ -1,0 +1,367 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getContent } from "@/lib/content";
+import BottomNav from "@/components/BottomNav";
+import SiteFooter from "@/components/SiteFooter";
+import BackHome from "@/components/BackHome";
+import ActivityContactForm from "@/components/ActivityContactForm";
+import activitiesDetail from "../../../../../public/activities-detail.json";
+
+// ── Types ──────────────────────────────────────────────────────────────────────
+
+interface ActivityDetail {
+  slug: string;
+  category: "notturne" | "pomeridiane";
+  name: string;
+  price: string | null;
+  intro: string;
+  includes: string[];
+  description: string;
+  notes: string | null;
+  images: string[];
+}
+
+type Params = { category: string; slug: string };
+
+// ── Helpers ────────────────────────────────────────────────────────────────────
+
+function toItalianCategory(category: string) {
+  return category === "night" ? "notturne" : "pomeridiane";
+}
+
+function findActivity(category: string, slug: string): ActivityDetail | undefined {
+  const italianCat = toItalianCategory(category);
+  return (activitiesDetail as ActivityDetail[]).find(
+    (a) => a.category === italianCat && a.slug === slug
+  );
+}
+
+function getCardImage(category: string, slug: string, c: ReturnType<typeof getContent>): string | undefined {
+  const italianCat = toItalianCategory(category);
+  const list = italianCat === "notturne" ? c.notturne.activities : c.pomeridiane.activities;
+  const card = list.find((a) => a.href.includes(slug));
+  return card?.image;
+}
+
+// ── Static params ──────────────────────────────────────────────────────────────
+
+export function generateStaticParams(): Params[] {
+  return (activitiesDetail as ActivityDetail[]).map((a) => ({
+    category: a.category === "notturne" ? "night" : "daytime",
+    slug: a.slug,
+  }));
+}
+
+// ── Metadata ───────────────────────────────────────────────────────────────────
+
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+  const { category, slug } = await params;
+  const activity = findActivity(category, slug);
+  if (!activity) return {};
+
+  const italianCat = toItalianCategory(category);
+  const canonical = `https://www.addioalcelibato-barcellona.it/attivita/${italianCat}/${slug}/`;
+
+  return {
+    title: `${activity.name} | Addio al Celibato Barcellona`,
+    description: activity.intro,
+    alternates: { canonical },
+  };
+}
+
+// ── Wave ───────────────────────────────────────────────────────────────────────
+
+function Wave({ from, to }: { from: string; to: string }) {
+  return (
+    <div style={{ background: from, lineHeight: 0 }}>
+      <svg viewBox="0 0 1440 70" style={{ display: "block", width: "100%" }} preserveAspectRatio="none">
+        <path d="M0,10 C200,70 400,0 600,40 C800,70 1000,10 1200,50 C1320,70 1380,30 1440,20 L1440,70 L0,70 Z" fill={to} />
+      </svg>
+    </div>
+  );
+}
+
+// ── Page ───────────────────────────────────────────────────────────────────────
+
+export default async function ActivityDetailPage({ params }: { params: Promise<Params> }) {
+  const { category, slug } = await params;
+  const activity = findActivity(category, slug);
+  if (!activity) notFound();
+
+  const c = getContent();
+  const heroImage = getCardImage(category, slug, c);
+  const italianCat = toItalianCategory(category);
+  const backHref = `/attivita/${italianCat}`;
+  const categoryLabel = italianCat === "notturne" ? "ATTIVITÀ NOTTURNE" : "ATTIVITÀ POMERIDIANE";
+
+  return (
+    <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>
+      <BottomNav
+        links={c.navbar.links}
+        logoLine1={c.navbar.logo_line1}
+        logoLine2={c.navbar.logo_line2}
+        ctaLabel={c.navbar.cta_label}
+        whatsapp={c.site.whatsapp}
+      />
+
+      {/* ── HERO ──────────────────────────────────────────────────────────── */}
+      <section style={{
+        background: heroImage
+          ? `linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.92) 100%), url(${heroImage}) center/cover no-repeat`
+          : "var(--blue)",
+        minHeight: "65svh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
+        padding: "8rem 6vw 5rem",
+        position: "relative",
+      }}>
+        <div style={{ position: "relative", zIndex: 1 }}>
+          <BackHome href={backHref} />
+          <p style={{
+            fontFamily: "var(--font-bebas)",
+            fontSize: "clamp(0.75rem, 1.4vw, 0.95rem)",
+            letterSpacing: "0.3em",
+            color: heroImage ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.5)",
+            marginBottom: "0.5rem",
+          }}>
+            — {categoryLabel}
+          </p>
+          <h1 style={{
+            fontFamily: "var(--font-bebas)",
+            fontSize: "clamp(2.8rem, 7vw, 6rem)",
+            letterSpacing: "-0.02em",
+            lineHeight: 0.88,
+            color: "#fff",
+            margin: "0 0 1.5rem",
+            maxWidth: "18ch",
+          }}>
+            {activity.name}
+          </h1>
+          {activity.price && (
+            <div style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              background: "var(--blue)",
+              padding: "0.5rem 1.25rem",
+            }}>
+              <span style={{
+                fontFamily: "var(--font-bebas)",
+                fontSize: "clamp(1rem, 2vw, 1.3rem)",
+                letterSpacing: "0.06em",
+                color: "#fff",
+              }}>
+                {activity.price}
+              </span>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {heroImage ? (
+        <div style={{ height: "2px", background: "rgba(255,255,255,0.04)" }} />
+      ) : (
+        <Wave from="var(--blue)" to="#000" />
+      )}
+
+      {/* ── MAIN CONTENT ──────────────────────────────────────────────────── */}
+      <section style={{ padding: "5rem 6vw 6rem" }}>
+        <div style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+          display: "grid",
+          gridTemplateColumns: "1fr 360px",
+          gap: "5rem",
+          alignItems: "start",
+        }}
+          className="activity-detail-grid"
+        >
+          {/* Left: description */}
+          <div>
+            {/* Intro */}
+            <p style={{
+              fontSize: "clamp(1rem, 1.8vw, 1.2rem)",
+              lineHeight: 1.75,
+              color: "rgba(255,255,255,0.92)",
+              fontWeight: 500,
+              marginBottom: "3rem",
+              maxWidth: "62ch",
+            }}>
+              {activity.intro}
+            </p>
+
+            {/* Included items */}
+            {activity.includes.length > 0 && (
+              <div style={{ marginBottom: "3rem" }}>
+                <h2 style={{
+                  fontFamily: "var(--font-bebas)",
+                  fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)",
+                  letterSpacing: "0.06em",
+                  color: "#fff",
+                  marginBottom: "1.25rem",
+                }}>
+                  COSA È INCLUSO
+                </h2>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+                  {activity.includes.map((item, i) => (
+                    <li key={i} style={{ display: "flex", gap: "1rem", alignItems: "flex-start" }}>
+                      <span style={{
+                        flexShrink: 0,
+                        width: "20px",
+                        height: "20px",
+                        background: "var(--blue)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        marginTop: "2px",
+                      }}>
+                        <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                          <path d="M1 4L3.5 6.5L9 1" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </span>
+                      <span style={{ fontSize: "0.92rem", lineHeight: 1.6, color: "rgba(255,255,255,0.9)", fontWeight: 500 }}>
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Full description */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "1.2rem", marginBottom: "2rem" }}>
+              {activity.description.split("\n\n").map((para, i) => (
+                <p key={i} style={{
+                  fontSize: "0.92rem",
+                  lineHeight: 1.85,
+                  color: "rgba(255,255,255,0.82)",
+                  fontWeight: 400,
+                }}>
+                  {para}
+                </p>
+              ))}
+            </div>
+
+            {/* Notes */}
+            {activity.notes && (
+              <p style={{
+                fontSize: "0.78rem",
+                lineHeight: 1.7,
+                color: "rgba(255,255,255,0.55)",
+                borderTop: "1px solid rgba(255,255,255,0.07)",
+                paddingTop: "1.25rem",
+                whiteSpace: "pre-line",
+              }}>
+                {activity.notes}
+              </p>
+            )}
+          </div>
+
+          {/* Right: contact form */}
+          <div style={{ position: "sticky", top: "6rem" }}>
+            <div style={{
+              background: "#0a0a0a",
+              border: "1px solid rgba(255,255,255,0.07)",
+              padding: "2rem",
+            }}>
+              <h3 style={{
+                fontFamily: "var(--font-bebas)",
+                fontSize: "clamp(1.3rem, 2vw, 1.8rem)",
+                letterSpacing: "0.04em",
+                color: "#fff",
+                marginBottom: "0.4rem",
+              }}>
+                RICHIEDI PREVENTIVO
+              </h3>
+              <p style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.65)", lineHeight: 1.5, marginBottom: "1.5rem" }}>
+                Per <strong style={{ color: "#fff" }}>{activity.name}</strong>. Risposta entro poche ore, nessun impegno.
+              </p>
+              <ActivityContactForm activityName={activity.name} />
+              <div style={{ marginTop: "1.5rem", paddingTop: "1.5rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+                <p style={{ fontSize: "0.72rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", marginBottom: "0.75rem" }}>
+                  O contattaci direttamente
+                </p>
+                <a
+                  href={`https://wa.me/${c.site.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.6rem",
+                    fontSize: "0.85rem",
+                    color: "rgba(255,255,255,0.88)",
+                    textDecoration: "none",
+                    fontWeight: 500,
+                    marginBottom: "0.4rem",
+                  }}
+                >
+                  <span style={{ color: "var(--blue)" }}>WhatsApp</span>
+                  <span>{c.site.phone}</span>
+                </a>
+                <a
+                  href={`mailto:${c.site.email}`}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.6rem",
+                    fontSize: "0.82rem",
+                    color: "rgba(255,255,255,0.75)",
+                    textDecoration: "none",
+                    fontWeight: 400,
+                  }}
+                >
+                  <span style={{ color: "var(--blue)" }}>Email</span>
+                  <span>{c.site.email}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PHOTO GALLERY ─────────────────────────────────────────────────── */}
+      {activity.images.length > 0 && (
+        <section style={{
+          padding: "0 6vw 6rem",
+          maxWidth: "1200px",
+          margin: "0 auto",
+        }}>
+          <p style={{
+            fontSize: "0.65rem",
+            letterSpacing: "0.25em",
+            textTransform: "uppercase",
+            color: "rgba(255,255,255,0.25)",
+            marginBottom: "1.25rem",
+            fontWeight: 600,
+          }}>
+            — GALLERY
+          </p>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+            gap: "2px",
+          }}>
+            {activity.images.map((src, i) => (
+              <div key={i} style={{
+                aspectRatio: "4/3",
+                overflow: "hidden",
+                background: "#0c0c0c",
+              }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={src}
+                  alt={`${activity.name} foto ${i + 1}`}
+                  className="gallery-img"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <SiteFooter />
+    </div>
+  );
+}

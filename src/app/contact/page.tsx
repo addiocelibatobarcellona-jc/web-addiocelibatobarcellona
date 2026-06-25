@@ -3,6 +3,7 @@ import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
 import { getContent } from "@/lib/content";
 import BottomNav from "@/components/BottomNav";
 import SiteFooter from "@/components/SiteFooter";
+import BackHome from "@/components/BackHome";
 import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
@@ -76,20 +77,16 @@ export default function Contatti() {
       {/* ── HERO ── */}
       <section style={{
         background: "var(--blue)",
-        minHeight: "60svh",
+        minHeight: "55svh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
-        padding: "0 6vw 6rem",
+        padding: "8rem 6vw 5rem",
         position: "relative",
         overflow: "hidden",
       }}>
-        <div style={{
-          position: "absolute", inset: 0, zIndex: 0,
-          backgroundImage: "linear-gradient(rgba(0,0,0,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }} />
-        <div style={{ position: "relative", zIndex: 1 }}>
+        <div>
+          <BackHome />
           <p style={{
             fontFamily: "var(--font-bebas)",
             fontSize: "clamp(0.9rem, 2vw, 1.1rem)",
@@ -101,7 +98,7 @@ export default function Contatti() {
           </p>
           <h1 style={{
             fontFamily: "var(--font-bebas)",
-            fontSize: "clamp(4rem, 14vw, 13rem)",
+            fontSize: "clamp(2.5rem, 6vw, 5.5rem)",
             letterSpacing: "-0.02em",
             lineHeight: 0.88,
             color: "#fff",

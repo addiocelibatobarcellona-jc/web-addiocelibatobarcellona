@@ -4,6 +4,7 @@ import { getContent } from "@/lib/content";
 import type { Activity } from "@/lib/content";
 import BottomNav from "@/components/BottomNav";
 import SiteFooter from "@/components/SiteFooter";
+import BackHome from "@/components/BackHome";
 
 // ── Params ────────────────────────────────────────────────────────────────────
 
@@ -192,11 +193,12 @@ export default async function ActivitiesPage({ params }: { params: Promise<Param
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
-        padding: "0 6vw 5rem",
+        padding: "8rem 6vw 5rem",
         position: "relative",
         overflow: "hidden",
       }}>
         <div style={{ position: "relative", zIndex: 1 }}>
+          <BackHome />
           <p style={{
             fontFamily: "var(--font-bebas)",
             fontSize: "clamp(0.8rem, 1.5vw, 1rem)",
@@ -208,7 +210,7 @@ export default async function ActivitiesPage({ params }: { params: Promise<Param
           </p>
           <h1 style={{
             fontFamily: "var(--font-bebas)",
-            fontSize: "clamp(4rem, 13vw, 12rem)",
+            fontSize: "clamp(2.5rem, 6vw, 5.5rem)",
             letterSpacing: "-0.02em",
             lineHeight: 0.88,
             color: "#fff",
@@ -243,7 +245,7 @@ export default async function ActivitiesPage({ params }: { params: Promise<Param
         </p>
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
+          gridTemplateColumns: "repeat(4, 1fr)",
           gap: "1px",
         }}
           className="activities-grid"
@@ -264,7 +266,7 @@ export default async function ActivitiesPage({ params }: { params: Promise<Param
           fontFamily: "var(--font-bebas)",
           fontSize: "clamp(1.4rem, 3vw, 2.2rem)",
           letterSpacing: "0.04em",
-          color: "rgba(255,255,255,0.3)",
+          color: "rgba(255,255,255,0.6)",
           marginBottom: "2rem",
         }}>
           {catData.headline} {catData.headline_accent}
@@ -274,7 +276,8 @@ export default async function ActivitiesPage({ params }: { params: Promise<Param
             <p key={i} style={{
               fontSize: "0.88rem",
               lineHeight: 1.85,
-              color: "rgba(255,255,255,0.45)",
+              color: "rgba(255,255,255,0.78)",
+              fontWeight: 400,
             }}>
               {para}
             </p>

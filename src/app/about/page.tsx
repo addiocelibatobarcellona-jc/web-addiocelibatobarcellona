@@ -3,6 +3,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getContent } from "@/lib/content";
 import BottomNav from "@/components/BottomNav";
 import SiteFooter from "@/components/SiteFooter";
+import BackHome from "@/components/BackHome";
 import MagneticButton from "@/components/MagneticButton";
 
 export const metadata: Metadata = {
@@ -69,15 +70,16 @@ export default function ChiSiamo() {
       {/* ── HERO ── */}
       <section style={{
         background: "var(--blue)",
-        minHeight: "70svh",
+        minHeight: "55svh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
-        padding: "0 6vw 6rem",
+        padding: "8rem 6vw 5rem",
         position: "relative",
         overflow: "hidden",
       }}>
         <div style={{ position: "relative", zIndex: 1 }}>
+          <BackHome />
           <p style={{
             fontFamily: "var(--font-bebas)",
             fontSize: "clamp(0.9rem, 2vw, 1.1rem)",
@@ -89,7 +91,7 @@ export default function ChiSiamo() {
           </p>
           <h1 style={{
             fontFamily: "var(--font-bebas)",
-            fontSize: "clamp(2.8rem, 8vw, 7rem)",
+            fontSize: "clamp(2.5rem, 6vw, 5.5rem)",
             letterSpacing: "-0.02em",
             lineHeight: 0.92,
             color: "#fff",

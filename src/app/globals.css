@@ -231,13 +231,57 @@ nav[aria-label="Navigazione principale"] {
   animation: pulse-border 4s ease-in-out infinite;
 }
 
+/* ── Back to home link — desktop only ── */
+.back-home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-bebas);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.45);
+  text-decoration: none;
+  margin-bottom: 1.75rem;
+  transition: color 0.2s;
+}
+.back-home-link:hover { color: rgba(0,0,0,0.75); }
+@media (max-width: 767px) {
+  .back-home-link { display: none !important; }
+}
+
 /* ── Activities grid ── */
 .activity-grid-card:hover { transform: scale(1.01); z-index: 1; }
-@media (max-width: 900px) {
-  .activities-grid { grid-template-columns: repeat(2, 1fr) !important; }
+@media (max-width: 1100px) { .activities-grid { grid-template-columns: repeat(3, 1fr) !important; } }
+@media (max-width: 720px)  { .activities-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+@media (max-width: 480px)  { .activities-grid { grid-template-columns: 1fr !important; } }
+
+/* ── Badge home link ── */
+.badge-home-link {
+  display: inline-block;
+  margin-bottom: 1.75rem;
+  transition: transform 0.35s cubic-bezier(0.33,1,0.68,1), opacity 0.25s;
 }
-@media (max-width: 520px) {
-  .activities-grid { grid-template-columns: 1fr !important; }
+.badge-home-link:hover { transform: scale(1.08); opacity: 0.85; }
+
+/* ── Gallery images ── */
+.gallery-img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.4s cubic-bezier(0.33,1,0.68,1);
+}
+.gallery-img:hover { transform: scale(1.04); }
+
+/* ── Nubilato page ── */
+.nubilato-grid { grid-template-columns: repeat(4, 1fr) !important; }
+@media (max-width: 1100px) { .nubilato-grid { grid-template-columns: repeat(3, 1fr) !important; } }
+@media (max-width: 720px)  { .nubilato-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+@media (max-width: 480px)  { .nubilato-grid { grid-template-columns: 1fr !important; } }
+@media (max-width: 860px)  { .nubilato-intro-grid { grid-template-columns: 1fr !important; } }
+
+/* ── Activity detail ── */
+@media (max-width: 860px) {
+  .activity-detail-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+  .activity-detail-grid > div:last-child { position: static !important; }
 }
 
 /* ── Contact page link rows ── */
