@@ -7,7 +7,7 @@ export default function SiteFooter() {
   return (
     <footer style={{ background: "#000", borderTop: "1px solid #0e0e0e", padding: "5rem 6vw 9rem" }}>
       <div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr auto auto", gap: "4rem" }} className="footer-grid">
+        <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "4rem" }} className="footer-grid">
 
           <div>
             <div style={{ marginBottom: "1.25rem" }}>
@@ -23,31 +23,33 @@ export default function SiteFooter() {
             </p>
           </div>
 
-          <div>
-            <p style={{ fontSize: "0.6rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--blue)", marginBottom: "1.25rem", fontWeight: 700 }}>Attività</p>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.625rem" }}>
-              {c.footer.activity_links.map((l) => (
-                <li key={l.href}><a href={l.href} className="footer-link">{l.label}</a></li>
-              ))}
-            </ul>
-          </div>
+          <div className="footer-links-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem" }}>
+            <div>
+              <p style={{ fontSize: "0.6rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--blue)", marginBottom: "1.25rem", fontWeight: 700 }}>Attività</p>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.625rem" }}>
+                {c.footer.activity_links.map((l) => (
+                  <li key={l.href}><a href={l.href} className="footer-link">{l.label}</a></li>
+                ))}
+              </ul>
+            </div>
 
-          <div>
-            <p style={{ fontSize: "0.6rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--blue)", marginBottom: "1.25rem", fontWeight: 700 }}>Contatti</p>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.625rem" }}>
-              {[
-                { href: "/addio-al-celibato-barcellona-contatti", label: "Contattaci", external: false },
-                { href: `https://wa.me/${c.site.whatsapp}`, label: "WhatsApp", external: true },
-                { href: `tel:${c.site.phone}`, label: c.site.phone, external: false },
-              ].map((l) => (
-                <li key={l.href}>
-                  <a href={l.href} target={l.external ? "_blank" : undefined}
-                    rel={l.external ? "noopener noreferrer" : undefined} className="footer-link">
-                    {l.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <div>
+              <p style={{ fontSize: "0.6rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--blue)", marginBottom: "1.25rem", fontWeight: 700 }}>Contatti</p>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.625rem" }}>
+                {[
+                  { href: "/addio-al-celibato-barcellona-contatti", label: "Contattaci", external: false },
+                  { href: `https://wa.me/${c.site.whatsapp}`, label: "WhatsApp", external: true },
+                  { href: `tel:${c.site.phone}`, label: c.site.phone, external: false },
+                ].map((l) => (
+                  <li key={l.href}>
+                    <a href={l.href} target={l.external ? "_blank" : undefined}
+                      rel={l.external ? "noopener noreferrer" : undefined} className="footer-link">
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 

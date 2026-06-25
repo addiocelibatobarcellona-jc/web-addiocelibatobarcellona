@@ -184,7 +184,7 @@ const WHY_US = [
 function Wave({ from, to }: { from: string; to: string }) {
   return (
     <div style={{ background: from, lineHeight: 0 }}>
-      <svg viewBox="0 0 1440 70" style={{ display: "block", width: "100%" }} preserveAspectRatio="none">
+      <svg viewBox="0 0 1440 70" height="60" style={{ display: "block", width: "100%" }} preserveAspectRatio="none">
         <path d="M0,10 C200,70 400,0 600,40 C800,70 1000,10 1200,50 C1320,70 1380,30 1440,20 L1440,70 L0,70 Z" fill={to} />
       </svg>
     </div>

@@ -57,6 +57,7 @@ function Wave({ from, to, flip }: { from: string; to: string; flip?: boolean }) 
     <div style={{ background: from, lineHeight: 0, fontSize: 0, display: "block" }}>
       <svg
         viewBox="0 0 1440 70"
+        height="60"
         style={{ display: "block", width: "100%", transform: flip ? "scaleX(-1)" : undefined }}
         preserveAspectRatio="none"
       >
@@ -270,7 +271,7 @@ export default function HomePage() {
         </svg>
 
         {/* Bottle-cap badge — spinning cap, static logo */}
-        <div style={{
+        <div className="hero-badge" style={{
           position: "absolute", top: "6%", left: "6vw",
           width: "clamp(160px, 18vw, 240px)",
           height: "clamp(160px, 18vw, 240px)",
@@ -676,8 +677,8 @@ export default function HomePage() {
           POMERIDIANE — BLUE bg, dark portrait cards
       ════════════════════════════════════════════════════════════════ */}
       <section style={{ background: "var(--blue)", padding: "5rem 0 6rem" }}>
-        <div style={{ padding: "0", maxWidth: "1580px", margin: "0 auto" }}>
-          <div style={{ marginBottom: "3rem", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
+        <div style={{ padding: "0 6vw", maxWidth: "1580px", margin: "0 auto" }}>
+          <div style={{ marginBottom: "3rem" }}>
             <h2 style={{
               fontFamily: "var(--font-bebas)",
               fontSize: "clamp(2rem, 5vw, 4rem)",
@@ -686,9 +687,6 @@ export default function HomePage() {
             }}>
               Altre Attività
             </h2>
-            <a href={c.pomeridiane.cta_all_href} className="neon-cta">
-              Vedi tutti <ArrowUpRight size={15} />
-            </a>
           </div>
         </div>
 
@@ -699,6 +697,12 @@ export default function HomePage() {
             </div>
           ))}
         </DragCarousel>
+
+        <div style={{ padding: "2rem 6vw 0" }}>
+          <a href={c.pomeridiane.cta_all_href} className="neon-cta">
+            Vedi tutti <ArrowUpRight size={15} />
+          </a>
+        </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════════════

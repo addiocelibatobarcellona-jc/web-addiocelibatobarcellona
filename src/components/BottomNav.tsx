@@ -80,8 +80,11 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
           </span>
         </a>
 
+        {/* Flex spacer — always pushes CTA+burger to the right */}
+        <div style={{ flex: 1 }} />
+
         {/* Desktop links — hidden on mobile via CSS class */}
-        <div className="nav-links" style={{ display: "flex", alignItems: "center", gap: "0.125rem", marginLeft: "auto", marginRight: "0.75rem" }}>
+        <div className="nav-links" style={{ display: "flex", alignItems: "center", gap: "0.125rem", marginRight: "0.75rem" }}>
           {links.slice(0, 5).map((l) => (
             <a
               key={l.href}

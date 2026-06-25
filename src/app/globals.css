@@ -285,14 +285,12 @@ nav[aria-label="Navigazione principale"] {
 }
 
 /* ── Footer responsive ── */
-@media (max-width: 640px) {
-  .footer-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+@media (max-width: 860px) {
+  .footer-grid { grid-template-columns: 1fr !important; gap: 0 !important; }
+  .footer-grid > div:first-child { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid #1a1a1a; }
+  .footer-links-row { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 2rem !important; }
 }
 
-/* ── Nav: push CTA + burger to the right on mobile (nav-links is hidden so loses its margin-left:auto) ── */
-@media (max-width: 767px) {
-  .nav-cta { margin-left: auto !important; }
-}
 
 /* ── Featured cards: reduce height on mobile ── */
 @media (max-width: 520px) {
@@ -319,6 +317,11 @@ nav[aria-label="Navigazione principale"] {
 /* ── Activity detail: reduce hero padding on mobile ── */
 @media (max-width: 767px) {
   .activity-hero { padding: 5rem 6vw 3rem !important; min-height: 50svh !important; }
+}
+
+/* ── Hero badge: smaller on mobile to avoid overlapping text ── */
+@media (max-width: 767px) {
+  .hero-badge { width: 100px !important; height: 100px !important; top: 3% !important; }
 }
 
 /* ── Contact page link rows ── */
