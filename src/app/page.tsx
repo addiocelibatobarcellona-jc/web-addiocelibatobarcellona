@@ -170,11 +170,42 @@ function PortraitCard({ icon, name, desc, price, href, tag, onBlue, image }: Act
 
 // ── Page ─────────────────────────────────────────────────────────────────────
 
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Addio al Celibato Barcellona",
+  "url": "https://www.addioalcelibato-barcellona.it",
+  "telephone": "+34673180796",
+  "email": "addiocelibatobarcellona@gmail.com",
+  "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/ADDIO-SPICY-MIX-S.jpg",
+  "description": "Organizziamo addii al celibato e al nubilato a Barcellona dal 2017. Strip show, discoteche, limousine, paddle surf e molto altro. Preventivo gratuito!",
+  "foundingDate": "2017",
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Avenida del Paral·lel 91 Bis",
+    "addressLocality": "Barcelona",
+    "postalCode": "08004",
+    "addressCountry": "ES",
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Barcelona",
+  },
+  "sameAs": [
+    "https://www.facebook.com/festaaddiocelibatobarcellona/",
+  ],
+};
+
 export default function HomePage() {
   const c = getContent();
 
   return (
     <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+      />
       <BottomNav
         links={c.navbar.links}
         logoLine1={c.navbar.logo_line1}

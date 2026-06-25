@@ -61,12 +61,69 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
   const italianCat = toItalianCategory(category);
   const canonical = `https://www.addioalcelibato-barcellona.it/attivita/${italianCat}/${slug}/`;
+  const ogImage = activity.images[0] ?? "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/ADDIO-SPICY-MIX-S.jpg";
 
   return {
     title: `${activity.name} | Addio al Celibato Barcellona`,
     description: activity.intro,
     alternates: { canonical },
+    openGraph: {
+      title: `${activity.name} | Addio al Celibato Barcellona`,
+      description: activity.intro,
+      url: canonical,
+      locale: "it_IT",
+      type: "website",
+      images: [{ url: ogImage, width: 1200, height: 630, alt: activity.name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${activity.name} | Addio al Celibato Barcellona`,
+      description: activity.intro,
+      images: [ogImage],
+    },
   };
+}
+
+function buildActivityJsonLd(activity: ActivityDetail, category: string, cardImage?: string) {
+  const italianCat = toItalianCategory(category);
+  const url = `https://www.addioalcelibato-barcellona.it/attivita/${italianCat}/${activity.slug}/`;
+  const image = cardImage ?? activity.images[0] ?? "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/ADDIO-SPICY-MIX-S.jpg";
+
+  const jsonLd: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "TouristAttraction",
+    "name": activity.name,
+    "description": activity.intro,
+    "url": url,
+    "image": image,
+    "touristType": "https://schema.org/Party",
+    "provider": {
+      "@type": "Organization",
+      "name": "Addio al Celibato Barcellona",
+      "url": "https://www.addioalcelibato-barcellona.it",
+      "telephone": "+34673180796",
+    },
+    "location": {
+      "@type": "City",
+      "name": "Barcelona",
+      "addressCountry": "ES",
+    },
+  };
+
+  if (activity.price) {
+    const priceMatch = activity.price.match(/(\d+)/);
+    if (priceMatch) {
+      jsonLd["offers"] = {
+        "@type": "Offer",
+        "price": priceMatch[1],
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": url,
+      };
+    }
+  }
+
+  return jsonLd;
 }
 
 // ── Wave ───────────────────────────────────────────────────────────────────────
@@ -93,9 +150,14 @@ export default async function ActivityDetailPage({ params }: { params: Promise<P
   const italianCat = toItalianCategory(category);
   const backHref = `/attivita/${italianCat}`;
   const categoryLabel = italianCat === "notturne" ? "ATTIVITÀ NOTTURNE" : "ATTIVITÀ POMERIDIANE";
+  const jsonLd = buildActivityJsonLd(activity, category, heroImage);
 
   return (
     <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <BottomNav
         links={c.navbar.links}
         logoLine1={c.navbar.logo_line1}
