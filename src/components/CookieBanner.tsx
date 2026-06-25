@@ -12,6 +12,7 @@ interface BannerData {
   btn_accept: string;
 }
 
+
 const STORAGE_KEY = "cookie_consent";
 
 export default function CookieBanner({ data }: { data: BannerData }) {
@@ -30,12 +31,6 @@ export default function CookieBanner({ data }: { data: BannerData }) {
   function reject() {
     localStorage.setItem(STORAGE_KEY, "rejected");
     setVisible(false);
-  }
-
-  function configure() {
-    // Decline analytics and navigate to cookie policy for more info
-    reject();
-    window.location.href = data.policy_href;
   }
 
   if (!visible) return null;
@@ -89,18 +84,6 @@ export default function CookieBanner({ data }: { data: BannerData }) {
       </div>
 
       <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
-        <button
-          onClick={configure}
-          style={{
-            ...btnBase,
-            background: "transparent",
-            color: "#000",
-            borderColor: "rgba(0,0,0,0.2)",
-          }}
-        >
-          {data.btn_configure}
-        </button>
-
         <button
           onClick={reject}
           style={{
