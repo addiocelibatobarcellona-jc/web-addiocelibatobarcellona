@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { getContent } from "@/lib/content";
 import type { Activity } from "@/lib/content";
@@ -64,10 +65,7 @@ function ActivityCard({ name, desc, price, href, tag, image }: Activity) {
       style={{
         display: "flex",
         flexDirection: "column",
-        background: image ? undefined : "#0c0c0c",
-        backgroundImage: image ? `url(${image})` : undefined,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        background: "#0c0c0c",
         border: "1px solid rgba(255,255,255,0.06)",
         textDecoration: "none",
         color: "inherit",
@@ -78,6 +76,15 @@ function ActivityCard({ name, desc, price, href, tag, image }: Activity) {
       }}
       className="activity-grid-card"
     >
+      {image && (
+        <Image
+          src={image}
+          alt={name}
+          fill
+          sizes="(max-width: 480px) 88vw, (max-width: 720px) 44vw, (max-width: 1100px) 29vw, 22vw"
+          style={{ objectFit: "cover", objectPosition: "center" }}
+        />
+      )}
       {image && (
         <div style={{
           position: "absolute", inset: 0,

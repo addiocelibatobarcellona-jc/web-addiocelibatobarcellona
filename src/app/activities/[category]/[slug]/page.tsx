@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getContent } from "@/lib/content";
 import BottomNav from "@/components/BottomNav";
@@ -168,16 +169,31 @@ export default async function ActivityDetailPage({ params }: { params: Promise<P
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section style={{
-        background: heroImage
-          ? `linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.92) 100%), url(${heroImage}) center/cover no-repeat`
-          : "var(--blue)",
+        background: heroImage ? undefined : "var(--blue)",
         minHeight: "65svh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
         padding: "8rem 6vw 5rem",
         position: "relative",
+        overflow: "hidden",
       }}>
+        {heroImage && (
+          <Image
+            src={heroImage}
+            alt={activity.name}
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectFit: "cover", objectPosition: "center" }}
+          />
+        )}
+        {heroImage && (
+          <div style={{
+            position: "absolute", inset: 0,
+            background: "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.92) 100%)",
+          }} />
+        )}
         <div style={{ position: "relative", zIndex: 1 }}>
           <BackHome href={backHref} />
           <p style={{

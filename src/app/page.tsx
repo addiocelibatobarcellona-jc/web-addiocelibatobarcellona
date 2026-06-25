@@ -1,4 +1,6 @@
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
+import Image from "next/image";
 import {
   Phone, ArrowUpRight, ArrowRight,
   Sparkles, Flame, Crown, Music, Zap, UtensilsCrossed, Bus, Car,
@@ -10,9 +12,8 @@ import type { Activity, PercheItem } from "@/lib/content";
 
 import LEDGrid from "@/components/LEDGrid";
 import MagneticButton from "@/components/MagneticButton";
-import DragCarousel from "@/components/DragCarousel";
-import ChapterReveal from "@/components/ChapterReveal";
-import StaggerReveal from "@/components/StaggerReveal";
+const DragCarousel = dynamic(() => import("@/components/DragCarousel"));
+const StaggerReveal = dynamic(() => import("@/components/StaggerReveal"));
 import BottomNav from "@/components/BottomNav";
 import SiteFooter from "@/components/SiteFooter";
 
@@ -78,16 +79,21 @@ function PortraitCard({ icon, name, desc, price, href, tag, onBlue, image }: Act
     <a
       href={href}
       className={`portrait-card ${onBlue ? "portrait-card-blue" : "portrait-card-dark"}`}
-      style={hasImage ? {
-        backgroundImage: `url(${image})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      } : undefined}
     >
+      {/* Background image via next/image — automatic WebP + lazy load */}
+      {hasImage && (
+        <Image
+          src={image!}
+          alt={name}
+          fill
+          sizes="(max-width: 640px) calc(100vw - 3rem), 280px"
+          style={{ objectFit: "cover", objectPosition: "center" }}
+        />
+      )}
       {/* Dark gradient overlay when image is present */}
       {hasImage && (
         <div style={{
-          position: "absolute", inset: 0, zIndex: 0,
+          position: "absolute", inset: 0,
           background: "linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.25) 45%, rgba(0,0,0,0.88) 100%)",
         }} />
       )}
@@ -300,6 +306,7 @@ export default function HomePage() {
           <img
             src="https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/logoaddioalcelibatoblancohori2-1.png"
             alt="Addio al Celibato Barcellona"
+            fetchPriority="high"
             style={{
               position: "absolute",
               top: "50%", left: "50%",

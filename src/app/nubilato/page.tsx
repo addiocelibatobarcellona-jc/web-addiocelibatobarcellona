@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ArrowUpRight, ArrowRight, MessageCircle, MapPin, Target, Headphones } from "lucide-react";
 import { getContent } from "@/lib/content";
 import BottomNav from "@/components/BottomNav";
@@ -199,10 +200,7 @@ function ActivityCard({
       style={{
         display: "flex",
         flexDirection: "column",
-        background: image ? undefined : "#0c0c0c",
-        backgroundImage: image ? `url(${image})` : undefined,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        background: "#0c0c0c",
         border: "1px solid rgba(255,255,255,0.06)",
         textDecoration: "none",
         color: "inherit",
@@ -213,6 +211,15 @@ function ActivityCard({
       }}
       className="activity-grid-card"
     >
+      {image && (
+        <Image
+          src={image}
+          alt={name}
+          fill
+          sizes="(max-width: 480px) 88vw, (max-width: 720px) 44vw, (max-width: 1100px) 29vw, 22vw"
+          style={{ objectFit: "cover", objectPosition: "center" }}
+        />
+      )}
       {image && (
         <div style={{
           position: "absolute", inset: 0,
@@ -288,14 +295,26 @@ export default function NubilatoPage() {
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section style={{
-        background: `linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.95) 100%), url(${HERO_IMG}) center/cover no-repeat`,
         minHeight: "80svh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
         padding: "8rem 6vw 5rem",
         position: "relative",
+        overflow: "hidden",
       }}>
+        <Image
+          src={HERO_IMG}
+          alt="Addio al nubilato a Barcellona"
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: "cover", objectPosition: "center" }}
+        />
+        <div style={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.95) 100%)",
+        }} />
         <div style={{ position: "relative", zIndex: 1 }}>
           <BackHome light />
           <p style={{
