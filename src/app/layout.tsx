@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import CookieBanner from "@/components/CookieBanner";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+import legal from "../../public/legal.json";
 
 const bebas = Bebas_Neue({
   weight: "400",
@@ -49,6 +52,8 @@ export default function RootLayout({
     >
       <body className="bg-[#080808] text-white antialiased font-jakarta">
         {children}
+        <CookieBanner data={legal.cookie_banner} />
+        <GoogleAnalytics />
       </body>
     </html>
   );

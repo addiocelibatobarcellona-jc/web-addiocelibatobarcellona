@@ -1,12 +1,9 @@
 {
   "site": {
-    "name": "Addio al Celibato Barcellona",
-    "tagline": "Dal 2017 – Miglior Prezzo Garantito",
     "email": "addiocelibatobarcellona@gmail.com",
     "phone": "+34673180796",
     "whatsapp": "34673180796",
-    "address": "Avenida Paralelo Nº91 Bis, Barcelona",
-    "founded": "2017"
+    "address": "Avenida Paralelo Nº91 Bis, Barcelona"
   },
   "navbar": {
     "logo_line1": "ADDIO AL CELIBATO",
@@ -14,15 +11,15 @@
     "cta_label": "PREVENTIVO GRATIS",
     "links": [
       {
-        "href": "/chi-siamo",
+        "href": "/chi-siamo-idee-per-laddio-al-celibato",
         "label": "Chi Siamo"
       },
       {
-        "href": "/notturne",
+        "href": "/attivita/notturne",
         "label": "Notturne"
       },
       {
-        "href": "/pomeridiane",
+        "href": "/attivita/pomeridiane",
         "label": "Pomeridiane"
       },
       {
@@ -34,66 +31,41 @@
         "label": "Blog"
       },
       {
-        "href": "/contattaci",
+        "href": "/addio-al-celibato-barcellona-contatti",
         "label": "Contattaci"
       }
     ]
   },
   "hero": {
-    "badge": "Barcellona · Dal 2017",
     "headline_line1": "ADDIO AL CELIBATO",
-    "headline_line2": "A BARCELLONA",
     "headline_accent": "SENZA INGANNI",
     "subheadline": "Alla ricerca di idee per un Addio al Celibato a Barcellona unico? Sei nel posto giusto.",
-    "description": "Siamo italiani, viviamo a Barcellona e conosciamo la città meglio di qualsiasi altra agenzia.",
-    "description_strong": "Miglior prezzo garantito, preventivo gratis.",
-    "cta_primary": "SCOPRI I PACCHETTI",
-    "cta_secondary": "WHATSAPP GRATIS",
-    "trust_badges": [
-      "⭐ Google 4.9/5",
-      "🏆 TrustPilot Eccellente",
-      "✅ Oltre 500 Gruppi",
-      "📍 Solo Barcellona"
-    ]
+    "description": "Siamo italiani, viviamo a Barcellona e conosciamo la città meglio di qualsiasi altra agenzia."
   },
-  "marquee": [
-    "ADDIO AL CELIBATO",
-    "BARCELLONA",
-    "DAL 2017",
-    "MIGLIOR PREZZO",
-    "PREVENTIVO GRATIS",
-    "STRIP SHOW",
-    "LIMOUSINE",
-    "NUBILATO"
-  ],
-  "stats": [
-    {
-      "value": 500,
-      "suffix": "+",
-      "label": "Gruppi Festeggiati"
+  "activities": {
+    "all": {
+      "headline": "TUTTE LE",
+      "headline_accent": "ATTIVITÀ",
+      "meta_title": "Attività Addio al Celibato Barcellona | Notturne e Pomeridiane",
+      "meta_desc": "Scopri tutte le attività per il tuo addio al celibato a Barcellona: strip show, catamaran, limousine, escape room e molto altro. Preventivo gratis!",
+      "seo_text": "Addio al celibato attività a Barcellona: dalla vita notturna più sfrenata alle avventure diurne più adrenalinici, abbiamo tutto quello che fa per voi! Siamo degli esperti in organizzazione di feste di addio al celibato a Barcellona di qualsiasi tipo e per qualsiasi budget, offrendo svariatissime attività tanto notturne quanto pomeridiane, dateci un'occhiata. Viviamo ed organizziamo feste a Barcellona da anni, conosciamo i migliori luoghi, le migliori opzioni e proponiamo solo il meglio al miglior prezzo! Se trovate un'offerta migliore della nostra avvisateci 🙂\n\nNel caso in cui non trovaste l'opzione che fa per voi o il vostro budget sia ridotto, non vi preoccupate, possiamo creare offerte di addio al celibato personalizzate per tutti i gusti e tasche. Siamo flessibili con le proposte quindi se avete qualcosa in mente non dubitate a chiedercelo! CONTATTATECI e vedrete che riusciremo ad esaudire tutti i vostri desideri.\n\nPerché scegliere Barcellona? Perché scegliere noi? Noi ci viviamo qui quindi siamo esperti di feste di addio al celibato a Barcellona. Conosciamo la città meglio di qualsiasi altro agente che organizzi l'addio al celibato in più di una località, noi organizziamo feste di addio al celibato SOLO a Barcellona. Una volta atterrati, saremo a disposizione per qualsiasi dubbio o consiglio di cui abbiate bisogno. Desideriamo che il vostro addio al celibato a Barcellona sia INDIMENTICABILE! Non perdete altro tempo, richiedere un PREVENTIVO É GRATIS!"
     },
-    {
-      "value": 9,
-      "suffix": "",
-      "label": "Anni di Esperienza"
+    "night": {
+      "headline": "ATTIVITÀ",
+      "headline_accent": "NOTTURNE",
+      "meta_title": "Attività Notturne Addio al Celibato Barcellona",
+      "meta_desc": "Strip show, discoteche, limousine e molto altro per il tuo addio al celibato notturno a Barcellona. Dal 2017. Preventivo gratis!",
+      "seo_text": "Addio al celibato attività notturne perché in una festa del genere che si rispetti non può mancare qualche nottata di follia! Noi siamo degli esperti in organizzazione di feste di addio al celibato a Barcellona di qualsiasi tipo e per qualsiasi budget, offrendo svariatissime attività tanto notturne quanto pomeridiane, dateci un'occhiata. Viviamo ed organizziamo feste a Barcellona da anni, conosciamo i migliori luoghi, le migliori opzione e proponiamo solo il meglio al miglior prezzo! Se trovate un'offerta migliore della nostra avvisateci 🙂\n\nNel caso in cui in addio al celibato attività notturne non trovaste l'opzione che fa per voi o il vostro budget sia ridotto, non vi preoccupate, possiamo creare offerte di addio al celibato personalizzate per tutti i gusti e tasche. Siamo flessibili con le proposte quindi se avete qualcosa in mente non dubitate a chiedercelo! CONTATTATECI e vedrete che riusciremo ad esaudire tutti i vostri desideri.\n\nPerché scegliere Barcellona? Perché scegliere noi? Noi ci viviamo qui quindi siamo esperti di feste di addio al celibato a Barcellona. Conosciamo la città meglio di qualsiasi altro agente che organizzi l'addio al celibato in più di una località, noi organizziamo feste di addio al celibato SOLO a Barcellona. Vi consigliamo di controllare se altri portali offrono l'organizzazione solo qui o in altri luoghi, questo può compromettere la qualità dei servizi. Una volta atterrati, saremo a disposizione per qualsiasi dubbio o consiglio di cui abbiate bisogno. Desideriamo che il vostro addio al celibato a Barcellona sia INDIMENTICABILE! Non perdete altro tempo, richiedere un PREVENTIVO É GRATIS! Che sia per addio al celibato attività notturne o attività pomeridiane, vi assicuriamo che il divertimento non mancherà!"
     },
-    {
-      "value": 100,
-      "suffix": "%",
-      "label": "Clienti Soddisfatti"
-    },
-    {
-      "value": 0,
-      "suffix": "",
-      "label": "Costi Nascosti"
+    "daytime": {
+      "headline": "ATTIVITÀ",
+      "headline_accent": "POMERIDIANE",
+      "meta_title": "Attività Pomeridiane Addio al Celibato Barcellona",
+      "meta_desc": "Catamaran, beerbike, paddle surf, bubble football e molto altro per il tuo addio al celibato di giorno a Barcellona. Preventivo gratis!",
+      "seo_text": "Addio al celibato attività pomeridiane perché in una festa del genere che si rispetti non può mancare un po' di adrenalina! E non solo, mare, sole, natura, abbiamo proposte di ogni tipo che renderanno le vostre giornate a Barcellona un'esperienza indimenticabile.\n\nSiamo degli esperti in organizzazione di feste di addio al celibato a Barcellona di qualsiasi tipo e per qualsiasi budget, offrendo svariatissime attività tanto pomeridiane quanto notturne, dateci un'occhiata. Viviamo ed organizziamo feste a Barcellona da anni, conosciamo i migliori luoghi, le migliori opzione e proponiamo solo il meglio al miglior prezzo! Se trovate un'offerta migliore della nostra avvisateci 🙂\n\nNel caso in cui in addio al celibato attività pomeridiane non trovaste l'opzione che fa per voi o il vostro budget sia più basso, non disperatevi, possiamo creare offerte di addio al celibato personalizzate per tutti i gusti e tutte le tasche. Siamo flessibili con le proposte quindi se avete qualcosa in mente non dubitate a chiedercelo! CONTATTATECI e vedrete che riusciremo ad esaudire tutti i vostri desideri.\n\nPerché scegliere Barcellona? Perché scegliere noi? Noi ci viviamo qui quindi siamo esperti di feste di addio al celibato a Barcellona. Conosciamo la città meglio di qualsiasi altro agente che organizzi l'addio al celibato in più di una località, noi organizziamo feste di addio al celibato SOLO a Barcellona. Vi consigliamo di controllare se altri portali offrono l'organizzazione solo qui o in altri luoghi, questo può compromettere la qualità dei servizi. Una volta atterrati, saremo a disposizione per qualsiasi dubbio o consiglio di cui abbiate bisogno. Desideriamo che il vostro addio al celibato a Barcellona sia INDIMENTICABILE! Non perdete altro tempo, richiedere un PREVENTIVO É GRATIS! Che sia per addio al celibato attività pomeridiane o attività notturne, vi assicuriamo che il divertimento non mancherà!"
     }
-  ],
+  },
   "notturne": {
-    "section_label": "Quando cala il sole",
-    "section_title_line1": "ATTIVITÀ",
-    "section_title_accent": "NOTTURNE",
-    "cta_all": "Vedi Tutte",
-    "cta_all_href": "/notturne",
     "activities": [
       {
         "name": "Addio Classico",
@@ -101,7 +73,8 @@
         "price": "€79 / persona",
         "href": "/attivita/notturne/addio-al-celibato-con-spogliarellista/",
         "tag": "Best Seller",
-        "icon": "Sparkles"
+        "icon": "Sparkles",
+        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/ADDIO-CLASSICO-S.jpg"
       },
       {
         "name": "Spicy Mix",
@@ -109,7 +82,8 @@
         "price": "€79 / persona",
         "href": "/attivita/notturne/addio-al-celibato-collettivo/",
         "tag": "Più venduto",
-        "icon": "Flame"
+        "icon": "Flame",
+        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/ADDIO-SPICY-MIX-S.jpg"
       },
       {
         "name": "All Inclusive",
@@ -117,7 +91,8 @@
         "price": "€115 / persona",
         "href": "/attivita/notturne/addio-al-celibato-con-spogliarellista-e-limousine/",
         "tag": "Premium",
-        "icon": "Crown"
+        "icon": "Crown",
+        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/CENALIMOSTRIPPERDISCO.jpg"
       },
       {
         "name": "Strip Show",
@@ -125,7 +100,8 @@
         "price": "€27 / persona",
         "href": "/attivita/notturne/addio-al-celibato-spogliarellista-show/",
         "tag": null,
-        "icon": "Music"
+        "icon": "Music",
+        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/05/spettacoli-addio-al-celibato-barcellona.jpg"
       },
       {
         "name": "XXX Show",
@@ -133,7 +109,8 @@
         "price": "€69 / persona",
         "href": "/attivita/notturne/xxx-show-trasgressione-massima/",
         "tag": "Adrenalina",
-        "icon": "Zap"
+        "icon": "Zap",
+        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/04/XXX-SHOW-copy.jpg"
       },
       {
         "name": "Body Sushi",
@@ -141,7 +118,8 @@
         "price": "€59 / persona",
         "href": "/attivita/notturne/body-sushi/",
         "tag": null,
-        "icon": "UtensilsCrossed"
+        "icon": "UtensilsCrossed",
+        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/03/bodysushi2.jpg"
       },
       {
         "name": "LimoBus",
@@ -149,7 +127,8 @@
         "price": "€35 / persona",
         "href": "/attivita/notturne/addio-al-celibato-barcellona-limobus/",
         "tag": null,
-        "icon": "Bus"
+        "icon": "Bus",
+        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/06/limobus-barcelona-2.jpg"
       },
       {
         "name": "Giretto in Limo",
@@ -157,15 +136,12 @@
         "price": "€25 / persona",
         "href": "/attivita/notturne/addio-al-celibato-giretto-in-limo/",
         "tag": null,
-        "icon": "Car"
+        "icon": "Car",
+        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/GIRETTO-IN-LIMO.jpg"
       }
     ]
   },
   "pomeridiane": {
-    "section_label": "Prima del tramonto",
-    "section_title_line1": "ATTIVITÀ",
-    "section_title_accent": "DIURNE",
-    "cta_all": "Vedi Tutte",
     "cta_all_href": "/pomeridiane",
     "activities": [
       {
@@ -174,7 +150,8 @@
         "price": "€74 / persona",
         "href": "/attivita/pomeridiane/catamaran/",
         "tag": "Mare",
-        "icon": "Anchor"
+        "icon": "Anchor",
+        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/CRAZY-CATAMARAN-PARTY-S.jpg"
       },
       {
         "name": "Barca a Vela Privata",
@@ -182,7 +159,8 @@
         "price": "€60 / persona",
         "href": "/attivita/pomeridiane/barca-a-vela/",
         "tag": null,
-        "icon": "Ship"
+        "icon": "Ship",
+        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/BARCA-A-VELA-PRIVATA-S.jpg"
       },
       {
         "name": "La Beerbike",
@@ -190,7 +168,8 @@
         "price": "€50 / persona",
         "href": "/attivita/pomeridiane/beerbike/",
         "tag": "Classico",
-        "icon": "Bike"
+        "icon": "Bike",
+        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/Bici-birra-1.jpg"
       },
       {
         "name": "Bubble Football",
@@ -198,7 +177,8 @@
         "price": "€45 / persona",
         "href": "/attivita/pomeridiane/bubble-football/",
         "tag": "Adrenalina",
-        "icon": "CircleDot"
+        "icon": "CircleDot",
+        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/BUBBLE-FOOTBALL-S.jpg"
       },
       {
         "name": "Paintball Outdoor",
@@ -206,7 +186,8 @@
         "price": "€26 / persona",
         "href": "/attivita/pomeridiane/paintball/",
         "tag": null,
-        "icon": "Target"
+        "icon": "Target",
+        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/PAINTBALL-OUTDOOR.jpg"
       },
       {
         "name": "Escape Room",
@@ -214,7 +195,8 @@
         "price": "€25 / persona",
         "href": "/attivita/pomeridiane/escape-room/",
         "tag": null,
-        "icon": "Lock"
+        "icon": "Lock",
+        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2022/02/Escape-Room-addio-al-celibato-Barcellona.jpg"
       },
       {
         "name": "Vespa GPS",
@@ -222,7 +204,8 @@
         "price": "€45 / persona",
         "href": "/attivita/pomeridiane/vespa-gps/",
         "tag": null,
-        "icon": "Navigation"
+        "icon": "Navigation",
+        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/VESPA-GPS.jpg"
       },
       {
         "name": "Camp Nou Experience",
@@ -230,7 +213,8 @@
         "price": "€45 / persona",
         "href": "/attivita/pomeridiane/camp-nou-experience/",
         "tag": null,
-        "icon": "Trophy"
+        "icon": "Trophy",
+        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/03/Camp-Nou-Experience.jpg"
       },
       {
         "name": "Paddle Surf",
@@ -238,16 +222,15 @@
         "price": "€20 / persona",
         "href": "/attivita/pomeridiane/paddle-surf/",
         "tag": "Outdoor",
-        "icon": "Waves"
+        "icon": "Waves",
+        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/Paddle-Surf-Barcelona-S.jpg"
       }
     ]
   },
   "perche": {
-    "section_label": "La nostra differenza",
     "section_title_line1": "PERCHÉ",
     "section_title_accent": "SCEGLIERCI",
     "highlight_text": "Organizzare una festa di addio al celibato come si deve è il dovere di ogni buon amico. A volte può essere difficile trovare idee per l'addio al celibato, però di questo ce ne occupiamo noi! Non esitare e contattaci, il PREVENTIVO È GRATIS!",
-    "highlight_cta": "CHIEDI ORA",
     "items": [
       {
         "icon": "MapPin",
@@ -270,73 +253,6 @@
         "desc": "Otteniamo dal 2017 recensioni positive. Controlla SEMPRE le opinioni."
       }
     ]
-  },
-  "testimonials": {
-    "section_label": "Chi ha già festeggiato",
-    "section_title_line1": "COSA DICONO",
-    "section_title_accent": "I NOSTRI GRUPPI",
-    "items": [
-      {
-        "name": "Marco R.",
-        "city": "Milano",
-        "stars": 5,
-        "text": "Organizzazione impeccabile, tutto puntuale e senza sorprese. Strip show al top, la disco perfetta. Lo rifarei domani."
-      },
-      {
-        "name": "Luca F.",
-        "city": "Roma",
-        "stars": 5,
-        "text": "Avevo paura di essere fregato come con altre agenzie, invece zero costi nascosti. Prezzo onesto, serata indimenticabile. Grazie ragazzi!"
-      },
-      {
-        "name": "Andrea M.",
-        "city": "Torino",
-        "stars": 5,
-        "text": "Il catamaran party è stato assurdo, tutti impazziti. Barcellona vista dal mare con open bar... impossibile fare meglio."
-      },
-      {
-        "name": "Stefano B.",
-        "city": "Napoli",
-        "stars": 5,
-        "text": "All Inclusive vale ogni centesimo. Limousine, cena, strip e disco tutto incluso. Nessun pensiero, solo divertimento puro."
-      },
-      {
-        "name": "Davide C.",
-        "city": "Firenze",
-        "stars": 5,
-        "text": "Risposta su WhatsApp in 5 minuti, disponibili sempre. Hanno gestito tutto loro, noi ci siamo solo divertiti. Perfetti."
-      },
-      {
-        "name": "Giovanni P.",
-        "city": "Bologna",
-        "stars": 5,
-        "text": "Body Sushi + disco: combo vincente. Non credevo fosse possibile organizzarlo così bene. Il gruppo era scettico, alla fine erano tutti entusiasti."
-      },
-      {
-        "name": "Matteo S.",
-        "city": "Venezia",
-        "stars": 5,
-        "text": "LimoBus pazzesco, siamo saliti alle 11 di sera e non volevamo più scendere. Open bar infinito e musica a palla per tutta Barcellona."
-      },
-      {
-        "name": "Francesco L.",
-        "city": "Palermo",
-        "stars": 5,
-        "text": "Eravamo 12 persone e temevo casino organizzativo. Invece tutto filato liscio: prenotazioni, tavoli, ingressi. Zero stress totale."
-      }
-    ],
-    "rating_google": "⭐ 4.9/5",
-    "rating_trustpilot": "⭐ Eccellente",
-    "trustpilot_url": "https://it.trustpilot.com/review/addioalcelibato-barcellona.it?utm_medium=trustbox&utm_source=MicroReviewCount"
-  },
-  "cta_banner": {
-    "label": "Pronto a partire?",
-    "headline_line1": "VOGLIAMO CHE IL TUO",
-    "headline_accent": "ADDIO SIA UNICO!",
-    "description": "Non esitare e contattaci: il preventivo è GRATIS! Siamo disponibili su WhatsApp e risponderemo in pochi minuti.",
-    "description_strong": "il preventivo è GRATIS!",
-    "cta_primary": "RICHIEDI IL PREVENTIVO GRATIS",
-    "cta_secondary": "CHIAMA ORA"
   },
   "footer": {
     "logo_line1": "ADDIO AL CELIBATO BCN",
@@ -366,11 +282,7 @@
     ],
     "legal_links": [
       {
-        "href": "/privacy-policy",
-        "label": "Privacy Policy"
-      },
-      {
-        "href": "/cookie-policy",
+        "href": "/addio-celibato-barcellona-cookie-policy",
         "label": "Cookie Policy"
       }
     ],

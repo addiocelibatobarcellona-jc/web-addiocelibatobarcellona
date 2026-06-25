@@ -1,12 +1,12 @@
 import { Metadata } from "next";
 import {
-  Phone, MessageCircle, Star, ArrowUpRight, ArrowRight,
+  Phone, ArrowUpRight, ArrowRight,
   Sparkles, Flame, Crown, Music, Zap, UtensilsCrossed, Bus, Car,
   Anchor, Ship, Bike, CircleDot, Target, Lock, Navigation, Trophy, Waves,
   type LucideIcon,
 } from "lucide-react";
 import { getContent } from "@/lib/content";
-import type { Activity, PercheItem, Testimonial } from "@/lib/content";
+import type { Activity, PercheItem } from "@/lib/content";
 
 import LEDGrid from "@/components/LEDGrid";
 import MagneticButton from "@/components/MagneticButton";
@@ -14,6 +14,7 @@ import DragCarousel from "@/components/DragCarousel";
 import ChapterReveal from "@/components/ChapterReveal";
 import StaggerReveal from "@/components/StaggerReveal";
 import BottomNav from "@/components/BottomNav";
+import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Addio al Celibato Barcellona | Dal 2017 – Miglior Prezzo Garantito",
@@ -26,6 +27,38 @@ const ICONS: Record<string, LucideIcon> = {
   Sparkles, Flame, Crown, Music, Zap, UtensilsCrossed, Bus, Car,
   Anchor, Ship, Bike, CircleDot, Target, Lock, Navigation, Trophy, Waves,
 };
+
+// ── Scalloped badge path ──────────────────────────────────────────────────────
+// Each bump = circular arc (A command) of radius bumpR → perfectly round domes.
+// Valleys = short arc along inner circle (concave from outside).
+
+function makeScallop(cx: number, cy: number, r: number, bumpR: number, n: number): string {
+  const step = (2 * Math.PI) / n;
+  // half-angle the bump chord subtends at the inner circle
+  const alpha = Math.asin(Math.min(bumpR / r, 0.999));
+
+  const f = (v: number) => v.toFixed(2);
+  const ptx = (a: number, rad: number) => cx + rad * Math.cos(a);
+  const pty = (a: number, rad: number) => cy + rad * Math.sin(a);
+
+  let d = "";
+  for (let i = 0; i < n; i++) {
+    const peakA = i * step - Math.PI / 2;
+    const bL = peakA - alpha;          // bump left on inner circle
+    const bR = peakA + alpha;          // bump right on inner circle
+    const nBL = peakA + step - alpha;  // next bump left on inner circle
+
+    if (i === 0) d = `M${f(ptx(bL, r))},${f(pty(bL, r))}`;
+
+    // Outward circular arc for the bump dome (sweep=1 = CW = outward)
+    d += ` A${f(bumpR)},${f(bumpR)} 0 0,1 ${f(ptx(bR, r))},${f(pty(bR, r))}`;
+    // Short CW arc along inner circle to next bump (concave valley)
+    d += ` A${f(r)},${f(r)} 0 0,1 ${f(ptx(nBL, r))},${f(pty(nBL, r))}`;
+  }
+  return d + "Z";
+}
+
+const SCALLOP_PATH = makeScallop(130, 130, 102, 14, 16);
 
 // ── Wave divider between sections ────────────────────────────────────────────
 
@@ -48,66 +81,98 @@ function Wave({ from, to, flip }: { from: string; to: string; flip?: boolean }) 
 
 // ── Portrait card — drag carousel ────────────────────────────────────────────
 
-function PortraitCard({ icon, name, desc, price, href, tag, onBlue }: Activity & { onBlue?: boolean }) {
+function PortraitCard({ icon, name, desc, price, href, tag, onBlue, image }: Activity & { onBlue?: boolean }) {
   const Icon = ICONS[icon] ?? Sparkles;
+  const hasImage = !!image;
+
   return (
-    <a href={href} className={`portrait-card ${onBlue ? "portrait-card-blue" : "portrait-card-dark"}`}>
-      {/* Top row */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "auto" }}>
-        {tag ? (
-          <span style={{
-            fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.2em",
-            textTransform: "uppercase", padding: "0.25rem 0.65rem",
-            border: `1px solid ${onBlue ? "rgba(0,0,0,0.2)" : "rgba(255,255,255,0.15)"}`,
-            borderRadius: "100px",
-            color: onBlue ? "rgba(0,0,0,0.7)" : "rgba(255,255,255,0.6)",
-          }}>
-            {tag}
-          </span>
-        ) : <span />}
-        <ArrowUpRight size={16} style={{ color: onBlue ? "rgba(0,0,0,0.3)" : "rgba(255,255,255,0.25)" }} />
-      </div>
-
-      {/* Center icon */}
-      <div style={{
-        flex: 1, display: "flex", alignItems: "center", justifyContent: "center",
-        color: onBlue ? "rgba(0,0,0,0.2)" : "rgba(58,117,255,0.25)",
-      }}>
-        <Icon size={80} strokeWidth={0.6} />
-      </div>
-
-      {/* Bottom */}
-      <div>
-        <h3 style={{
-          fontFamily: "var(--font-bebas)",
-          fontSize: "clamp(1.6rem, 3vw, 2rem)",
-          letterSpacing: "0.03em",
-          color: onBlue ? "#000" : "#fff",
-          lineHeight: 1.0,
-          marginBottom: "0.75rem",
-        }}>
-          {name}
-        </h3>
-        <p style={{
-          fontSize: "0.75rem", lineHeight: 1.6,
-          color: onBlue ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.4)",
-          marginBottom: "1rem",
-        }}>
-          {desc}
-        </p>
+    <a
+      href={href}
+      className={`portrait-card ${onBlue ? "portrait-card-blue" : "portrait-card-dark"}`}
+      style={hasImage ? {
+        backgroundImage: `url(${image})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      } : undefined}
+    >
+      {/* Dark gradient overlay when image is present */}
+      {hasImage && (
         <div style={{
-          display: "flex", alignItems: "center", justifyContent: "space-between",
-          borderTop: `1px solid ${onBlue ? "rgba(0,0,0,0.12)" : "rgba(255,255,255,0.08)"}`,
-          paddingTop: "0.75rem",
-        }}>
-          <span style={{
-            fontFamily: "var(--font-bebas)", fontSize: "1.5rem",
-            letterSpacing: "0.02em",
-            color: onBlue ? "#000" : "var(--blue)",
+          position: "absolute", inset: 0, zIndex: 0,
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.25) 45%, rgba(0,0,0,0.88) 100%)",
+        }} />
+      )}
+
+      {/* All content above the overlay */}
+      <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", height: "100%" }}>
+
+        {/* Top row — arrow only */}
+        <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "auto" }}>
+          <ArrowUpRight size={16} style={{ color: "rgba(255,255,255,0.5)" }} />
+        </div>
+
+        {/* Center icon — hidden when image */}
+        {!hasImage && (
+          <div style={{
+            flex: 1, display: "flex", alignItems: "center", justifyContent: "center",
+            color: onBlue ? "rgba(0,0,0,0.2)" : "rgba(58,117,255,0.25)",
           }}>
-            {price}
-          </span>
-          <ArrowUpRight size={14} style={{ color: onBlue ? "rgba(0,0,0,0.4)" : "rgba(58,117,255,0.6)" }} />
+            <Icon size={80} strokeWidth={0.6} />
+          </div>
+        )}
+
+        {/* Spacer when image is present */}
+        {hasImage && <div style={{ flex: 1 }} />}
+
+        {/* Bottom */}
+        <div>
+          <h3 style={{
+            fontFamily: "var(--font-bebas)",
+            fontSize: "clamp(1.6rem, 3vw, 2rem)",
+            letterSpacing: "0.03em",
+            color: "#fff",
+            lineHeight: 1.0,
+            marginBottom: tag ? "0.5rem" : "0.75rem",
+          }}>
+            {name}
+          </h3>
+          {tag && (
+            <span style={{
+              display: "inline-block",
+              fontSize: "0.5rem", fontWeight: 700, letterSpacing: "0.18em",
+              textTransform: "uppercase", padding: "0.2rem 0.55rem",
+              border: "1px solid rgba(255,255,255,0.25)",
+              borderRadius: "100px",
+              color: "rgba(255,255,255,0.6)",
+              marginBottom: "0.75rem",
+              backdropFilter: hasImage ? "blur(6px)" : undefined,
+              background: hasImage ? "rgba(0,0,0,0.2)" : undefined,
+            }}>
+              {tag}
+            </span>
+          )}
+          <p style={{
+            fontSize: "0.8rem", lineHeight: 1.65,
+            color: hasImage ? "rgba(255,255,255,0.88)" : (onBlue ? "rgba(0,0,0,0.65)" : "rgba(255,255,255,0.55)"),
+            marginBottom: "1rem",
+            textShadow: hasImage ? "0 1px 4px rgba(0,0,0,0.6)" : undefined,
+          }}>
+            {desc}
+          </p>
+          <div style={{
+            display: "flex", alignItems: "center", justifyContent: "space-between",
+            borderTop: "1px solid rgba(255,255,255,0.15)",
+            paddingTop: "0.75rem",
+          }}>
+            <span style={{
+              fontFamily: "var(--font-bebas)", fontSize: "2rem",
+              letterSpacing: "0.02em",
+              color: hasImage ? "#fff" : (onBlue ? "#000" : "var(--blue)"),
+            }}>
+              {price}
+            </span>
+            <ArrowUpRight size={14} style={{ color: "rgba(255,255,255,0.5)" }} />
+          </div>
         </div>
       </div>
     </a>
@@ -177,60 +242,86 @@ export default function HomePage() {
             stroke="#000" strokeWidth="8" strokeLinecap="round" opacity="0.4" />
         </svg>
 
-        {/* Rotating badge */}
+        {/* Bottle-cap badge — spinning cap, static logo */}
         <div style={{
-          position: "absolute", top: "8%", left: "6vw",
-          width: 110, height: 110,
-          display: "flex", alignItems: "center", justifyContent: "center",
-          animation: "badge-in 0.7s cubic-bezier(0.33,1,0.68,1) 0.3s both",
+          position: "absolute", top: "6%", left: "6vw",
+          width: "clamp(160px, 18vw, 240px)",
+          height: "clamp(160px, 18vw, 240px)",
+          animation: "badge-in 0.8s cubic-bezier(0.33,1,0.68,1) 0.4s both",
         }}>
+          {/* Spinning scalloped cap + circular text */}
           <svg
-            width="110" height="110" viewBox="0 0 110 110"
-            style={{ position: "absolute", animation: "spin 10s linear infinite" }}
+            viewBox="0 0 260 260"
+            style={{
+              position: "absolute", inset: 0, width: "100%", height: "100%",
+              animation: "spin 18s linear infinite",
+            }}
           >
-            <path id="badge-ring" d="M55,8 a47,47 0 1,1 -0.01,0" fill="none" />
-            <text fontSize="9.5" fontFamily="var(--font-jakarta)" fontWeight="700"
-              letterSpacing="3.5" fill="rgba(0,0,0,0.55)">
-              <textPath href="#badge-ring">BARCELLONA · DAL 2017 · ADDIO · CELIBATO ·</textPath>
+            <defs>
+              {/* Circle path for text — starts at top (12 o'clock), clockwise */}
+              <path id="badge-text-path" d="M130,49 A81,81 0 1,1 130,211 A81,81 0 1,1 130,49" />
+            </defs>
+            {/* Cap fill */}
+            <path d={SCALLOP_PATH} fill="#000" />
+            {/* Circular text */}
+            <text
+              fontFamily="var(--font-bebas)"
+              fontSize="9.5"
+              fill="#fff"
+              letterSpacing="4.8"
+            >
+              <textPath href="#badge-text-path" startOffset="0%">
+                {"PARTY A BARCELLONA · DAL 2017 · PARTY A BARCELLONA · DAL 2017 · "}
+              </textPath>
             </text>
           </svg>
-          <span style={{
-            fontFamily: "var(--font-bebas)", fontSize: "1.1rem",
-            letterSpacing: "0.08em", color: "rgba(0,0,0,0.7)",
-          }}>
-            2017
-          </span>
+
+          {/* Static logo centered */}
+          <img
+            src="https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/logoaddioalcelibatoblancohori2-1.png"
+            alt="Addio al Celibato Barcellona"
+            style={{
+              position: "absolute",
+              top: "50%", left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "45%",
+              height: "auto",
+              pointerEvents: "none",
+            }}
+          />
         </div>
 
         {/* Main content */}
         <div style={{ position: "relative", zIndex: 2, paddingTop: "12rem" }}>
 
-          {/* Eyebrow */}
-          <p style={{
-            fontFamily: "var(--font-bebas)",
-            fontSize: "clamp(1rem, 3vw, 2rem)",
-            letterSpacing: "0.12em",
-            color: "rgba(0,0,0,0.45)",
-            marginBottom: "-0.2em",
-            animation: "hero-in 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s both",
-          }}>
-            {c.hero.headline_line1}
-          </p>
-
-          {/* BARCELLONA — massive */}
-          <h1 style={{
-            fontFamily: "var(--font-bebas)",
-            fontSize: "clamp(5.5rem, 20vw, 19rem)",
-            letterSpacing: "-0.025em",
-            lineHeight: 0.85,
-            color: "#fff",
-            margin: 0,
-            animation: "hero-in 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s both",
-          }}>
-            {c.hero.headline_line2.replace("A ", "")}
+          {/* H1 — full SEO title, two visual sizes inside one element */}
+          <h1 style={{ margin: 0, animation: "hero-in 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s both" }}>
+            {/* "ADDIO AL CELIBATO A" — smaller line */}
+            <span style={{
+              display: "block",
+              fontFamily: "var(--font-bebas)",
+              fontSize: "clamp(1.2rem, 3.5vw, 2.8rem)",
+              letterSpacing: "0.12em",
+              color: "rgba(0,0,0,0.5)",
+              lineHeight: 1.1,
+              marginBottom: "-0.05em",
+            }}>
+              {c.hero.headline_line1} A
+            </span>
+            {/* BARCELLONA — massive */}
+            <span style={{
+              display: "block",
+              fontFamily: "var(--font-bebas)",
+              fontSize: "clamp(5.5rem, 20vw, 19rem)",
+              letterSpacing: "-0.025em",
+              lineHeight: 0.85,
+              color: "#fff",
+            }}>
+              BARCELLONA
+            </span>
           </h1>
 
-          {/* Divider row */}
+          {/* Divider */}
           <div style={{
             display: "flex", alignItems: "center", gap: "2rem",
             margin: "2rem 0",
@@ -247,47 +338,29 @@ export default function HomePage() {
             <div style={{ height: 1, flex: 1, background: "rgba(0,0,0,0.2)" }} />
           </div>
 
-          {/* Sub + CTAs */}
+          {/* Subheadline + CTA */}
           <div style={{
             display: "flex", alignItems: "flex-end", justifyContent: "space-between",
-            gap: "2rem", flexWrap: "wrap",
+            gap: "3rem", flexWrap: "wrap",
             animation: "hero-in 0.9s cubic-bezier(0.16,1,0.3,1) 0.45s both",
           }}>
             <p style={{
-              fontSize: "clamp(0.85rem, 1.6vw, 1rem)",
-              lineHeight: 1.75, color: "rgba(0,0,0,0.55)",
-              maxWidth: "42ch",
+              fontSize: "clamp(1rem, 1.8vw, 1.2rem)",
+              lineHeight: 1.8,
+              color: "rgba(0,0,0,0.75)",
+              maxWidth: "44ch",
+              fontWeight: 400,
             }}>
               {c.hero.subheadline} {c.hero.description}
             </p>
 
-            <div style={{ display: "flex", gap: "0.75rem", flexShrink: 0, flexWrap: "wrap" }}>
-              <MagneticButton
-                href={`https://wa.me/${c.site.whatsapp}`}
-                target="_blank" rel="noopener noreferrer"
-                style={{
-                  background: "#000", color: "#fff",
-                  fontFamily: "var(--font-bebas)", fontSize: "0.95rem",
-                  letterSpacing: "0.1em", padding: "0.9rem 1.75rem",
-                  display: "inline-flex", alignItems: "center", gap: "0.5rem",
-                  textDecoration: "none",
-                }}
-              >
-                <MessageCircle size={15} /> {c.hero.cta_secondary}
-              </MagneticButton>
-              <MagneticButton
-                href="/notturne"
-                style={{
-                  border: "2px solid rgba(0,0,0,0.3)", color: "rgba(0,0,0,0.7)",
-                  fontFamily: "var(--font-bebas)", fontSize: "0.95rem",
-                  letterSpacing: "0.1em", padding: "0.9rem 1.75rem",
-                  display: "inline-flex", alignItems: "center", gap: "0.5rem",
-                  textDecoration: "none",
-                }}
-              >
-                {c.hero.cta_primary} <ArrowRight size={15} />
-              </MagneticButton>
-            </div>
+            <MagneticButton
+              href="/contact"
+              className="neon-cta"
+              style={{ flexShrink: 0 }}
+            >
+              PREVENTIVO GRATIS <ArrowRight size={16} />
+            </MagneticButton>
           </div>
         </div>
       </section>
@@ -296,134 +369,23 @@ export default function HomePage() {
       <Wave from="var(--blue)" to="#000" />
 
       {/* ════════════════════════════════════════════════════════════════
-          NOTTURNE — black bg, horizontal portrait scroll
+          PERCHÉ NOI — black bg, full-width tool rows  [SECTION 2]
       ════════════════════════════════════════════════════════════════ */}
-      <section style={{ background: "#000", padding: "5rem 0 6rem" }}>
-        <div style={{ padding: "0 6vw", maxWidth: "1400px", margin: "0 auto" }}>
-          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem", marginBottom: "3rem" }}>
-            <div>
-              <p style={{
-                fontSize: "0.6rem", letterSpacing: "0.3em", textTransform: "uppercase",
-                color: "var(--blue)", fontFamily: "var(--font-jakarta)", fontWeight: 700,
-                marginBottom: "0.5rem",
-              }}>
-                {c.notturne.section_label}
-              </p>
-              <ChapterReveal>
-                <h2 style={{
-                  fontFamily: "var(--font-bebas)",
-                  fontSize: "clamp(4rem, 12vw, 10rem)",
-                  letterSpacing: "-0.02em", lineHeight: 0.85,
-                  color: "#fff", margin: 0,
-                }}>
-                  {c.notturne.section_title_accent}
-                </h2>
-              </ChapterReveal>
-            </div>
-            <a href={c.notturne.cta_all_href} style={{
-              display: "inline-flex", alignItems: "center", gap: "0.5rem",
-              fontFamily: "var(--font-bebas)", fontSize: "0.85rem", letterSpacing: "0.1em",
-              color: "var(--blue)", textDecoration: "none",
-              border: "1px solid rgba(58,117,255,0.3)", padding: "0.75rem 1.25rem",
-              marginBottom: "0.5rem", transition: "border-color 0.2s",
+      <section style={{ background: "#000", padding: "0 6vw 9rem" }}>
+        <div style={{ maxWidth: "1100px", margin: "5rem auto 0" }}>
+
+          <div style={{ marginBottom: "3rem" }}>
+            <h2 style={{
+              fontFamily: "var(--font-bebas)",
+              fontSize: "clamp(4rem, 12vw, 10rem)",
+              letterSpacing: "-0.02em", lineHeight: 0.85,
+              color: "var(--blue)", margin: 0,
             }}>
-              {c.notturne.cta_all} <ArrowUpRight size={14} />
-            </a>
-          </div>
-        </div>
-
-        <DragCarousel>
-          {c.notturne.activities.map((act, i) => (
-            <div key={act.name} style={{ paddingLeft: i === 0 ? "6vw" : 0, paddingRight: i === c.notturne.activities.length - 1 ? "6vw" : 0 }}>
-              <PortraitCard {...act} onBlue={false} />
-            </div>
-          ))}
-        </DragCarousel>
-      </section>
-
-      {/* Wave: black → blue */}
-      <Wave from="#000" to="var(--blue)" flip />
-
-      {/* ════════════════════════════════════════════════════════════════
-          POMERIDIANE — BLUE bg, dark portrait cards
-      ════════════════════════════════════════════════════════════════ */}
-      <section style={{ background: "var(--blue)", padding: "5rem 0 6rem" }}>
-        <div style={{ padding: "0 6vw", maxWidth: "1400px", margin: "0 auto" }}>
-          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem", marginBottom: "3rem" }}>
-            <div>
-              <p style={{
-                fontSize: "0.6rem", letterSpacing: "0.3em", textTransform: "uppercase",
-                color: "rgba(0,0,0,0.5)", fontFamily: "var(--font-jakarta)", fontWeight: 700,
-                marginBottom: "0.5rem",
-              }}>
-                {c.pomeridiane.section_label}
-              </p>
-              <ChapterReveal>
-                <h2 style={{
-                  fontFamily: "var(--font-bebas)",
-                  fontSize: "clamp(4rem, 12vw, 10rem)",
-                  letterSpacing: "-0.02em", lineHeight: 0.85,
-                  color: "#fff", margin: 0,
-                }}>
-                  {c.pomeridiane.section_title_accent}
-                </h2>
-              </ChapterReveal>
-            </div>
-            <a href={c.pomeridiane.cta_all_href} style={{
-              display: "inline-flex", alignItems: "center", gap: "0.5rem",
-              fontFamily: "var(--font-bebas)", fontSize: "0.85rem", letterSpacing: "0.1em",
-              color: "#000", textDecoration: "none",
-              border: "2px solid rgba(0,0,0,0.25)", padding: "0.75rem 1.25rem",
-              marginBottom: "0.5rem",
-            }}>
-              {c.pomeridiane.cta_all} <ArrowUpRight size={14} />
-            </a>
-          </div>
-        </div>
-
-        <DragCarousel>
-          {c.pomeridiane.activities.map((act, i) => (
-            <div key={act.name} style={{ paddingLeft: i === 0 ? "6vw" : 0, paddingRight: i === c.pomeridiane.activities.length - 1 ? "6vw" : 0 }}>
-              <PortraitCard {...act} onBlue />
-            </div>
-          ))}
-        </DragCarousel>
-      </section>
-
-      {/* Wave: blue → black */}
-      <Wave from="var(--blue)" to="#000" />
-
-      {/* ════════════════════════════════════════════════════════════════
-          PERCHÉ NOI — black, full-width tool rows
-      ════════════════════════════════════════════════════════════════ */}
-      <section style={{ background: "#000", padding: "6rem 6vw 7rem" }}>
-        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-
-          {/* Header row */}
-          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "3rem", marginBottom: "4rem", flexWrap: "wrap" }}>
-            <ChapterReveal>
-              <h2 style={{
-                fontFamily: "var(--font-bebas)",
-                fontSize: "clamp(4rem, 12vw, 10rem)",
-                letterSpacing: "-0.02em", lineHeight: 0.85,
-                color: "#fff", margin: 0,
-              }}>
-                {c.perche.section_title_line1}
-                <br />
-                <span style={{ color: "var(--blue)" }}>{c.perche.section_title_accent}?</span>
-              </h2>
-            </ChapterReveal>
-
-            <p style={{
-              fontSize: "clamp(0.85rem, 1.5vw, 1rem)",
-              lineHeight: 1.8, color: "rgba(255,255,255,0.4)",
-              maxWidth: "36ch", paddingTop: "0.5rem",
-            }}>
-              {c.perche.highlight_text}
-            </p>
+              {c.perche.section_title_line1}
+              <span style={{ color: "rgba(58,117,255,0.45)" }}>{c.perche.section_title_accent}?</span>
+            </h2>
           </div>
 
-          {/* Tool rows */}
           {c.perche.items.map((item: PercheItem, i: number) => (
             <StaggerReveal key={item.title} index={i}>
               <div className="tool-row">
@@ -442,168 +404,263 @@ export default function HomePage() {
                   }}>
                     {item.title}
                   </h3>
-                  <p style={{ fontSize: "0.85rem", lineHeight: 1.7, color: "rgba(255,255,255,0.35)", maxWidth: "60ch" }}>
-                    {item.desc}
-                  </p>
+                  {/* Item 0 — special hover text, desktop only */}
+                  {i === 0 && (
+                    <div className="tool-row-desc-hover-only">
+                      <p style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)", lineHeight: 1.55, color: "rgba(255,255,255,0.82)", maxWidth: "52ch", paddingTop: "0.75rem" }}>
+                        Noi <span style={{ fontFamily: "var(--font-bebas)", fontSize: "1.3em", letterSpacing: "0.04em", color: "#fff" }}>VIVIAMO</span> a Barcellona,{" "}
+                        e conosciamo la città meglio di qualsiasi altra agenzia.
+                      </p>
+                    </div>
+                  )}
+
+                  <div className="tool-row-desc">
+                    <p style={{ fontSize: "0.85rem", lineHeight: 1.7, color: "rgba(255,255,255,0.65)", maxWidth: "60ch", paddingTop: "0.5rem" }}>
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
                 <ArrowUpRight size={22} className="tool-arrow" />
               </div>
             </StaggerReveal>
           ))}
 
-          {/* CTA row at bottom */}
-          <div style={{ marginTop: "3rem", display: "flex", gap: "1rem" }}>
-            <MagneticButton
-              href={`https://wa.me/${c.site.whatsapp}`}
-              target="_blank" rel="noopener noreferrer"
-              style={{
-                background: "var(--blue)", color: "#fff",
-                fontFamily: "var(--font-bebas)", fontSize: "0.95rem",
-                letterSpacing: "0.1em", padding: "1rem 2rem",
-                display: "inline-flex", alignItems: "center", gap: "0.5rem",
-                textDecoration: "none",
-              }}
-            >
-              <MessageCircle size={15} /> {c.perche.highlight_cta}
-            </MagneticButton>
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════════════
-          TESTIMONIALS — slightly blue-tinted dark bg
-      ════════════════════════════════════════════════════════════════ */}
-      <section style={{ background: "#030712", padding: "7rem 6vw" }}>
-        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-
-          <div style={{
-            fontFamily: "Georgia, serif", fontSize: "clamp(8rem, 20vw, 16rem)",
-            color: "var(--blue)", opacity: 0.07, lineHeight: 0.7,
-            userSelect: "none", marginBottom: "-1rem",
-          }}>
-            &ldquo;
-          </div>
-
-          <ChapterReveal>
-            <h2 style={{
+          {/* Review CTAs — below the tool rows */}
+          <div style={{ marginTop: "4rem", paddingTop: "3rem", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+            <h3 style={{
               fontFamily: "var(--font-bebas)",
-              fontSize: "clamp(3rem, 8vw, 7rem)",
+              fontSize: "clamp(2.5rem, 6vw, 5rem)",
               letterSpacing: "-0.01em", lineHeight: 0.9,
-              color: "#fff", marginBottom: "4rem",
+              color: "#fff", margin: 0, marginBottom: "1.5rem",
             }}>
-              {c.testimonials.section_title_line1}
-              <br />
-              <span style={{ color: "var(--blue)" }}>{c.testimonials.section_title_accent}</span>
-            </h2>
-          </ChapterReveal>
-
-          <div className="testimonials-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1rem" }}>
-            {c.testimonials.items.map((t: Testimonial, i: number) => {
-              const rots = [-1.2, 0.6, -0.4, 1, -0.8, 0.5, -1, 0.7];
-              return (
-                <StaggerReveal key={t.name} index={i}>
-                  <div className="quote-card" style={{ transform: `rotate(${rots[i] ?? 0}deg)` }}>
-                    <div style={{ display: "flex", gap: "2px", marginBottom: "1rem" }}>
-                      {Array.from({ length: t.stars }).map((_, s) => (
-                        <Star key={s} size={10} fill="var(--blue)" color="var(--blue)" />
-                      ))}
-                    </div>
-                    <p style={{ fontSize: "0.82rem", lineHeight: 1.75, color: "#aaa", marginBottom: "1.25rem", fontStyle: "italic" }}>
-                      &ldquo;{t.text}&rdquo;
-                    </p>
-                    <div style={{ borderTop: "1px solid #1a1a1a", paddingTop: "0.875rem" }}>
-                      <p style={{ fontWeight: 600, fontSize: "0.82rem", color: "#fff" }}>{t.name}</p>
-                      <p style={{ fontSize: "0.7rem", color: "#444", marginTop: "0.1rem" }}>{t.city}</p>
-                    </div>
-                  </div>
-                </StaggerReveal>
-              );
-            })}
-          </div>
-
-          <ChapterReveal delay={300}>
-            <div style={{ display: "flex", alignItems: "center", gap: "2rem", marginTop: "3.5rem", flexWrap: "wrap" }}>
-              <span style={{ fontSize: "0.75rem", color: "#444", letterSpacing: "0.1em" }}>
-                <span style={{ color: "var(--blue)", fontWeight: 600 }}>{c.testimonials.rating_google}</span>
-                {" "}su Google
-              </span>
-              <span style={{ width: 1, height: 16, background: "#1a1a1a" }} />
-              <a href={c.testimonials.trustpilot_url} target="_blank" rel="noopener noreferrer"
-                className="footer-contact-link" style={{ fontSize: "0.75rem", letterSpacing: "0.1em" }}>
-                <span style={{ color: "var(--blue)", fontWeight: 600 }}>{c.testimonials.rating_trustpilot}</span>
-                {" "}su TrustPilot ↗
+              Leggi le nostre<br />
+              <span style={{ color: "var(--blue)" }}>recensioni su</span>
+            </h3>
+            <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+              <a
+                href="https://maps.app.goo.gl/5svurwM9AqGeFuBJ9"
+                target="_blank" rel="noopener noreferrer"
+                className="neon-cta"
+              >
+                Google Maps <ArrowUpRight size={15} />
+              </a>
+              <a
+                href="https://it.trustpilot.com/review/addioalcelibato-barcellona.it?utm_medium=trustbox&utm_source=MicroReviewCount"
+                target="_blank" rel="noopener noreferrer"
+                className="neon-cta"
+              >
+                TrustPilot <ArrowUpRight size={15} />
               </a>
             </div>
-          </ChapterReveal>
+          </div>
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          FOOTER
+          NOTTURNE — header + 4 featured tall cards grid
       ════════════════════════════════════════════════════════════════ */}
-      <footer style={{ background: "#000", borderTop: "1px solid #0e0e0e", padding: "5rem 6vw 9rem" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr auto auto", gap: "4rem" }}>
+      <section style={{ background: "#000" }}>
 
-            <div>
-              <div style={{ marginBottom: "1.25rem" }}>
-                <span style={{ display: "block", fontFamily: "var(--font-bebas)", fontSize: "1.5rem", letterSpacing: "0.15em", color: "var(--blue)" }}>
-                  {c.footer.logo_line1}
-                </span>
-                <span style={{ fontSize: "0.65rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#333" }}>
-                  {c.footer.logo_line2}
-                </span>
-              </div>
-              <p style={{ fontSize: "0.82rem", lineHeight: 1.75, color: "#aaa", maxWidth: "36ch" }}>
-                {c.footer.description}
-              </p>
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem", marginTop: "1.25rem" }}>
-                <a href={`https://wa.me/${c.site.whatsapp}`} target="_blank" rel="noopener noreferrer" className="footer-contact-link">
-                  <MessageCircle size={12} />{c.site.phone}
-                </a>
-                <a href={`mailto:${c.site.email}`} className="footer-contact-link">{c.site.email}</a>
-                <span style={{ fontSize: "0.78rem", color: "#555" }}>{c.site.address}</span>
-              </div>
-            </div>
+        {/* "Attività Top" header above grid */}
+        <div style={{ padding: "5rem 6vw" }}>
+          <h2 style={{
+            fontFamily: "var(--font-bebas)",
+            fontSize: "clamp(2rem, 5vw, 4rem)",
+            letterSpacing: "0.04em", lineHeight: 1,
+            color: "var(--blue)", margin: 0,
+          }}>
+            Attività Top
+          </h2>
+        </div>
 
-            <div>
-              <p style={{ fontSize: "0.6rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--blue)", marginBottom: "1.25rem", fontWeight: 600 }}>Attività</p>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.625rem" }}>
-                {c.footer.activity_links.map((l) => (
-                  <li key={l.href}><a href={l.href} className="footer-link">{l.label}</a></li>
-                ))}
-              </ul>
-            </div>
+        {/* 4 featured tall cards — flowparty style */}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gap: "2px",
+          background: "#111",
+        }} className="featured-grid">
+          {c.notturne.activities.slice(0, 4).map((act, i) => {
+            return (
+              <a
+                href={act.href}
+                key={act.name}
+                className="featured-card"
+                style={{
+                  backgroundImage: act.image ? `url(${act.image})` : undefined,
+                  backgroundColor: "#080808",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  padding: "2rem",
+                  minHeight: "540px",
+                  display: "flex",
+                  flexDirection: "column",
+                  textDecoration: "none",
+                  color: "inherit",
+                  position: "relative",
+                  overflow: "hidden",
+                }}
+              >
+                {/* Dark overlay for readability */}
+                <div style={{
+                  position: "absolute", inset: 0, zIndex: 0,
+                  background: "linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.82) 100%)",
+                }} />
 
-            <div>
-              <p style={{ fontSize: "0.6rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--blue)", marginBottom: "1.25rem", fontWeight: 600 }}>Contatti</p>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.625rem" }}>
-                {[
-                  { href: "/contattaci", label: "Contattaci", external: false },
-                  { href: `https://wa.me/${c.site.whatsapp}`, label: "WhatsApp", external: true },
-                  { href: `tel:${c.site.phone}`, label: c.site.phone, external: false },
-                ].map((l) => (
-                  <li key={l.href}>
-                    <a href={l.href} target={l.external ? "_blank" : undefined}
-                      rel={l.external ? "noopener noreferrer" : undefined} className="footer-link">
-                      {l.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+                {/* Content */}
+                <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", height: "100%" }}>
+                  {/* Top row */}
+                  <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
+                    <span style={{
+                      fontSize: "0.58rem", letterSpacing: "0.2em", textTransform: "uppercase",
+                      color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-jakarta)", fontWeight: 600,
+                    }}>
+                      Notturna
+                    </span>
+                    {act.tag && (
+                      <span style={{
+                        fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.18em",
+                        textTransform: "uppercase", padding: "0.22rem 0.65rem",
+                        border: "1px solid rgba(255,255,255,0.3)",
+                        borderRadius: "100px", color: "rgba(255,255,255,0.85)",
+                        background: "rgba(0,0,0,0.25)", backdropFilter: "blur(4px)",
+                      }}>
+                        {act.tag}
+                      </span>
+                    )}
+                  </div>
 
-          <div style={{ borderTop: "1px solid #0e0e0e", marginTop: "4rem", paddingTop: "1.5rem", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
-            <p style={{ fontSize: "0.72rem", color: "#333" }}>© {new Date().getFullYear()} {c.footer.copyright}</p>
-            <div style={{ display: "flex", gap: "1.5rem" }}>
-              {c.footer.legal_links.map((l) => (
-                <a key={l.href} href={l.href} className="footer-legal-link">{l.label}</a>
-              ))}
-            </div>
+                  {/* Spacer */}
+                  <div style={{ flex: 1 }} />
+
+                  {/* Bottom — big title + price + arrow */}
+                  <div>
+                    <h3 style={{
+                      fontFamily: "var(--font-bebas)",
+                      fontSize: "clamp(2rem, 3.2vw, 3.2rem)",
+                      letterSpacing: "0.02em",
+                      color: "#fff",
+                      lineHeight: 0.95,
+                      marginBottom: "1.25rem",
+                    }}>
+                      {act.name}
+                    </h3>
+                    <div style={{
+                      display: "flex", alignItems: "center", justifyContent: "space-between",
+                      borderTop: "1px solid rgba(255,255,255,0.2)",
+                      paddingTop: "1rem",
+                    }}>
+                      <span style={{ fontFamily: "var(--font-bebas)", fontSize: "2.2rem", color: "#fff", letterSpacing: "0.02em" }}>
+                        {act.price}
+                      </span>
+                      <ArrowUpRight size={18} style={{ color: "rgba(255,255,255,0.6)" }} />
+                    </div>
+                  </div>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+
+      </section>
+
+      {/* Wave: black → blue */}
+      <Wave from="#000" to="var(--blue)" flip />
+
+      {/* ════════════════════════════════════════════════════════════════
+          POMERIDIANE — BLUE bg, dark portrait cards
+      ════════════════════════════════════════════════════════════════ */}
+      <section style={{ background: "var(--blue)", padding: "5rem 0 6rem" }}>
+        <div style={{ padding: "0", maxWidth: "1580px", margin: "0 auto" }}>
+          <div style={{ marginBottom: "3rem", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
+            <h2 style={{
+              fontFamily: "var(--font-bebas)",
+              fontSize: "clamp(2rem, 5vw, 4rem)",
+              letterSpacing: "0.04em", lineHeight: 1,
+              color: "#000", margin: 0,
+            }}>
+              Altre Attività
+            </h2>
+            <a href={c.pomeridiane.cta_all_href} className="neon-cta">
+              Vedi tutti <ArrowUpRight size={15} />
+            </a>
           </div>
         </div>
-      </footer>
+
+        <DragCarousel>
+          {c.pomeridiane.activities.map((act, i) => (
+            <div key={act.name} style={{ paddingLeft: i === 0 ? "6vw" : 0, paddingRight: i === c.pomeridiane.activities.length - 1 ? "6vw" : 0 }}>
+              <PortraitCard {...act} onBlue />
+            </div>
+          ))}
+        </DragCarousel>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════
+          IL DOVERE — blue, before footer
+      ════════════════════════════════════════════════════════════════ */}
+      <section style={{
+        background: "var(--blue)",
+        padding: "8rem 6vw 6rem",
+        position: "relative",
+        overflow: "hidden",
+      }}>
+        {/* Squiggle SVG bottom-left */}
+        <svg viewBox="0 0 160 90" aria-hidden style={{
+          position: "absolute", bottom: "2.5rem", left: "5vw",
+          width: "clamp(80px, 10vw, 145px)", fill: "none",
+          stroke: "#000", strokeLinecap: "round",
+        }}>
+          <path d="M8,45 C30,5 55,85 80,45 C105,5 130,85 152,45" strokeWidth="9" />
+          <path d="M18,65 C40,25 65,82 90,55 C115,28 138,75 152,58" strokeWidth="5" opacity="0.45" />
+        </svg>
+
+        {/* Rotating stamp badge — right side */}
+        <div aria-hidden style={{
+          position: "absolute", right: "7vw", top: "50%", transform: "translateY(-50%)",
+          width: "clamp(180px, 22vw, 280px)", height: "clamp(180px, 22vw, 280px)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+        }}>
+          <svg viewBox="0 0 260 260" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", animation: "spin 18s linear infinite" }}>
+            <path id="stamp-ring" d="M130,14 a116,116 0 1,1 -0.01,0" fill="none" />
+            <text fontSize="17" fontFamily="var(--font-bebas)" fontWeight="700" letterSpacing="7" fill="#000">
+              <textPath href="#stamp-ring">ADDIO AL CELIBATO · BARCELLONA · DAL 2017 ·</textPath>
+            </text>
+          </svg>
+          <svg viewBox="0 0 260 260" style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}>
+            <circle cx="130" cy="130" r="90" fill="none" stroke="#000" strokeWidth="2" strokeDasharray="6 5" opacity="0.35" />
+          </svg>
+          <div style={{ textAlign: "center", lineHeight: 1 }}>
+            <span style={{ fontFamily: "var(--font-bebas)", fontSize: "clamp(2.2rem, 4.5vw, 4rem)", letterSpacing: "0.08em", color: "#000", display: "block" }}>PARTY</span>
+            <span style={{ fontSize: "0.55rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(0,0,0,0.45)", fontFamily: "var(--font-jakarta)", fontWeight: 700, display: "block", marginTop: "0.2rem" }}>BCN</span>
+          </div>
+        </div>
+
+        <div style={{margin: "0 auto", position: "relative", zIndex: 2 }}>
+          <h2 style={{
+            fontFamily: "var(--font-bebas)", fontSize: "clamp(4rem, 12vw, 11rem)",
+            letterSpacing: "-0.025em", lineHeight: 0.88, color: "#000",
+            marginBottom: "3.5rem", maxWidth: "65%",
+          }}>
+            IL DOVERE DI<br />OGNI BUON<br />AMICO
+          </h2>
+          <p style={{
+            fontSize: "clamp(0.88rem, 1.5vw, 1.05rem)", lineHeight: 1.85,
+            color: "rgba(0,0,0,0.6)", textTransform: "uppercase", letterSpacing: "0.025em",
+            maxWidth: "55ch", marginBottom: "2.5rem",
+          }}>
+            {c.perche.highlight_text}
+          </p>
+          <a href="/contattaci" className="neon-cta">
+            PREVENTIVO GRATIS <ArrowUpRight size={18} />
+          </a>
+        </div>
+      </section>
+
+      {/* Wave: blue → black */}
+      <Wave from="var(--blue)" to="#000" />
+
+      <SiteFooter />
     </div>
   );
 }

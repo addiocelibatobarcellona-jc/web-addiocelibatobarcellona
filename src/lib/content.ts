@@ -17,6 +17,7 @@ export interface Activity {
   price: string;
   href: string;
   tag: string | null;
+  image?: string;
 }
 
 export interface Stat {
@@ -38,15 +39,20 @@ export interface Testimonial {
   text: string;
 }
 
+export interface ActivityCategory {
+  headline: string;
+  headline_accent: string;
+  meta_title: string;
+  meta_desc: string;
+  seo_text: string;
+}
+
 export interface SiteContent {
   site: {
-    name: string;
-    tagline: string;
     email: string;
     phone: string;
     whatsapp: string;
     address: string;
-    founded: string;
   };
   navbar: {
     logo_line1: string;
@@ -55,60 +61,28 @@ export interface SiteContent {
     links: NavLink[];
   };
   hero: {
-    badge: string;
     headline_line1: string;
-    headline_line2: string;
     headline_accent: string;
     subheadline: string;
     description: string;
-    description_strong: string;
-    cta_primary: string;
-    cta_secondary: string;
-    trust_badges: string[];
   };
-  marquee: string[];
-  stats: Stat[];
+  activities: {
+    all: ActivityCategory;
+    night: ActivityCategory;
+    daytime: ActivityCategory;
+  };
   notturne: {
-    section_label: string;
-    section_title_line1: string;
-    section_title_accent: string;
-    cta_all: string;
-    cta_all_href: string;
     activities: Activity[];
   };
   pomeridiane: {
-    section_label: string;
-    section_title_line1: string;
-    section_title_accent: string;
-    cta_all: string;
     cta_all_href: string;
     activities: Activity[];
   };
   perche: {
-    section_label: string;
     section_title_line1: string;
     section_title_accent: string;
     highlight_text: string;
-    highlight_cta: string;
     items: PercheItem[];
-  };
-  testimonials: {
-    section_label: string;
-    section_title_line1: string;
-    section_title_accent: string;
-    items: Testimonial[];
-    rating_google: string;
-    rating_trustpilot: string;
-    trustpilot_url: string;
-  };
-  cta_banner: {
-    label: string;
-    headline_line1: string;
-    headline_accent: string;
-    description: string;
-    description_strong: string;
-    cta_primary: string;
-    cta_secondary: string;
   };
   footer: {
     logo_line1: string;

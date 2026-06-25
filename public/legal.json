@@ -1,0 +1,11 @@
+{
+  "cookie_banner": {
+    "title": "a tua privacy ci interessa",
+    "description": "In questo sito vengono utilizzati dei cookie. Clicca su \"Accetta tutto\" se sei d'accordo, o clicca su \"Gestisci\" per impostare le preferenze sui cookie.",
+    "policy_label": "Cookie Policy",
+    "policy_href": "/addio-celibato-barcellona-cookie-policy",
+    "btn_configure": "Configura",
+    "btn_reject": "Rifiuta Tutto",
+    "btn_accept": "Accetta Tutto"
+  }
+}
