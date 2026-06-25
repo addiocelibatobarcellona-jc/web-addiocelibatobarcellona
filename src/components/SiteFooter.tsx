@@ -24,10 +24,8 @@ export default function SiteFooter() {
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem", marginTop: "1.25rem" }}>
               <a href={`https://wa.me/${c.site.whatsapp}`} target="_blank" rel="noopener noreferrer" className="footer-contact-link">
-                <MessageCircle size={12} />{c.site.phone}
+                <MessageCircle size={12} /> WhatsApp
               </a>
-              <a href={`mailto:${c.site.email}`} className="footer-contact-link">{c.site.email}</a>
-              <span style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.6)", fontWeight: 500 }}>{c.site.address}</span>
             </div>
           </div>
 
