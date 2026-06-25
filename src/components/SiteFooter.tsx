@@ -1,4 +1,3 @@
-import { MessageCircle } from "lucide-react";
 import { getContent } from "@/lib/content";
 import CookiePrefsReset from "@/components/CookiePrefsReset";
 
@@ -22,11 +21,6 @@ export default function SiteFooter() {
             <p style={{ fontSize: "0.82rem", lineHeight: 1.75, color: "#fff", fontWeight: 500, maxWidth: "36ch" }}>
               {c.footer.description}
             </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem", marginTop: "1.25rem" }}>
-              <a href={`https://wa.me/${c.site.whatsapp}`} target="_blank" rel="noopener noreferrer" className="footer-contact-link">
-                <MessageCircle size={12} /> WhatsApp
-              </a>
-            </div>
           </div>
 
           <div>
