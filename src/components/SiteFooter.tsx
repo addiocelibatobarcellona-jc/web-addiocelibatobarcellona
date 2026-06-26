@@ -9,7 +9,7 @@ export default function SiteFooter() {
       <div>
         <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "4rem" }} className="footer-grid">
 
-          <div>
+          <div className="footer-logo-col">
             <div style={{ marginBottom: "1.25rem" }}>
               <span style={{ display: "block", fontFamily: "var(--font-bebas)", fontSize: "1.5rem", letterSpacing: "0.15em", color: "var(--blue)" }}>
                 {c.footer.logo_line1}

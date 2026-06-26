@@ -289,8 +289,8 @@ nav[aria-label="Navigazione principale"] {
 /* ── Footer responsive ── */
 @media (max-width: 860px) {
   .footer-grid { grid-template-columns: 1fr !important; gap: 0 !important; }
-  .footer-grid > div:first-child { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid #1a1a1a; }
-  .footer-links-row { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 2rem !important; }
+  .footer-links-row { order: 1 !important; display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 2rem !important; margin-bottom: 0 !important; }
+  .footer-logo-col { order: 2 !important; margin-top: 2.5rem !important; padding-top: 2.5rem !important; border-top: 1px solid #1a1a1a !important; }
 }
 
 
