@@ -47,6 +47,9 @@ body {
 .featured-card:hover { opacity: 0.88; transform: translateY(-4px); }
 
 /* Mobile stack */
+@media (max-width: 860px) {
+  .featured-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
 @media (max-width: 520px) {
   .featured-grid { grid-template-columns: 1fr !important; }
 }
