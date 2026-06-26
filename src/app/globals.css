@@ -33,6 +33,8 @@ body {
   .nav-links { display: none !important; }
   .nav-cta-label { display: none; }
   .nav-burger { display: flex !important; }
+  .nav-logo-line1 { font-size: 0.72rem !important; letter-spacing: 0.04em !important; }
+  .nav-logo-line2 { display: none !important; }
 }
 @media (min-width: 768px) {
   .nav-burger { display: none !important; }

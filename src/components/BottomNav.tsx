@@ -71,17 +71,17 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
         }}
       >
         {/* Logo */}
-        <a href="/" style={{ display: "flex", flexDirection: "column", lineHeight: 1, textDecoration: "none" }}>
-          <span style={{ fontFamily: "var(--font-bebas)", fontSize: "0.95rem", letterSpacing: "0.14em", color: "var(--blue)" }}>
+        <a href="/" style={{ display: "flex", flexDirection: "column", lineHeight: 1, textDecoration: "none", flexShrink: 0 }}>
+          <span className="nav-logo-line1" style={{ fontFamily: "var(--font-bebas)", fontSize: "0.95rem", letterSpacing: "0.14em", color: "var(--blue)" }}>
             {logoLine1}
           </span>
-          <span style={{ fontFamily: "var(--font-bebas)", fontSize: "0.58rem", letterSpacing: "0.28em", color: "#555", marginTop: "-1px" }}>
+          <span className="nav-logo-line2" style={{ fontFamily: "var(--font-bebas)", fontSize: "0.58rem", letterSpacing: "0.28em", color: "#555", marginTop: "-1px" }}>
             {logoLine2}
           </span>
         </a>
 
-        {/* Flex spacer — always pushes CTA+burger to the right */}
-        <div style={{ flex: 1 }} />
+        {/* Flex spacer — always pushes links+CTA+burger to the right */}
+        <div style={{ flex: 1, minWidth: "0.5rem" }} />
 
         {/* Desktop links — hidden on mobile via CSS class */}
         <div className="nav-links" style={{ display: "flex", alignItems: "center", gap: "0.125rem", marginRight: "0.75rem" }}>
