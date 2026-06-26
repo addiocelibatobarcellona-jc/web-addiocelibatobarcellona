@@ -490,7 +490,7 @@ export default function HomePage() {
       ════════════════════════════════════════════════════════════════ */}
       <section style={{ background: "#000" }}>
 
-        {/* "Attività Top" header above grid */}
+        {/* "Il Nostro Catalogo" header above grid */}
         <div style={{ padding: "5rem 6vw" }}>
           <h2 style={{
             fontFamily: "var(--font-bebas)",
@@ -498,14 +498,14 @@ export default function HomePage() {
             letterSpacing: "0.04em", lineHeight: 1,
             color: "var(--blue)", margin: 0,
           }}>
-            Attività Top
+            Il Nostro Catalogo
           </h2>
         </div>
 
-        {/* 4 featured tall cards — flowparty style */}
+        {/* 4 featured cards — 2×2 grid */}
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
+          gridTemplateColumns: "repeat(2, 1fr)",
           gap: "2px",
           background: "#111",
         }} className="featured-grid">
