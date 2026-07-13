@@ -227,7 +227,7 @@ export default function HomePage() {
       <section
         className="hero-section-pad"
         style={{
-          minHeight: "100svh",
+          minHeight: "80svh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-end",
@@ -251,33 +251,6 @@ export default function HomePage() {
           position: "absolute", inset: 0,
           background: "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.82) 100%)",
         }} />
-
-        {/* Badge top-left */}
-        <div className="hero-badge" style={{
-          position: "absolute", top: "calc(64px + 2rem)", left: "6vw",
-          width: "clamp(100px, 12vw, 180px)",
-          height: "clamp(100px, 12vw, 180px)",
-          animation: "badge-in 0.8s cubic-bezier(0.33,1,0.68,1) 0.4s both",
-          zIndex: 2,
-        }}>
-          <svg viewBox="0 0 260 260" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", animation: "spin 18s linear infinite" }}>
-            <defs>
-              <path id="badge-text-path" d="M130,49 A81,81 0 1,1 130,211 A81,81 0 1,1 130,49" />
-            </defs>
-            <path d={SCALLOP_PATH} fill="rgba(255,255,255,0.9)" />
-            <text fontFamily="var(--font-bebas)" fontSize="9.5" fill="#000" letterSpacing="4.8">
-              <textPath href="#badge-text-path" startOffset="0%">
-                {"PARTY A BARCELLONA · DAL 2017 · PARTY A BARCELLONA · DAL 2017 · "}
-              </textPath>
-            </text>
-          </svg>
-          <img
-            src="https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/logoaddioalcelibatoblancohori2-1.png"
-            alt="logo"
-            fetchPriority="high"
-            style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "45%", filter: "invert(1)" }}
-          />
-        </div>
 
         {/* Main content */}
         <div style={{ position: "relative", zIndex: 2 }}>

@@ -36,12 +36,12 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
           position: "fixed",
           top: 0, left: 0, right: 0,
           zIndex: 50,
-          height: "64px",
-          background: scrolled ? "rgba(5,5,5,0.95)" : "rgba(5,5,5,0.75)",
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
-          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.07)" : "1px solid transparent",
-          transition: "background 0.3s, border-color 0.3s",
+          height: scrolled ? "60px" : "80px",
+          background: scrolled ? "rgba(40,85,230,0.97)" : "rgba(58,117,255,0.82)",
+          backdropFilter: "blur(16px)",
+          WebkitBackdropFilter: "blur(16px)",
+          borderBottom: "none",
+          transition: "height 0.35s cubic-bezier(0.33,1,0.68,1), background 0.35s",
           display: "flex",
           alignItems: "center",
           padding: "0 2vw",
@@ -79,14 +79,15 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
               key={l.href}
               href={l.href}
               style={{
-                fontSize: "0.78rem", fontWeight: 500, color: "rgba(255,255,255,0.65)",
+                fontSize: "0.78rem", fontWeight: 500, color: "rgba(255,255,255,0.85)",
                 padding: "0.45rem 0.85rem", borderRadius: "6px",
+                border: 0,
                 transition: "color 0.15s, background 0.15s",
                 whiteSpace: "nowrap", fontFamily: "var(--font-jakarta)",
                 textDecoration: "none",
               }}
-              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.color = "#fff"; el.style.background = "rgba(255,255,255,0.08)"; }}
-              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.color = "rgba(255,255,255,0.65)"; el.style.background = "transparent"; }}
+              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.color = "#fff"; el.style.background = "rgba(255,255,255,0.15)"; }}
+              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.color = "rgba(255,255,255,0.85)"; el.style.background = "transparent"; }}
             >
               {l.label}
             </a>
@@ -103,16 +104,17 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
           rel="noopener noreferrer"
           className="nav-cta"
           style={{
-            background: "var(--blue)", color: "#fff",
+            background: "#fff", color: "var(--blue)",
             borderRadius: "6px",
+            border: 0,
             padding: "0.55rem 1.2rem",
             fontFamily: "var(--font-bebas)", fontSize: "0.82rem", letterSpacing: "0.1em",
             display: "flex", alignItems: "center", gap: "0.4rem",
             flexShrink: 0, textDecoration: "none",
-            transition: "background 0.2s, transform 0.15s",
+            transition: "opacity 0.15s",
           }}
-          onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = "#6b96ff"; }}
-          onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = "var(--blue)"; }}
+          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.opacity = "0.88"; }}
+          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.opacity = "1"; }}
         >
           <MessageCircle size={13} />
           <span className="nav-cta-label">{ctaLabel}</span>
