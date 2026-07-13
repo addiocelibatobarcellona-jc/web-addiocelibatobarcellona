@@ -59,7 +59,7 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
           transition: "height 0.3s ease, background 0.3s ease",
           display: "flex",
           alignItems: "center",
-          padding: "0 2vw",
+          padding: "0 6vw",
           gap: "1rem",
         }}
       >
@@ -69,8 +69,8 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
             className={`nav-logo-wrapper${scrolled ? " nav-logo-scrolled" : ""}`}
             style={{
               position: "relative",
-              width: scrolled ? 52 : 84,
-              height: scrolled ? 52 : 84,
+              width: scrolled ? 52 : 68,
+              height: scrolled ? 52 : 68,
               transition: "width 0.35s ease, height 0.35s ease",
             }}
           >

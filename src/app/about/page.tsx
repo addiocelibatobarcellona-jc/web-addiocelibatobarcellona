@@ -121,7 +121,7 @@ export default function ChiSiamo() {
 
       {/* ── CHI SIAMO TEXT ── */}
       <section style={{ padding: "6rem 6vw 7rem" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "start" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "start" }}>
           <div>
             <h2 style={{
               fontFamily: "var(--font-bebas)",
@@ -182,7 +182,6 @@ export default function ChiSiamo() {
 
       {/* ── PERCHÉ NOI ── */}
       <section style={{ background: "var(--blue)", padding: "6rem 6vw 7rem" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <h2 style={{
             fontFamily: "var(--font-bebas)",
             fontSize: "clamp(2rem, 4vw, 3.5rem)",
@@ -239,14 +238,12 @@ export default function ChiSiamo() {
               </div>
             ))}
           </div>
-        </div>
       </section>
 
       <Wave from="var(--blue)" to="#000" />
 
       {/* ── E BARCELLONA SIA ── */}
       <section style={{ padding: "6rem 6vw 7rem" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <h2 style={{
             fontFamily: "var(--font-bebas)",
             fontSize: "clamp(2.5rem, 6vw, 5rem)",
@@ -306,7 +303,6 @@ export default function ChiSiamo() {
               ))}
             </div>
           </div>
-        </div>
       </section>
 
       {/* ── CTA BANNER ── */}

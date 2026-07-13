@@ -179,16 +179,6 @@ const WHY_US = [
 
 // ── Components ────────────────────────────────────────────────────────────────
 
-function Wave({ from, to }: { from: string; to: string }) {
-  return (
-    <div style={{ background: from, lineHeight: 0 }}>
-      <svg viewBox="0 0 1440 70" height="60" style={{ display: "block", width: "100%" }} preserveAspectRatio="none">
-        <path d="M0,10 C200,70 400,0 600,40 C800,70 1000,10 1200,50 C1320,70 1380,30 1440,20 L1440,70 L0,70 Z" fill={to} />
-      </svg>
-    </div>
-  );
-}
-
 function ActivityCard({
   name, desc, price, tag, image,
 }: { name: string; desc: string; price: string; tag: string | null; image: string | null }) {
@@ -286,7 +276,7 @@ export default function NubilatoPage() {
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section style={{
-        minHeight: "80svh",
+        minHeight: "60svh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
@@ -336,7 +326,6 @@ export default function NubilatoPage() {
 
       {/* ── INTRO + WHY US ────────────────────────────────────────────────── */}
       <section style={{ padding: "5rem 6vw 5rem", background: "#000" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
@@ -425,14 +414,10 @@ export default function NubilatoPage() {
               ))}
             </div>
           </div>
-        </div>
       </section>
-
-      <Wave from="#000" to="#000" />
 
       {/* ── ACTIVITIES GRID ───────────────────────────────────────────────── */}
       <section style={{ padding: "0 6vw 6rem" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: "2rem", flexWrap: "wrap", gap: "1rem" }}>
             <h2 style={{
               fontFamily: "var(--font-bebas)",
@@ -460,8 +445,6 @@ export default function NubilatoPage() {
               <ActivityCard key={act.name} {...act} />
             ))}
           </div>
-
-        </div>
       </section>
 
       {/* ── CONTACT STRIP ─────────────────────────────────────────────────── */}

@@ -236,8 +236,6 @@ export default async function ActivityDetailPage({ params }: { params: Promise<P
       {/* ── MAIN CONTENT ──────────────────────────────────────────────────── */}
       <section style={{ padding: "5rem 6vw 6rem" }}>
         <div style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
           display: "grid",
           gridTemplateColumns: "1fr 360px",
           gap: "5rem",
@@ -393,8 +391,6 @@ export default async function ActivityDetailPage({ params }: { params: Promise<P
       {activity.images.length > 0 && (
         <section style={{
           padding: "0 6vw 6rem",
-          maxWidth: "1200px",
-          margin: "0 auto",
         }}>
           <p style={{
             fontSize: "0.65rem",

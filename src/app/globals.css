@@ -85,7 +85,7 @@ body {
 
 /* ── Nav logo: bigger cap on desktop ── */
 @media (min-width: 861px) {
-  .nav-logo-wrapper:not(.nav-logo-scrolled) { width: 116px !important; height: 116px !important; }
+  .nav-logo-wrapper:not(.nav-logo-scrolled) { width: 72px !important; height: 72px !important; }
 }
 
 /* ── Featured card — 4-col flowparty grid ── */

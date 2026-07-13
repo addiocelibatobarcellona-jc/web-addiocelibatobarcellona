@@ -136,7 +136,7 @@ export default function HomePage() {
       <section
         className="hero-section-pad"
         style={{
-          minHeight: "80svh",
+          minHeight: "60svh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-end",
@@ -224,8 +224,7 @@ export default function HomePage() {
           INTRO + PERCHÉ NOI — 2 col, same structure as nubilato
       ════════════════════════════════════════════════════════════════ */}
       <section style={{ padding: "5rem 6vw 5rem", background: "#000" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{
+        <div style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
             gap: "4rem",
@@ -319,23 +318,22 @@ export default function HomePage() {
               })}
             </div>
           </div>
-        </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
           TUTTE LE ATTIVITÀ — unified 4-col grid
       ════════════════════════════════════════════════════════════════ */}
       <section style={{ background: "#000", padding: "5rem 6vw 6rem" }}>
-        <div style={{ marginBottom: "3rem" }}>
-          <h2 style={{ fontFamily: "var(--font-bebas)", fontSize: "clamp(2rem, 5vw, 4rem)", letterSpacing: "0.04em", lineHeight: 1, color: "#fff", margin: 0 }}>
-            TUTTE LE ATTIVITÀ
-          </h2>
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1px" }} className="nubilato-grid">
-          {[...c.notturne.activities, ...c.pomeridiane.activities].map((act) => (
-            <GridCard key={act.name} name={act.name} desc={act.desc} price={act.price} href={act.href} tag={act.tag} image={act.image} />
-          ))}
-        </div>
+          <div style={{ marginBottom: "3rem" }}>
+            <h2 style={{ fontFamily: "var(--font-bebas)", fontSize: "clamp(2rem, 5vw, 4rem)", letterSpacing: "0.04em", lineHeight: 1, color: "#fff", margin: 0 }}>
+              TUTTE LE ATTIVITÀ
+            </h2>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1px" }} className="nubilato-grid">
+            {[...c.notturne.activities, ...c.pomeridiane.activities].map((act) => (
+              <GridCard key={act.name} name={act.name} desc={act.desc} price={act.price} href={act.href} tag={act.tag} image={act.image} />
+            ))}
+          </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
@@ -349,9 +347,10 @@ export default function HomePage() {
           alignItems: "center",
           position: "relative",
           overflow: "hidden",
-          minHeight: "420px",
+          minHeight: "560px",
+          marginBottom: "5rem",
           textDecoration: "none",
-          background: `linear-gradient(to right, rgba(0,0,0,0.88) 40%, rgba(0,0,0,0.45) 100%), url(https://addioalcelibato-barcellona.it/wp-content/uploads/2026/02/addio-nubilato-home-page-scaled.jpg) center/cover no-repeat`,
+          background: `linear-gradient(to right, rgba(0,0,0,0.55) 35%, rgba(0,0,0,0.1) 100%), url(https://addioalcelibato-barcellona.it/wp-content/uploads/2026/02/addio-nubilato-home-page-scaled.jpg) center/cover no-repeat`,
         }}
       >
         <div style={{
