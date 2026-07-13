@@ -37,7 +37,7 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
           top: 0, left: 0, right: 0,
           zIndex: 50,
           height: scrolled ? "64px" : "80px",
-          background: scrolled ? "rgba(40,85,230,0.97)" : "transparent",
+          background: scrolled ? "var(--blue)" : "transparent",
           backdropFilter: scrolled ? "blur(16px)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
           borderBottom: "none",
