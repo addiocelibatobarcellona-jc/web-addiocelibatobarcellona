@@ -29,14 +29,12 @@ body {
 .hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
 
 /* ── Nav responsive ── */
-@media (max-width: 767px) {
+@media (max-width: 860px) {
   .nav-links { display: none !important; }
   .nav-cta-label { display: none; }
   .nav-burger { display: flex !important; }
-  .nav-logo-line1 { font-size: 0.72rem !important; letter-spacing: 0.04em !important; }
-  .nav-logo-line2 { display: none !important; }
 }
-@media (min-width: 768px) {
+@media (min-width: 861px) {
   .nav-burger { display: none !important; }
 }
 
@@ -229,9 +227,6 @@ body {
   50%       { border-color: rgba(58,117,255,0.5); }
 }
 
-nav[aria-label="Navigazione principale"] {
-  animation: pulse-border 4s ease-in-out infinite;
-}
 
 /* ── Back to home link — desktop only ── */
 .back-home-link {

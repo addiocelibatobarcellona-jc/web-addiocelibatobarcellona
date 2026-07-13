@@ -222,12 +222,11 @@ export default function HomePage() {
       />
 
       {/* ════════════════════════════════════════════════════════════════
-          HERO — BRIGHT BLUE background, massive white type
+          HERO — image background, tagline prominent
       ════════════════════════════════════════════════════════════════ */}
       <section
         className="hero-section-pad"
         style={{
-          background: "var(--blue)",
           minHeight: "100svh",
           display: "flex",
           flexDirection: "column",
@@ -237,154 +236,96 @@ export default function HomePage() {
           overflow: "hidden",
         }}
       >
-        {/* LED grid in blue — subtle on blue bg */}
-        <div style={{ position: "absolute", inset: 0, opacity: 0.12 }}>
-          <LEDGrid />
-        </div>
+        {/* Background image */}
+        <Image
+          src="https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/ADDIO-SPICY-MIX-S.jpg"
+          alt="Addio al Celibato Barcellona"
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: "cover", objectPosition: "center 30%" }}
+        />
 
-        {/* Decorative SVG squiggles */}
-        <svg
-          viewBox="0 0 300 200"
-          style={{
-            position: "absolute", top: "8%", right: "3%",
-            width: "clamp(120px, 18vw, 260px)", opacity: 0.25, pointerEvents: "none",
-          }}
-          fill="none"
-        >
-          <path d="M20,100 C60,20 140,20 160,80 C180,140 260,140 280,80"
-            stroke="#000" strokeWidth="14" strokeLinecap="round" />
-          <path d="M10,140 C50,60 130,60 150,120 C170,180 250,180 270,120"
-            stroke="#000" strokeWidth="8" strokeLinecap="round" opacity="0.5" />
-        </svg>
-        <svg
-          viewBox="0 0 200 250"
-          style={{
-            position: "absolute", bottom: "15%", left: "2%",
-            width: "clamp(80px, 12vw, 180px)", opacity: 0.2, pointerEvents: "none",
-          }}
-          fill="none"
-        >
-          <path d="M30,20 C20,80 80,120 60,180 C40,240 100,220 120,200"
-            stroke="#000" strokeWidth="16" strokeLinecap="round" />
-          <path d="M70,30 C60,90 120,130 100,190 C80,250 140,230 160,210"
-            stroke="#000" strokeWidth="8" strokeLinecap="round" opacity="0.4" />
-        </svg>
+        {/* Dark gradient overlay */}
+        <div style={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.82) 100%)",
+        }} />
 
-        {/* Bottle-cap badge — spinning cap, static logo */}
+        {/* Badge top-left */}
         <div className="hero-badge" style={{
-          position: "absolute", top: "6%", left: "6vw",
-          width: "clamp(160px, 18vw, 240px)",
-          height: "clamp(160px, 18vw, 240px)",
+          position: "absolute", top: "calc(64px + 2rem)", left: "6vw",
+          width: "clamp(100px, 12vw, 180px)",
+          height: "clamp(100px, 12vw, 180px)",
           animation: "badge-in 0.8s cubic-bezier(0.33,1,0.68,1) 0.4s both",
+          zIndex: 2,
         }}>
-          {/* Spinning scalloped cap + circular text */}
-          <svg
-            viewBox="0 0 260 260"
-            style={{
-              position: "absolute", inset: 0, width: "100%", height: "100%",
-              animation: "spin 18s linear infinite",
-            }}
-          >
+          <svg viewBox="0 0 260 260" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", animation: "spin 18s linear infinite" }}>
             <defs>
-              {/* Circle path for text — starts at top (12 o'clock), clockwise */}
               <path id="badge-text-path" d="M130,49 A81,81 0 1,1 130,211 A81,81 0 1,1 130,49" />
             </defs>
-            {/* Cap fill */}
-            <path d={SCALLOP_PATH} fill="#000" />
-            {/* Circular text */}
-            <text
-              fontFamily="var(--font-bebas)"
-              fontSize="9.5"
-              fill="#fff"
-              letterSpacing="4.8"
-            >
+            <path d={SCALLOP_PATH} fill="rgba(255,255,255,0.9)" />
+            <text fontFamily="var(--font-bebas)" fontSize="9.5" fill="#000" letterSpacing="4.8">
               <textPath href="#badge-text-path" startOffset="0%">
                 {"PARTY A BARCELLONA · DAL 2017 · PARTY A BARCELLONA · DAL 2017 · "}
               </textPath>
             </text>
           </svg>
-
-          {/* Static logo centered */}
           <img
             src="https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/logoaddioalcelibatoblancohori2-1.png"
-            alt="Addio al Celibato Barcellona"
+            alt="logo"
             fetchPriority="high"
-            style={{
-              position: "absolute",
-              top: "50%", left: "50%",
-              transform: "translate(-50%, -50%)",
-              width: "45%",
-              height: "auto",
-              pointerEvents: "none",
-            }}
+            style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "45%", filter: "invert(1)" }}
           />
         </div>
 
         {/* Main content */}
-        <div style={{ position: "relative", zIndex: 2, paddingTop: "12rem" }}>
+        <div style={{ position: "relative", zIndex: 2 }}>
 
-          {/* H1 — full SEO title, two visual sizes inside one element */}
-          <h1 style={{ margin: 0, animation: "hero-in 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s both" }}>
-            {/* "ADDIO AL CELIBATO A" — smaller line */}
+          {/* H1 — SEO title */}
+          <h1 style={{ margin: "0 0 1.5rem", animation: "hero-in 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s both" }}>
             <span style={{
               display: "block",
               fontFamily: "var(--font-bebas)",
-              fontSize: "clamp(1.2rem, 3.5vw, 2.8rem)",
-              letterSpacing: "0.12em",
-              color: "rgba(0,0,0,0.5)",
-              lineHeight: 1.1,
-              marginBottom: "-0.05em",
-            }}>
-              {c.hero.headline_line1} A
-            </span>
-            {/* BARCELLONA — massive */}
-            <span style={{
-              display: "block",
-              fontFamily: "var(--font-bebas)",
-              fontSize: "clamp(2.5rem, 18vw, 19rem)",
-              letterSpacing: "-0.025em",
-              lineHeight: 0.85,
+              fontSize: "clamp(2.5rem, 7vw, 7rem)",
+              letterSpacing: "-0.02em",
+              lineHeight: 0.9,
               color: "#fff",
             }}>
-              BARCELLONA
+              {c.hero.headline_line1}
+            </span>
+            <span style={{
+              display: "block",
+              fontFamily: "var(--font-bebas)",
+              fontSize: "clamp(2.5rem, 7vw, 7rem)",
+              letterSpacing: "-0.02em",
+              lineHeight: 0.9,
+              color: "var(--blue)",
+            }}>
+              A BARCELLONA
             </span>
           </h1>
 
-          {/* Divider */}
-          <div style={{
-            display: "flex", alignItems: "center", gap: "2rem",
-            margin: "2rem 0",
-            animation: "hero-in 0.9s cubic-bezier(0.16,1,0.3,1) 0.3s both",
+          {/* Tagline — prominent */}
+          <p style={{
+            fontSize: "clamp(1.05rem, 2vw, 1.35rem)",
+            lineHeight: 1.7,
+            color: "rgba(255,255,255,0.9)",
+            maxWidth: "52ch",
+            fontWeight: 400,
+            marginBottom: "2.5rem",
+            animation: "hero-in 0.9s cubic-bezier(0.16,1,0.3,1) 0.25s both",
           }}>
-            <div style={{ height: 1, flex: 1, background: "rgba(0,0,0,0.2)" }} />
-            <p style={{
-              fontFamily: "var(--font-jakarta)", fontStyle: "italic", fontWeight: 300,
-              fontSize: "clamp(1rem, 2.5vw, 1.6rem)",
-              color: "rgba(0,0,0,0.6)", whiteSpace: "nowrap",
-            }}>
-              — {c.hero.headline_accent}
-            </p>
-            <div style={{ height: 1, flex: 1, background: "rgba(0,0,0,0.2)" }} />
-          </div>
+            Alla ricerca di idee per un Addio al Celibato a Barcellona unico? Sei nel posto giusto.{" "}
+            <span style={{ color: "rgba(255,255,255,0.6)" }}>
+              Siamo italiani, viviamo a Barcellona e conosciamo la città meglio di qualsiasi altra agenzia.
+            </span>
+          </p>
 
-          {/* Subheadline + CTA */}
-          <div style={{
-            display: "flex", alignItems: "flex-end", justifyContent: "space-between",
-            gap: "3rem", flexWrap: "wrap",
-            animation: "hero-in 0.9s cubic-bezier(0.16,1,0.3,1) 0.45s both",
-          }}>
-            <p style={{
-              fontSize: "clamp(1rem, 1.8vw, 1.2rem)",
-              lineHeight: 1.8,
-              color: "rgba(0,0,0,0.75)",
-              maxWidth: "44ch",
-              fontWeight: 400,
-            }}>
-              {c.hero.subheadline} {c.hero.description}
-            </p>
-
+          {/* CTA */}
+          <div style={{ animation: "hero-in 0.9s cubic-bezier(0.16,1,0.3,1) 0.4s both" }}>
             <MagneticButton
-              href="/contact"
+              href="/addio-al-celibato-barcellona-contatti"
               className="neon-cta"
               style={{ flexShrink: 0 }}
             >
@@ -394,8 +335,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Wave: blue → black */}
-      <Wave from="var(--blue)" to="#000" />
+      {/* thin separator — both sections are dark */}
+      <div style={{ height: "1px", background: "rgba(255,255,255,0.04)" }} />
 
       {/* ════════════════════════════════════════════════════════════════
           PERCHÉ NOI — black bg, full-width tool rows  [SECTION 2]
