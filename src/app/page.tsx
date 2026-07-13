@@ -327,12 +327,9 @@ export default function HomePage() {
       ════════════════════════════════════════════════════════════════ */}
       <section style={{ background: "#000", padding: "5rem 6vw 6rem" }}>
         <div style={{ marginBottom: "3rem" }}>
-          <h2 style={{ fontFamily: "var(--font-bebas)", fontSize: "clamp(2rem, 5vw, 4rem)", letterSpacing: "0.04em", lineHeight: 1, color: "#fff", margin: "0 0 0.5rem" }}>
+          <h2 style={{ fontFamily: "var(--font-bebas)", fontSize: "clamp(2rem, 5vw, 4rem)", letterSpacing: "0.04em", lineHeight: 1, color: "#fff", margin: 0 }}>
             TUTTE LE ATTIVITÀ
           </h2>
-          <p style={{ fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", fontWeight: 600, margin: 0 }}>
-            {c.notturne.activities.length + c.pomeridiane.activities.length} attività disponibili
-          </p>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1px" }} className="nubilato-grid">
           {[...c.notturne.activities, ...c.pomeridiane.activities].map((act) => (

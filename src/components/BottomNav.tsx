@@ -91,7 +91,7 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
               style={{
                 position: "absolute", top: "50%", left: "50%",
                 transform: "translate(-50%,-50%)",
-                width: scrolled ? "90%" : "48%",
+                width: scrolled ? "90%" : "60%",
                 height: "auto",
                 transition: "width 0.35s ease",
                 filter: scrolled ? "brightness(0) invert(1)" : "brightness(0)",
@@ -193,7 +193,7 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
             flex: 1, display: "flex", flexDirection: "column",
             justifyContent: "center", padding: "0 2rem", gap: 0,
           }}>
-            {links.map((link, i) => (
+            {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -210,9 +210,6 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
                 onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.color = "var(--blue)"; el.style.paddingLeft = "0.5rem"; }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.color = "#fff"; el.style.paddingLeft = "0"; }}
               >
-                <span style={{ color: "var(--blue)", fontSize: "0.6em", marginRight: "0.5rem", opacity: 0.5 }}>
-                  {String(i + 1).padStart(2, "0")}
-                </span>
                 {link.label}
               </a>
             ))}
@@ -229,7 +226,7 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
                 gap: "0.5rem", width: "100%", padding: "1.1rem",
                 background: "var(--blue)", color: "#fff",
                 fontFamily: "var(--font-bebas)", fontSize: "1.1rem",
-                letterSpacing: "0.1em", borderRadius: "10px",
+                letterSpacing: "0.1em", borderRadius: 0,
                 textDecoration: "none",
               }}
             >
