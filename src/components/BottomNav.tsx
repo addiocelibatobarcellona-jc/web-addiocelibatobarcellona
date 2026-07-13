@@ -94,7 +94,7 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
                 width: scrolled ? "90%" : "48%",
                 height: "auto",
                 transition: "width 0.35s ease",
-                filter: "brightness(0) invert(1)",
+                filter: scrolled ? "brightness(0) invert(1)" : "brightness(0)",
               }}
             />
           </div>
