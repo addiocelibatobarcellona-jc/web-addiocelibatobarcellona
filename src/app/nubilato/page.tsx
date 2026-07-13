@@ -450,7 +450,7 @@ export default function NubilatoPage() {
       {/* ── CONTACT STRIP ─────────────────────────────────────────────────── */}
       <section className="nubilato-contact-strip" style={{
         background: "var(--blue)",
-        padding: "3rem 4vw",
+        padding: "3rem 6vw",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
