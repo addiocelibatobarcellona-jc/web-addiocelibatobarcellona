@@ -36,38 +36,26 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
           position: "fixed",
           top: 0, left: 0, right: 0,
           zIndex: 50,
-          height: scrolled ? "60px" : "80px",
-          background: scrolled ? "rgba(40,85,230,0.97)" : "rgba(58,117,255,0.82)",
-          backdropFilter: "blur(16px)",
-          WebkitBackdropFilter: "blur(16px)",
+          height: scrolled ? "64px" : "80px",
+          background: scrolled ? "rgba(40,85,230,0.97)" : "transparent",
+          backdropFilter: scrolled ? "blur(16px)" : "none",
+          WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
           borderBottom: "none",
-          transition: "height 0.35s cubic-bezier(0.33,1,0.68,1), background 0.35s",
+          transition: "height 0.3s ease, background 0.3s ease",
           display: "flex",
           alignItems: "center",
           padding: "0 2vw",
           gap: "1rem",
         }}
       >
-        {/* Logo — left: spinning bottle-cap badge + text */}
+        {/* Logo — left */}
         <a href="/" style={{ display: "flex", alignItems: "center", gap: "0.75rem", textDecoration: "none", flexShrink: 0 }}>
-          {/* Mini spinning badge */}
-          <div style={{ position: "relative", width: 40, height: 40, flexShrink: 0 }}>
-            <svg viewBox="0 0 260 260" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", animation: "spin 12s linear infinite" }}>
-              <defs>
-                <path id="nav-badge-path" d="M130,52 A78,78 0 1,1 130,208 A78,78 0 1,1 130,52" />
-              </defs>
-              <path d="M130,20 L142,42 L167,35 L163,60 L188,62 L176,84 L199,95 L180,112 L196,130 L174,140 L182,165 L158,167 L157,193 L133,186 L122,210 L103,196 L87,216 L75,198 L52,210 L48,185 L23,183 L29,158 L6,148 L20,129 L3,113 L23,100 L12,78 L36,73 L37,47 L62,52 L68,28 L91,39 L104,18 Z" fill="#fff" />
-              <text fontFamily="Arial" fontSize="8" fill="#000" letterSpacing="3.5">
-                <textPath href="#nav-badge-path" startOffset="0%">BARCELLONA · DAL 2017 · ADDIO AL CELIBATO · </textPath>
-              </text>
-            </svg>
-            <img
-              src="https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/logoaddioalcelibatoblancohori2-1.png"
-              alt=""
-              style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "52%", filter: "invert(1)" }}
-            />
-          </div>
-          <span className="nav-logo-line1" style={{ fontFamily: "var(--font-bebas)", fontSize: "1rem", letterSpacing: "0.12em", color: "#fff" }}>
+          <img
+            src="https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/logoaddioalcelibatoblancohori2-1.png"
+            alt="Addio al Celibato Barcellona"
+            style={{ height: 48, width: "auto" }}
+          />
+          <span className="nav-logo-line1" style={{ fontFamily: "var(--font-bebas)", fontSize: "1.35rem", letterSpacing: "0.1em", color: "#fff" }}>
             {logoLine1}
           </span>
         </a>

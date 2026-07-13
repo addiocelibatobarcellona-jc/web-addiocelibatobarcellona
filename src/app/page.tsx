@@ -5,6 +5,7 @@ import {
   Phone, ArrowUpRight, ArrowRight,
   Sparkles, Flame, Crown, Music, Zap, UtensilsCrossed, Bus, Car,
   Anchor, Ship, Bike, CircleDot, Target, Lock, Navigation, Trophy, Waves,
+  MapPin, Headphones,
   type LucideIcon,
 } from "lucide-react";
 import { getContent } from "@/lib/content";
@@ -312,88 +313,102 @@ export default function HomePage() {
       <div style={{ height: "1px", background: "rgba(255,255,255,0.04)" }} />
 
       {/* ════════════════════════════════════════════════════════════════
-          PERCHÉ NOI — black bg, full-width tool rows  [SECTION 2]
+          INTRO + PERCHÉ NOI — 2 col, same structure as nubilato
       ════════════════════════════════════════════════════════════════ */}
-      <section style={{ background: "#000", padding: "0 6vw 9rem" }}>
-        <div style={{ maxWidth: "1100px", margin: "5rem auto 0" }}>
+      <section style={{ padding: "5rem 6vw 5rem", background: "#000" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "4rem",
+            alignItems: "start",
+          }} className="nubilato-intro-grid">
 
-          <div style={{ marginBottom: "3rem" }}>
-            <h2 style={{
-              fontFamily: "var(--font-bebas)",
-              fontSize: "clamp(4rem, 12vw, 10rem)",
-              letterSpacing: "-0.02em", lineHeight: 0.85,
-              color: "var(--blue)", margin: 0,
-            }}>
-              {c.perche.section_title_line1}
-              <span style={{ color: "rgba(58,117,255,0.45)" }}>{c.perche.section_title_accent}?</span>
-            </h2>
-          </div>
+            {/* Left — headline + copy */}
+            <div>
+              <p style={{
+                fontFamily: "var(--font-bebas)",
+                fontSize: "clamp(0.75rem, 1.2vw, 0.9rem)",
+                letterSpacing: "0.28em",
+                color: "rgba(255,255,255,0.4)",
+                marginBottom: "0.75rem",
+              }}>
+                — ADDIO AL CELIBATO BARCELLONA
+              </p>
+              <h2 style={{
+                fontFamily: "var(--font-bebas)",
+                fontSize: "clamp(2rem, 4.5vw, 4rem)",
+                letterSpacing: "-0.01em",
+                lineHeight: 0.9,
+                color: "#fff",
+                margin: "0 0 2rem",
+              }}>
+                IDEE PER UN<br />
+                <span style={{ color: "var(--blue)" }}>CELIBATO UNICO</span>
+              </h2>
+              <p style={{
+                fontSize: "0.95rem",
+                lineHeight: 1.8,
+                color: "rgba(255,255,255,0.82)",
+                fontWeight: 400,
+                maxWidth: "52ch",
+                marginBottom: "1.25rem",
+              }}>
+                Sei alla ricerca di idee per un addio al celibato a Barcellona davvero unico? Sei nel posto giusto! Proponiamo attività pomeridiane e notturne per tutti i gusti, e saremo disponibili per consigli durante tutto il soggiorno.
+              </p>
+              <p style={{
+                fontSize: "0.95rem",
+                lineHeight: 1.8,
+                color: "rgba(255,255,255,0.75)",
+                fontWeight: 400,
+                maxWidth: "52ch",
+              }}>
+                Organizzare una festa di addio al celibato come si deve è il dovere di ogni buon amico. Non esitare e contattaci — il <strong style={{ color: "#fff" }}>PREVENTIVO È GRATIS!</strong>
+              </p>
+            </div>
 
-          {c.perche.items.map((item: PercheItem, i: number) => (
-            <StaggerReveal key={item.title} index={i}>
-              <div className="tool-row">
-                <div style={{ flex: 1 }}>
-                  <p style={{
-                    fontSize: "0.6rem", letterSpacing: "0.25em", textTransform: "uppercase",
-                    color: "var(--blue)", fontWeight: 700, marginBottom: "0.4rem",
+            {/* Right — Perché noi */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
+              <p style={{
+                fontFamily: "var(--font-bebas)",
+                fontSize: "clamp(0.75rem, 1.2vw, 0.9rem)",
+                letterSpacing: "0.28em",
+                color: "rgba(255,255,255,0.4)",
+                marginBottom: "1.5rem",
+              }}>
+                — PERCHÉ SCEGLIERE NOI
+              </p>
+              {([
+                { icon: "MapPin", title: "Viviamo a Barcellona", desc: "Noi VIVIAMO qui e conosciamo la città meglio di qualsiasi altra agenzia. Zero intermediari, massima qualità." },
+                { icon: "Target", title: "Solo Barcellona", desc: "Organizziamo feste di addio al celibato SOLO a Barcellona. La specializzazione garantisce il miglior servizio." },
+                { icon: "Headphones", title: "Sempre Disponibili", desc: "Una volta atterrati saremo disponibili per qualsiasi dubbio o consiglio durante tutto il vostro soggiorno." },
+              ] as const).map(({ icon, title, desc }) => {
+                const Icon = icon === "MapPin" ? MapPin : icon === "Target" ? Target : Headphones;
+                return (
+                  <div key={title} style={{
+                    display: "flex",
+                    gap: "1.25rem",
+                    alignItems: "flex-start",
+                    padding: "1.5rem 0",
+                    borderBottom: "1px solid rgba(255,255,255,0.07)",
                   }}>
-                    {String(i + 1).padStart(2, "0")}
-                  </p>
-                  <h3 style={{
-                    fontFamily: "var(--font-bebas)",
-                    fontSize: "clamp(1.6rem, 4vw, 3rem)",
-                    letterSpacing: "0.03em", color: "#fff",
-                    lineHeight: 1, marginBottom: "0.5rem",
-                  }}>
-                    {item.title}
-                  </h3>
-                  {/* Item 0 — special hover text, desktop only */}
-                  {i === 0 && (
-                    <div className="tool-row-desc-hover-only">
-                      <p style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)", lineHeight: 1.55, color: "rgba(255,255,255,0.82)", maxWidth: "52ch", paddingTop: "0.75rem" }}>
-                        Noi <span style={{ fontFamily: "var(--font-bebas)", fontSize: "1.3em", letterSpacing: "0.04em", color: "#fff" }}>VIVIAMO</span> a Barcellona,{" "}
-                        e conosciamo la città meglio di qualsiasi altra agenzia.
+                    <div style={{
+                      width: "38px", height: "38px", background: "rgba(58,117,255,0.12)",
+                      display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+                    }}>
+                      <Icon size={17} color="var(--blue)" />
+                    </div>
+                    <div>
+                      <p style={{ fontFamily: "var(--font-bebas)", fontSize: "1.05rem", letterSpacing: "0.06em", color: "#fff", marginBottom: "0.3rem" }}>
+                        {title}
+                      </p>
+                      <p style={{ fontSize: "0.85rem", lineHeight: 1.65, color: "rgba(255,255,255,0.72)", fontWeight: 400 }}>
+                        {desc}
                       </p>
                     </div>
-                  )}
-
-                  <div className="tool-row-desc">
-                    <p style={{ fontSize: "0.85rem", lineHeight: 1.7, color: "rgba(255,255,255,0.65)", maxWidth: "60ch", paddingTop: "0.5rem" }}>
-                      {item.desc}
-                    </p>
                   </div>
-                </div>
-                <ArrowUpRight size={22} className="tool-arrow" />
-              </div>
-            </StaggerReveal>
-          ))}
-
-          {/* Review CTAs — below the tool rows */}
-          <div style={{ marginTop: "4rem", paddingTop: "3rem", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-            <h3 style={{
-              fontFamily: "var(--font-bebas)",
-              fontSize: "clamp(2.5rem, 6vw, 5rem)",
-              letterSpacing: "-0.01em", lineHeight: 0.9,
-              color: "#fff", margin: 0, marginBottom: "1.5rem",
-            }}>
-              Leggi le nostre<br />
-              <span style={{ color: "var(--blue)" }}>recensioni su</span>
-            </h3>
-            <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-              <a
-                href="https://maps.app.goo.gl/5svurwM9AqGeFuBJ9"
-                target="_blank" rel="noopener noreferrer"
-                className="neon-cta"
-              >
-                Google Maps <ArrowUpRight size={15} />
-              </a>
-              <a
-                href="https://it.trustpilot.com/review/addioalcelibato-barcellona.it?utm_medium=trustbox&utm_source=MicroReviewCount"
-                target="_blank" rel="noopener noreferrer"
-                className="neon-cta"
-              >
-                TrustPilot <ArrowUpRight size={15} />
-              </a>
+                );
+              })}
             </div>
           </div>
         </div>
