@@ -49,12 +49,23 @@ body {
   white-space: nowrap;
   font-family: var(--font-jakarta);
   text-decoration: none;
-  transition: color 0.15s, background 0.15s;
+  transition: color 0.2s;
+  position: relative;
 }
-.nav-link-item:hover {
-  color: #fff;
-  background: rgba(255,255,255,0.15);
+.nav-link-item::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 0.85rem;
+  right: 0.85rem;
+  height: 1.5px;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s cubic-bezier(0.33,1,0.68,1);
 }
+.nav-link-item:hover { color: #fff; }
+.nav-link-item:hover::after { transform: scaleX(1); }
 
 /* ── Nav CTA button ── */
 .nav-cta {
