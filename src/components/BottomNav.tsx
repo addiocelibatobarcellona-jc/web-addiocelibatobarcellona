@@ -203,13 +203,14 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
+              className="mobile-menu-cta"
               style={{
                 display: "flex", alignItems: "center", justifyContent: "center",
                 gap: "0.5rem", width: "100%", padding: "1.1rem",
-                background: "var(--blue)", color: "#fff",
+                background: "#fff", color: "var(--blue)",
                 fontFamily: "var(--font-bebas)", fontSize: "1.1rem",
                 letterSpacing: "0.1em", borderRadius: 0,
-                textDecoration: "none",
+                textDecoration: "none", border: "2px solid #fff",
               }}
             >
               <MessageCircle size={18} />

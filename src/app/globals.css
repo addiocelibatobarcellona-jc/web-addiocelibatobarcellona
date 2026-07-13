@@ -85,6 +85,10 @@ body {
 }
 .nav-cta:hover { background: transparent; color: #fff; }
 
+/* ── Mobile menu CTA ── */
+.mobile-menu-cta { transition: background 0.2s, color 0.2s; }
+.mobile-menu-cta:hover { background: transparent !important; color: #fff !important; }
+
 /* ── Activity grid cards: taller on desktop ── */
 @media (min-width: 861px) {
   .activity-grid-card { min-height: 530px !important; }
