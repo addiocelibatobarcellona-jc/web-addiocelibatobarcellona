@@ -109,16 +109,7 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
             <a
               key={l.href}
               href={l.href}
-              style={{
-                fontSize: "0.78rem", fontWeight: 500, color: "rgba(255,255,255,0.85)",
-                padding: "0.45rem 0.85rem", borderRadius: 0,
-                border: 0,
-                transition: "color 0.15s, background 0.15s",
-                whiteSpace: "nowrap", fontFamily: "var(--font-jakarta)",
-                textDecoration: "none",
-              }}
-              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.color = "#fff"; el.style.background = "rgba(255,255,255,0.15)"; }}
-              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.color = "rgba(255,255,255,0.85)"; el.style.background = "transparent"; }}
+              className="nav-link-item"
             >
               {l.label}
             </a>
@@ -132,20 +123,8 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
         <a
           href="/addio-al-celibato-barcellona-contatti"
           className="nav-cta"
-          style={{
-            background: "#fff", color: "var(--blue)",
-            border: "none",
-            borderRadius: 0,
-            padding: "0.55rem 1.4rem",
-            fontFamily: "var(--font-bebas)", fontSize: "0.82rem", letterSpacing: "0.12em",
-            display: "flex", alignItems: "center",
-            flexShrink: 0, textDecoration: "none",
-            transition: "opacity 0.15s",
-          }}
-          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.opacity = "0.88"; }}
-          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.opacity = "1"; }}
         >
-          <span className="nav-cta-label">PREVENTIVO</span>
+          <span className="nav-cta-label">PREVENTIVO GRATIS</span>
         </a>
 
         {/* Mobile burger */}

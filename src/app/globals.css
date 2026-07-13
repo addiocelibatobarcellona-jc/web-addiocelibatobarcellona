@@ -38,6 +38,42 @@ body {
   .nav-burger { display: none !important; }
 }
 
+/* ── Nav link items ── */
+.nav-link-item {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  padding: 0.45rem 0.85rem;
+  border-radius: 0;
+  border: none;
+  white-space: nowrap;
+  font-family: var(--font-jakarta);
+  text-decoration: none;
+  transition: color 0.15s, background 0.15s;
+}
+.nav-link-item:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.15);
+}
+
+/* ── Nav CTA button ── */
+.nav-cta {
+  background: #fff;
+  color: var(--blue);
+  border: none;
+  border-radius: 0;
+  padding: 0.55rem 1.4rem;
+  font-family: var(--font-bebas);
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+.nav-cta:hover { opacity: 0.85; }
+
 /* ── Activity grid cards: taller on desktop ── */
 @media (min-width: 861px) {
   .activity-grid-card { min-height: 530px !important; }
