@@ -40,8 +40,12 @@ body {
 
 /* ── Activity grid cards: taller on desktop ── */
 @media (min-width: 861px) {
-  .activity-grid-card { min-height: 620px !important; }
+  .activity-grid-card { min-height: 530px !important; }
 }
+
+/* ── Nubilato promo banner hover ── */
+.nubilato-promo-link { transition: filter 0.3s ease; }
+.nubilato-promo-link:hover { filter: brightness(1.08); }
 
 /* ── Nav logo: bigger cap on desktop ── */
 @media (min-width: 861px) {

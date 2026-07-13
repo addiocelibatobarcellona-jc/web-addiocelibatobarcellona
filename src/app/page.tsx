@@ -343,6 +343,7 @@ export default function HomePage() {
       ════════════════════════════════════════════════════════════════ */}
       <a
         href="/addio-al-nubilato"
+        className="nubilato-promo-link"
         style={{
           display: "flex",
           alignItems: "center",
@@ -351,10 +352,7 @@ export default function HomePage() {
           minHeight: "420px",
           textDecoration: "none",
           background: `linear-gradient(to right, rgba(0,0,0,0.88) 40%, rgba(0,0,0,0.45) 100%), url(https://addioalcelibato-barcellona.it/wp-content/uploads/2026/02/addio-nubilato-home-page-scaled.jpg) center/cover no-repeat`,
-          transition: "filter 0.3s ease",
         }}
-        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.filter = "brightness(1.1)"; }}
-        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.filter = "brightness(1)"; }}
       >
         <div style={{
           padding: "4rem 6vw",
