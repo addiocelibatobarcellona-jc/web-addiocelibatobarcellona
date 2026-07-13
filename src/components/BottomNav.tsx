@@ -4,6 +4,20 @@ import { useState, useEffect } from "react";
 import { X, Menu, MessageCircle } from "lucide-react";
 import type { NavLink } from "@/lib/content";
 
+// Scalloped bottle-cap path for 120×120 viewBox
+function makeScallop(cx: number, cy: number, rAvg: number, amp: number, n: number) {
+  const steps = n * 16;
+  const f = (v: number) => v.toFixed(2);
+  let d = "";
+  for (let i = 0; i <= steps; i++) {
+    const theta = (2 * Math.PI * i) / steps - Math.PI / 2;
+    const r = rAvg + amp * Math.cos(n * (theta + Math.PI / 2));
+    d += (i === 0 ? "M" : " L") + f(cx + r * Math.cos(theta)) + "," + f(cy + r * Math.sin(theta));
+  }
+  return d + "Z";
+}
+const CAP_PATH = makeScallop(60, 60, 50, 4, 14);
+
 interface Props {
   links: NavLink[];
   logoLine1: string;
@@ -17,9 +31,10 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const check = () => setScrolled(window.scrollY > 60);
+    check(); // set immediately on mount (handles page-load already scrolled)
+    window.addEventListener("scroll", check, { passive: true });
+    return () => window.removeEventListener("scroll", check);
   }, []);
 
   useEffect(() => {
@@ -48,25 +63,39 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
           gap: "1rem",
         }}
       >
-        {/* Logo — spinning bottle-cap badge only */}
+        {/* Logo — bottle-cap badge (spins when at top, static when scrolled) */}
         <a href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none", flexShrink: 0 }}>
-          <div style={{ position: "relative", width: 60, height: 60 }}>
-            {/* Spinning circular text ring */}
-            <svg viewBox="0 0 120 120" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", animation: "spin 14s linear infinite" }}>
-              <defs>
-                <path id="nav-ring" d="M60,12 A48,48 0 1,1 59.99,12" />
-              </defs>
-              <circle cx="60" cy="60" r="52" fill="rgba(255,255,255,0.12)" />
-              <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="0.5" />
-              <text fontFamily="Arial" fontSize="7.5" fill="rgba(255,255,255,0.85)" letterSpacing="3.2">
-                <textPath href="#nav-ring" startOffset="0%">ADDIO AL CELIBATO · BARCELLONA · DAL 2017 · </textPath>
-              </text>
+          <div style={{
+            position: "relative",
+            width: scrolled ? 44 : 68,
+            height: scrolled ? 44 : 68,
+            transition: "width 0.35s ease, height 0.35s ease",
+          }}>
+            {/* Spinning scalloped bottle-cap — visible only at top */}
+            <svg
+              viewBox="0 0 120 120"
+              style={{
+                position: "absolute", inset: 0, width: "100%", height: "100%",
+                animation: "spin 16s linear infinite",
+                opacity: scrolled ? 0 : 1,
+                transition: "opacity 0.3s ease",
+                pointerEvents: "none",
+              }}
+            >
+              <path d={CAP_PATH} fill="#fff" />
             </svg>
-            {/* Static logo centered */}
+            {/* Static logo — always centered */}
             <img
               src="https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/logoaddioalcelibatoblancohori2-1.png"
               alt="Addio al Celibato Barcellona"
-              style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "55%", height: "auto" }}
+              style={{
+                position: "absolute", top: "50%", left: "50%",
+                transform: "translate(-50%,-50%)",
+                width: scrolled ? "90%" : "48%",
+                height: "auto",
+                transition: "width 0.35s ease",
+                filter: "brightness(0) invert(1)",
+              }}
             />
           </div>
         </a>
