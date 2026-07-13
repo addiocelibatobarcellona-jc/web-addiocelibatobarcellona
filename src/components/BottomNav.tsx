@@ -67,8 +67,8 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
         <a href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none", flexShrink: 0 }}>
           <div style={{
             position: "relative",
-            width: scrolled ? 44 : 68,
-            height: scrolled ? 44 : 68,
+            width: scrolled ? 52 : 84,
+            height: scrolled ? 52 : 84,
             transition: "width 0.35s ease, height 0.35s ease",
           }}>
             {/* Spinning scalloped bottle-cap — visible only at top */}

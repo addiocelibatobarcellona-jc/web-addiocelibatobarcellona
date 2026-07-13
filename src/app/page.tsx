@@ -689,7 +689,7 @@ export default function HomePage() {
           }}>
             {c.perche.highlight_text}
           </p>
-          <a href="/contattaci" className="neon-cta">
+          <a href="/addio-al-celibato-barcellona-contatti" className="neon-cta">
             PREVENTIVO GRATIS <ArrowUpRight size={18} />
           </a>
         </div>
