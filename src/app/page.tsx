@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import {
   ArrowUpRight, ArrowRight,
-  Target, MapPin, Headphones,
+  Target, MapPin, Clock,
 } from "lucide-react";
 import { getContent } from "@/lib/content";
 
@@ -297,7 +297,7 @@ export default function HomePage() {
                 { icon: "Target", title: "Solo Barcellona", desc: "Organizziamo feste di addio al celibato SOLO a Barcellona. La specializzazione garantisce il miglior servizio." },
                 { icon: "Headphones", title: "Sempre Disponibili", desc: "Una volta atterrati saremo disponibili per qualsiasi dubbio o consiglio durante tutto il vostro soggiorno." },
               ] as const).map(({ icon, title, desc }) => {
-                const Icon = icon === "MapPin" ? MapPin : icon === "Target" ? Target : Headphones;
+                const Icon = icon === "MapPin" ? MapPin : icon === "Target" ? Target : Clock;
                 return (
                   <div key={title} style={{
                     display: "flex",

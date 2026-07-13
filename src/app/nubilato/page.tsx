@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ArrowUpRight, ArrowRight, MessageCircle, MapPin, Target, Headphones } from "lucide-react";
+import { ArrowUpRight, ArrowRight, MessageCircle, MapPin, Target, Clock } from "lucide-react";
 import { getContent } from "@/lib/content";
 import SiteFooter from "@/components/SiteFooter";
 
@@ -171,7 +171,7 @@ const WHY_US = [
     desc: "Organizziamo feste di addio al nubilato SOLO a Barcellona. La specializzazione garantisce il miglior servizio.",
   },
   {
-    Icon: Headphones,
+    Icon: Clock,
     title: "Sempre Disponibili",
     desc: "Una volta atterrate saremo disponibili per qualsiasi dubbio o consiglio durante tutto il vostro soggiorno.",
   },
