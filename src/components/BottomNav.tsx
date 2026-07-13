@@ -65,12 +65,15 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
       >
         {/* Logo — bottle-cap badge (spins when at top, static when scrolled) */}
         <a href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none", flexShrink: 0 }}>
-          <div style={{
-            position: "relative",
-            width: scrolled ? 52 : 84,
-            height: scrolled ? 52 : 84,
-            transition: "width 0.35s ease, height 0.35s ease",
-          }}>
+          <div
+            className={`nav-logo-wrapper${scrolled ? " nav-logo-scrolled" : ""}`}
+            style={{
+              position: "relative",
+              width: scrolled ? 52 : 84,
+              height: scrolled ? 52 : 84,
+              transition: "width 0.35s ease, height 0.35s ease",
+            }}
+          >
             {/* Spinning scalloped bottle-cap — visible only at top */}
             <svg
               viewBox="0 0 120 120"
@@ -108,7 +111,7 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
               href={l.href}
               style={{
                 fontSize: "0.78rem", fontWeight: 500, color: "rgba(255,255,255,0.85)",
-                padding: "0.45rem 0.85rem", borderRadius: "6px",
+                padding: "0.45rem 0.85rem", borderRadius: 0,
                 border: 0,
                 transition: "color 0.15s, background 0.15s",
                 whiteSpace: "nowrap", fontFamily: "var(--font-jakarta)",

@@ -49,7 +49,7 @@ function GridCard({ name, desc, price, href, tag, image }: {
       border: "1px solid rgba(255,255,255,0.06)",
       textDecoration: "none", color: "inherit",
       position: "relative", overflow: "hidden",
-      minHeight: "420px",
+      minHeight: "480px",
       transition: "transform 0.3s cubic-bezier(0.33,1,0.68,1)",
     }} className="activity-grid-card">
       {image && (
@@ -211,7 +211,7 @@ export default function HomePage() {
               className="neon-cta"
               style={{ flexShrink: 0 }}
             >
-              PREVENTIVO GRATIS <ArrowRight size={16} />
+              PREVENTIVO GRATIS
             </MagneticButton>
           </div>
         </div>

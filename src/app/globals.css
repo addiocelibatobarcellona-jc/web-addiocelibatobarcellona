@@ -40,7 +40,12 @@ body {
 
 /* ── Activity grid cards: taller on desktop ── */
 @media (min-width: 861px) {
-  .activity-grid-card { min-height: 520px !important; }
+  .activity-grid-card { min-height: 620px !important; }
+}
+
+/* ── Nav logo: bigger cap on desktop ── */
+@media (min-width: 861px) {
+  .nav-logo-wrapper:not(.nav-logo-scrolled) { width: 116px !important; height: 116px !important; }
 }
 
 /* ── Featured card — 4-col flowparty grid ── */
