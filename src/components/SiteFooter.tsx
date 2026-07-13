@@ -5,7 +5,7 @@ export default function SiteFooter() {
   const c = getContent();
 
   return (
-    <footer style={{ background: "#000", borderTop: "1px solid #0e0e0e", padding: "5rem 6vw 9rem" }}>
+    <footer style={{ background: "#000", borderTop: "1px solid #0e0e0e", padding: "5rem 6vw 5rem" }}>
       <div>
         <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "4rem" }} className="footer-grid">
 
