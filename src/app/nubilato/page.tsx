@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { ArrowUpRight, ArrowRight, MessageCircle, MapPin, Target, Headphones } from "lucide-react";
 import { getContent } from "@/lib/content";
-import BottomNav from "@/components/BottomNav";
 import SiteFooter from "@/components/SiteFooter";
-import BackHome from "@/components/BackHome";
 
 export const metadata: Metadata = {
   title: "Addio al Nubilato a Barcellona | Attività ed Idee dal 2017",
@@ -206,7 +204,7 @@ function ActivityCard({
         color: "inherit",
         position: "relative",
         overflow: "hidden",
-        minHeight: "320px",
+        minHeight: "420px",
         transition: "transform 0.3s cubic-bezier(0.33,1,0.68,1)",
       }}
       className="activity-grid-card"
@@ -267,10 +265,10 @@ function ActivityCard({
             display: "flex", alignItems: "center", justifyContent: "space-between",
             borderTop: "1px solid rgba(255,255,255,0.12)", paddingTop: "0.6rem",
           }}>
-            <span style={{ fontFamily: "var(--font-bebas)", fontSize: "1.5rem", letterSpacing: "0.02em", color: "var(--blue)" }}>
+            <span style={{ fontFamily: "var(--font-bebas)", fontSize: "2rem", letterSpacing: "0.02em", color: "#fff" }}>
               {price}
             </span>
-            <ArrowUpRight size={12} style={{ color: "rgba(255,255,255,0.35)" }} />
+            <ArrowUpRight size={14} style={{ color: "rgba(255,255,255,0.5)" }} />
           </div>
         </div>
       </div>
@@ -285,13 +283,6 @@ export default function NubilatoPage() {
 
   return (
     <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>
-      <BottomNav
-        links={c.navbar.links}
-        logoLine1={c.navbar.logo_line1}
-        logoLine2={c.navbar.logo_line2}
-        ctaLabel={c.navbar.cta_label}
-        whatsapp={c.site.whatsapp}
-      />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section style={{
@@ -316,7 +307,6 @@ export default function NubilatoPage() {
           background: "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.95) 100%)",
         }} />
         <div style={{ position: "relative", zIndex: 1 }}>
-          <BackHome light />
           <p style={{
             fontFamily: "var(--font-bebas)",
             fontSize: "clamp(0.75rem, 1.4vw, 0.95rem)",

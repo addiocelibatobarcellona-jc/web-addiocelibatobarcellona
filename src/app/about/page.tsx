@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getContent } from "@/lib/content";
-import BottomNav from "@/components/BottomNav";
 import SiteFooter from "@/components/SiteFooter";
-import BackHome from "@/components/BackHome";
 import MagneticButton from "@/components/MagneticButton";
 
 export const metadata: Metadata = {
@@ -59,13 +57,6 @@ export default function ChiSiamo() {
 
   return (
     <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>
-      <BottomNav
-        links={c.navbar.links}
-        logoLine1={c.navbar.logo_line1}
-        logoLine2={c.navbar.logo_line2}
-        ctaLabel={c.navbar.cta_label}
-        whatsapp={c.site.whatsapp}
-      />
 
       {/* ── HERO ── */}
       <section style={{
@@ -79,7 +70,6 @@ export default function ChiSiamo() {
         overflow: "hidden",
       }}>
         <div style={{ position: "relative", zIndex: 1 }}>
-          <BackHome />
           <p style={{
             fontFamily: "var(--font-bebas)",
             fontSize: "clamp(0.9rem, 2vw, 1.1rem)",

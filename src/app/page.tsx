@@ -1,21 +1,12 @@
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import {
-  Phone, ArrowUpRight, ArrowRight,
-  Sparkles, Flame, Crown, Music, Zap, UtensilsCrossed, Bus, Car,
-  Anchor, Ship, Bike, CircleDot, Target, Lock, Navigation, Trophy, Waves,
-  MapPin, Headphones,
-  type LucideIcon,
+  ArrowUpRight, ArrowRight,
+  Target, MapPin, Headphones,
 } from "lucide-react";
 import { getContent } from "@/lib/content";
-import type { Activity, PercheItem } from "@/lib/content";
 
-import LEDGrid from "@/components/LEDGrid";
 import MagneticButton from "@/components/MagneticButton";
-const DragCarousel = dynamic(() => import("@/components/DragCarousel"));
-const StaggerReveal = dynamic(() => import("@/components/StaggerReveal"));
-import BottomNav from "@/components/BottomNav";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
@@ -25,31 +16,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.addioalcelibato-barcellona.it" },
 };
 
-const ICONS: Record<string, LucideIcon> = {
-  Sparkles, Flame, Crown, Music, Zap, UtensilsCrossed, Bus, Car,
-  Anchor, Ship, Bike, CircleDot, Target, Lock, Navigation, Trophy, Waves,
-};
-
-// ── Scalloped badge path ──────────────────────────────────────────────────────
-// Sinusoidal polar curve: R(θ) = rAvg + amplitude·cos(n·θ)
-// Dense polyline → perfectly smooth, no kinks anywhere.
-
-function makeScallop(cx: number, cy: number, rAvg: number, amplitude: number, n: number): string {
-  const steps = n * 16; // 16 segments per bump = visually smooth
-  const f = (v: number) => v.toFixed(2);
-  let d = "";
-  for (let i = 0; i <= steps; i++) {
-    // θ starts at -π/2 (top). cos(n·(θ+π/2)) = 1 at top → peak at top.
-    const theta = (2 * Math.PI * i) / steps - Math.PI / 2;
-    const r = rAvg + amplitude * Math.cos(n * (theta + Math.PI / 2));
-    const x = cx + r * Math.cos(theta);
-    const y = cy + r * Math.sin(theta);
-    d += i === 0 ? `M${f(x)},${f(y)}` : ` L${f(x)},${f(y)}`;
-  }
-  return d + "Z";
-}
-
-const SCALLOP_PATH = makeScallop(130, 130, 107, 9, 14);
 
 // ── Wave divider between sections ────────────────────────────────────────────
 
@@ -71,103 +37,52 @@ function Wave({ from, to, flip }: { from: string; to: string; flip?: boolean }) 
   );
 }
 
-// ── Portrait card — drag carousel ────────────────────────────────────────────
+// ── Grid activity card ────────────────────────────────────────────────────────
 
-function PortraitCard({ icon, name, desc, price, href, tag, onBlue, image }: Activity & { onBlue?: boolean }) {
-  const Icon = ICONS[icon] ?? Sparkles;
-  const hasImage = !!image;
-
+function GridCard({ name, desc, price, href, tag, image }: {
+  name: string; desc: string; price: string; href: string; tag?: string | null; image?: string | null;
+}) {
   return (
-    <a
-      href={href}
-      className={`portrait-card ${onBlue ? "portrait-card-blue" : "portrait-card-dark"}`}
-    >
-      {/* Background image via next/image — automatic WebP + lazy load */}
-      {hasImage && (
-        <Image
-          src={image!}
-          alt={name}
-          fill
-          sizes="(max-width: 640px) calc(100vw - 3rem), 280px"
+    <a href={href} style={{
+      display: "flex", flexDirection: "column",
+      background: "#0c0c0c",
+      border: "1px solid rgba(255,255,255,0.06)",
+      textDecoration: "none", color: "inherit",
+      position: "relative", overflow: "hidden",
+      minHeight: "420px",
+      transition: "transform 0.3s cubic-bezier(0.33,1,0.68,1)",
+    }} className="activity-grid-card">
+      {image && (
+        <Image src={image} alt={name} fill
+          sizes="(max-width: 480px) 88vw, (max-width: 720px) 44vw, (max-width: 1100px) 29vw, 22vw"
           style={{ objectFit: "cover", objectPosition: "center" }}
         />
       )}
-      {/* Dark gradient overlay when image is present */}
-      {hasImage && (
+      {image && (
         <div style={{
           position: "absolute", inset: 0,
-          background: "linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.25) 45%, rgba(0,0,0,0.88) 100%)",
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.88) 100%)",
         }} />
       )}
-
-      {/* All content above the overlay */}
-      <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", height: "100%" }}>
-
-        {/* Top row — arrow only */}
-        <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "auto" }}>
-          <ArrowUpRight size={16} style={{ color: "rgba(255,255,255,0.5)" }} />
+      <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", height: "100%", padding: "1.25rem" }}>
+        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <ArrowUpRight size={15} style={{ color: "rgba(255,255,255,0.35)" }} />
         </div>
-
-        {/* Center icon — hidden when image */}
-        {!hasImage && (
-          <div style={{
-            flex: 1, display: "flex", alignItems: "center", justifyContent: "center",
-            color: onBlue ? "rgba(0,0,0,0.2)" : "rgba(58,117,255,0.25)",
-          }}>
-            <Icon size={80} strokeWidth={0.6} />
-          </div>
-        )}
-
-        {/* Spacer when image is present */}
-        {hasImage && <div style={{ flex: 1 }} />}
-
-        {/* Bottom */}
+        <div style={{ flex: 1 }} />
         <div>
-          <h3 style={{
-            fontFamily: "var(--font-bebas)",
-            fontSize: "clamp(1.6rem, 3vw, 2rem)",
-            letterSpacing: "0.03em",
-            color: "#fff",
-            lineHeight: 1.0,
-            marginBottom: tag ? "0.5rem" : "0.75rem",
-          }}>
+          <h3 style={{ fontFamily: "var(--font-bebas)", fontSize: "clamp(1.4rem, 2.5vw, 2rem)", letterSpacing: "0.03em", lineHeight: 1, color: "#fff", marginBottom: tag ? "0.4rem" : "0.6rem" }}>
             {name}
           </h3>
           {tag && (
-            <span style={{
-              display: "inline-block",
-              fontSize: "0.5rem", fontWeight: 700, letterSpacing: "0.18em",
-              textTransform: "uppercase", padding: "0.2rem 0.55rem",
-              border: "1px solid rgba(255,255,255,0.25)",
-              borderRadius: "100px",
-              color: "rgba(255,255,255,0.6)",
-              marginBottom: "0.75rem",
-              backdropFilter: hasImage ? "blur(6px)" : undefined,
-              background: hasImage ? "rgba(0,0,0,0.2)" : undefined,
-            }}>
+            <span style={{ display: "inline-block", fontSize: "0.5rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", padding: "0.2rem 0.5rem", border: "1px solid rgba(255,255,255,0.25)", borderRadius: "100px", color: "rgba(255,255,255,0.65)", marginBottom: "0.6rem", background: image ? "rgba(0,0,0,0.25)" : undefined, backdropFilter: image ? "blur(6px)" : undefined }}>
               {tag}
             </span>
           )}
-          <p style={{
-            fontSize: "0.8rem", lineHeight: 1.65,
-            color: hasImage ? "rgba(255,255,255,0.88)" : (onBlue ? "rgba(0,0,0,0.65)" : "rgba(255,255,255,0.55)"),
-            marginBottom: "1rem",
-            textShadow: hasImage ? "0 1px 4px rgba(0,0,0,0.6)" : undefined,
-          }}>
+          <p style={{ fontSize: "0.8rem", lineHeight: 1.6, color: image ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.6)", marginBottom: "0.85rem", fontWeight: 400 }}>
             {desc}
           </p>
-          <div style={{
-            display: "flex", alignItems: "center", justifyContent: "space-between",
-            borderTop: "1px solid rgba(255,255,255,0.15)",
-            paddingTop: "0.75rem",
-          }}>
-            <span style={{
-              fontFamily: "var(--font-bebas)", fontSize: "2rem",
-              letterSpacing: "0.02em",
-              color: hasImage ? "#fff" : (onBlue ? "#000" : "var(--blue)"),
-            }}>
-              {price}
-            </span>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", borderTop: "1px solid rgba(255,255,255,0.12)", paddingTop: "0.6rem" }}>
+            <span style={{ fontFamily: "var(--font-bebas)", fontSize: "2rem", letterSpacing: "0.02em", color: "#fff" }}>{price}</span>
             <ArrowUpRight size={14} style={{ color: "rgba(255,255,255,0.5)" }} />
           </div>
         </div>
@@ -213,13 +128,6 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
-      />
-      <BottomNav
-        links={c.navbar.links}
-        logoLine1={c.navbar.logo_line1}
-        logoLine2={c.navbar.logo_line2}
-        ctaLabel={c.navbar.cta_label}
-        whatsapp={c.site.whatsapp}
       />
 
       {/* ════════════════════════════════════════════════════════════════
@@ -415,111 +323,22 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          NOTTURNE — header + 4 featured tall cards grid
+          TUTTE LE ATTIVITÀ — unified 4-col grid
       ════════════════════════════════════════════════════════════════ */}
-      <section style={{ background: "#000" }}>
-
-        {/* "Attività Top" header above grid */}
-        <div style={{ padding: "5rem 6vw" }}>
-          <h2 style={{
-            fontFamily: "var(--font-bebas)",
-            fontSize: "clamp(2rem, 5vw, 4rem)",
-            letterSpacing: "0.04em", lineHeight: 1,
-            color: "var(--blue)", margin: 0,
-          }}>
-            Attività Top
+      <section style={{ background: "#000", padding: "5rem 6vw 6rem" }}>
+        <div style={{ marginBottom: "3rem" }}>
+          <h2 style={{ fontFamily: "var(--font-bebas)", fontSize: "clamp(2rem, 5vw, 4rem)", letterSpacing: "0.04em", lineHeight: 1, color: "#fff", margin: "0 0 0.5rem" }}>
+            TUTTE LE ATTIVITÀ
           </h2>
+          <p style={{ fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", fontWeight: 600, margin: 0 }}>
+            {c.notturne.activities.length + c.pomeridiane.activities.length} attività disponibili
+          </p>
         </div>
-
-        {/* 4 featured tall cards — flowparty style */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: "2px",
-          background: "#111",
-        }} className="featured-grid">
-          {c.notturne.activities.slice(0, 4).map((act, i) => {
-            return (
-              <a
-                href={act.href}
-                key={act.name}
-                className="featured-card"
-                style={{
-                  backgroundImage: act.image ? `url(${act.image})` : undefined,
-                  backgroundColor: "#080808",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  padding: "2rem",
-                  minHeight: "540px",
-                  display: "flex",
-                  flexDirection: "column",
-                  textDecoration: "none",
-                  color: "inherit",
-                  position: "relative",
-                  overflow: "hidden",
-                }}
-              >
-                {/* Dark overlay for readability */}
-                <div style={{
-                  position: "absolute", inset: 0, zIndex: 0,
-                  background: "linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.82) 100%)",
-                }} />
-
-                {/* Content */}
-                <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", height: "100%" }}>
-                  {/* Top row */}
-                  <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
-                    <span style={{
-                      fontSize: "0.58rem", letterSpacing: "0.2em", textTransform: "uppercase",
-                      color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-jakarta)", fontWeight: 600,
-                    }}>
-                      Notturna
-                    </span>
-                    {act.tag && (
-                      <span style={{
-                        fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.18em",
-                        textTransform: "uppercase", padding: "0.22rem 0.65rem",
-                        border: "1px solid rgba(255,255,255,0.3)",
-                        borderRadius: "100px", color: "rgba(255,255,255,0.85)",
-                        background: "rgba(0,0,0,0.25)", backdropFilter: "blur(4px)",
-                      }}>
-                        {act.tag}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Spacer */}
-                  <div style={{ flex: 1 }} />
-
-                  {/* Bottom — big title + price + arrow */}
-                  <div>
-                    <h3 style={{
-                      fontFamily: "var(--font-bebas)",
-                      fontSize: "clamp(2rem, 3.2vw, 3.2rem)",
-                      letterSpacing: "0.02em",
-                      color: "#fff",
-                      lineHeight: 0.95,
-                      marginBottom: "1.25rem",
-                    }}>
-                      {act.name}
-                    </h3>
-                    <div style={{
-                      display: "flex", alignItems: "center", justifyContent: "space-between",
-                      borderTop: "1px solid rgba(255,255,255,0.2)",
-                      paddingTop: "1rem",
-                    }}>
-                      <span style={{ fontFamily: "var(--font-bebas)", fontSize: "2.2rem", color: "#fff", letterSpacing: "0.02em" }}>
-                        {act.price}
-                      </span>
-                      <ArrowUpRight size={18} style={{ color: "rgba(255,255,255,0.6)" }} />
-                    </div>
-                  </div>
-                </div>
-              </a>
-            );
-          })}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1px" }} className="nubilato-grid">
+          {[...c.notturne.activities, ...c.pomeridiane.activities].map((act) => (
+            <GridCard key={act.name} name={act.name} desc={act.desc} price={act.price} href={act.href} tag={act.tag} image={act.image} />
+          ))}
         </div>
-
       </section>
 
       {/* Wave: black → blue */}
@@ -599,38 +418,6 @@ export default function HomePage() {
               SCOPRI IL NUBILATO <ArrowUpRight size={16} />
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════════════
-          POMERIDIANE — BLUE bg, dark portrait cards
-      ════════════════════════════════════════════════════════════════ */}
-      <section style={{ background: "var(--blue)", padding: "5rem 0 6rem" }}>
-        <div style={{ padding: "0 6vw", maxWidth: "1580px", margin: "0 auto" }}>
-          <div style={{ marginBottom: "3rem" }}>
-            <h2 style={{
-              fontFamily: "var(--font-bebas)",
-              fontSize: "clamp(2rem, 5vw, 4rem)",
-              letterSpacing: "0.04em", lineHeight: 1,
-              color: "#000", margin: 0,
-            }}>
-              Altre Attività
-            </h2>
-          </div>
-        </div>
-
-        <DragCarousel>
-          {c.pomeridiane.activities.map((act, i) => (
-            <div key={act.name} style={{ paddingLeft: i === 0 ? "6vw" : 0, paddingRight: i === c.pomeridiane.activities.length - 1 ? "6vw" : 0 }}>
-              <PortraitCard {...act} onBlue />
-            </div>
-          ))}
-        </DragCarousel>
-
-        <div style={{ padding: "2rem 6vw 0" }}>
-          <a href={c.pomeridiane.cta_all_href} className="neon-cta">
-            Vedi tutti <ArrowUpRight size={15} />
-          </a>
         </div>
       </section>
 

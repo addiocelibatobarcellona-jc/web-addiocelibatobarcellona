@@ -127,25 +127,22 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
 
         {/* CTA — right */}
         <a
-          href={`https://wa.me/${whatsapp}`}
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/addio-al-celibato-barcellona-contatti"
           className="nav-cta"
           style={{
             background: "#fff", color: "var(--blue)",
-            borderRadius: "6px",
-            border: 0,
-            padding: "0.55rem 1.2rem",
-            fontFamily: "var(--font-bebas)", fontSize: "0.82rem", letterSpacing: "0.1em",
-            display: "flex", alignItems: "center", gap: "0.4rem",
+            border: "none",
+            borderRadius: 0,
+            padding: "0.55rem 1.4rem",
+            fontFamily: "var(--font-bebas)", fontSize: "0.82rem", letterSpacing: "0.12em",
+            display: "flex", alignItems: "center",
             flexShrink: 0, textDecoration: "none",
             transition: "opacity 0.15s",
           }}
           onMouseEnter={e => { (e.currentTarget as HTMLElement).style.opacity = "0.88"; }}
           onMouseLeave={e => { (e.currentTarget as HTMLElement).style.opacity = "1"; }}
         >
-          <MessageCircle size={13} />
-          <span className="nav-cta-label">{ctaLabel}</span>
+          <span className="nav-cta-label">PREVENTIVO</span>
         </a>
 
         {/* Mobile burger */}

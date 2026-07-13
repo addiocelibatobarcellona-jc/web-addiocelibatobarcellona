@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getContent } from "@/lib/content";
-import BottomNav from "@/components/BottomNav";
 import SiteFooter from "@/components/SiteFooter";
-import BackHome from "@/components/BackHome";
 import ActivityContactForm from "@/components/ActivityContactForm";
 import activitiesDetail from "../../../../../public/activities-detail.json";
 
@@ -159,13 +157,6 @@ export default async function ActivityDetailPage({ params }: { params: Promise<P
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <BottomNav
-        links={c.navbar.links}
-        logoLine1={c.navbar.logo_line1}
-        logoLine2={c.navbar.logo_line2}
-        ctaLabel={c.navbar.cta_label}
-        whatsapp={c.site.whatsapp}
-      />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="activity-hero" style={{
@@ -195,7 +186,6 @@ export default async function ActivityDetailPage({ params }: { params: Promise<P
           }} />
         )}
         <div style={{ position: "relative", zIndex: 1 }}>
-          <BackHome href={backHref} />
           <p style={{
             fontFamily: "var(--font-bebas)",
             fontSize: "clamp(0.75rem, 1.4vw, 0.95rem)",
