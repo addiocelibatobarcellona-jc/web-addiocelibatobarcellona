@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { X, Menu, MessageCircle } from "lucide-react";
 import type { NavLink } from "@/lib/content";
 
@@ -14,26 +14,6 @@ interface Props {
 
 export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whatsapp }: Props) {
   const [open, setOpen] = useState(false);
-  const [visible, setVisible] = useState(true);
-  const lastScrollY = useRef(0);
-
-  useEffect(() => {
-    let ticking = false;
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const y = window.scrollY;
-        if (y > lastScrollY.current + 8) setVisible(false);
-        else if (y < lastScrollY.current - 8) setVisible(true);
-        if (y < 80) setVisible(true);
-        lastScrollY.current = y;
-        ticking = false;
-      });
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -55,8 +35,7 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
           position: "fixed",
           bottom: "1.5rem",
           left: "50%",
-          transform: `translateX(-50%) translateY(${visible ? "0" : "140%"})`,
-          transition: "transform 0.45s cubic-bezier(0.33,1,0.68,1)",
+          transform: "translateX(-50%)",
           zIndex: 50,
           width: "calc(100% - 2rem)",
           maxWidth: "880px",
