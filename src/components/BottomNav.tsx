@@ -48,16 +48,27 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
           gap: "1rem",
         }}
       >
-        {/* Logo — left */}
-        <a href="/" style={{ display: "flex", alignItems: "center", gap: "0.75rem", textDecoration: "none", flexShrink: 0 }}>
-          <img
-            src="https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/logoaddioalcelibatoblancohori2-1.png"
-            alt="Addio al Celibato Barcellona"
-            style={{ height: 48, width: "auto" }}
-          />
-          <span className="nav-logo-line1" style={{ fontFamily: "var(--font-bebas)", fontSize: "1.35rem", letterSpacing: "0.1em", color: "#fff" }}>
-            {logoLine1}
-          </span>
+        {/* Logo — spinning bottle-cap badge only */}
+        <a href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none", flexShrink: 0 }}>
+          <div style={{ position: "relative", width: 60, height: 60 }}>
+            {/* Spinning circular text ring */}
+            <svg viewBox="0 0 120 120" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", animation: "spin 14s linear infinite" }}>
+              <defs>
+                <path id="nav-ring" d="M60,12 A48,48 0 1,1 59.99,12" />
+              </defs>
+              <circle cx="60" cy="60" r="52" fill="rgba(255,255,255,0.12)" />
+              <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="0.5" />
+              <text fontFamily="Arial" fontSize="7.5" fill="rgba(255,255,255,0.85)" letterSpacing="3.2">
+                <textPath href="#nav-ring" startOffset="0%">ADDIO AL CELIBATO · BARCELLONA · DAL 2017 · </textPath>
+              </text>
+            </svg>
+            {/* Static logo centered */}
+            <img
+              src="https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/logoaddioalcelibatoblancohori2-1.png"
+              alt="Addio al Celibato Barcellona"
+              style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "55%", height: "auto" }}
+            />
+          </div>
         </a>
 
         {/* Center links */}
