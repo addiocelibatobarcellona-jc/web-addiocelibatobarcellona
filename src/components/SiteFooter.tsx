@@ -39,7 +39,6 @@ export default function SiteFooter() {
                 {[
                   { href: "/addio-al-celibato-barcellona-contatti", label: "Contattaci", external: false },
                   { href: `https://wa.me/${c.site.whatsapp}`, label: "WhatsApp", external: true },
-                  { href: `tel:${c.site.phone}`, label: c.site.phone, external: false },
                 ].map((l) => (
                   <li key={l.href}>
                     <a href={l.href} target={l.external ? "_blank" : undefined}
