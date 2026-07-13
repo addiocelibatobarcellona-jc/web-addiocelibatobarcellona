@@ -140,7 +140,7 @@ export default function HomePage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-end",
-          padding: "0 6vw 5rem",
+          padding: "8rem 6vw 5rem",
           position: "relative",
           overflow: "hidden",
         }}
@@ -164,8 +164,18 @@ export default function HomePage() {
         {/* Main content */}
         <div style={{ position: "relative", zIndex: 2 }}>
 
+          <p style={{
+            fontFamily: "var(--font-bebas)",
+            fontSize: "clamp(0.75rem, 1.4vw, 0.95rem)",
+            letterSpacing: "0.3em",
+            color: "rgba(255,255,255,0.5)",
+            marginBottom: "0.5rem",
+          }}>
+            — BARCELLONA · DAL 2017
+          </p>
+
           {/* H1 — SEO title */}
-          <h1 style={{ margin: "0 0 1.5rem", animation: "hero-in 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s both" }}>
+          <h1 style={{ margin: "0 0 1.25rem", animation: "hero-in 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s both" }}>
             <span style={{
               display: "block",
               fontFamily: "var(--font-bebas)",
@@ -188,20 +198,17 @@ export default function HomePage() {
             </span>
           </h1>
 
-          {/* Tagline — prominent */}
+          {/* Tagline */}
           <p style={{
-            fontSize: "clamp(1.05rem, 2vw, 1.35rem)",
-            lineHeight: 1.7,
-            color: "rgba(255,255,255,0.9)",
+            fontSize: "clamp(0.82rem, 1.3vw, 1rem)",
+            lineHeight: 1.65,
+            color: "rgba(255,255,255,0.75)",
             maxWidth: "52ch",
             fontWeight: 400,
-            marginBottom: "2.5rem",
+            marginBottom: "2rem",
             animation: "hero-in 0.9s cubic-bezier(0.16,1,0.3,1) 0.25s both",
           }}>
-            Alla ricerca di idee per un Addio al Celibato a Barcellona unico? Sei nel posto giusto.{" "}
-            <span style={{ color: "rgba(255,255,255,0.6)" }}>
-              Siamo italiani, viviamo a Barcellona e conosciamo la città meglio di qualsiasi altra agenzia.
-            </span>
+            Alla ricerca di idee per un Addio al Celibato a Barcellona unico? Sei nel posto giusto. Siamo italiani, viviamo a Barcellona e conosciamo la città meglio di qualsiasi altra agenzia.
           </p>
 
           {/* CTA */}
