@@ -250,7 +250,7 @@ export default function HomePage() {
         {/* Dark gradient overlay */}
         <div style={{
           position: "absolute", inset: 0,
-          background: "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.82) 100%)",
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,1) 100%)",
         }} />
 
         {/* Main content */}
