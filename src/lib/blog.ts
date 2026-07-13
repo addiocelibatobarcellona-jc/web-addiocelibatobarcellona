@@ -10,7 +10,12 @@ export interface BlogPost {
   bodyMarkdown: string;
 }
 
-const ALL_POSTS = rawPosts as BlogPost[];
+const ALL_POSTS = (rawPosts as BlogPost[]).map((p) => ({
+  ...p,
+  bodyMarkdown: p.bodyMarkdown
+    .replace(/\n*###\s*Invia commento[\s\S]*/i, "")
+    .trim(),
+}));
 
 export const POSTS_PER_PAGE = 10;
 
