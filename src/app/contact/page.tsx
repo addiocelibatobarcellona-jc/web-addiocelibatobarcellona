@@ -117,8 +117,6 @@ export default function Contatti() {
       {/* ── FORM + CONTACT INFO ── */}
       <section style={{ padding: "5rem 6vw 7rem" }}>
         <div style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
           display: "grid",
           gridTemplateColumns: "1fr 420px",
           gap: "6rem",
