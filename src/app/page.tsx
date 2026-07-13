@@ -338,85 +338,83 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Wave: black → blue */}
-      <Wave from="#000" to="var(--blue)" flip />
-
       {/* ════════════════════════════════════════════════════════════════
-          NUBILATO PROMO BANNER — on blue bg, just above altre attività
+          NUBILATO PROMO BANNER — full-width clickable, right after grid
       ════════════════════════════════════════════════════════════════ */}
-      <section className="nubilato-promo-section" style={{
-        background: "var(--blue)",
-        padding: "8rem 6vw 4rem",
-      }}>
-        <div style={{
-          position: "relative",
-          overflow: "hidden",
-          minHeight: "260px",
+      <a
+        href="/addio-al-nubilato"
+        style={{
           display: "flex",
           alignItems: "center",
-          background: `linear-gradient(to right, rgba(0,0,0,0.92) 35%, rgba(0,0,0,0.5) 100%), url(https://addioalcelibato-barcellona.it/wp-content/uploads/2026/02/addio-nubilato-home-page-scaled.jpg) center/cover no-repeat`,
+          position: "relative",
+          overflow: "hidden",
+          minHeight: "420px",
+          textDecoration: "none",
+          background: `linear-gradient(to right, rgba(0,0,0,0.88) 40%, rgba(0,0,0,0.45) 100%), url(https://addioalcelibato-barcellona.it/wp-content/uploads/2026/02/addio-nubilato-home-page-scaled.jpg) center/cover no-repeat`,
+          transition: "filter 0.3s ease",
+        }}
+        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.filter = "brightness(1.1)"; }}
+        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.filter = "brightness(1)"; }}
+      >
+        <div style={{
+          padding: "4rem 6vw",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          width: "100%",
+          flexWrap: "wrap",
+          gap: "2rem",
         }}>
-          <div style={{
-            padding: "3.5rem 4vw",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            width: "100%",
-            flexWrap: "wrap",
-            gap: "2rem",
-          }}>
-            <div>
-              <p style={{
-                fontFamily: "var(--font-bebas)",
-                fontSize: "clamp(0.7rem, 1.2vw, 0.85rem)",
-                letterSpacing: "0.3em",
-                color: "rgba(255,255,255,0.4)",
-                marginBottom: "0.5rem",
-              }}>
-                — ORGANIZZATE UN ADDIO AL NUBILATO?
-              </p>
-              <h2 style={{
-                fontFamily: "var(--font-bebas)",
-                fontSize: "clamp(2rem, 4.5vw, 4rem)",
-                letterSpacing: "-0.02em",
-                lineHeight: 0.88,
-                color: "#fff",
-                margin: "0 0 1rem",
-              }}>
-                ATTIVITÀ PER<br />
-                <span style={{ color: "var(--blue)" }}>ADDIO AL NUBILATO</span>
-              </h2>
-              <p style={{
-                fontSize: "0.9rem",
-                color: "rgba(255,255,255,0.75)",
-                lineHeight: 1.65,
-                maxWidth: "50ch",
-                fontWeight: 400,
-              }}>
-                Abbiamo un&apos;intera sezione dedicata con strip show maschile, cocktail lab, caccia al tesoro e molto altro pensato appositamente per voi.
-              </p>
-            </div>
-            <a
-              href="/addio-al-nubilato"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.6rem",
-                fontFamily: "var(--font-bebas)",
-                fontSize: "0.9rem",
-                letterSpacing: "0.14em",
-                padding: "1.1rem 2.25rem",
-                background: "#fff",
-                color: "#000",
-                textDecoration: "none",
-                flexShrink: 0,
-              }}
-            >
-              SCOPRI IL NUBILATO <ArrowUpRight size={16} />
-            </a>
+          <div>
+            <p style={{
+              fontFamily: "var(--font-bebas)",
+              fontSize: "clamp(0.7rem, 1.2vw, 0.85rem)",
+              letterSpacing: "0.3em",
+              color: "rgba(255,255,255,0.4)",
+              marginBottom: "0.5rem",
+            }}>
+              — ORGANIZZATE UN ADDIO AL NUBILATO?
+            </p>
+            <h2 style={{
+              fontFamily: "var(--font-bebas)",
+              fontSize: "clamp(2rem, 4.5vw, 4rem)",
+              letterSpacing: "-0.02em",
+              lineHeight: 0.88,
+              color: "#fff",
+              margin: "0 0 1rem",
+            }}>
+              ATTIVITÀ PER<br />
+              <span style={{ color: "var(--blue)" }}>ADDIO AL NUBILATO</span>
+            </h2>
+            <p style={{
+              fontSize: "0.9rem",
+              color: "rgba(255,255,255,0.75)",
+              lineHeight: 1.65,
+              maxWidth: "50ch",
+              fontWeight: 400,
+            }}>
+              Abbiamo un&apos;intera sezione dedicata con strip show maschile, cocktail lab, caccia al tesoro e molto altro pensato appositamente per voi.
+            </p>
           </div>
+          <span style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.6rem",
+            fontFamily: "var(--font-bebas)",
+            fontSize: "0.9rem",
+            letterSpacing: "0.14em",
+            padding: "1.1rem 2.25rem",
+            background: "#fff",
+            color: "#000",
+            flexShrink: 0,
+          }}>
+            SCOPRI IL NUBILATO <ArrowUpRight size={16} />
+          </span>
         </div>
-      </section>
+      </a>
+
+      {/* Wave: black → blue */}
+      <Wave from="#000" to="var(--blue)" flip />
 
       {/* ════════════════════════════════════════════════════════════════
           IL DOVERE — blue, before footer
