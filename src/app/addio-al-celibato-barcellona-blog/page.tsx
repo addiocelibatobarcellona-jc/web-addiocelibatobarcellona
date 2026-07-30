@@ -74,22 +74,27 @@ export default function BlogPage() {
               }}
               className="activity-grid-card"
             >
-              {post.featuredImage && (
-                /* eslint-disable-next-line @next/next/no-img-element */
-                <img
-                  src={post.featuredImage}
-                  alt={post.title}
-                  style={{
+              {post.featuredImage ? (
+                <>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={post.featuredImage}
+                    alt={post.title}
+                    style={{
+                      position: "absolute", inset: 0,
+                      width: "100%", height: "100%",
+                      objectFit: "cover", objectPosition: "center",
+                    }}
+                  />
+                  <div style={{
                     position: "absolute", inset: 0,
-                    width: "100%", height: "100%",
-                    objectFit: "cover", objectPosition: "center",
-                  }}
-                />
-              )}
-              {post.featuredImage && (
+                    background: "linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.92) 100%)",
+                  }} />
+                </>
+              ) : (
                 <div style={{
                   position: "absolute", inset: 0,
-                  background: "linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.92) 100%)",
+                  background: "linear-gradient(135deg, var(--blue) 0%, #1240cc 55%, #000c2e 100%)",
                 }} />
               )}
               <div style={{
