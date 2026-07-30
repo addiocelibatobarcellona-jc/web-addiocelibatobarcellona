@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 // ── Data ──────────────────────────────────────────────────────────────────────
 
 const HERO_IMG =
-  "https://addioalcelibato-barcellona.it/wp-content/uploads/2026/02/addio-nubilato-home-page-scaled.jpg";
+  "/images/2026-addio-nubilato-home-page-scaled.jpg";
 
 const ACTIVITIES = [
   {
@@ -22,49 +22,49 @@ const ACTIVITIES = [
     desc: "Cena con open bar, spettacolo di striptease maschile e ingresso in discoteca. La serata classica per eccellenza.",
     price: "74€ / persona",
     tag: "Best Seller",
-    image: "https://addioalcelibato-barcellona.it/wp-content/uploads/2026/02/cena-strip-disco-nubilato-1.png",
+    image: "/images/2026-cena-strip-disco-nubilato-1.png",
   },
   {
     name: "All Inclusive Gold",
     desc: "La formula completa: cena, limousine, striptease e discoteca. Nessun pensiero, solo divertimento.",
     price: "115€ / persona",
     tag: "Premium",
-    image: "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/04/All-Inclusive-Gold-Nubilato.jpg",
+    image: "/images/2017-All-Inclusive-Gold-Nubilato.jpg",
   },
   {
     name: "Spicy Mix – Collettivo",
     desc: "Serata collettiva con cena, open bar di sangria, spettacoli internazionali, animazioni e striptease.",
     price: "79€ / persona",
     tag: "Più venduto",
-    image: "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/CRAZYMIX.jpg",
+    image: "/images/2017-CRAZYMIX.jpg",
   },
   {
     name: "Cena Limo Disco",
     desc: "Cena con open bar, giro in lussuosa limousine e ingresso in discoteca per una serata da star.",
     price: "89€ / persona",
     tag: null,
-    image: "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/CENALIMODISCO-S.jpg",
+    image: "/images/2017-CENALIMODISCO-S.jpg",
   },
   {
     name: "Strip Show",
     desc: "Show di striptease maschile professionale in sala privata. Semplice, diretto e sempre efficace.",
     price: "27€ / persona",
     tag: null,
-    image: "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/04/Stri-show-nubilato-S.jpg",
+    image: "/images/2017-Stri-show-nubilato-S.jpg",
   },
   {
     name: "Cheeky Butler",
     desc: "Un maggiordomo con pochissimi vestiti al vostro servizio per tutta la serata. Sorprese garantite.",
     price: "32€ / persona",
     tag: null,
-    image: "https://addioalcelibato-barcellona.it/wp-content/uploads/2026/02/addio-nubilato-home-size-ok.jpg",
+    image: "/images/2026-addio-nubilato-home-size-ok.jpg",
   },
   {
     name: "Caccia al Tesoro",
     desc: "Tour di Barcellona in stile caccia al tesoro: prove, missioni segrete e tanto divertimento per il gruppo.",
     price: "45€ / persona",
     tag: null,
-    image: "https://addioalcelibato-barcellona.it/wp-content/uploads/2024/03/journey-1130732_1280.jpg",
+    image: "/images/2024-journey-1130732_1280.jpg",
   },
   {
     name: "Cocktail Lab",
@@ -78,35 +78,35 @@ const ACTIVITIES = [
     desc: "Festa in catamarano sul Mediterraneo con open bar a bordo. Sole, musica e mare cristallino.",
     price: "69€ / persona",
     tag: "Mare",
-    image: "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/CRAZY-CATAMARAN-PARTY-S.jpg",
+    image: "/images/2017-CRAZY-CATAMARAN-PARTY-S.jpg",
   },
   {
     name: "LimoBus",
     desc: "Open bar in movimento sul lussuoso limo-bus. Un dance floor su ruote per le strade di Barcellona.",
     price: "42€ / persona",
     tag: null,
-    image: "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/Limobus-S.jpg",
+    image: "/images/2017-Limobus-S.jpg",
   },
   {
     name: "Giretto in Limousine",
     desc: "Tour panoramico di Barcellona a bordo di una limousine di lusso con spumante incluso.",
     price: "39€ / persona",
     tag: null,
-    image: "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/GIRETTO-IN-LIMO.jpg",
+    image: "/images/2017-GIRETTO-IN-LIMO.jpg",
   },
   {
     name: "Escape Room",
     desc: "60 minuti per risolvere enigmi e scappare. Perfetta per rompere il ghiaccio tra il gruppo.",
     price: "35€ / persona",
     tag: null,
-    image: "https://addioalcelibato-barcellona.it/wp-content/uploads/2022/02/Escape-Room-addio-al-celibato-Barcellona.jpg",
+    image: "/images/2022-Escape-Room-addio-al-celibato-Barcellona.jpg",
   },
   {
     name: "La Beerbike",
     desc: "Pedalate, cantate e bevete birra per le strade di Barcellona su questo mezzo assolutamente unico.",
     price: "50€ / persona",
     tag: "Classico",
-    image: "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/Bici-birra-1.jpg",
+    image: "/images/2017-Bici-birra-1.jpg",
   },
   {
     name: "Disco VIP",
@@ -120,42 +120,42 @@ const ACTIVITIES = [
     desc: "Mix di attività acquatiche sulla costa di Barcellona: paddle surf, kayak, snorkeling e relax al sole.",
     price: "Da 20€ / pers.",
     tag: "Mare",
-    image: "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/TUTTI-AL-MARE.jpg",
+    image: "/images/2017-TUTTI-AL-MARE.jpg",
   },
   {
     name: "Archery Tag",
     desc: "Combattimento a squadre con arco e frecce imbottite. Adrenalina, risate e spirito di squadra.",
     price: "25€ / persona",
     tag: "Adrenalina",
-    image: "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/archerytag.jpg",
+    image: "/images/2017-archerytag.jpg",
   },
   {
     name: "Segway Barcellona",
     desc: "Tour di Barcellona in Segway. Facile, divertente e assolutamente memorabile per tutto il gruppo.",
     price: "45€ / persona",
     tag: null,
-    image: "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/03/BarcelonaSegway-T24-d_O.jpg",
+    image: "/images/2017-BarcelonaSegway-T24-d_O.jpg",
   },
   {
     name: "Altre Attività",
     desc: "Quad, laser combat, paintball e molto altro. Contattateci per creare il programma perfetto per voi.",
     price: "Da 25€ / pers.",
     tag: null,
-    image: "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/ALTRE-ATTIVITA.jpg",
+    image: "/images/2017-ALTRE-ATTIVITA.jpg",
   },
   {
     name: "Barca a Vela Privata",
     desc: "Giro in barca a vela privato, solo per il vostro gruppo. Sole, mare e Barcellona vista dall'acqua.",
     price: "60€ / persona",
     tag: null,
-    image: "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/BARCA-A-VELA-PRIVATA-S.jpg",
+    image: "/images/2017-BARCA-A-VELA-PRIVATA-S.jpg",
   },
   {
     name: "Vespa GPS",
     desc: "Scoprite Barcellona in Vespa con navigatore GPS integrato. Libertà totale per il vostro gruppo.",
     price: "45€ / persona",
     tag: null,
-    image: "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/VESPA-GPS-small.jpg",
+    image: "/images/2017-VESPA-GPS-small.jpg",
   },
 ];
 

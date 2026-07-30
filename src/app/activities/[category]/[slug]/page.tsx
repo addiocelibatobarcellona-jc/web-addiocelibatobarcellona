@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
   const italianCat = toItalianCategory(category);
   const canonical = `https://www.addioalcelibato-barcellona.it/attivita/${italianCat}/${slug}/`;
-  const ogImage = activity.images[0] ?? "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/ADDIO-SPICY-MIX-S.jpg";
+  const ogImage = activity.images[0] ?? "/images/2017-ADDIO-SPICY-MIX-S.jpg";
 
   return {
     title: `${activity.name} | Addio al Celibato Barcellona`,
@@ -86,7 +86,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 function buildActivityJsonLd(activity: ActivityDetail, category: string, cardImage?: string) {
   const italianCat = toItalianCategory(category);
   const url = `https://www.addioalcelibato-barcellona.it/attivita/${italianCat}/${activity.slug}/`;
-  const image = cardImage ?? activity.images[0] ?? "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/ADDIO-SPICY-MIX-S.jpg";
+  const image = cardImage ?? activity.images[0] ?? "/images/2017-ADDIO-SPICY-MIX-S.jpg";
 
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",

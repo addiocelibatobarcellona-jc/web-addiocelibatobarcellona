@@ -92,7 +92,7 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
               <path d={CAP_PATH} fill="#fff" />
             </svg>
             <img
-              src="https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/logoaddioalcelibatoblancohori2-1.png"
+              src="/images/2017-logoaddioalcelibatoblancohori2-1.png"
               alt="Addio al Celibato Barcellona"
               style={{
                 position: "absolute", top: "50%", left: "50%",

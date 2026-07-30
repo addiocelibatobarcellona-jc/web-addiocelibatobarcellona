@@ -100,7 +100,7 @@
         "href": "/attivita/notturne/addio-al-celibato-con-spogliarellista/",
         "tag": "Best Seller",
         "icon": "Sparkles",
-        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/ADDIO-CLASSICO-S.jpg"
+        "image": "/images/2017-ADDIO-CLASSICO-S.jpg"
       },
       {
         "name": "Spicy Mix",
@@ -109,7 +109,7 @@
         "href": "/attivita/notturne/addio-al-celibato-collettivo/",
         "tag": "Più venduto",
         "icon": "Flame",
-        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/ADDIO-SPICY-MIX-S.jpg"
+        "image": "/images/2017-ADDIO-SPICY-MIX-S.jpg"
       },
       {
         "name": "All Inclusive",
@@ -118,7 +118,7 @@
         "href": "/attivita/notturne/addio-al-celibato-con-spogliarellista-e-limousine/",
         "tag": "Premium",
         "icon": "Crown",
-        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/CENALIMOSTRIPPERDISCO.jpg"
+        "image": "/images/2017-CENALIMOSTRIPPERDISCO.jpg"
       },
       {
         "name": "Strip Show",
@@ -127,7 +127,7 @@
         "href": "/attivita/notturne/addio-al-celibato-spogliarellista-show/",
         "tag": null,
         "icon": "Music",
-        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/05/spettacoli-addio-al-celibato-barcellona.jpg"
+        "image": "/images/2017-spettacoli-addio-al-celibato-barcellona.jpg"
       },
       {
         "name": "XXX Show",
@@ -136,7 +136,7 @@
         "href": "/attivita/notturne/xxx-show-trasgressione-massima/",
         "tag": "Adrenalina",
         "icon": "Zap",
-        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/04/XXX-SHOW-copy.jpg"
+        "image": "/images/2017-XXX-SHOW-copy.jpg"
       },
       {
         "name": "Body Sushi",
@@ -145,7 +145,7 @@
         "href": "/attivita/notturne/body-sushi/",
         "tag": null,
         "icon": "UtensilsCrossed",
-        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/03/bodysushi2.jpg"
+        "image": "/images/2017-bodysushi2.jpg"
       },
       {
         "name": "LimoBus",
@@ -154,7 +154,7 @@
         "href": "/attivita/notturne/addio-al-celibato-barcellona-limobus/",
         "tag": null,
         "icon": "Bus",
-        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/06/limobus-barcelona-2.jpg"
+        "image": "/images/2017-limobus-barcelona-2.jpg"
       },
       {
         "name": "Giretto in Limo",
@@ -163,7 +163,7 @@
         "href": "/attivita/notturne/addio-al-celibato-giretto-in-limo/",
         "tag": null,
         "icon": "Car",
-        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/GIRETTO-IN-LIMO.jpg"
+        "image": "/images/2017-GIRETTO-IN-LIMO.jpg"
       }
     ]
   },
@@ -177,7 +177,7 @@
         "href": "/attivita/pomeridiane/catamaran/",
         "tag": "Mare",
         "icon": "Anchor",
-        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/CRAZY-CATAMARAN-PARTY-S.jpg"
+        "image": "/images/2017-CRAZY-CATAMARAN-PARTY-S.jpg"
       },
       {
         "name": "Barca a Vela Privata",
@@ -186,7 +186,7 @@
         "href": "/attivita/pomeridiane/barca-a-vela/",
         "tag": null,
         "icon": "Ship",
-        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/BARCA-A-VELA-PRIVATA-S.jpg"
+        "image": "/images/2017-BARCA-A-VELA-PRIVATA-S.jpg"
       },
       {
         "name": "La Beerbike",
@@ -195,7 +195,7 @@
         "href": "/attivita/pomeridiane/beerbike/",
         "tag": "Classico",
         "icon": "Bike",
-        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/Bici-birra-1.jpg"
+        "image": "/images/2017-Bici-birra-1.jpg"
       },
       {
         "name": "Bubble Football",
@@ -204,7 +204,7 @@
         "href": "/attivita/pomeridiane/bubble-football/",
         "tag": "Adrenalina",
         "icon": "CircleDot",
-        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/BUBBLE-FOOTBALL-S.jpg"
+        "image": "/images/2017-BUBBLE-FOOTBALL-S.jpg"
       },
       {
         "name": "Paintball Outdoor",
@@ -213,7 +213,7 @@
         "href": "/attivita/pomeridiane/paintball/",
         "tag": null,
         "icon": "Target",
-        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/PAINTBALL-OUTDOOR.jpg"
+        "image": "/images/2017-PAINTBALL-OUTDOOR.jpg"
       },
       {
         "name": "Escape Room",
@@ -222,7 +222,7 @@
         "href": "/attivita/pomeridiane/escape-room/",
         "tag": null,
         "icon": "Lock",
-        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2022/02/Escape-Room-addio-al-celibato-Barcellona.jpg"
+        "image": "/images/2022-Escape-Room-addio-al-celibato-Barcellona.jpg"
       },
       {
         "name": "Vespa GPS",
@@ -231,7 +231,7 @@
         "href": "/attivita/pomeridiane/vespa-gps/",
         "tag": null,
         "icon": "Navigation",
-        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/VESPA-GPS.jpg"
+        "image": "/images/2017-VESPA-GPS.jpg"
       },
       {
         "name": "Camp Nou Experience",
@@ -240,7 +240,7 @@
         "href": "/attivita/pomeridiane/camp-nou-experience/",
         "tag": null,
         "icon": "Trophy",
-        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/03/Camp-Nou-Experience.jpg"
+        "image": "/images/2017-Camp-Nou-Experience.jpg"
       },
       {
         "name": "Paddle Surf",
@@ -249,7 +249,7 @@
         "href": "/attivita/pomeridiane/paddle-surf/",
         "tag": "Outdoor",
         "icon": "Waves",
-        "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/Paddle-Surf-Barcelona-S.jpg"
+        "image": "/images/2017-Paddle-Surf-Barcelona-S.jpg"
       }
     ]
   },

@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     url: "https://www.addioalcelibato-barcellona.it",
     images: [
       {
-        url: "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/ADDIO-SPICY-MIX-S.jpg",
+        url: "/images/2017-ADDIO-SPICY-MIX-S.jpg",
         width: 1200,
         height: 630,
         alt: "Addio al Celibato Barcellona – Festa leggendaria dal 2017",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     title: "Addio al Celibato Barcellona | Dal 2017",
     description:
       "La tua festa leggendaria a Barcellona. Miglior prezzo garantito dal 2017.",
-    images: ["https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/ADDIO-SPICY-MIX-S.jpg"],
+    images: ["/images/2017-ADDIO-SPICY-MIX-S.jpg"],
   },
   robots: {
     index: true,

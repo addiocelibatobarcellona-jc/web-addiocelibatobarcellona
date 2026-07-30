@@ -100,7 +100,7 @@ const localBusinessJsonLd = {
   "url": "https://www.addioalcelibato-barcellona.it",
   "telephone": "+34673180796",
   "email": "addiocelibatobarcellona@gmail.com",
-  "image": "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/ADDIO-SPICY-MIX-S.jpg",
+  "image": "/images/2017-ADDIO-SPICY-MIX-S.jpg",
   "description": "Organizziamo addii al celibato e al nubilato a Barcellona dal 2017. Strip show, discoteche, limousine, paddle surf e molto altro. Preventivo gratuito!",
   "foundingDate": "2017",
   "priceRange": "€€",
@@ -149,7 +149,7 @@ export default function HomePage() {
       >
         {/* Background image */}
         <Image
-          src="https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/ADDIO-SPICY-MIX-S.jpg"
+          src="/images/2017-ADDIO-SPICY-MIX-S.jpg"
           alt="Addio al Celibato Barcellona"
           fill
           priority
@@ -404,7 +404,7 @@ export default function HomePage() {
           minHeight: "560px",
           marginBottom: "5rem",
           textDecoration: "none",
-          background: `linear-gradient(to right, rgba(0,0,0,0.55) 35%, rgba(0,0,0,0.1) 100%), url(https://addioalcelibato-barcellona.it/wp-content/uploads/2026/02/addio-nubilato-home-page-scaled.jpg) center/cover no-repeat`,
+          background: `linear-gradient(to right, rgba(0,0,0,0.55) 35%, rgba(0,0,0,0.1) 100%), url(/images/2026-addio-nubilato-home-page-scaled.jpg) center/cover no-repeat`,
         }}
       >
         <div style={{

@@ -31,11 +31,11 @@
     "description": "Si tratta di un locale privato che usiamo esclusivamente per feste di questo tipo dove troverete festeggiando altri gruppi (sì, anche di donne), e dove il divertimento è garantito. Ci saranno cena, spettacoli ed animazioni, giochi, e soprattutto alcol a fiumi!\n\nVi starete chiedendo dov'è l'inganno per avere tutto questo a un prezzo simile… come potete immaginare, l'addio al celibato collettivo è per vari gruppi, rendendo questa opzione decisamente più conveniente di un addio privato: più spettacoli, quiz e sorprese per meno soldi.\n\nNon dimenticate che per avere dei momenti più intimi tra di voi, si può completare questa serata con attività durante il giorno (o weekend), alloggio se necessario, tour in limousine per l'intero gruppo, striptease e spettacoli privati solo per il vostro addio al celibato ed altro ancora. Non rimanete con il dubbio e contattateci. Questa sarà una notte magica ed è tutto compreso.",
     "notes": "*L'Open Bar di Sangria è valido fino al ritiro del secondo piatto.",
     "images": [
-      "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/640_410_astoria1_87990.jpg",
-      "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/04/astoria-2-S.jpg",
-      "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/04/astoria-3-S.jpg",
-      "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/astoria-restaurant.jpg",
-      "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/maxresdefault-2.jpg"
+      "/images/2017-640_410_astoria1_87990.jpg",
+      "/images/2017-astoria-2-S.jpg",
+      "/images/2017-astoria-3-S.jpg",
+      "/images/2017-astoria-restaurant.jpg",
+      "/images/2017-maxresdefault-2.jpg"
     ]
   },
   {
@@ -115,10 +115,10 @@
     "description": "Il LimoBus è un autobus creato esclusivamente per festeggiare. Comodi a bordo di questo lussuoso mezzo, godrete dei migliori scorci di Barcellona sorseggiando drinks e ballando a ritmo di musica.\n\nNon c'è modo migliore per iniziare o concludere una serata di addio al celibato: un'ora di puro divertimento con open bar, musica a tutto volume e le luci di Barcellona come scenografia.",
     "notes": "Consultateci per gruppi inferiori a 13 persone",
     "images": [
-      "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/Limobus-S.jpg",
-      "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/06/limobus-barcelona-2.jpg",
-      "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/06/limo-bus.jpg",
-      "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/06/limo-bus10.jpg"
+      "/images/2017-Limobus-S.jpg",
+      "/images/2017-limobus-barcelona-2.jpg",
+      "/images/2017-limo-bus.jpg",
+      "/images/2017-limo-bus10.jpg"
     ]
   },
   {
@@ -150,7 +150,7 @@
     "description": "Salpate dal porto di Barcellona a bordo di un ampio catamarano e lasciate il ritmo della città alle spalle. Per qualche ora sarete immersi nel blu del Mediterraneo, con le birre in mano, la musica a tutto volume e Barcellona come sfondo.\n\nPossibilità di nuotare e tuffarsi nelle acque cristalline durante la navigazione. Un'esperienza unica che si ricorda a lungo.",
     "notes": null,
     "images": [
-      "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/CRAZY-CATAMARAN-PARTY-S.jpg"
+      "/images/2017-CRAZY-CATAMARAN-PARTY-S.jpg"
     ]
   },
   {
@@ -170,7 +170,7 @@
     "description": "Navigazione in barca a vela privata: solo voi, il vento e il mare. Lo skipper vi guiderà tra le acque del Mediterraneo e, se volete, potrete anche partecipare alle manovre e imparare le basi della navigazione a vela.\n\nOrari e percorsi flessibili, con possibilità di fermarsi per nuotare, prendere il sole e godersi la costa barcellonese da una prospettiva unica.",
     "notes": null,
     "images": [
-      "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/BARCA-A-VELA-PRIVATA-S.jpg"
+      "/images/2017-BARCA-A-VELA-PRIVATA-S.jpg"
     ]
   },
   {
@@ -188,9 +188,9 @@
     "description": "Il bicibirra combina elementi festivi come bevande, musica e karaoke con attività fisica leggera. I partecipanti pedalano insieme mentre degustano le loro bevande, bruciando calorie mentre festeggiano.\n\nNon è necessario guidare: un autista conduce il veicolo mentre voi vi godete il viaggio. L'attività porta il gruppo attraverso il parco del Rio de Llobregat e le strade di Barcellona, con un'atmosfera garantita.",
     "notes": "Capacità massima: 16 persone",
     "images": [
-      "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/Bici-birra-2.jpeg",
-      "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/bici-birra-3.jpeg",
-      "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/Bici-birra-1.jpg"
+      "/images/2017-Bici-birra-2.jpeg",
+      "/images/2017-bici-birra-3.jpeg",
+      "/images/2017-Bici-birra-1.jpg"
     ]
   },
   {
@@ -208,7 +208,7 @@
     "description": "Il bubble football è uno sport innovativo dove tutti possono partecipare, indipendentemente dall'abilità calcistica. L'obiettivo è segnare gol — ma tra le cadute, i rimbalzi e gli scontri nelle bolle, il vero obiettivo è ridere fino alle lacrime.\n\nPossibili formati: celibi vs. sposati, amici vs. amici, oppure gruppi misti. Uno scontro epico che tutti ricorderanno.",
     "notes": null,
     "images": [
-      "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/BUBBLE-FOOTBALL-S.jpg"
+      "/images/2017-BUBBLE-FOOTBALL-S.jpg"
     ]
   },
   {
@@ -227,7 +227,7 @@
     "description": "Un'attività ricca di adrenalina che mette alla prova strategia, lavoro di squadra e riflessi. I partecipanti sperimentano tensione, emozione e quella scarica di adrenalina che allevia ogni stress.\n\nIl campo outdoor è situato vicino a Barcellona, immerso nella natura. Perfetto come attività pomeridiana da combinare con una serata in città.",
     "notes": "Disponibile anche la variante indoor. Contattateci per personalizzare l'esperienza.",
     "images": [
-      "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/PAINTBALL-OUTDOOR.jpg"
+      "/images/2017-PAINTBALL-OUTDOOR.jpg"
     ]
   },
   {
@@ -244,7 +244,7 @@
     "description": "Diverse tematiche disponibili: antico Egitto, Jurassic Park, casi di omicidio, Terminator e molte altre. Ogni stanza è un'avventura a sé, progettata per mettere alla prova logica, comunicazione e lavoro di squadra.\n\nIdeale come attività pomeridiana per rompere il ghiaccio tra il gruppo prima di una serata in città. Un'esperienza di team building che diverte sempre.",
     "notes": "Prezzi variabili in base al numero di persone e tipo di sala scelta.",
     "images": [
-      "https://addioalcelibato-barcellona.it/wp-content/uploads/2022/02/Escape-Room-addio-al-celibato-Barcellona.jpg"
+      "/images/2022-Escape-Room-addio-al-celibato-Barcellona.jpg"
     ]
   },
   {
@@ -264,7 +264,7 @@
     "description": "Quattro percorsi pre-programmati vi guideranno attraverso i quartieri più belli di Barcellona: dal Gotico alla Barceloneta, dal Poblenou al Gràcia. I modelli disponibili sono Classic (45€/6h o 65€/giorno) e Comfort con vano posteriore (55€/6h o 75€/giorno).\n\nAutonomia approssimativa: 150 km per serbatoio. Il modello Comfort permette di portare un borsone a bordo. Disponibile da aprile a ottobre, 9:30–20:00.",
     "notes": "Patente AM per Vespa 50cc; A/A1/A2 per Vespa 125cc. Esperienza con moto/scooter richiesta.",
     "images": [
-      "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/VESPA-GPS.jpg"
+      "/images/2017-VESPA-GPS.jpg"
     ]
   },
   {
@@ -282,7 +282,7 @@
     "description": "Il tour offre accesso alle aree più iconiche del FC Barcelona: lo spogliatoio, il tunnel verso il campo, la zona stampa, le tribune e naturalmente il Museo del Barça con tutti i trofei e cimeli della storia blaugrana.\n\nAperto tutti i giorni eccetto il 25 dicembre e il 1° gennaio. Nei giorni di partita l'orario del tour può variare.",
     "notes": "Il tour chiude il giorno della partita e il giorno prima in caso di Champions League.",
     "images": [
-      "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/03/Camp-Nou-Experience.jpg"
+      "/images/2017-Camp-Nou-Experience.jpg"
     ]
   },
   {
@@ -300,7 +300,7 @@
     "description": "Lo sport consiste nel salire su una tavola e remare in piedi. Originariamente nato come allenamento per surfisti nei giorni senza onde, è diventato una delle attività acquatiche con maggior crescita nel mondo.\n\nNon richiede particolari abilità per iniziare: l'istruttore vi insegnerà le basi in pochi minuti. Perfetto da combinare con un'attività serale per un weekend di addio al celibato completo.",
     "notes": null,
     "images": [
-      "https://addioalcelibato-barcellona.it/wp-content/uploads/2017/01/Paddle-Surf-Barcelona-S.jpg"
+      "/images/2017-Paddle-Surf-Barcelona-S.jpg"
     ]
   }
 ]
