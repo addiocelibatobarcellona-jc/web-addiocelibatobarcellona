@@ -8,6 +8,7 @@ import { join } from "path";
 export interface NavLink {
   href: string;
   label: string;
+  children?: { label: string; href: string }[];
 }
 
 export interface Activity {

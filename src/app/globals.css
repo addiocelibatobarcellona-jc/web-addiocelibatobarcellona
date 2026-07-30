@@ -333,6 +333,42 @@ body {
 }
 .gallery-img:hover { transform: scale(1.04); }
 
+/* ── Mobile intercalated CTA in activities grid ── */
+@media (max-width: 520px) {
+  .grid-intercalated-cta {
+    display: flex !important;
+    grid-column: 1 / -1;
+  }
+}
+
+/* ── Hero review badges ── */
+.review-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(8px);
+  text-decoration: none;
+  color: #fff;
+  transition: border-color 0.2s, background 0.2s;
+}
+.review-badge:hover {
+  border-color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.1);
+}
+
+/* ── Perché grid responsive ── */
+@media (max-width: 720px) {
+  .perche-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ── Perché grid: stack 2 col on tablet ── */
+@media (min-width: 721px) and (max-width: 1024px) {
+  .perche-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
 /* ── Nubilato page ── */
 .nubilato-grid { grid-template-columns: repeat(4, 1fr) !important; }
 @media (max-width: 1100px) { .nubilato-grid { grid-template-columns: repeat(3, 1fr) !important; } }

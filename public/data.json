@@ -16,15 +16,41 @@
       },
       {
         "href": "/attivita/notturne",
-        "label": "Notturne"
+        "label": "Notturne",
+        "children": [
+          { "label": "Addio Classico", "href": "/attivita/notturne/addio-al-celibato-con-spogliarellista/" },
+          { "label": "Spicy Mix", "href": "/attivita/notturne/addio-al-celibato-collettivo/" },
+          { "label": "All Inclusive", "href": "/attivita/notturne/addio-al-celibato-con-spogliarellista-e-limousine/" },
+          { "label": "Strip Show", "href": "/attivita/notturne/addio-al-celibato-spogliarellista-show/" },
+          { "label": "XXX Show", "href": "/attivita/notturne/xxx-show-trasgressione-massima/" },
+          { "label": "Body Sushi", "href": "/attivita/notturne/body-sushi/" },
+          { "label": "LimoBus", "href": "/attivita/notturne/addio-al-celibato-barcellona-limobus/" },
+          { "label": "Giretto in Limo", "href": "/attivita/notturne/addio-al-celibato-giretto-in-limo/" }
+        ]
       },
       {
         "href": "/attivita/pomeridiane",
-        "label": "Pomeridiane"
+        "label": "Pomeridiane",
+        "children": [
+          { "label": "Crazy Catamaran Party", "href": "/attivita/pomeridiane/catamaran/" },
+          { "label": "Barca a Vela Privata", "href": "/attivita/pomeridiane/barca-a-vela/" },
+          { "label": "La Beerbike", "href": "/attivita/pomeridiane/beerbike/" },
+          { "label": "Bubble Football", "href": "/attivita/pomeridiane/bubble-football/" },
+          { "label": "Paintball Outdoor", "href": "/attivita/pomeridiane/paintball/" },
+          { "label": "Escape Room", "href": "/attivita/pomeridiane/escape-room/" },
+          { "label": "Vespa GPS", "href": "/attivita/pomeridiane/vespa-gps/" },
+          { "label": "Camp Nou Experience", "href": "/attivita/pomeridiane/camp-nou-experience/" },
+          { "label": "Paddle Surf", "href": "/attivita/pomeridiane/paddle-surf/" }
+        ]
       },
       {
         "href": "/addio-al-nubilato",
-        "label": "Nubilato"
+        "label": "Nubilato",
+        "children": [
+          { "label": "Strip Show Maschile", "href": "/attivita/nubilato/strip-show-maschile/" },
+          { "label": "Cocktail Lab", "href": "/attivita/nubilato/cocktail-lab/" },
+          { "label": "Caccia al Tesoro", "href": "/attivita/nubilato/caccia-al-tesoro/" }
+        ]
       },
       {
         "href": "/addio-al-celibato-barcellona-blog",

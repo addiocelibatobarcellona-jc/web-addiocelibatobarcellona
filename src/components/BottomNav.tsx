@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, Menu, MessageCircle } from "lucide-react";
+import { X, Menu, MessageCircle, ChevronDown } from "lucide-react";
 import type { NavLink } from "@/lib/content";
 
 // Scalloped bottle-cap path for 120×120 viewBox
@@ -29,10 +29,11 @@ interface Props {
 export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whatsapp }: Props) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [expanded, setExpanded] = useState<string | null>(null);
 
   useEffect(() => {
     const check = () => setScrolled(window.scrollY > 60);
-    check(); // set immediately on mount (handles page-load already scrolled)
+    check();
     window.addEventListener("scroll", check, { passive: true });
     return () => window.removeEventListener("scroll", check);
   }, []);
@@ -41,6 +42,10 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [open]);
+
+  const toggleExpand = (label: string) => {
+    setExpanded(prev => prev === label ? null : label);
+  };
 
   return (
     <>
@@ -63,7 +68,7 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
           gap: "1rem",
         }}
       >
-        {/* Logo — bottle-cap badge (spins when at top, static when scrolled) */}
+        {/* Logo */}
         <a href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none", flexShrink: 0 }}>
           <div
             className={`nav-logo-wrapper${scrolled ? " nav-logo-scrolled" : ""}`}
@@ -74,7 +79,6 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
               transition: "width 0.35s ease, height 0.35s ease",
             }}
           >
-            {/* Spinning scalloped bottle-cap — visible only at top */}
             <svg
               viewBox="0 0 120 120"
               style={{
@@ -87,7 +91,6 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
             >
               <path d={CAP_PATH} fill="#fff" />
             </svg>
-            {/* Static logo — always centered */}
             <img
               src="https://addioalcelibato-barcellona.it/wp-content/uploads/2017/02/logoaddioalcelibatoblancohori2-1.png"
               alt="Addio al Celibato Barcellona"
@@ -106,24 +109,17 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
         {/* Center links */}
         <nav className="nav-links" style={{ display: "flex", alignItems: "center", gap: "0.25rem", position: "absolute", left: "50%", transform: "translateX(-50%)" }}>
           {links.slice(0, 5).map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="nav-link-item"
-            >
+            <a key={l.href} href={l.href} className="nav-link-item">
               {l.label}
             </a>
           ))}
         </nav>
 
-        {/* Spacer — pushes CTA to right */}
+        {/* Spacer */}
         <div style={{ flex: 1 }} />
 
-        {/* CTA — right */}
-        <a
-          href="/addio-al-celibato-barcellona-contatti"
-          className="nav-cta"
-        >
+        {/* CTA */}
+        <a href="/addio-al-celibato-barcellona-contatti" className="nav-cta">
           <span className="nav-cta-label">PREVENTIVO GRATIS</span>
         </a>
 
@@ -149,10 +145,12 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
         <div style={{
           position: "fixed", inset: 0, zIndex: 100,
           background: "#070707", display: "flex", flexDirection: "column",
+          overflowY: "auto",
         }}>
           <div style={{
             display: "flex", alignItems: "center", justifyContent: "space-between",
             padding: "1.25rem 1.5rem", borderBottom: "1px solid #1a1a1a",
+            position: "sticky", top: 0, background: "#070707", zIndex: 1,
           }}>
             <span style={{ fontFamily: "var(--font-bebas)", fontSize: "1rem", letterSpacing: "0.14em", color: "#fff" }}>
               {logoLine1}
@@ -171,30 +169,88 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
             </button>
           </div>
 
-          <nav style={{
-            flex: 1, display: "flex", flexDirection: "column",
-            justifyContent: "center", padding: "0 2rem", gap: 0,
-          }}>
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                style={{
-                  fontFamily: "var(--font-bebas)",
-                  fontSize: "clamp(2.2rem, 9vw, 3.5rem)",
-                  lineHeight: 1.1, letterSpacing: "0.05em",
-                  color: "#fff", padding: "0.55rem 0",
-                  borderBottom: "1px solid #1a1a1a",
-                  textDecoration: "none", display: "block",
-                  transition: "color 0.15s, padding-left 0.2s",
-                }}
-                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.color = "var(--blue)"; el.style.paddingLeft = "0.5rem"; }}
-                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.color = "#fff"; el.style.paddingLeft = "0"; }}
-              >
-                {link.label}
-              </a>
-            ))}
+          <nav style={{ flex: 1, display: "flex", flexDirection: "column", padding: "0 2rem" }}>
+            {links.map((link) => {
+              const hasChildren = link.children && link.children.length > 0;
+              const isExpanded = expanded === link.label;
+
+              return (
+                <div key={link.href}>
+                  {/* Main link row */}
+                  <div style={{
+                    display: "flex",
+                    alignItems: "center",
+                    borderBottom: isExpanded ? "none" : "1px solid #1a1a1a",
+                  }}>
+                    <a
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      style={{
+                        flex: 1,
+                        fontFamily: "var(--font-bebas)",
+                        fontSize: "clamp(2.2rem, 9vw, 3.5rem)",
+                        lineHeight: 1.1, letterSpacing: "0.05em",
+                        color: "#fff", padding: "0.55rem 0",
+                        textDecoration: "none", display: "block",
+                        transition: "color 0.15s",
+                      }}
+                    >
+                      {link.label}
+                    </a>
+                    {hasChildren && (
+                      <button
+                        onClick={() => toggleExpand(link.label)}
+                        aria-label={isExpanded ? "Chiudi" : "Espandi"}
+                        style={{
+                          background: "transparent", border: "none",
+                          color: isExpanded ? "var(--blue)" : "rgba(255,255,255,0.4)",
+                          cursor: "pointer", padding: "0.5rem",
+                          display: "flex", alignItems: "center",
+                          transition: "color 0.2s, transform 0.25s",
+                          transform: isExpanded ? "rotate(180deg)" : "none",
+                        }}
+                      >
+                        <ChevronDown size={22} />
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Sub-links accordion */}
+                  {hasChildren && isExpanded && (
+                    <div style={{
+                      borderBottom: "1px solid #1a1a1a",
+                      paddingBottom: "0.5rem",
+                      marginBottom: "0",
+                    }}>
+                      {link.children!.map((child) => (
+                        <a
+                          key={child.href}
+                          href={child.href}
+                          onClick={() => setOpen(false)}
+                          style={{
+                            display: "block",
+                            padding: "0.5rem 0 0.5rem 1.25rem",
+                            fontFamily: "var(--font-bebas)",
+                            fontSize: "1.1rem",
+                            letterSpacing: "0.08em",
+                            color: "rgba(255,255,255,0.65)",
+                            textDecoration: "none",
+                            borderLeft: "2px solid var(--blue)",
+                            marginLeft: "0.25rem",
+                            marginBottom: "0.15rem",
+                            transition: "color 0.15s",
+                          }}
+                          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "#fff"; }}
+                          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.65)"; }}
+                        >
+                          {child.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </nav>
 
           <div style={{ padding: "2rem" }}>
