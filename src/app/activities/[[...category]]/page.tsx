@@ -32,13 +32,29 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const cat = getCategory(await params);
   const data = c.activities[cat];
   const canonical =
-    cat === "night" ? "/attivita/notturne"
-    : cat === "daytime" ? "/attivita/pomeridiane"
-    : "/attivita";
+    cat === "night" ? "/attivita/notturne/"
+    : cat === "daytime" ? "/attivita/pomeridiane/"
+    : "/attivita/";
+  const fullCanonical = `https://www.addioalcelibato-barcellona.it${canonical}`;
   return {
     title: `${data.meta_title} | Dal 2017`,
     description: data.meta_desc,
-    alternates: { canonical: `https://www.addioalcelibato-barcellona.it${canonical}` },
+    alternates: { canonical: fullCanonical },
+    openGraph: {
+      title: `${data.meta_title} | Addio al Celibato Barcellona`,
+      description: data.meta_desc,
+      locale: "it_IT",
+      type: "website",
+      url: fullCanonical,
+      siteName: "Addio al Celibato Barcellona",
+      images: [{ url: "/images/2017-ADDIO-SPICY-MIX-S.jpg", width: 1200, height: 630, alt: data.meta_title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${data.meta_title} | Addio al Celibato Barcellona`,
+      description: data.meta_desc,
+      images: ["/images/2017-ADDIO-SPICY-MIX-S.jpg"],
+    },
   };
 }
 

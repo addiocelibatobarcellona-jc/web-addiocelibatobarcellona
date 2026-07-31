@@ -16,6 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   if (!post) return {};
 
   const canonical = `https://www.addioalcelibato-barcellona.it/${slug}/`;
+  const ogImage = post.featuredImage ?? "/images/2017-ADDIO-SPICY-MIX-S.jpg";
   return {
     title: `${post.title} | Addio al Celibato Barcellona`,
     description: post.metaDescription ?? undefined,
@@ -24,8 +25,17 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
       title: post.title,
       description: post.metaDescription ?? undefined,
       url: canonical,
+      locale: "it_IT",
       type: "article",
-      images: post.featuredImage ? [{ url: post.featuredImage }] : [],
+      siteName: "Addio al Celibato Barcellona",
+      images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }],
+      publishedTime: post.date,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.metaDescription ?? undefined,
+      images: [ogImage],
     },
   };
 }
@@ -76,13 +86,48 @@ function renderMarkdown(md: string) {
   return elements;
 }
 
+function buildArticleJsonLd(post: Awaited<ReturnType<typeof getPostBySlug>> & object) {
+  const canonical = `https://www.addioalcelibato-barcellona.it/${post.slug}/`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.metaDescription ?? undefined,
+    "url": canonical,
+    "datePublished": post.date,
+    "dateModified": post.date,
+    "image": post.featuredImage
+      ? `https://www.addioalcelibato-barcellona.it${post.featuredImage.startsWith("/") ? post.featuredImage : "/" + post.featuredImage}`
+      : "https://www.addioalcelibato-barcellona.it/images/2017-ADDIO-SPICY-MIX-S.jpg",
+    "author": {
+      "@type": "Organization",
+      "name": "Addio al Celibato Barcellona",
+      "url": "https://www.addioalcelibato-barcellona.it/",
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Addio al Celibato Barcellona",
+      "url": "https://www.addioalcelibato-barcellona.it/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.addioalcelibato-barcellona.it/images/2017-logoaddioalcelibatoblancohori2-1.png",
+      },
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": canonical },
+    "inLanguage": "it",
+  };
+}
+
 export default async function BlogPostPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
+  const jsonLd = buildArticleJsonLd(post);
+
   return (
     <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* Hero */}
       <section style={{

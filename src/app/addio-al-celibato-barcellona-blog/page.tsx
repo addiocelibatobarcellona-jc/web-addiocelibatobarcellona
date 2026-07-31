@@ -7,6 +7,21 @@ export const metadata: Metadata = {
   title: "Blog | Addio al Celibato Barcellona",
   description: "Idee, consigli e ispirazione per organizzare il perfetto addio al celibato a Barcellona.",
   alternates: { canonical: "https://www.addioalcelibato-barcellona.it/addio-al-celibato-barcellona-blog/" },
+  openGraph: {
+    title: "Blog Addio al Celibato Barcellona – Idee e Consigli",
+    description: "Idee, consigli e ispirazione per organizzare il perfetto addio al celibato a Barcellona.",
+    locale: "it_IT",
+    type: "website",
+    url: "https://www.addioalcelibato-barcellona.it/addio-al-celibato-barcellona-blog/",
+    siteName: "Addio al Celibato Barcellona",
+    images: [{ url: "/images/2017-ADDIO-SPICY-MIX-S.jpg", width: 1200, height: 630, alt: "Blog Addio al Celibato Barcellona" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog – Addio al Celibato Barcellona",
+    description: "Idee e consigli per il tuo addio al celibato a Barcellona.",
+    images: ["/images/2017-ADDIO-SPICY-MIX-S.jpg"],
+  },
 };
 
 export default function BlogPage() {

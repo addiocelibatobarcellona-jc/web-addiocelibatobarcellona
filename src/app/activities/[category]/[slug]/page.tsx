@@ -85,8 +85,10 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
 function buildActivityJsonLd(activity: ActivityDetail, category: string, cardImage?: string) {
   const italianCat = toItalianCategory(category);
-  const url = `https://www.addioalcelibato-barcellona.it/attivita/${italianCat}/${activity.slug}/`;
-  const image = cardImage ?? activity.images[0] ?? "/images/2017-ADDIO-SPICY-MIX-S.jpg";
+  const BASE = "https://www.addioalcelibato-barcellona.it";
+  const url = `${BASE}/attivita/${italianCat}/${activity.slug}/`;
+  const imgRaw = cardImage ?? activity.images[0] ?? "/images/2017-ADDIO-SPICY-MIX-S.jpg";
+  const image = imgRaw.startsWith("http") ? imgRaw : `${BASE}${imgRaw.startsWith("/") ? imgRaw : "/" + imgRaw}`;
 
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",

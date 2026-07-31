@@ -9,6 +9,21 @@ export const metadata: Metadata = {
   description:
     "Organizziamo addii al nubilato a Barcellona dal 2017. Strip show maschile, catamaran, limousine, cocktail lab e molto altro. Preventivo gratuito senza impegno.",
   alternates: { canonical: "https://www.addioalcelibato-barcellona.it/addio-al-nubilato/" },
+  openGraph: {
+    title: "Addio al Nubilato a Barcellona | Dal 2017",
+    description: "20+ attività per il tuo addio al nubilato a Barcellona. Strip show maschile, catamaran, limousine e molto altro. Preventivo gratuito!",
+    locale: "it_IT",
+    type: "website",
+    url: "https://www.addioalcelibato-barcellona.it/addio-al-nubilato/",
+    siteName: "Addio al Celibato Barcellona",
+    images: [{ url: "/images/2026-addio-nubilato-home-page-scaled.jpg", width: 1200, height: 630, alt: "Addio al Nubilato Barcellona" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Addio al Nubilato a Barcellona | Dal 2017",
+    description: "20+ attività per il tuo addio al nubilato a Barcellona. Preventivo gratuito!",
+    images: ["/images/2026-addio-nubilato-home-page-scaled.jpg"],
+  },
 };
 
 // ── Data ──────────────────────────────────────────────────────────────────────

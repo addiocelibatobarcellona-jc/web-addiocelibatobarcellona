@@ -9,6 +9,21 @@ export const metadata: Metadata = {
   description:
     "Siamo un'agenzia di italiani che vivono a Barcellona da più di 10 anni. Organizziamo addii al celibato esclusivamente a Barcellona. Scopri chi siamo.",
   alternates: { canonical: "https://www.addioalcelibato-barcellona.it/chi-siamo-idee-per-laddio-al-celibato/" },
+  openGraph: {
+    title: "Chi Siamo | Addio al Celibato Barcellona dal 2017",
+    description: "Italiani che vivono a Barcellona da oltre 10 anni. Organizziamo addii al celibato e nubilato esclusivamente a Barcellona.",
+    locale: "it_IT",
+    type: "website",
+    url: "https://www.addioalcelibato-barcellona.it/chi-siamo-idee-per-laddio-al-celibato/",
+    siteName: "Addio al Celibato Barcellona",
+    images: [{ url: "/images/2017-ADDIO-SPICY-MIX-S.jpg", width: 1200, height: 630, alt: "Chi Siamo – Addio al Celibato Barcellona" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Chi Siamo | Addio al Celibato Barcellona dal 2017",
+    description: "Italiani a Barcellona da 10+ anni. Solo Barcellona, massima qualità.",
+    images: ["/images/2017-ADDIO-SPICY-MIX-S.jpg"],
+  },
 };
 
 function Wave({ from, to, flip }: { from: string; to: string; flip?: boolean }) {

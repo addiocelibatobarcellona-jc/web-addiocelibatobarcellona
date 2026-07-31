@@ -9,6 +9,21 @@ export const metadata: Metadata = {
   description:
     "Contattaci per un preventivo gratuito e senza impegno. Email, WhatsApp o telefono — ti rispondiamo in poche ore. Addio al celibato a Barcellona dal 2017.",
   alternates: { canonical: "https://www.addioalcelibato-barcellona.it/addio-al-celibato-barcellona-contatti/" },
+  openGraph: {
+    title: "Contatti | Preventivo Gratis – Addio al Celibato Barcellona",
+    description: "Contattaci per un preventivo gratuito e senza impegno. Ti rispondiamo in poche ore.",
+    locale: "it_IT",
+    type: "website",
+    url: "https://www.addioalcelibato-barcellona.it/addio-al-celibato-barcellona-contatti/",
+    siteName: "Addio al Celibato Barcellona",
+    images: [{ url: "/images/2017-ADDIO-SPICY-MIX-S.jpg", width: 1200, height: 630, alt: "Addio al Celibato Barcellona – Contatti" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Preventivo Gratis – Addio al Celibato Barcellona",
+    description: "Contattaci per un preventivo gratuito. Ti rispondiamo in poche ore.",
+    images: ["/images/2017-ADDIO-SPICY-MIX-S.jpg"],
+  },
 };
 
 function Wave({ from, to, flip }: { from: string; to: string; flip?: boolean }) {
