@@ -65,66 +65,17 @@ export default function Contatti() {
   return (
     <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>
 
-      {/* ── HERO ── */}
-      <section style={{
-        background: "var(--blue)",
-        minHeight: "55svh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-end",
-        padding: "8rem 6vw 5rem",
-        position: "relative",
-        overflow: "hidden",
-      }}>
-        <div>
-          <p style={{
-            fontFamily: "var(--font-bebas)",
-            fontSize: "clamp(0.9rem, 2vw, 1.1rem)",
-            letterSpacing: "0.25em",
-            color: "rgba(0,0,0,0.55)",
-            marginBottom: "0.5rem",
-          }}>
-            — CONTATTACI
-          </p>
-          <h1 style={{
-            fontFamily: "var(--font-bebas)",
-            fontSize: "clamp(2.5rem, 6vw, 5.5rem)",
-            letterSpacing: "-0.02em",
-            lineHeight: 0.88,
-            color: "#fff",
-            margin: "0 0 2rem",
-          }}>
-            PREVENTIVO<br />
-            <span style={{ color: "rgba(0,0,0,0.7)" }}>GRATIS</span>
-          </h1>
-          <p style={{
-            fontFamily: "var(--font-jakarta)",
-            fontSize: "clamp(1rem, 2vw, 1.2rem)",
-            lineHeight: 1.7,
-            color: "rgba(0,0,0,0.7)",
-            maxWidth: "48ch",
-            fontWeight: 400,
-          }}>
-            Contattarci, richiedere un preventivo o suggerire una nuova attività
-            è <strong style={{ color: "#000" }}>completamente gratuito</strong> e senza impegno.
-            Ti risponderemo entro poche ore.
-          </p>
-        </div>
-      </section>
-
-      <Wave from="var(--blue)" to="#000" />
-
-      {/* ── FORM + CONTACT INFO ── */}
-      <section style={{ padding: "5rem 6vw 7rem" }}>
+      {/* ── FORM + CONTACT INFO (first) ── */}
+      <section style={{ padding: "8rem 6vw 6rem" }}>
         <div style={{
           display: "grid",
           gridTemplateColumns: "1fr 420px",
           gap: "6rem",
           alignItems: "start",
-        }}>
+        }} className="contact-grid">
           {/* Form */}
           <div>
-            <h2 style={{
+            <h1 style={{
               fontFamily: "var(--font-bebas)",
               fontSize: "clamp(2rem, 4vw, 3.5rem)",
               letterSpacing: "-0.01em",
@@ -134,7 +85,7 @@ export default function Contatti() {
             }}>
               RICHIEDI UN<br />
               <span style={{ color: "var(--blue)" }}>PREVENTIVO!</span>
-            </h2>
+            </h1>
             <p style={{ fontSize: "0.9rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.6, marginBottom: "2.5rem", maxWidth: "46ch" }}>
               Compila il form con le informazioni sul tuo gruppo e ti prepariamo
               un preventivo personalizzato. Nessun impegno.
@@ -142,8 +93,8 @@ export default function Contatti() {
             <ContactForm />
           </div>
 
-          {/* Contact info sidebar */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "0", position: "sticky", top: "6rem" }}>
+          {/* Contact info sidebar — hidden on mobile */}
+          <div className="contact-sidebar" style={{ display: "flex", flexDirection: "column", gap: "0", position: "sticky", top: "6rem" }}>
             <h3 style={{
               fontFamily: "var(--font-bebas)",
               fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
@@ -199,6 +150,49 @@ export default function Contatti() {
             </div>
           </div>
         </div>
+      </section>
+
+      <Wave from="#000" to="var(--blue)" flip />
+
+      {/* ── PREVENTIVO GRATIS (blue, below form) ── */}
+      <section style={{
+        background: "var(--blue)",
+        padding: "5rem 6vw 6rem",
+        position: "relative",
+        overflow: "hidden",
+      }}>
+        <p style={{
+          fontFamily: "var(--font-bebas)",
+          fontSize: "clamp(0.9rem, 2vw, 1.1rem)",
+          letterSpacing: "0.25em",
+          color: "rgba(0,0,0,0.55)",
+          marginBottom: "0.5rem",
+        }}>
+          — CONTATTACI
+        </p>
+        <h2 style={{
+          fontFamily: "var(--font-bebas)",
+          fontSize: "clamp(2.5rem, 6vw, 5.5rem)",
+          letterSpacing: "-0.02em",
+          lineHeight: 0.88,
+          color: "#fff",
+          margin: "0 0 1.5rem",
+        }}>
+          PREVENTIVO<br />
+          <span style={{ color: "rgba(0,0,0,0.7)" }}>GRATIS</span>
+        </h2>
+        <p style={{
+          fontFamily: "var(--font-jakarta)",
+          fontSize: "clamp(1rem, 2vw, 1.2rem)",
+          lineHeight: 1.7,
+          color: "rgba(0,0,0,0.7)",
+          maxWidth: "48ch",
+          fontWeight: 400,
+        }}>
+          Contattarci, richiedere un preventivo o suggerire una nuova attività
+          è <strong style={{ color: "#000" }}>completamente gratuito</strong> e senza impegno.
+          Ti risponderemo entro poche ore.
+        </p>
       </section>
 
       <SiteFooter />

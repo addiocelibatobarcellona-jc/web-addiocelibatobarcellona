@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import {
   ArrowUpRight, ArrowRight,
-  Target, MapPin, Clock,
+  UserRound, Crosshair, User,
 } from "lucide-react";
 import { getContent } from "@/lib/content";
 
@@ -245,7 +245,7 @@ export default function HomePage() {
             </MagneticButton>
 
             {/* Review badges */}
-            <div style={{ display: "flex", gap: "0.75rem", marginTop: "1.5rem", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: "0.75rem", marginTop: "0.75rem", flexWrap: "wrap", justifyContent: "center" }}>
               {/* Google Maps */}
               <a
                 href="https://maps.app.goo.gl/oaPeRnXLkWpVScSv8"
@@ -260,13 +260,7 @@ export default function HomePage() {
                   <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
                   <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
                 </svg>
-                <div>
-                  <div style={{ fontSize: "0.6rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", lineHeight: 1.2 }}>Google Reviews</div>
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}>
-                    <span style={{ color: "#FBBC05", fontSize: "0.7rem", letterSpacing: "-0.02em" }}>★★★★★</span>
-                    <span style={{ fontFamily: "var(--font-bebas)", fontSize: "0.85rem", letterSpacing: "0.04em", color: "#fff" }}>5.0</span>
-                  </div>
-                </div>
+                <div style={{ fontSize: "0.7rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)", lineHeight: 1.2 }}>Google Reviews</div>
               </a>
 
               {/* Trustpilot */}
@@ -276,18 +270,11 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="review-badge"
               >
-                {/* Trustpilot star */}
                 <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden fill="none">
                   <rect width="24" height="24" rx="2" fill="#00B67A"/>
                   <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17 5.8 21.3l2.4-7.4L2 9.4h7.6L12 2z" fill="#fff"/>
                 </svg>
-                <div>
-                  <div style={{ fontSize: "0.6rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", lineHeight: 1.2 }}>Trustpilot</div>
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}>
-                    <span style={{ color: "#00B67A", fontSize: "0.7rem", letterSpacing: "-0.02em" }}>★★★★★</span>
-                    <span style={{ fontFamily: "var(--font-bebas)", fontSize: "0.85rem", letterSpacing: "0.04em", color: "#fff" }}>Excellent</span>
-                  </div>
-                </div>
+                <div style={{ fontSize: "0.7rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)", lineHeight: 1.2 }}>Trustpilot</div>
               </a>
             </div>
           </div>
@@ -300,16 +287,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════════
           PERCHÉ SCEGLIERE NOI — 3 col horizontal
       ════════════════════════════════════════════════════════════════ */}
-      <section style={{ padding: "5rem 6vw 5rem", background: "#000" }}>
-        <p style={{
-          fontFamily: "var(--font-bebas)",
-          fontSize: "clamp(0.75rem, 1.2vw, 0.9rem)",
-          letterSpacing: "0.28em",
-          color: "rgba(255,255,255,0.4)",
-          marginBottom: "2.5rem",
-        }}>
-          — PERCHÉ SCEGLIERE NOI
-        </p>
+      <section style={{ padding: "2rem 6vw 4rem", background: "#000" }}>
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
@@ -317,34 +295,31 @@ export default function HomePage() {
           background: "rgba(255,255,255,0.07)",
         }} className="perche-grid">
           {([
-            { icon: "MapPin", title: "Viviamo a Barcellona", desc: "Noi VIVIAMO qui e conosciamo la città meglio di qualsiasi altra agenzia. Zero intermediari, massima qualità." },
-            { icon: "Target", title: "Solo Barcellona", desc: "Organizziamo feste di addio al celibato SOLO a Barcellona. La specializzazione garantisce il miglior servizio." },
-            { icon: "Clock", title: "Sempre Disponibili", desc: "Una volta atterrati saremo disponibili per qualsiasi dubbio o consiglio durante tutto il vostro soggiorno." },
-          ] as const).map(({ icon, title, desc }) => {
-            const Icon = icon === "MapPin" ? MapPin : icon === "Target" ? Target : Clock;
-            return (
-              <div key={title} style={{
-                background: "#000",
-                padding: "2.5rem 2rem",
-                display: "flex",
-                flexDirection: "column",
-                gap: "1rem",
+            { Icon: UserRound, title: "Viviamo a Barcellona", desc: "Noi VIVIAMO qui e conosciamo la città meglio di qualsiasi altra agenzia. Zero intermediari, massima qualità." },
+            { Icon: Crosshair, title: "Solo Barcellona", desc: "Organizziamo feste di addio al celibato SOLO a Barcellona. La specializzazione garantisce il miglior servizio." },
+            { Icon: User, title: "Attenzione Personalizzata", desc: "Agenzia boutique con attenzione personalizzata che fornisce a tutti i clienti consigli e raccomandazioni." },
+          ] as const).map(({ Icon, title, desc }) => (
+            <div key={title} style={{
+              background: "#000",
+              padding: "2rem 2rem",
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.85rem",
+            }}>
+              <div style={{
+                width: "44px", height: "44px", background: "rgba(58,117,255,0.12)",
+                display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
               }}>
-                <div style={{
-                  width: "44px", height: "44px", background: "rgba(58,117,255,0.12)",
-                  display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
-                }}>
-                  <Icon size={19} color="var(--blue)" />
-                </div>
-                <p style={{ fontFamily: "var(--font-bebas)", fontSize: "1.2rem", letterSpacing: "0.06em", color: "#fff", margin: 0 }}>
-                  {title}
-                </p>
-                <p style={{ fontSize: "0.88rem", lineHeight: 1.7, color: "rgba(255,255,255,0.65)", fontWeight: 400, margin: 0 }}>
-                  {desc}
-                </p>
+                <Icon size={19} color="var(--blue)" />
               </div>
-            );
-          })}
+              <p style={{ fontFamily: "var(--font-bebas)", fontSize: "1.2rem", letterSpacing: "0.06em", color: "#fff", margin: 0 }}>
+                {title}
+              </p>
+              <p style={{ fontSize: "0.88rem", lineHeight: 1.7, color: "rgba(255,255,255,0.65)", fontWeight: 400, margin: 0 }}>
+                {desc}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 

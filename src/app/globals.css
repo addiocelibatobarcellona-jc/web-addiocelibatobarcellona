@@ -440,3 +440,9 @@ body {
   transition: padding-left 0.25s cubic-bezier(0.33,1,0.68,1);
 }
 .contact-item-link:hover { padding-left: 0.5rem; }
+
+/* ── Contact page: hide sidebar on mobile ── */
+@media (max-width: 720px) {
+  .contact-sidebar { display: none !important; }
+  .contact-grid { grid-template-columns: 1fr !important; }
+}

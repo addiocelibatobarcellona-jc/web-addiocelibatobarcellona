@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ArrowUpRight, ArrowRight, MessageCircle, MapPin, Target, Clock } from "lucide-react";
+import { ArrowUpRight, ArrowRight, MessageCircle, UserRound, Crosshair, User } from "lucide-react";
 import { getContent } from "@/lib/content";
 import SiteFooter from "@/components/SiteFooter";
 
@@ -161,19 +161,19 @@ const ACTIVITIES = [
 
 const WHY_US = [
   {
-    Icon: MapPin,
+    Icon: UserRound,
     title: "Viviamo a Barcellona",
     desc: "Noi VIVIAMO qui e conosciamo la città meglio di qualsiasi altra agenzia. Zero intermediari, massima qualità.",
   },
   {
-    Icon: Target,
+    Icon: Crosshair,
     title: "Solo Barcellona",
     desc: "Organizziamo feste di addio al nubilato SOLO a Barcellona. La specializzazione garantisce il miglior servizio.",
   },
   {
-    Icon: Clock,
-    title: "Sempre Disponibili",
-    desc: "Una volta atterrate saremo disponibili per qualsiasi dubbio o consiglio durante tutto il vostro soggiorno.",
+    Icon: User,
+    title: "Attenzione Personalizzata",
+    desc: "Agenzia boutique con attenzione personalizzata che fornisce a tutti i clienti consigli e raccomandazioni.",
   },
 ];
 
@@ -276,10 +276,12 @@ export default function NubilatoPage() {
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section style={{
-        minHeight: "60svh",
+        minHeight: "70svh",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-end",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
         padding: "8rem 6vw 5rem",
         position: "relative",
         overflow: "hidden",
@@ -294,15 +296,15 @@ export default function NubilatoPage() {
         />
         <div style={{
           position: "absolute", inset: 0,
-          background: "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.95) 100%)",
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.92) 100%)",
         }} />
-        <div style={{ position: "relative", zIndex: 1 }}>
+        <div style={{ position: "relative", zIndex: 1, maxWidth: "820px" }}>
           <p style={{
             fontFamily: "var(--font-bebas)",
             fontSize: "clamp(0.75rem, 1.4vw, 0.95rem)",
             letterSpacing: "0.3em",
             color: "rgba(255,255,255,0.5)",
-            marginBottom: "0.5rem",
+            marginBottom: "0.75rem",
           }}>
             — BARCELLONA · DAL 2017
           </p>
@@ -312,8 +314,7 @@ export default function NubilatoPage() {
             letterSpacing: "-0.03em",
             lineHeight: 0.85,
             color: "#fff",
-            margin: 0,
-            maxWidth: "16ch",
+            margin: "0 0 1.5rem",
           }}>
             ADDIO AL<br />
             <span style={{ color: "var(--blue)" }}>NUBILATO</span><br />
@@ -321,99 +322,121 @@ export default function NubilatoPage() {
               NELLA CITTÀ PIÙ DIVERTENTE D&apos;EUROPA
             </span>
           </h1>
+          <ul style={{
+            listStyle: "none",
+            margin: "0 0 2rem",
+            padding: 0,
+            display: "flex",
+            flexDirection: "column",
+            gap: "0.45rem",
+            alignItems: "center",
+          }}>
+            {[
+              "20+ attività disponibili: strip, catamarano, limousine e altro",
+              "Italiane che vivono a Barcellona — zero intermediari",
+              "Preventivo gratuito, risposta in poche ore",
+            ].map((item) => (
+              <li key={item} style={{
+                fontSize: "clamp(0.85rem, 1.4vw, 1rem)",
+                color: "rgba(255,255,255,0.82)",
+                display: "flex",
+                alignItems: "center",
+                gap: "0.6rem",
+              }}>
+                <span style={{ color: "var(--blue)", fontWeight: 700, fontSize: "1.1em" }}>✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a
+            href="/addio-al-celibato-barcellona-contatti"
+            style={{
+              display: "inline-flex", alignItems: "center", gap: "0.5rem",
+              fontFamily: "var(--font-bebas)", fontSize: "0.9rem", letterSpacing: "0.14em",
+              padding: "0.9rem 2rem",
+              background: "var(--blue)", color: "#fff", textDecoration: "none",
+              transition: "opacity 0.2s",
+            }}
+          >
+            PREVENTIVO GRATIS <ArrowRight size={15} />
+          </a>
         </div>
       </section>
 
-      {/* ── INTRO + WHY US ────────────────────────────────────────────────── */}
-      <section style={{ padding: "5rem 6vw 5rem", background: "#000" }}>
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "4rem",
-            alignItems: "start",
-            marginBottom: "4rem",
-          }}
-            className="nubilato-intro-grid"
-          >
-            <div>
-              <p style={{
-                fontFamily: "var(--font-bebas)",
-                fontSize: "clamp(0.75rem, 1.2vw, 0.9rem)",
-                letterSpacing: "0.28em",
-                color: "rgba(255,255,255,0.4)",
-                marginBottom: "0.75rem",
+      {/* ── PERCHÉ SCEGLIERE NOI — 3 col horizontal ──────────────────────── */}
+      <section style={{ padding: "2rem 6vw 4rem", background: "#000" }}>
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: "1px",
+          background: "rgba(255,255,255,0.07)",
+        }} className="perche-grid">
+          {WHY_US.map(({ Icon, title, desc }) => (
+            <div key={title} style={{
+              background: "#000",
+              padding: "2rem 2rem",
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.85rem",
+            }}>
+              <div style={{
+                width: "44px", height: "44px", background: "rgba(58,117,255,0.12)",
+                display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
               }}>
-                — ADDIO AL NUBILATO BARCELLONA
+                <Icon size={19} color="var(--blue)" />
+              </div>
+              <p style={{ fontFamily: "var(--font-bebas)", fontSize: "1.2rem", letterSpacing: "0.06em", color: "#fff", margin: 0 }}>
+                {title}
               </p>
-              <h2 style={{
-                fontFamily: "var(--font-bebas)",
-                fontSize: "clamp(2rem, 4.5vw, 4rem)",
-                letterSpacing: "-0.01em",
-                lineHeight: 0.9,
-                color: "#fff",
-                margin: "0 0 2rem",
-              }}>
-                IDEE PER UN<br />
-                <span style={{ color: "var(--blue)" }}>NUBILATO UNICO</span>
-              </h2>
-              <p style={{
-                fontSize: "0.95rem",
-                lineHeight: 1.8,
-                color: "rgba(255,255,255,0.82)",
-                fontWeight: 400,
-                maxWidth: "52ch",
-                marginBottom: "1.25rem",
-              }}>
-                Sei alla ricerca di idee per un addio al nubilato a Barcellona davvero unico? Sei nel posto giusto! Proponiamo attività pomeridiane e notturne per tutti i gusti, e saremo disponibili per consigli durante tutto il soggiorno.
-              </p>
-              <p style={{
-                fontSize: "0.95rem",
-                lineHeight: 1.8,
-                color: "rgba(255,255,255,0.75)",
-                fontWeight: 400,
-                maxWidth: "52ch",
-              }}>
-                Organizzare una festa di addio al nubilato come si deve è il dovere di ogni buona amica. Non esitare e contattaci — il <strong style={{ color: "#fff" }}>PREVENTIVO È GRATIS!</strong>
+              <p style={{ fontSize: "0.88rem", lineHeight: 1.7, color: "rgba(255,255,255,0.65)", fontWeight: 400, margin: 0 }}>
+                {desc}
               </p>
             </div>
+          ))}
+        </div>
+      </section>
 
-            {/* Why us */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
-              <p style={{
-                fontFamily: "var(--font-bebas)",
-                fontSize: "clamp(0.75rem, 1.2vw, 0.9rem)",
-                letterSpacing: "0.28em",
-                color: "rgba(255,255,255,0.4)",
-                marginBottom: "1.5rem",
-              }}>
-                — PERCHÉ SCEGLIERE NOI
-              </p>
-              {WHY_US.map(({ Icon, title, desc }) => (
-                <div key={title} style={{
-                  display: "flex",
-                  gap: "1.25rem",
-                  alignItems: "flex-start",
-                  padding: "1.5rem 0",
-                  borderBottom: "1px solid rgba(255,255,255,0.07)",
-                }}>
-                  <div style={{
-                    width: "38px", height: "38px", background: "rgba(58,117,255,0.12)",
-                    display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
-                  }}>
-                    <Icon size={17} color="var(--blue)" />
-                  </div>
-                  <div>
-                    <p style={{ fontFamily: "var(--font-bebas)", fontSize: "1.05rem", letterSpacing: "0.06em", color: "#fff", marginBottom: "0.3rem" }}>
-                      {title}
-                    </p>
-                    <p style={{ fontSize: "0.85rem", lineHeight: 1.65, color: "rgba(255,255,255,0.72)", fontWeight: 400 }}>
-                      {desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+      {/* ── INTRO ─────────────────────────────────────────────────────────── */}
+      <section style={{ padding: "3rem 6vw 5rem", background: "#000" }}>
+        <div style={{ maxWidth: "70ch" }}>
+          <p style={{
+            fontFamily: "var(--font-bebas)",
+            fontSize: "clamp(0.75rem, 1.2vw, 0.9rem)",
+            letterSpacing: "0.28em",
+            color: "rgba(255,255,255,0.4)",
+            marginBottom: "0.75rem",
+          }}>
+            — ADDIO AL NUBILATO BARCELLONA
+          </p>
+          <h2 style={{
+            fontFamily: "var(--font-bebas)",
+            fontSize: "clamp(2rem, 4.5vw, 4rem)",
+            letterSpacing: "-0.01em",
+            lineHeight: 0.9,
+            color: "#fff",
+            margin: "0 0 1.75rem",
+          }}>
+            IDEE PER UN<br />
+            <span style={{ color: "var(--blue)" }}>NUBILATO UNICO</span>
+          </h2>
+          <p style={{
+            fontSize: "0.95rem",
+            lineHeight: 1.8,
+            color: "rgba(255,255,255,0.82)",
+            fontWeight: 400,
+            marginBottom: "1.25rem",
+          }}>
+            Sei alla ricerca di idee per un addio al nubilato a Barcellona davvero unico? Sei nel posto giusto! Proponiamo attività pomeridiane e notturne per tutti i gusti, e saremo disponibili per consigli durante tutto il soggiorno.
+          </p>
+          <p style={{
+            fontSize: "0.95rem",
+            lineHeight: 1.8,
+            color: "rgba(255,255,255,0.75)",
+            fontWeight: 400,
+          }}>
+            Organizzare una festa di addio al nubilato come si deve è il dovere di ogni buona amica. Non esitare e contattaci — il <strong style={{ color: "#fff" }}>PREVENTIVO È GRATIS!</strong>
+          </p>
+        </div>
       </section>
 
       {/* ── ACTIVITIES GRID ───────────────────────────────────────────────── */}

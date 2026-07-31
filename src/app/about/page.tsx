@@ -340,6 +340,17 @@ export default function ChiSiamo() {
         </div>
       </section>
 
+      {/* ── LEGAL ── */}
+      <section style={{ padding: "2.5rem 6vw", background: "#000", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+        <p style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.25)", lineHeight: 1.9, margin: 0 }}>
+          Addioalcelibato-barcellona.it é un prodotto di<br />
+          ORGANIZACION Y DIRECCION DE EVENTOS S.L.<br />
+          Avenida Paralelo Nº91 Bis Entresuelo 1ª<br />
+          BARCELONA 08004 (Barcelona)<br />
+          CIF: B65268237
+        </p>
+      </section>
+
       <SiteFooter />
     </div>
   );
