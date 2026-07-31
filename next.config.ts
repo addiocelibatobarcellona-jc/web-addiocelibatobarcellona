@@ -7,7 +7,10 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "images.unsplash.com" },
       { protocol: "https", hostname: "addioalcelibato-barcellona.it" },
     ],
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 2592000,
   },
+  compress: true,
   turbopack: {
     root: path.resolve(__dirname),
   },

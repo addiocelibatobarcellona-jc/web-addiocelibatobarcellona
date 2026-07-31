@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Image from "next/image";
+import { preload } from "react-dom";
 import {
   ArrowUpRight, ArrowRight,
   UserRound, Crosshair, User,
@@ -123,6 +124,9 @@ const localBusinessJsonLd = {
 export default function HomePage() {
   const c = getContent();
 
+  // Emit fetchpriority=high preload for LCP hero image (React 19 API)
+  preload("/images/2017-ADDIO-SPICY-MIX-S.jpg", { as: "image", fetchPriority: "high" });
+
   return (
     <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>
       <script
@@ -177,7 +181,7 @@ export default function HomePage() {
           </p>
 
           {/* H1 — SEO title */}
-          <h1 style={{ margin: "0 0 1rem", animation: "hero-in 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s both" }}>
+          <h1 style={{ margin: "0 0 1rem", animation: "hero-in 0.7s cubic-bezier(0.16,1,0.3,1) 0s both" }}>
             <span style={{
               display: "block",
               fontFamily: "var(--font-bebas)",
