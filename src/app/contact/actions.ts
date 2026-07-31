@@ -1,9 +1,16 @@
 "use server";
 
+import { Resend } from "resend";
+
 export type FormState = {
   status: "idle" | "success" | "error";
   message: string;
 };
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+const TO_EMAIL = "addiocelibatobarcellona@gmail.com";
+const FROM_EMAIL = "Addio al Celibato BCN <noreply@addioalcelibato-barcellona.it>";
 
 export async function submitContact(
   _prev: FormState,
@@ -22,9 +29,50 @@ export async function submitContact(
     return { status: "error", message: "Inserisci un indirizzo email valido." };
   }
 
-  // TODO: wire up email sending (nodemailer / Resend)
-  // For now: log server-side and return success
-  console.log("[CONTACT FORM]", { name, email, message });
+  const { error } = await resend.emails.send({
+    from: FROM_EMAIL,
+    to: TO_EMAIL,
+    replyTo: email,
+    subject: `Nuova richiesta di preventivo — ${name}`,
+    html: `
+      <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#111">
+        <div style="background:#3a75ff;padding:24px 32px">
+          <p style="color:#fff;font-size:12px;letter-spacing:3px;margin:0;text-transform:uppercase">Addio al Celibato Barcellona</p>
+          <h1 style="color:#fff;font-size:28px;margin:8px 0 0">Nuova richiesta di preventivo</h1>
+        </div>
+        <div style="padding:32px;background:#fff;border:1px solid #eee;border-top:none">
+          <table style="width:100%;border-collapse:collapse">
+            <tr>
+              <td style="padding:10px 0;border-bottom:1px solid #f0f0f0;color:#666;font-size:13px;width:120px">Nome</td>
+              <td style="padding:10px 0;border-bottom:1px solid #f0f0f0;font-weight:600">${name}</td>
+            </tr>
+            <tr>
+              <td style="padding:10px 0;border-bottom:1px solid #f0f0f0;color:#666;font-size:13px">Email</td>
+              <td style="padding:10px 0;border-bottom:1px solid #f0f0f0">
+                <a href="mailto:${email}" style="color:#3a75ff">${email}</a>
+              </td>
+            </tr>
+          </table>
+          <div style="margin-top:24px">
+            <p style="color:#666;font-size:13px;margin:0 0 8px;text-transform:uppercase;letter-spacing:1px">Messaggio</p>
+            <div style="background:#f8f8f8;padding:16px;border-left:3px solid #3a75ff;font-size:15px;line-height:1.7;white-space:pre-wrap">${message}</div>
+          </div>
+          <div style="margin-top:28px">
+            <a href="mailto:${email}?subject=Re: Richiesta preventivo addio al celibato" style="background:#3a75ff;color:#fff;padding:12px 24px;text-decoration:none;font-weight:600;display:inline-block;border-radius:4px">Rispondi a ${name}</a>
+          </div>
+        </div>
+        <p style="color:#999;font-size:12px;padding:16px 0;text-align:center">addioalcelibato-barcellona.it</p>
+      </div>
+    `,
+  });
+
+  if (error) {
+    console.error("[RESEND ERROR]", error);
+    return {
+      status: "error",
+      message: "Errore nell'invio. Riprova o contattaci su WhatsApp.",
+    };
+  }
 
   return {
     status: "success",
