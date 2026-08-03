@@ -3,7 +3,7 @@ import Image from "next/image";
 import { preload } from "react-dom";
 import {
   ArrowUpRight, ArrowRight,
-  UserRound, Crosshair, User,
+  MapPin, Target, User,
 } from "lucide-react";
 import { getContent } from "@/lib/content";
 
@@ -145,7 +145,7 @@ export default function HomePage() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          padding: "8rem 6vw 5rem",
+          padding: "8rem 6vw 2rem",
           position: "relative",
           overflow: "hidden",
           textAlign: "center",
@@ -291,7 +291,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════════
           PERCHÉ SCEGLIERE NOI — 3 col horizontal
       ════════════════════════════════════════════════════════════════ */}
-      <section style={{ padding: "2rem 6vw 4rem", background: "#000" }}>
+      <section style={{ padding: "0 6vw 3rem", background: "#000" }}>
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
@@ -299,9 +299,9 @@ export default function HomePage() {
           background: "rgba(255,255,255,0.07)",
         }} className="perche-grid">
           {([
-            { Icon: UserRound, title: "Viviamo a Barcellona", desc: "Noi VIVIAMO qui e conosciamo la città meglio di qualsiasi altra agenzia. Zero intermediari, massima qualità." },
-            { Icon: Crosshair, title: "Solo Barcellona", desc: "Organizziamo feste di addio al celibato SOLO a Barcellona. La specializzazione garantisce il miglior servizio." },
-            { Icon: User, title: "Attenzione Personalizzata", desc: "Agenzia boutique con attenzione personalizzata che fornisce a tutti i clienti consigli e raccomandazioni." },
+            { Icon: MapPin, title: "ACCESSO DIRETTO", desc: "Siamo sul posto e conosciamo la città come le nostre tasche. Nessun intermediario: solo esperienze testate e qualità garantita." },
+            { Icon: Target, title: "FOCUS 100% BARCELLONA", desc: "Facciamo una cosa sola e la facciamo al top: addii al celibato esclusivi nella nostra città. Zero imprevisti, massimo risultato." },
+            { Icon: User, title: "SUPPORTO SU MISURA", desc: "Un referente dedicato sempre al fianco del tuo gruppo. Consigli reali, dritte locali e organizzazione perfetta dall'inizio alla fine." },
           ] as const).map(({ Icon, title, desc }) => (
             <div key={title} style={{
               background: "#000",

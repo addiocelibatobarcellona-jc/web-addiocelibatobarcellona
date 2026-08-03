@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ArrowUpRight, ArrowRight, MessageCircle, UserRound, Crosshair, User } from "lucide-react";
+import { ArrowUpRight, ArrowRight, MessageCircle, MapPin, Target, User } from "lucide-react";
 import { getContent } from "@/lib/content";
 import SiteFooter from "@/components/SiteFooter";
 
@@ -31,6 +31,8 @@ export const metadata: Metadata = {
 const HERO_IMG =
   "/images/2026-addio-nubilato-home-page-scaled.jpg";
 
+const CONTACT = "/addio-al-celibato-barcellona-contatti";
+
 const ACTIVITIES = [
   {
     name: "Cena Strip Disco",
@@ -38,6 +40,7 @@ const ACTIVITIES = [
     price: "74€ / persona",
     tag: "Best Seller",
     image: "/images/2026-cena-strip-disco-nubilato-1.png",
+    href: "/attivita/notturne/addio-al-celibato-con-spogliarellista/",
   },
   {
     name: "All Inclusive Gold",
@@ -45,6 +48,7 @@ const ACTIVITIES = [
     price: "115€ / persona",
     tag: "Premium",
     image: "/images/2017-All-Inclusive-Gold-Nubilato.jpg",
+    href: "/attivita/notturne/addio-al-celibato-con-spogliarellista-e-limousine/",
   },
   {
     name: "Spicy Mix – Collettivo",
@@ -52,6 +56,7 @@ const ACTIVITIES = [
     price: "79€ / persona",
     tag: "Più venduto",
     image: "/images/2017-CRAZYMIX.jpg",
+    href: "/attivita/notturne/addio-al-celibato-collettivo/",
   },
   {
     name: "Cena Limo Disco",
@@ -59,6 +64,7 @@ const ACTIVITIES = [
     price: "89€ / persona",
     tag: null,
     image: "/images/2017-CENALIMODISCO-S.jpg",
+    href: CONTACT,
   },
   {
     name: "Strip Show",
@@ -66,6 +72,7 @@ const ACTIVITIES = [
     price: "27€ / persona",
     tag: null,
     image: "/images/2017-Stri-show-nubilato-S.jpg",
+    href: "/attivita/notturne/addio-al-celibato-spogliarellista-show/",
   },
   {
     name: "Cheeky Butler",
@@ -73,6 +80,7 @@ const ACTIVITIES = [
     price: "32€ / persona",
     tag: null,
     image: "/images/2026-addio-nubilato-home-size-ok.jpg",
+    href: CONTACT,
   },
   {
     name: "Caccia al Tesoro",
@@ -80,6 +88,7 @@ const ACTIVITIES = [
     price: "45€ / persona",
     tag: null,
     image: "/images/2024-journey-1130732_1280.jpg",
+    href: CONTACT,
   },
   {
     name: "Cocktail Lab",
@@ -87,6 +96,7 @@ const ACTIVITIES = [
     price: "50€ / persona",
     tag: null,
     image: null,
+    href: CONTACT,
   },
   {
     name: "Crazy Catamaran Party",
@@ -94,6 +104,7 @@ const ACTIVITIES = [
     price: "69€ / persona",
     tag: "Mare",
     image: "/images/2017-CRAZY-CATAMARAN-PARTY-S.jpg",
+    href: "/attivita/pomeridiane/catamaran/",
   },
   {
     name: "LimoBus",
@@ -101,6 +112,7 @@ const ACTIVITIES = [
     price: "42€ / persona",
     tag: null,
     image: "/images/2017-Limobus-S.jpg",
+    href: "/attivita/notturne/addio-al-celibato-barcellona-limobus/",
   },
   {
     name: "Giretto in Limousine",
@@ -108,6 +120,7 @@ const ACTIVITIES = [
     price: "39€ / persona",
     tag: null,
     image: "/images/2017-GIRETTO-IN-LIMO.jpg",
+    href: "/attivita/notturne/addio-al-celibato-giretto-in-limo/",
   },
   {
     name: "Escape Room",
@@ -115,6 +128,7 @@ const ACTIVITIES = [
     price: "35€ / persona",
     tag: null,
     image: "/images/2022-Escape-Room-addio-al-celibato-Barcellona.jpg",
+    href: "/attivita/pomeridiane/escape-room/",
   },
   {
     name: "La Beerbike",
@@ -122,6 +136,7 @@ const ACTIVITIES = [
     price: "50€ / persona",
     tag: "Classico",
     image: "/images/2017-Bici-birra-1.jpg",
+    href: "/attivita/pomeridiane/beerbike/",
   },
   {
     name: "Disco VIP",
@@ -129,6 +144,7 @@ const ACTIVITIES = [
     price: "GRATIS",
     tag: null,
     image: null,
+    href: CONTACT,
   },
   {
     name: "Tutti al Mare",
@@ -136,6 +152,7 @@ const ACTIVITIES = [
     price: "Da 20€ / pers.",
     tag: "Mare",
     image: "/images/2017-TUTTI-AL-MARE.jpg",
+    href: "/attivita/pomeridiane/paddle-surf/",
   },
   {
     name: "Archery Tag",
@@ -143,6 +160,7 @@ const ACTIVITIES = [
     price: "25€ / persona",
     tag: "Adrenalina",
     image: "/images/2017-archerytag.jpg",
+    href: CONTACT,
   },
   {
     name: "Segway Barcellona",
@@ -150,6 +168,7 @@ const ACTIVITIES = [
     price: "45€ / persona",
     tag: null,
     image: "/images/2017-BarcelonaSegway-T24-d_O.jpg",
+    href: CONTACT,
   },
   {
     name: "Altre Attività",
@@ -157,6 +176,7 @@ const ACTIVITIES = [
     price: "Da 25€ / pers.",
     tag: null,
     image: "/images/2017-ALTRE-ATTIVITA.jpg",
+    href: CONTACT,
   },
   {
     name: "Barca a Vela Privata",
@@ -164,6 +184,7 @@ const ACTIVITIES = [
     price: "60€ / persona",
     tag: null,
     image: "/images/2017-BARCA-A-VELA-PRIVATA-S.jpg",
+    href: "/attivita/pomeridiane/barca-a-vela/",
   },
   {
     name: "Vespa GPS",
@@ -171,35 +192,36 @@ const ACTIVITIES = [
     price: "45€ / persona",
     tag: null,
     image: "/images/2017-VESPA-GPS-small.jpg",
+    href: "/attivita/pomeridiane/vespa-gps/",
   },
 ];
 
 const WHY_US = [
   {
-    Icon: UserRound,
-    title: "Viviamo a Barcellona",
-    desc: "Noi VIVIAMO qui e conosciamo la città meglio di qualsiasi altra agenzia. Zero intermediari, massima qualità.",
+    Icon: MapPin,
+    title: "ACCESSO DIRETTO",
+    desc: "Siamo sul posto e conosciamo la città come le nostre tasche. Nessun intermediario: solo esperienze testate e qualità garantita.",
   },
   {
-    Icon: Crosshair,
-    title: "Solo Barcellona",
-    desc: "Organizziamo feste di addio al nubilato SOLO a Barcellona. La specializzazione garantisce il miglior servizio.",
+    Icon: Target,
+    title: "FOCUS 100% BARCELLONA",
+    desc: "Facciamo una cosa sola e la facciamo al top: addii al nubilato esclusivi nella nostra città. Zero imprevisti, massimo risultato.",
   },
   {
     Icon: User,
-    title: "Attenzione Personalizzata",
-    desc: "Agenzia boutique con attenzione personalizzata che fornisce a tutti i clienti consigli e raccomandazioni.",
+    title: "SUPPORTO SU MISURA",
+    desc: "Un referente dedicato sempre al fianco del tuo gruppo. Consigli reali, dritte locali e organizzazione perfetta dall'inizio alla fine.",
   },
 ];
 
 // ── Components ────────────────────────────────────────────────────────────────
 
 function ActivityCard({
-  name, desc, price, tag, image,
-}: { name: string; desc: string; price: string; tag: string | null; image: string | null }) {
+  name, desc, price, tag, image, href,
+}: { name: string; desc: string; price: string; tag: string | null; image: string | null; href: string }) {
   return (
     <a
-      href="/addio-al-celibato-barcellona-contatti"
+      href={href}
       style={{
         display: "flex",
         flexDirection: "column",
@@ -363,23 +385,55 @@ export default function NubilatoPage() {
               </li>
             ))}
           </ul>
-          <a
-            href="/addio-al-celibato-barcellona-contatti"
-            style={{
-              display: "inline-flex", alignItems: "center", gap: "0.5rem",
-              fontFamily: "var(--font-bebas)", fontSize: "0.9rem", letterSpacing: "0.14em",
-              padding: "0.9rem 2rem",
-              background: "var(--blue)", color: "#fff", textDecoration: "none",
-              transition: "opacity 0.2s",
-            }}
-          >
-            PREVENTIVO GRATIS <ArrowRight size={15} />
-          </a>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <a
+              href="/addio-al-celibato-barcellona-contatti"
+              style={{
+                display: "inline-flex", alignItems: "center", gap: "0.5rem",
+                fontFamily: "var(--font-bebas)", fontSize: "0.9rem", letterSpacing: "0.14em",
+                padding: "0.9rem 2rem",
+                background: "var(--blue)", color: "#fff", textDecoration: "none",
+                transition: "opacity 0.2s",
+              }}
+            >
+              PREVENTIVO GRATIS <ArrowRight size={15} />
+            </a>
+
+            {/* Review badges */}
+            <div style={{ display: "flex", gap: "0.75rem", marginTop: "0.75rem", flexWrap: "wrap", justifyContent: "center" }}>
+              <a
+                href="https://maps.app.goo.gl/oaPeRnXLkWpVScSv8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="review-badge"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden>
+                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                </svg>
+                <div style={{ fontSize: "0.7rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)", lineHeight: 1.2 }}>Google Reviews</div>
+              </a>
+              <a
+                href="https://it.trustpilot.com/review/addioalcelibato-barcellona.it"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="review-badge"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden fill="none">
+                  <rect width="24" height="24" rx="2" fill="#00B67A"/>
+                  <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17 5.8 21.3l2.4-7.4L2 9.4h7.6L12 2z" fill="#fff"/>
+                </svg>
+                <div style={{ fontSize: "0.7rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)", lineHeight: 1.2 }}>Trustpilot</div>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ── PERCHÉ SCEGLIERE NOI — 3 col horizontal ──────────────────────── */}
-      <section style={{ padding: "2rem 6vw 4rem", background: "#000" }}>
+      <section style={{ padding: "0 6vw 3rem", background: "#000" }}>
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
@@ -409,6 +463,37 @@ export default function NubilatoPage() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* ── ACTIVITIES GRID ───────────────────────────────────────────────── */}
+      <section style={{ padding: "0 6vw 6rem" }}>
+          <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: "2rem", flexWrap: "wrap", gap: "1rem" }}>
+            <h2 style={{
+              fontFamily: "var(--font-bebas)",
+              fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
+              letterSpacing: "-0.01em",
+              lineHeight: 1,
+              color: "#fff",
+              margin: 0,
+            }}>
+              TUTTE LE ATTIVITÀ
+            </h2>
+            <p style={{ fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", fontWeight: 600 }}>
+              {ACTIVITIES.length} attività disponibili
+            </p>
+          </div>
+
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: "1px",
+          }}
+            className="nubilato-grid"
+          >
+            {ACTIVITIES.map((act) => (
+              <ActivityCard key={act.name} {...act} />
+            ))}
+          </div>
       </section>
 
       {/* ── INTRO ─────────────────────────────────────────────────────────── */}
@@ -452,37 +537,6 @@ export default function NubilatoPage() {
             Organizzare una festa di addio al nubilato come si deve è il dovere di ogni buona amica. Non esitare e contattaci — il <strong style={{ color: "#fff" }}>PREVENTIVO È GRATIS!</strong>
           </p>
         </div>
-      </section>
-
-      {/* ── ACTIVITIES GRID ───────────────────────────────────────────────── */}
-      <section style={{ padding: "0 6vw 6rem" }}>
-          <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: "2rem", flexWrap: "wrap", gap: "1rem" }}>
-            <h2 style={{
-              fontFamily: "var(--font-bebas)",
-              fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
-              letterSpacing: "-0.01em",
-              lineHeight: 1,
-              color: "#fff",
-              margin: 0,
-            }}>
-              TUTTE LE ATTIVITÀ
-            </h2>
-            <p style={{ fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", fontWeight: 600 }}>
-              {ACTIVITIES.length} attività disponibili
-            </p>
-          </div>
-
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "1px",
-          }}
-            className="nubilato-grid"
-          >
-            {ACTIVITIES.map((act) => (
-              <ActivityCard key={act.name} {...act} />
-            ))}
-          </div>
       </section>
 
       {/* ── CONTACT STRIP ─────────────────────────────────────────────────── */}
