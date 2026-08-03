@@ -18,6 +18,7 @@ interface ActivityDetail {
   description: string;
   notes: string | null;
   images: string[];
+  body_html?: string;
 }
 
 type Params = { category: string; slug: string };
@@ -298,18 +299,26 @@ export default async function ActivityDetailPage({ params }: { params: Promise<P
             )}
 
             {/* Full description */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "1.2rem", marginBottom: "2rem" }}>
-              {activity.description.split("\n\n").map((para, i) => (
-                <p key={i} style={{
-                  fontSize: "0.92rem",
-                  lineHeight: 1.85,
-                  color: "rgba(255,255,255,0.82)",
-                  fontWeight: 400,
-                }}>
-                  {para}
-                </p>
-              ))}
-            </div>
+            {activity.body_html ? (
+              <div
+                className="nubilato-body"
+                style={{ marginBottom: "2rem" }}
+                dangerouslySetInnerHTML={{ __html: activity.body_html }}
+              />
+            ) : (
+              <div style={{ display: "flex", flexDirection: "column", gap: "1.2rem", marginBottom: "2rem" }}>
+                {activity.description.split("\n\n").map((para, i) => (
+                  <p key={i} style={{
+                    fontSize: "0.92rem",
+                    lineHeight: 1.85,
+                    color: "rgba(255,255,255,0.82)",
+                    fontWeight: 400,
+                  }}>
+                    {para}
+                  </p>
+                ))}
+              </div>
+            )}
 
             {/* Notes */}
             {activity.notes && (
