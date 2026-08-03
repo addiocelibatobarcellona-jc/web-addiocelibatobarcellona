@@ -1,5 +1,13 @@
 {
   "permissions": {
-    "allow": ["Read", "Write", "Glob", "Grep", "Bash"]
+    "allow": [
+      "Read",
+      "Write",
+      "Glob",
+      "Grep",
+      "Bash",
+      "WebFetch(domain:www.addioalcelibato-barcellona.it)",
+      "WebFetch(domain:web-addiocelibatobarcellona.vercel.app)"
+    ]
   }
 }

@@ -5,6 +5,8 @@ import CookieBanner from "@/components/CookieBanner";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import BottomNav from "@/components/BottomNav";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import legal from "../../public/legal.json";
 import data from "../../public/data.json";
 
@@ -122,6 +124,8 @@ export default function RootLayout({
         <WhatsAppWidget phone={data.site.whatsapp} />
         <CookieBanner data={legal.cookie_banner} />
         <GoogleAnalytics />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
