@@ -295,15 +295,16 @@ export default async function ActivitiesPage({ params }: { params: Promise<Param
         borderTop: "1px solid rgba(255,255,255,0.06)",
         maxWidth: "900px",
       }}>
-        <h2 style={{
+        <p style={{
           fontFamily: "var(--font-bebas)",
-          fontSize: "clamp(1.4rem, 3vw, 2.2rem)",
-          letterSpacing: "0.04em",
-          color: "rgba(255,255,255,0.6)",
-          marginBottom: "2rem",
+          fontSize: "0.7rem",
+          letterSpacing: "0.22em",
+          textTransform: "uppercase",
+          color: "rgba(255,255,255,0.3)",
+          marginBottom: "1.5rem",
         }}>
-          {catData.headline} {catData.headline_accent}
-        </h2>
+          — {catData.headline} {catData.headline_accent}
+        </p>
         <div style={{ display: "flex", flexDirection: "column", gap: "1.2rem" }}>
           {catData.seo_text.split("\n\n").map((para, i) => (
             <p key={i} style={{

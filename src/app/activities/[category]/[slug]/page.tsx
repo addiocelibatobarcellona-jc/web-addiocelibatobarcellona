@@ -84,6 +84,22 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   };
 }
 
+function buildBreadcrumbJsonLd(activity: ActivityDetail, category: string) {
+  const BASE = "https://www.addioalcelibato-barcellona.it";
+  const italianCat = toItalianCategory(category);
+  const catLabel = italianCat === "notturne" ? "Attività Notturne" : "Attività Pomeridiane";
+  const catUrl = `${BASE}/attivita/${italianCat}/`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE}/` },
+      { "@type": "ListItem", "position": 2, "name": catLabel, "item": catUrl },
+      { "@type": "ListItem", "position": 3, "name": activity.name, "item": `${catUrl.replace("/attivita/", "/attivita/")}${activity.slug}/` },
+    ],
+  };
+}
+
 function buildActivityJsonLd(activity: ActivityDetail, category: string, cardImage?: string) {
   const italianCat = toItalianCategory(category);
   const BASE = "https://www.addioalcelibato-barcellona.it";
@@ -153,12 +169,17 @@ export default async function ActivityDetailPage({ params }: { params: Promise<P
   const backHref = `/attivita/${italianCat}`;
   const categoryLabel = italianCat === "notturne" ? "ATTIVITÀ NOTTURNE" : "ATTIVITÀ POMERIDIANE";
   const jsonLd = buildActivityJsonLd(activity, category, heroImage);
+  const breadcrumbLd = buildBreadcrumbJsonLd(activity, category);
 
   return (
     <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}

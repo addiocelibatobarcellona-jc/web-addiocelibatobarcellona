@@ -25,7 +25,9 @@
           { "label": "XXX Show", "href": "/attivita/notturne/xxx-show-trasgressione-massima/" },
           { "label": "Body Sushi", "href": "/attivita/notturne/body-sushi/" },
           { "label": "LimoBus", "href": "/attivita/notturne/addio-al-celibato-barcellona-limobus/" },
-          { "label": "Giretto in Limo", "href": "/attivita/notturne/addio-al-celibato-giretto-in-limo/" }
+          { "label": "Giretto in Limo", "href": "/attivita/notturne/addio-al-celibato-giretto-in-limo/" },
+          { "label": "Cena Limo Disco", "href": "/attivita/notturne/addio-al-celibato-con-limousine/" },
+          { "label": "Cocktail Lab", "href": "/attivita/notturne/cocktail-lab-barcellona/" }
         ]
       },
       {
@@ -164,6 +166,24 @@
         "tag": null,
         "icon": "Car",
         "image": "/images/2017-GIRETTO-IN-LIMO.jpg"
+      },
+      {
+        "name": "Cena Limo Disco",
+        "desc": "Cena + Limousine + Discoteca. La serata completa con un tocco di lusso per tutta la crew.",
+        "price": "€89 / persona",
+        "href": "/attivita/notturne/addio-al-celibato-con-limousine/",
+        "tag": null,
+        "icon": "Car",
+        "image": "/images/2017-CENALIMODISCO-S.jpg"
+      },
+      {
+        "name": "Cocktail Lab",
+        "desc": "Workshop di cocktail con barman professionista. Impara a mixare, assaggia e divertiti.",
+        "price": "€29 / persona",
+        "href": "/attivita/notturne/cocktail-lab-barcellona/",
+        "tag": null,
+        "icon": "GlassWater",
+        "image": "/images/2017-cocktail-lab.jpg"
       }
     ]
   },

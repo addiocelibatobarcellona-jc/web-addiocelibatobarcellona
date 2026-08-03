@@ -62,41 +62,6 @@ export const metadata: Metadata = {
   },
 };
 
-const LOCAL_BUSINESS_SCHEMA = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Addio al Celibato Barcellona",
-  "url": "https://www.addioalcelibato-barcellona.it/",
-  "logo": "https://www.addioalcelibato-barcellona.it/images/2017-logoaddioalcelibatoblancohori2-1.png",
-  "image": "https://www.addioalcelibato-barcellona.it/images/2017-ADDIO-SPICY-MIX-S.jpg",
-  "description": "Organizziamo addii al celibato e al nubilato a Barcellona dal 2017. Strip show, discoteche, limousine, paddle surf e molto altro.",
-  "telephone": "+34673180796",
-  "email": "addiocelibatobarcellona@gmail.com",
-  "foundingDate": "2017",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Avenida Paralelo Nº91 Bis Entresuelo 1ª",
-    "addressLocality": "Barcelona",
-    "postalCode": "08004",
-    "addressCountry": "ES",
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 41.3748,
-    "longitude": 2.1537,
-  },
-  "openingHours": "Mo-Fr 10:00-18:00",
-  "priceRange": "€€",
-  "currenciesAccepted": "EUR",
-  "areaServed": {
-    "@type": "City",
-    "name": "Barcelona",
-  },
-  "sameAs": [
-    "https://maps.app.goo.gl/oaPeRnXLkWpVScSv8",
-    "https://it.trustpilot.com/review/addioalcelibato-barcellona.it",
-  ],
-};
 
 export default function RootLayout({
   children,
@@ -109,10 +74,6 @@ export default function RootLayout({
       className={`${bebas.variable} ${jakarta.variable}`}
     >
       <body className="bg-[#080808] text-white antialiased font-jakarta">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_SCHEMA) }}
-        />
         <BottomNav
           links={data.navbar.links as { href: string; label: string }[]}
           logoLine1={data.navbar.logo_line1}

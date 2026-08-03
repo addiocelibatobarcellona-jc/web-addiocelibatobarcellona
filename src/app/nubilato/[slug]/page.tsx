@@ -57,6 +57,19 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   };
 }
 
+function buildBreadcrumbJsonLd(activity: NubilatoActivity) {
+  const BASE = "https://www.addioalcelibato-barcellona.it";
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE}/` },
+      { "@type": "ListItem", "position": 2, "name": "Addio al Nubilato Barcellona", "item": `${BASE}/addio-al-nubilato/` },
+      { "@type": "ListItem", "position": 3, "name": activity.name, "item": `${BASE}/addio-al-nubilato/${activity.slug}/` },
+    ],
+  };
+}
+
 function buildJsonLd(activity: NubilatoActivity) {
   const BASE = "https://www.addioalcelibato-barcellona.it";
   const url = `${BASE}/addio-al-nubilato/${activity.slug}/`;
@@ -97,12 +110,17 @@ export default async function NubilatoActivityPage({ params }: { params: Promise
   if (!activity) notFound();
 
   const jsonLd = buildJsonLd(activity);
+  const breadcrumbLd = buildBreadcrumbJsonLd(activity);
 
   return (
     <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
       {/* ── HERO ── */}
