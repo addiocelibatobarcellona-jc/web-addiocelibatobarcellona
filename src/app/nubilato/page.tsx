@@ -49,7 +49,7 @@ const ACTIVITIES = [
     price: "115€ / persona",
     tag: "Premium",
     image: "/images/2017-All-Inclusive-Gold-Nubilato.jpg",
-    href: NUB("addio-nubilato-spogliarello-limousine-barcellona"),
+    href: NUB("addio-nubilato-spogliarellista-limousine-barcellona"),
   },
   {
     name: "Spicy Mix – Collettivo",
@@ -65,7 +65,7 @@ const ACTIVITIES = [
     price: "89€ / persona",
     tag: null,
     image: "/images/2017-CENALIMODISCO-S.jpg",
-    href: NUB("addio-nubilato-spogliarellista-limousine-barcellona"),
+    href: "/attivita/notturne/addio-al-celibato-con-limousine/",
   },
   {
     name: "Strip Show",
@@ -80,7 +80,7 @@ const ACTIVITIES = [
     desc: "Un maggiordomo con pochissimi vestiti al vostro servizio per tutta la serata. Sorprese garantite.",
     price: "32€ / persona",
     tag: null,
-    image: "/images/2026-addio-nubilato-home-size-ok.jpg",
+    image: "/images/2018-Cheeky-Butler-3.jpg",
     href: NUB("cheeky-butler-barcellona"),
   },
   {
@@ -96,7 +96,7 @@ const ACTIVITIES = [
     desc: "Imparate a preparare i migliori cocktail con un bartender professionista. Brindisi finale con le vostre creazioni.",
     price: "50€ / persona",
     tag: null,
-    image: null,
+    image: "/images/2017-cocktail-lab.jpg",
     href: CONTACT,
   },
   {
@@ -104,7 +104,7 @@ const ACTIVITIES = [
     desc: "Festa in catamarano sul Mediterraneo con open bar a bordo. Sole, musica e mare cristallino.",
     price: "69€ / persona",
     tag: "Mare",
-    image: "/images/2017-CRAZY-CATAMARAN-PARTY-S.jpg",
+    image: "/images/2017-catamaran-nubilato.jpg",
     href: "/attivita/pomeridiane/addio-al-nubilato-in-catamarano-a-barcellona/",
   },
   {
@@ -128,7 +128,7 @@ const ACTIVITIES = [
     desc: "60 minuti per risolvere enigmi e scappare. Perfetta per rompere il ghiaccio tra il gruppo.",
     price: "35€ / persona",
     tag: null,
-    image: "/images/2022-Escape-Room-addio-al-celibato-Barcellona.jpg",
+    image: "/images/2018-Escape-Room-Barcellona-Celibato.jpg",
     href: NUB("escape-room-game-nubilato-barcellona"),
   },
   {
@@ -144,7 +144,7 @@ const ACTIVITIES = [
     desc: "Ingresso in lista VIP nelle migliori discoteche di Barcellona. La notte vera inizia dopo la mezzanotte.",
     price: "GRATIS",
     tag: null,
-    image: null,
+    image: "/images/2017-migliori-discoteche-di-barcellona-2.jpg",
     href: NUB("migliori-discoteche-barcellona"),
   },
   {

@@ -12,14 +12,14 @@
   },
   {
     "slug": "addio-nubilato-spogliarello-limousine-barcellona",
-    "name": "All Inclusive Gold",
-    "tag": "Premium",
-    "price": "115€ / persona",
-    "intro": "La formula completa per l'addio al nubilato: cena, limousine di lusso, striptease maschile e discoteca. Nessun pensiero, solo divertimento.",
-    "description": "Il pacchetto All Inclusive Gold è la scelta perfetta per chi vuole una serata indimenticabile senza pensieri. Include tutto: cena con open bar, giro panoramico in lussuosa limousine con champagne, spettacolo di striptease maschile professionale e accesso VIP alla discoteca. Il vostro referente si occupa di tutto, dal trasferimento alla gestione del gruppo.",
-    "includes": ["Cena con open bar", "Limousine di lusso con champagne", "Spettacolo di striptease maschile", "Ingresso VIP in discoteca", "Referente dedicato per tutta la serata"],
-    "notes": "Il pacchetto premium più completo. Prenotazione obbligatoria almeno 7 giorni prima.",
-    "image": "/images/2017-All-Inclusive-Gold-Nubilato.jpg"
+    "name": "All Inclusive Silver",
+    "tag": null,
+    "price": "89€ / persona",
+    "intro": "La versione Silver del pacchetto completo: cena, limousine e discoteca. Tutto il divertimento a un prezzo accessibile.",
+    "description": "Il pacchetto All Inclusive Silver offre la formula completa a un prezzo più contenuto. Include cena con open bar, giro in limousine con champagne e accesso VIP alla discoteca. La scelta ideale per chi vuole godersi una serata completa senza rinunciare a nulla di essenziale.",
+    "includes": ["Cena con open bar", "Giro in limousine con champagne", "Ingresso VIP in discoteca", "Coordinamento del gruppo"],
+    "notes": "Versione economica del Gold. Stessa formula, prezzo accessibile.",
+    "image": "/images/2017-CENALIMODISCO-S.jpg"
   },
   {
     "slug": "addio-al-nubilato-collettivo-barcellona",
@@ -34,14 +34,14 @@
   },
   {
     "slug": "addio-nubilato-spogliarellista-limousine-barcellona",
-    "name": "Cena Limo Disco",
-    "tag": null,
-    "price": "89€ / persona",
-    "intro": "Cena con open bar, giro in lussuosa limousine e ingresso in discoteca per una serata da star.",
-    "description": "Una serata elegante e glamour per il vostro addio al nubilato. Iniziate con una cena con open bar, poi salgono tutte sulla lussuosa limousine per un tour esclusivo di Barcellona con champagne a bordo. La notte finisce con l'accesso VIP in una delle migliori discoteche della città.",
-    "includes": ["Cena con open bar", "Giro in limousine con champagne", "Ingresso VIP in discoteca", "Coordinamento del gruppo"],
-    "notes": null,
-    "image": "/images/2017-CENALIMODISCO-S.jpg"
+    "name": "All Inclusive Gold",
+    "tag": "Premium",
+    "price": "115€ / persona",
+    "intro": "La formula completa per l'addio al nubilato: cena, limousine di lusso, striptease maschile e discoteca. Nessun pensiero, solo divertimento.",
+    "description": "Il pacchetto All Inclusive Gold è la scelta perfetta per chi vuole una serata indimenticabile senza pensieri. Include tutto: cena con open bar, giro panoramico in lussuosa limousine con champagne, spettacolo di striptease maschile professionale e accesso VIP alla discoteca. Il vostro referente si occupa di tutto, dal trasferimento alla gestione del gruppo.",
+    "includes": ["Cena con open bar", "Limousine di lusso con champagne", "Spettacolo di striptease maschile", "Ingresso VIP in discoteca", "Referente dedicato per tutta la serata"],
+    "notes": "Il pacchetto premium più completo. Prenotazione obbligatoria almeno 7 giorni prima.",
+    "image": "/images/2017-All-Inclusive-Gold-Nubilato.jpg"
   },
   {
     "slug": "addio-nubilato-spogliarellista-show-barcellona",

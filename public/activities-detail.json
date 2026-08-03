@@ -1,5 +1,21 @@
 [
   {
+    "slug": "addio-al-celibato-con-limousine",
+    "category": "notturne",
+    "name": "Cena Limo Disco",
+    "price": "89€ / persona",
+    "intro": "La festa di addio al celibato con limousine: l'emozione di fare un giro a bordo di una lussuosa auto e godere di Barcellona da un'altra prospettiva. Cena, limousine e discoteca in un unico pacchetto.",
+    "includes": [
+      "Cena con open bar",
+      "Giro in limousine di lusso con champagne a bordo",
+      "Ingresso in discoteca in lista VIP",
+      "Coordinamento completo del gruppo"
+    ],
+    "description": "Iniziate la serata con una cena con open bar in uno dei nostri ristoranti convenzionati. Poi salite tutte a bordo di una lussuosa limousine per un tour panoramico di Barcellona con champagne incluso. La notte si chiude in una delle migliori discoteche della città con accesso VIP. Una formula elegante e glamour per un addio al celibato da ricordare.",
+    "notes": null,
+    "images": ["/images/2017-CENALIMODISCO-S.jpg"]
+  },
+  {
     "slug": "addio-al-celibato-con-spogliarellista",
     "category": "notturne",
     "name": "Addio al Celibato Classico",
