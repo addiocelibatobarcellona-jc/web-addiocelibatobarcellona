@@ -15,6 +15,7 @@ interface NubilatoActivity {
   includes: string[];
   notes: string | null;
   image: string | null;
+  body_html?: string;
 }
 
 type Params = { slug: string };
@@ -203,14 +204,21 @@ export default async function NubilatoActivityPage({ params }: { params: Promise
             }}>
               {activity.intro}
             </p>
-            <p style={{
-              fontSize: "0.95rem",
-              lineHeight: 1.85,
-              color: "rgba(255,255,255,0.65)",
-              fontWeight: 400,
-            }}>
-              {activity.description}
-            </p>
+            {activity.body_html ? (
+              <div
+                className="nubilato-body"
+                dangerouslySetInnerHTML={{ __html: activity.body_html }}
+              />
+            ) : (
+              <p style={{
+                fontSize: "0.95rem",
+                lineHeight: 1.85,
+                color: "rgba(255,255,255,0.65)",
+                fontWeight: 400,
+              }}>
+                {activity.description}
+              </p>
+            )}
 
             {activity.notes && (
               <p style={{

@@ -28,6 +28,53 @@ body {
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
 
+/* ── Nubilato activity body prose ── */
+.nubilato-body p {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 1.1rem;
+}
+.nubilato-body h2 {
+  font-family: var(--font-bebas);
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.5);
+  margin: 2rem 0 0.75rem;
+}
+.nubilato-body h3 {
+  font-family: var(--font-bebas);
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.4);
+  margin: 1.5rem 0 0.5rem;
+}
+.nubilato-body a {
+  color: var(--blue);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(58,117,255,0.4);
+  transition: border-color 0.2s, color 0.2s;
+}
+.nubilato-body a:hover {
+  color: var(--blue-light);
+  border-color: var(--blue-light);
+}
+.nubilato-body ul, .nubilato-body ol {
+  margin: 0.75rem 0 1.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.nubilato-body li {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.65);
+}
+.nubilato-body strong, .nubilato-body b {
+  color: rgba(255,255,255,0.85);
+  font-weight: 600;
+}
+
 /* ── Nav responsive ── */
 @media (max-width: 860px) {
   .nav-links { display: none !important; }
