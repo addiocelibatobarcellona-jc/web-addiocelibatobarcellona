@@ -1,0 +1,145 @@
+[
+  {
+    "slug": "addio-al-nubilato-con-spogliarellista-a-barcellona",
+    "name": "Cena Strip Disco",
+    "tag": "Best Seller",
+    "price": "74€ / persona",
+    "intro": "Cena con open bar, spettacolo di striptease maschile e ingresso in discoteca. La serata classica per l'addio al nubilato per eccellenza.",
+    "description": "La serata più richiesta per l'addio al nubilato a Barcellona. Si inizia con una cena in un ristorante selezionato con open bar incluso, seguita dallo spettacolo di striptease maschile professionale — preparatevi a urla e risate! La serata si conclude in una delle migliori discoteche della città con ingresso in lista VIP.",
+    "includes": ["Cena con open bar", "Spettacolo di striptease maschile professionale", "Ingresso in discoteca in lista VIP", "Coordinamento completo del gruppo", "Assistenza durante tutta la serata"],
+    "notes": "Disponibile dal giovedì alla domenica. Prenota con almeno 5 giorni di anticipo.",
+    "image": "/images/2026-cena-strip-disco-nubilato-1.png"
+  },
+  {
+    "slug": "addio-nubilato-spogliarello-limousine-barcellona",
+    "name": "All Inclusive Gold",
+    "tag": "Premium",
+    "price": "115€ / persona",
+    "intro": "La formula completa per l'addio al nubilato: cena, limousine di lusso, striptease maschile e discoteca. Nessun pensiero, solo divertimento.",
+    "description": "Il pacchetto All Inclusive Gold è la scelta perfetta per chi vuole una serata indimenticabile senza pensieri. Include tutto: cena con open bar, giro panoramico in lussuosa limousine con champagne, spettacolo di striptease maschile professionale e accesso VIP alla discoteca. Il vostro referente si occupa di tutto, dal trasferimento alla gestione del gruppo.",
+    "includes": ["Cena con open bar", "Limousine di lusso con champagne", "Spettacolo di striptease maschile", "Ingresso VIP in discoteca", "Referente dedicato per tutta la serata"],
+    "notes": "Il pacchetto premium più completo. Prenotazione obbligatoria almeno 7 giorni prima.",
+    "image": "/images/2017-All-Inclusive-Gold-Nubilato.jpg"
+  },
+  {
+    "slug": "addio-al-nubilato-collettivo-barcellona",
+    "name": "Spicy Mix – Collettivo",
+    "tag": "Più venduto",
+    "price": "79€ / persona",
+    "intro": "Serata collettiva con cena, open bar di sangria, spettacoli internazionali, animazioni e striptease maschile. L'addio al nubilato in compagnia.",
+    "description": "Lo Spicy Mix Collettivo unisce il vostro gruppo con altri festeggianti per una serata di puro divertimento. La formula include cena con open bar di sangria illimitata, spettacoli internazionali di intrattenimento, animazioni e il tanto atteso striptease maschile. Un'esperienza coinvolgente che non richiede grandi numeri: perfetta anche per gruppi piccoli.",
+    "includes": ["Cena con open bar di sangria", "Spettacoli internazionali", "Animazioni e giochi di gruppo", "Striptease maschile", "Ingresso in discoteca"],
+    "notes": "Formula collettiva: il gruppo si unisce ad altre feste. Ottima per gruppi piccoli.",
+    "image": "/images/2017-CRAZYMIX.jpg"
+  },
+  {
+    "slug": "addio-nubilato-spogliarellista-limousine-barcellona",
+    "name": "Cena Limo Disco",
+    "tag": null,
+    "price": "89€ / persona",
+    "intro": "Cena con open bar, giro in lussuosa limousine e ingresso in discoteca per una serata da star.",
+    "description": "Una serata elegante e glamour per il vostro addio al nubilato. Iniziate con una cena con open bar, poi salgono tutte sulla lussuosa limousine per un tour esclusivo di Barcellona con champagne a bordo. La notte finisce con l'accesso VIP in una delle migliori discoteche della città.",
+    "includes": ["Cena con open bar", "Giro in limousine con champagne", "Ingresso VIP in discoteca", "Coordinamento del gruppo"],
+    "notes": null,
+    "image": "/images/2017-CENALIMODISCO-S.jpg"
+  },
+  {
+    "slug": "addio-nubilato-spogliarellista-show-barcellona",
+    "name": "Strip Show",
+    "tag": null,
+    "price": "27€ / persona",
+    "intro": "Show di striptease maschile professionale in sala privata. Semplice, diretto e sempre efficace per l'addio al nubilato.",
+    "description": "La versione essenziale e più accessibile per godersi uno spettacolo di striptease maschile professionale. Lo show avviene in una sala privata riservata al vostro gruppo, con un performer esperto e carismatico. Ottima scelta come attività singola da abbinare a una cena o una discoteca a vostra scelta.",
+    "includes": ["Show di striptease maschile professionale", "Sala privata riservata al gruppo", "Durata: circa 30-45 minuti"],
+    "notes": "Attività singola. Può essere combinata con cena o discoteca a vostra scelta.",
+    "image": "/images/2017-Stri-show-nubilato-S.jpg"
+  },
+  {
+    "slug": "cheeky-butler-barcellona",
+    "name": "Cheeky Butler",
+    "tag": null,
+    "price": "32€ / persona",
+    "intro": "Un maggiordomo con pochissimi vestiti al vostro servizio per tutta la serata. Sorprese e imbarazzo garantiti.",
+    "description": "Il Cheeky Butler è uno dei servizi più originali per l'addio al nubilato. Un maggiordomo — con decisamente pochi vestiti — sarà al completo servizio del vostro gruppo per tutta la serata: prepara cocktail, porta spuntini, partecipa ai giochi e si presta a qualsiasi missione imbarazzante che decidiate di assegnargli. Perfetto come aggiunta a una serata in appartamento o in piscina.",
+    "includes": ["Maggiordomo in costume per 2-3 ore", "Preparazione cocktail", "Partecipazione a giochi e sfide", "Foto e divertimento garantiti"],
+    "notes": "Disponibile anche per serate in appartamento o piscina privata.",
+    "image": "/images/2026-addio-nubilato-home-size-ok.jpg"
+  },
+  {
+    "slug": "caccia-al-tesoro-addio-nubilato-barcellona",
+    "name": "Caccia al Tesoro",
+    "tag": null,
+    "price": "45€ / persona",
+    "intro": "Tour di Barcellona in stile caccia al tesoro: prove, missioni segrete e tanto divertimento per tutto il gruppo.",
+    "description": "La Caccia al Tesoro trasforma Barcellona nel vostro parco giochi. Divisi in squadre, dovrete completare prove, sfide e missioni segrete nei punti più iconici della città. Un modo originale per esplorare Barcellona ridendo e creando ricordi indimenticabili. Adatta a tutti i gruppi, anche senza conoscere la città.",
+    "includes": ["Kit completo con mappe e istruzioni", "Prove e sfide personalizzabili", "Guida o coordinatore incluso", "Foto delle missioni completate", "Premio finale per le vincitrici"],
+    "notes": "Durata: 2-3 ore. Perfetta come attività pomeridiana prima della serata.",
+    "image": "/images/2024-journey-1130732_1280.jpg"
+  },
+  {
+    "slug": "addio-al-nubilato-barcellona-limobus",
+    "name": "LimoBus",
+    "tag": null,
+    "price": "42€ / persona",
+    "intro": "Open bar in movimento sul lussuoso limo-bus. Un dance floor su ruote per le strade di Barcellona.",
+    "description": "Il LimoBus è una delle attività più scenografiche per l'addio al nubilato. A bordo di un lussuoso autobus attrezzato come un club, con musica, luci e open bar, il vostro gruppo gira per le strade di Barcellona ballando e divertendosi. Spettacolare e assolutamente indimenticabile.",
+    "includes": ["Open bar per tutta la durata del tour", "Musica e impianto luci professionale", "Giro della città di circa 1-2 ore", "Coordinamento e autista inclusi"],
+    "notes": "Disponibile da giovedì a domenica sera. Ideale per gruppi dai 15 in su.",
+    "image": "/images/2017-Limobus-S.jpg"
+  },
+  {
+    "slug": "addio-nubilato-giretto-limo",
+    "name": "Giretto in Limousine",
+    "tag": null,
+    "price": "39€ / persona",
+    "intro": "Tour panoramico di Barcellona a bordo di una limousine di lusso con spumante incluso.",
+    "description": "Vivete Barcellona come vere star: a bordo di una limousine di lusso con spumante e open bar, il vostro gruppo percorre i punti più iconici della città. Un'esperienza glamour e fotograficissima, perfetta come preludio a una serata in discoteca o come attività standalone.",
+    "includes": ["Limousine di lusso con autista", "Spumante e open bar a bordo", "Tour dei punti iconici di Barcellona", "Circa 1 ora di tour"],
+    "notes": null,
+    "image": "/images/2017-GIRETTO-IN-LIMO.jpg"
+  },
+  {
+    "slug": "escape-room-game-nubilato-barcellona",
+    "name": "Escape Room",
+    "tag": null,
+    "price": "35€ / persona",
+    "intro": "60 minuti per risolvere enigmi e fuggire dalla stanza. Perfetta per rompere il ghiaccio tra il gruppo.",
+    "description": "L'Escape Room è l'attività pomeridiana ideale per cominciare l'addio al nubilato con una sfida di gruppo. In 60 minuti dovrete risolvere enigmi, trovare indizi e fuggire dalla stanza prima che il tempo scada. Un modo divertente per vedere chi è la più intraprendente del gruppo.",
+    "includes": ["Sessione privata di 60 minuti", "Game master dedicato", "Disponibile in italiano", "Foto ricordo del gruppo"],
+    "notes": "Attività pomeridiana. Perfetta prima della cena serale.",
+    "image": "/images/2022-Escape-Room-addio-al-celibato-Barcellona.jpg"
+  },
+  {
+    "slug": "migliori-discoteche-barcellona",
+    "name": "Disco VIP",
+    "tag": null,
+    "price": "GRATIS",
+    "intro": "Ingresso in lista VIP nelle migliori discoteche di Barcellona. La notte vera inizia dopo la mezzanotte.",
+    "description": "Barcellona è famosa in tutto il mondo per la sua vita notturna. Con il servizio Disco VIP vi garantiamo l'ingresso in lista nelle migliori discoteche della città — OPIUM, Pacha, Shôko, Bling Bling e molte altre — senza code e senza pagare l'ingresso. Il vostro referente vi accompagna fino all'entrata e vi presenta al responsabile.",
+    "includes": ["Ingresso in lista VIP (gratuito)", "Nessuna coda all'entrata", "Scelta della discoteca in base alle preferenze", "Referente dedicato all'ingresso"],
+    "notes": "L'ingresso è gratuito. Consumi a carico. Disponibile giovedì, venerdì e sabato.",
+    "image": null
+  },
+  {
+    "slug": "addio-nubilato-bodysushi-barcellona",
+    "name": "Cena Body Sushi",
+    "tag": null,
+    "price": "Da consultare",
+    "intro": "Un'esperienza gastronomica e visiva unica: sushi servito sul corpo di un modello maschile. Sensuale ed esclusivo.",
+    "description": "Il Body Sushi è una delle esperienze più originali e sensuali per l'addio al nubilato. Un modello maschile diventa il 'piatto' su cui vengono serviti sushi e prelibatezze giapponesi. Un'esperienza che unisce cibo di qualità, estetica e divertimento garantito — perfetta per le spose che vogliono qualcosa di davvero fuori dall'ordinario.",
+    "includes": ["Modello maschile professionale", "Selezione di sushi e piatti giapponesi", "Open bar durante la cena", "Durata: circa 2 ore", "Sala privata riservata"],
+    "notes": "Esperienza privata riservata esclusivamente al vostro gruppo. Prenotazione obbligatoria.",
+    "image": null
+  },
+  {
+    "slug": "addio-al-nubilato-barcellona-marines",
+    "name": "Marines Show",
+    "tag": null,
+    "price": "Da consultare",
+    "intro": "Uno spettacolo con performer a tema militare per un addio al nubilato originale e divertente.",
+    "description": "Il Marines Show porta un tocco di avventura e ironia al vostro addio al nubilato. Performer professionisti in divisa militare danno vita a uno spettacolo coinvolgente che combina coreografie, humor e interazione con il gruppo. Un'esperienza insolita che sorprenderà tutte le ospiti.",
+    "includes": ["Spettacolo con performer professionisti", "Interazione con il gruppo", "Durata: circa 45 minuti", "Sala privata"],
+    "notes": "Contattaci per disponibilità e prezzi personalizzati.",
+    "image": null
+  }
+]

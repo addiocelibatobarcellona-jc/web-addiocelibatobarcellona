@@ -32,6 +32,7 @@ const HERO_IMG =
   "/images/2026-addio-nubilato-home-page-scaled.jpg";
 
 const CONTACT = "/addio-al-celibato-barcellona-contatti";
+const NUB = (slug: string) => `/addio-al-nubilato/${slug}/`;
 
 const ACTIVITIES = [
   {
@@ -40,7 +41,7 @@ const ACTIVITIES = [
     price: "74€ / persona",
     tag: "Best Seller",
     image: "/images/2026-cena-strip-disco-nubilato-1.png",
-    href: "/attivita/notturne/addio-al-celibato-con-spogliarellista/",
+    href: NUB("addio-al-nubilato-con-spogliarellista-a-barcellona"),
   },
   {
     name: "All Inclusive Gold",
@@ -48,7 +49,7 @@ const ACTIVITIES = [
     price: "115€ / persona",
     tag: "Premium",
     image: "/images/2017-All-Inclusive-Gold-Nubilato.jpg",
-    href: "/attivita/notturne/addio-al-celibato-con-spogliarellista-e-limousine/",
+    href: NUB("addio-nubilato-spogliarello-limousine-barcellona"),
   },
   {
     name: "Spicy Mix – Collettivo",
@@ -56,7 +57,7 @@ const ACTIVITIES = [
     price: "79€ / persona",
     tag: "Più venduto",
     image: "/images/2017-CRAZYMIX.jpg",
-    href: "/attivita/notturne/addio-al-celibato-collettivo/",
+    href: NUB("addio-al-nubilato-collettivo-barcellona"),
   },
   {
     name: "Cena Limo Disco",
@@ -64,7 +65,7 @@ const ACTIVITIES = [
     price: "89€ / persona",
     tag: null,
     image: "/images/2017-CENALIMODISCO-S.jpg",
-    href: CONTACT,
+    href: NUB("addio-nubilato-spogliarellista-limousine-barcellona"),
   },
   {
     name: "Strip Show",
@@ -72,7 +73,7 @@ const ACTIVITIES = [
     price: "27€ / persona",
     tag: null,
     image: "/images/2017-Stri-show-nubilato-S.jpg",
-    href: "/attivita/notturne/addio-al-celibato-spogliarellista-show/",
+    href: NUB("addio-nubilato-spogliarellista-show-barcellona"),
   },
   {
     name: "Cheeky Butler",
@@ -80,7 +81,7 @@ const ACTIVITIES = [
     price: "32€ / persona",
     tag: null,
     image: "/images/2026-addio-nubilato-home-size-ok.jpg",
-    href: CONTACT,
+    href: NUB("cheeky-butler-barcellona"),
   },
   {
     name: "Caccia al Tesoro",
@@ -88,7 +89,7 @@ const ACTIVITIES = [
     price: "45€ / persona",
     tag: null,
     image: "/images/2024-journey-1130732_1280.jpg",
-    href: CONTACT,
+    href: NUB("caccia-al-tesoro-addio-nubilato-barcellona"),
   },
   {
     name: "Cocktail Lab",
@@ -112,7 +113,7 @@ const ACTIVITIES = [
     price: "42€ / persona",
     tag: null,
     image: "/images/2017-Limobus-S.jpg",
-    href: "/attivita/notturne/addio-al-celibato-barcellona-limobus/",
+    href: NUB("addio-al-nubilato-barcellona-limobus"),
   },
   {
     name: "Giretto in Limousine",
@@ -120,7 +121,7 @@ const ACTIVITIES = [
     price: "39€ / persona",
     tag: null,
     image: "/images/2017-GIRETTO-IN-LIMO.jpg",
-    href: "/attivita/notturne/addio-al-celibato-giretto-in-limo/",
+    href: NUB("addio-nubilato-giretto-limo"),
   },
   {
     name: "Escape Room",
@@ -128,7 +129,7 @@ const ACTIVITIES = [
     price: "35€ / persona",
     tag: null,
     image: "/images/2022-Escape-Room-addio-al-celibato-Barcellona.jpg",
-    href: "/attivita/pomeridiane/escape-room/",
+    href: NUB("escape-room-game-nubilato-barcellona"),
   },
   {
     name: "La Beerbike",
@@ -144,7 +145,7 @@ const ACTIVITIES = [
     price: "GRATIS",
     tag: null,
     image: null,
-    href: CONTACT,
+    href: NUB("migliori-discoteche-barcellona"),
   },
   {
     name: "Tutti al Mare",

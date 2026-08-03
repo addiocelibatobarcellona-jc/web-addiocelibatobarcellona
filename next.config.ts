@@ -99,6 +99,9 @@ const nextConfig: NextConfig = {
         { source: wp,        destination: next },
         { source: `${wp}/`,  destination: next },
       ]),
+      // Nubilato activity detail slugs
+      { source: "/addio-al-nubilato/:slug",    destination: "/nubilato/:slug" },
+      { source: "/addio-al-nubilato/:slug/",   destination: "/nubilato/:slug" },
       // Activity detail slugs
       { source: "/attivita/notturne/:slug",    destination: "/activities/night/:slug" },
       { source: "/attivita/notturne/:slug/",   destination: "/activities/night/:slug" },
