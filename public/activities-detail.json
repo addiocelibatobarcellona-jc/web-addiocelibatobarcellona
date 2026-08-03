@@ -136,7 +136,7 @@
     "images": []
   },
   {
-    "slug": "catamaran",
+    "slug": "addio-al-celibato-catamarano-barcellona",
     "category": "pomeridiane",
     "name": "Crazy Catamaran Party",
     "price": "74€ / persona",
@@ -154,7 +154,7 @@
     ]
   },
   {
-    "slug": "barca-a-vela",
+    "slug": "addio-al-celibato-in-barca-a-vela-privata",
     "category": "pomeridiane",
     "name": "Barca a Vela Privata",
     "price": "60€ / persona",
@@ -174,7 +174,7 @@
     ]
   },
   {
-    "slug": "beerbike",
+    "slug": "addio-al-celibato-beerbike",
     "category": "pomeridiane",
     "name": "La Beerbike",
     "price": "50€ / persona",
@@ -194,7 +194,7 @@
     ]
   },
   {
-    "slug": "bubble-football",
+    "slug": "addio-al-celibato-bubble-football",
     "category": "pomeridiane",
     "name": "Bubble Football",
     "price": "45€ / persona",
@@ -212,7 +212,7 @@
     ]
   },
   {
-    "slug": "paintball",
+    "slug": "addio-al-celibato-paintball-outdoor",
     "category": "pomeridiane",
     "name": "Paintball Outdoor",
     "price": "26€ / persona",
@@ -231,7 +231,7 @@
     ]
   },
   {
-    "slug": "escape-room",
+    "slug": "escape-room-barcellona",
     "category": "pomeridiane",
     "name": "Escape Room Barcelona",
     "price": "25€ / persona",
@@ -286,7 +286,7 @@
     ]
   },
   {
-    "slug": "paddle-surf",
+    "slug": "addio-celibato-paddle-surf-barcellona",
     "category": "pomeridiane",
     "name": "Paddle Surf",
     "price": "20€ / persona",
@@ -301,6 +301,42 @@
     "notes": null,
     "images": [
       "/images/2017-Paddle-Surf-Barcelona-S.jpg"
+    ]
+  },
+  {
+    "slug": "addio-al-nubilato-in-catamarano-a-barcellona",
+    "category": "pomeridiane",
+    "name": "Crazy Catamaran Party – Nubilato",
+    "price": "69€ / persona",
+    "intro": "Festa in catamarano sul mare di Barcellona pensata per il nubilato. Open bar a bordo, musica e sole: il pomeriggio perfetto prima di una serata esplosiva.",
+    "includes": [
+      "Giro in catamarano nel Mediterraneo",
+      "Open bar a bordo",
+      "Musica e atmosfera da party",
+      "Skipper incluso"
+    ],
+    "description": "Salpate dal porto di Barcellona a bordo di un ampio catamarano e lasciate il ritmo della città alle spalle. Per qualche ora sarete immerse nel blu del Mediterraneo, con le birre in mano, la musica a tutto volume e Barcellona come sfondo.\n\nPossibilità di nuotare e tuffarsi nelle acque cristalline durante la navigazione. Un'esperienza unica che si ricorda a lungo — perfetta per iniziare il weekend di addio al nubilato.",
+    "notes": null,
+    "images": [
+      "/images/2017-CRAZY-CATAMARAN-PARTY-S.jpg"
+    ]
+  },
+  {
+    "slug": "addio-nubilato-beerbike-barcellona",
+    "category": "pomeridiane",
+    "name": "La Beerbike – Nubilato",
+    "price": "50€ / persona",
+    "intro": "Birra, musica, karaoke e un giro per Barcellona in un mezzo assolutamente unico: la beerbike. Pedalate, cantate e bevete insieme — garantiamo che non dimenticherete questa esperienza.",
+    "includes": [
+      "Giro in beerbike per la città",
+      "Birra o sangria illimitata a bordo",
+      "Musica e karaoke",
+      "Autista responsabile della conduzione"
+    ],
+    "description": "Il bicibirra combina elementi festivi come bevande, musica e karaoke con attività fisica leggera. Le partecipanti pedalano insieme mentre degustano le loro bevande, bruciando calorie mentre festeggiano.\n\nNon è necessario guidare: un autista conduce il veicolo mentre voi vi godete il viaggio. L'attività porta il gruppo attraverso le strade di Barcellona, con un'atmosfera garantita.",
+    "notes": "Capacità massima: 16 persone",
+    "images": [
+      "/images/2017-Bici-birra-1.jpg"
     ]
   }
 ]

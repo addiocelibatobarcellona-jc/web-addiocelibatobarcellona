@@ -105,7 +105,7 @@ const ACTIVITIES = [
     price: "69€ / persona",
     tag: "Mare",
     image: "/images/2017-CRAZY-CATAMARAN-PARTY-S.jpg",
-    href: "/attivita/pomeridiane/catamaran/",
+    href: "/attivita/pomeridiane/addio-al-nubilato-in-catamarano-a-barcellona/",
   },
   {
     name: "LimoBus",
@@ -137,7 +137,7 @@ const ACTIVITIES = [
     price: "50€ / persona",
     tag: "Classico",
     image: "/images/2017-Bici-birra-1.jpg",
-    href: "/attivita/pomeridiane/beerbike/",
+    href: "/attivita/pomeridiane/addio-nubilato-beerbike-barcellona/",
   },
   {
     name: "Disco VIP",
@@ -153,7 +153,7 @@ const ACTIVITIES = [
     price: "Da 20€ / pers.",
     tag: "Mare",
     image: "/images/2017-TUTTI-AL-MARE.jpg",
-    href: "/attivita/pomeridiane/paddle-surf/",
+    href: "/attivita/pomeridiane/addio-celibato-paddle-surf-barcellona/",
   },
   {
     name: "Archery Tag",
@@ -185,7 +185,7 @@ const ACTIVITIES = [
     price: "60€ / persona",
     tag: null,
     image: "/images/2017-BARCA-A-VELA-PRIVATA-S.jpg",
-    href: "/attivita/pomeridiane/barca-a-vela/",
+    href: "/attivita/pomeridiane/addio-al-celibato-in-barca-a-vela-privata/",
   },
   {
     name: "Vespa GPS",

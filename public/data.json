@@ -32,15 +32,15 @@
         "href": "/attivita/pomeridiane",
         "label": "Pomeridiane",
         "children": [
-          { "label": "Crazy Catamaran Party", "href": "/attivita/pomeridiane/catamaran/" },
-          { "label": "Barca a Vela Privata", "href": "/attivita/pomeridiane/barca-a-vela/" },
-          { "label": "La Beerbike", "href": "/attivita/pomeridiane/beerbike/" },
-          { "label": "Bubble Football", "href": "/attivita/pomeridiane/bubble-football/" },
-          { "label": "Paintball Outdoor", "href": "/attivita/pomeridiane/paintball/" },
-          { "label": "Escape Room", "href": "/attivita/pomeridiane/escape-room/" },
+          { "label": "Crazy Catamaran Party", "href": "/attivita/pomeridiane/addio-al-celibato-catamarano-barcellona/" },
+          { "label": "Barca a Vela Privata", "href": "/attivita/pomeridiane/addio-al-celibato-in-barca-a-vela-privata/" },
+          { "label": "La Beerbike", "href": "/attivita/pomeridiane/addio-al-celibato-beerbike/" },
+          { "label": "Bubble Football", "href": "/attivita/pomeridiane/addio-al-celibato-bubble-football/" },
+          { "label": "Paintball Outdoor", "href": "/attivita/pomeridiane/addio-al-celibato-paintball-outdoor/" },
+          { "label": "Escape Room", "href": "/attivita/pomeridiane/escape-room-barcellona/" },
           { "label": "Vespa GPS", "href": "/attivita/pomeridiane/vespa-gps/" },
           { "label": "Camp Nou Experience", "href": "/attivita/pomeridiane/camp-nou-experience/" },
-          { "label": "Paddle Surf", "href": "/attivita/pomeridiane/paddle-surf/" }
+          { "label": "Paddle Surf", "href": "/attivita/pomeridiane/addio-celibato-paddle-surf-barcellona/" }
         ]
       },
       {
@@ -174,7 +174,7 @@
         "name": "Crazy Catamaran Party",
         "desc": "Festa in incredibile catamarano sul mare di Barcellona. Il modo perfetto per iniziare la giornata.",
         "price": "€74 / persona",
-        "href": "/attivita/pomeridiane/catamaran/",
+        "href": "/attivita/pomeridiane/addio-al-celibato-catamarano-barcellona/",
         "tag": "Mare",
         "icon": "Anchor",
         "image": "/images/2017-CRAZY-CATAMARAN-PARTY-S.jpg"
@@ -183,7 +183,7 @@
         "name": "Barca a Vela Privata",
         "desc": "Giro in barca a vela privato con tutta la crew. Sole, mare e Barcellona vista dall'acqua.",
         "price": "€60 / persona",
-        "href": "/attivita/pomeridiane/barca-a-vela/",
+        "href": "/attivita/pomeridiane/addio-al-celibato-in-barca-a-vela-privata/",
         "tag": null,
         "icon": "Ship",
         "image": "/images/2017-BARCA-A-VELA-PRIVATA-S.jpg"
@@ -192,7 +192,7 @@
         "name": "La Beerbike",
         "desc": "Un innovativo modo di andare in giro a bere per le strade di Barcellona. Pedalate e birre!",
         "price": "€50 / persona",
-        "href": "/attivita/pomeridiane/beerbike/",
+        "href": "/attivita/pomeridiane/addio-al-celibato-beerbike/",
         "tag": "Classico",
         "icon": "Bike",
         "image": "/images/2017-Bici-birra-1.jpg"
@@ -201,7 +201,7 @@
         "name": "Bubble Football",
         "desc": "Un nuovo modo di giocare a calcio dentro enormi bolle di plastica. Risate garantite.",
         "price": "€45 / persona",
-        "href": "/attivita/pomeridiane/bubble-football/",
+        "href": "/attivita/pomeridiane/addio-al-celibato-bubble-football/",
         "tag": "Adrenalina",
         "icon": "CircleDot",
         "image": "/images/2017-BUBBLE-FOOTBALL-S.jpg"
@@ -210,7 +210,7 @@
         "name": "Paintball Outdoor",
         "desc": "Battaglia adrenalinica all'aria aperta nella campagna di Barcellona. Chi sopravvive vince.",
         "price": "€26 / persona",
-        "href": "/attivita/pomeridiane/paintball/",
+        "href": "/attivita/pomeridiane/addio-al-celibato-paintball-outdoor/",
         "tag": null,
         "icon": "Target",
         "image": "/images/2017-PAINTBALL-OUTDOOR.jpg"
@@ -219,7 +219,7 @@
         "name": "Escape Room",
         "desc": "Prova d'ingegno con la tua crew. 60 minuti per uscire: riuscirete a farcela?",
         "price": "€25 / persona",
-        "href": "/attivita/pomeridiane/escape-room/",
+        "href": "/attivita/pomeridiane/escape-room-barcellona/",
         "tag": null,
         "icon": "Lock",
         "image": "/images/2022-Escape-Room-addio-al-celibato-Barcellona.jpg"
@@ -246,7 +246,7 @@
         "name": "Paddle Surf",
         "desc": "Surf e sole sulla costa barcellonese con istruttore esperto. Divertimento assicurato.",
         "price": "€20 / persona",
-        "href": "/attivita/pomeridiane/paddle-surf/",
+        "href": "/attivita/pomeridiane/addio-celibato-paddle-surf-barcellona/",
         "tag": "Outdoor",
         "icon": "Waves",
         "image": "/images/2017-Paddle-Surf-Barcelona-S.jpg"

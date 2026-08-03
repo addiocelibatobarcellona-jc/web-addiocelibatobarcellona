@@ -81,6 +81,42 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    const CONTACT = "/addio-al-celibato-barcellona-contatti";
+    const NIGHT    = "/attivita/notturne";
+    const DAY      = "/attivita/pomeridiane";
+
+    const make301 = (source: string, destination: string) => [
+      { source, destination, permanent: true },
+      { source: `${source}/`, destination, permanent: true },
+    ];
+
+    return [
+      // ── Root-level WP pages no longer in Next.js ──────────────────────────
+      ...make301("/addio-al-celibato-tutti-al-mare",                   DAY),
+      ...make301("/addio-al-celibato-barcellona-collettivo",           `${NIGHT}/addio-al-celibato-collettivo`),
+      ...make301("/addio-celibato-barcellona-spogliarello-limousine-silver", `${NIGHT}/addio-al-celibato-con-spogliarellista-e-limousine`),
+      ...make301("/addio-al-celibato-barcellona-bunny",                CONTACT),
+      ...make301("/body-sushi",                                        `${NIGHT}/body-sushi`),
+      ...make301("/recensioni",                                        "/chi-siamo-idee-per-laddio-al-celibato"),
+      ...make301("/scrivi-una-recensione",                             CONTACT),
+      ...make301("/conferma",                                          "/"),
+      ...make301("/addio-al-celibato-barcellona-privacy",              "/addio-celibato-barcellona-cookie-policy"),
+      ...make301("/migliori-discoteche-barcellona",                    "/addio-al-nubilato/migliori-discoteche-barcellona"),
+      // ── Daytime WP pages without dedicated Next.js activity page ──────────
+      ...make301(`${DAY}/addio-al-celibato-paintball-indoor`,         `${DAY}/addio-al-celibato-paintball-outdoor`),
+      ...make301(`${DAY}/addio-al-celibato-laser-combat-outdoor`,     CONTACT),
+      ...make301(`${DAY}/addio-al-celibato-archery-tag`,              CONTACT),
+      ...make301(`${DAY}/addio-al-celibato-quad-revolution`,          CONTACT),
+      ...make301(`${DAY}/addio-al-celibato-altre-attivita`,           DAY),
+      ...make301(`${DAY}/segway-barcellona-tour`,                     CONTACT),
+      // ── Night WP pages without dedicated Next.js activity page ────────────
+      ...make301(`${NIGHT}/cocktail-lab-barcellona`,                  CONTACT),
+      ...make301(`${NIGHT}/night-club-di-barcellona`,                 CONTACT),
+      ...make301(`${NIGHT}/migliori-discoteche-barcellona`,           "/addio-al-nubilato/migliori-discoteche-barcellona"),
+      ...make301(`${NIGHT}/addio-al-celibato-barcellona-bunny`,       CONTACT),
+    ];
+  },
   async rewrites() {
     // Each WordPress URL needs both with and without trailing slash
     const wpRoutes = [

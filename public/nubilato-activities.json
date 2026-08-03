@@ -118,7 +118,7 @@
     "description": "Barcellona è famosa in tutto il mondo per la sua vita notturna. Con il servizio Disco VIP vi garantiamo l'ingresso in lista nelle migliori discoteche della città — OPIUM, Pacha, Shôko, Bling Bling e molte altre — senza code e senza pagare l'ingresso. Il vostro referente vi accompagna fino all'entrata e vi presenta al responsabile.",
     "includes": ["Ingresso in lista VIP (gratuito)", "Nessuna coda all'entrata", "Scelta della discoteca in base alle preferenze", "Referente dedicato all'ingresso"],
     "notes": "L'ingresso è gratuito. Consumi a carico. Disponibile giovedì, venerdì e sabato.",
-    "image": null
+    "image": "/images/2017-discotecas-barcelona-L-rLf7ov.jpeg"
   },
   {
     "slug": "addio-nubilato-bodysushi-barcellona",
@@ -129,7 +129,7 @@
     "description": "Il Body Sushi è una delle esperienze più originali e sensuali per l'addio al nubilato. Un modello maschile diventa il 'piatto' su cui vengono serviti sushi e prelibatezze giapponesi. Un'esperienza che unisce cibo di qualità, estetica e divertimento garantito — perfetta per le spose che vogliono qualcosa di davvero fuori dall'ordinario.",
     "includes": ["Modello maschile professionale", "Selezione di sushi e piatti giapponesi", "Open bar durante la cena", "Durata: circa 2 ore", "Sala privata riservata"],
     "notes": "Esperienza privata riservata esclusivamente al vostro gruppo. Prenotazione obbligatoria.",
-    "image": null
+    "image": "/images/2017-bodysushi2.jpg"
   },
   {
     "slug": "addio-al-nubilato-barcellona-marines",
@@ -140,6 +140,6 @@
     "description": "Il Marines Show porta un tocco di avventura e ironia al vostro addio al nubilato. Performer professionisti in divisa militare danno vita a uno spettacolo coinvolgente che combina coreografie, humor e interazione con il gruppo. Un'esperienza insolita che sorprenderà tutte le ospiti.",
     "includes": ["Spettacolo con performer professionisti", "Interazione con il gruppo", "Durata: circa 45 minuti", "Sala privata"],
     "notes": "Contattaci per disponibilità e prezzi personalizzati.",
-    "image": null
+    "image": "/images/2017-Barcellona-Marines.jpg"
   }
 ]

@@ -62,10 +62,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/addio-al-celibato-barcellona-blog/`,         lastModified: NOW, changeFrequency: "weekly",  priority: 0.75 },
     { url: `${BASE}/chi-siamo-idee-per-laddio-al-celibato/`,     lastModified: NOW, changeFrequency: "monthly", priority: 0.6 },
 
-    // ── Special standalone pages ─────────────────────────────────────────────
-    { url: `${BASE}/addio-al-celibato-tutti-al-mare/`,           lastModified: NOW, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${BASE}/addio-celibato-paddle-surf-barcellona/`,     lastModified: NOW, changeFrequency: "monthly", priority: 0.6 },
-
     // ── Legal ────────────────────────────────────────────────────────────────
     { url: `${BASE}/addio-celibato-barcellona-cookie-policy/`,   lastModified: NOW, changeFrequency: "yearly",  priority: 0.2 },
     { url: `${BASE}/addio-al-celibato-barcellona-privacy/`,      lastModified: NOW, changeFrequency: "yearly",  priority: 0.2 },
