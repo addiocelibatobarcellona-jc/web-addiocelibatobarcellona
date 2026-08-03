@@ -5,9 +5,9 @@ import SiteFooter from "@/components/SiteFooter";
 import MagneticButton from "@/components/MagneticButton";
 
 export const metadata: Metadata = {
-  title: "Chi Siamo | Idee per l'Addio al Celibato a Barcellona",
+  title: "Chi Siamo | Idee per l'Addio al Celibato a Barcellona dal 2017",
   description:
-    "Siamo un'agenzia di italiani che vivono a Barcellona da più di 10 anni. Organizziamo addii al celibato esclusivamente a Barcellona. Scopri chi siamo.",
+    "Agenzia di italiani che vivono a Barcellona da più di 10 anni. Le migliori idee per l'addio al celibato e al nubilato a Barcellona. Preventivo gratuito.",
   alternates: { canonical: "https://www.addioalcelibato-barcellona.it/chi-siamo-idee-per-laddio-al-celibato/" },
   openGraph: {
     title: "Chi Siamo | Addio al Celibato Barcellona dal 2017",
@@ -67,11 +67,28 @@ const STATS = [
   { value: "★ 4.9", label: "Rating medio" },
 ];
 
+const aboutJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Addio al Celibato Barcellona",
+  "url": "https://www.addioalcelibato-barcellona.it",
+  "telephone": "+34673180796",
+  "email": "addiocelibatobarcellona@gmail.com",
+  "description": "Agenzia di italiani che vivono a Barcellona da più di 10 anni. Le migliori idee per l'addio al celibato e al nubilato a Barcellona.",
+  "foundingDate": "2017",
+  "areaServed": { "@type": "City", "name": "Barcelona" },
+  "sameAs": ["https://www.facebook.com/festaaddiocelibatobarcellona/"],
+};
+
 export default function ChiSiamo() {
   const c = getContent();
 
   return (
     <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }}
+      />
 
       {/* ── HERO ── */}
       <section style={{

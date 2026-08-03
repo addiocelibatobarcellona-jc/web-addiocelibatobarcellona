@@ -74,11 +74,34 @@ const CONTACT_ITEMS = [
   },
 ];
 
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contatti – Addio al Celibato Barcellona",
+  "url": "https://www.addioalcelibato-barcellona.it/addio-al-celibato-barcellona-contatti/",
+  "description": "Contattaci per un preventivo gratuito. Risposta in poche ore. Addio al celibato e al nubilato a Barcellona dal 2017.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Addio al Celibato Barcellona",
+    "telephone": "+34673180796",
+    "email": "addiocelibatobarcellona@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Barcelona",
+      "addressCountry": "ES",
+    },
+  },
+};
+
 export default function Contatti() {
   const c = getContent();
 
   return (
     <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
+      />
 
       {/* ── FORM + CONTACT INFO (first) ── */}
       <section style={{ padding: "8rem 6vw 6rem" }}>

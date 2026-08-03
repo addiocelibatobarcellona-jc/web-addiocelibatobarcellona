@@ -56,13 +56,53 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   };
 }
 
+function buildJsonLd(activity: NubilatoActivity) {
+  const BASE = "https://www.addioalcelibato-barcellona.it";
+  const url = `${BASE}/addio-al-nubilato/${activity.slug}/`;
+  const image = activity.image ? `${BASE}${activity.image}` : `${BASE}/images/2026-addio-nubilato-home-page-scaled.jpg`;
+  const priceMatch = activity.price.match(/(\d+)/);
+
+  const jsonLd: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "TouristAttraction",
+    "name": activity.name,
+    "description": activity.intro,
+    "url": url,
+    "image": image,
+    "touristType": "https://schema.org/Party",
+    "provider": {
+      "@type": "Organization",
+      "name": "Addio al Celibato Barcellona",
+      "url": BASE,
+      "telephone": "+34673180796",
+    },
+    "location": { "@type": "City", "name": "Barcelona", "addressCountry": "ES" },
+  };
+  if (priceMatch) {
+    jsonLd["offers"] = {
+      "@type": "Offer",
+      "price": priceMatch[1],
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock",
+      "url": url,
+    };
+  }
+  return jsonLd;
+}
+
 export default async function NubilatoActivityPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
   const activity = find(slug);
   if (!activity) notFound();
 
+  const jsonLd = buildJsonLd(activity);
+
   return (
     <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       {/* ── HERO ── */}
       <section style={{
@@ -144,6 +184,16 @@ export default async function NubilatoActivityPage({ params }: { params: Promise
 
           {/* Left — description */}
           <div>
+            <h2 style={{
+              fontFamily: "var(--font-bebas)",
+              fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
+              letterSpacing: "-0.01em",
+              lineHeight: 1,
+              color: "#fff",
+              margin: "0 0 1.5rem",
+            }}>
+              {activity.name} a Barcellona
+            </h2>
             <p style={{
               fontSize: "1.05rem",
               lineHeight: 1.85,

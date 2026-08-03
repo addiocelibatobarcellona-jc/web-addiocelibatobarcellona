@@ -197,8 +197,28 @@ export default async function ActivitiesPage({ params }: { params: Promise<Param
     : cat === "daytime" ? c.pomeridiane.activities
     : allActivities;
 
+  const BASE = "https://www.addioalcelibato-barcellona.it";
+  const italianCat = cat === "night" ? "notturne" : cat === "daytime" ? "pomeridiane" : undefined;
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": catData.meta_title,
+    "description": catData.meta_desc,
+    "url": italianCat ? `${BASE}/attivita/${italianCat}/` : `${BASE}/attivita/`,
+    "itemListElement": activities.map((a, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": a.name,
+      "url": a.href.startsWith("http") ? a.href : `${BASE}${a.href}`,
+    })),
+  };
+
   return (
     <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
 
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section style={{

@@ -306,11 +306,34 @@ function ActivityCard({
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 
+const BASE = "https://www.addioalcelibato-barcellona.it";
+
+const nubilatoJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Addio al Celibato Barcellona – Addio al Nubilato",
+  "url": `${BASE}/addio-al-nubilato/`,
+  "telephone": "+34673180796",
+  "description": "Organizziamo addii al nubilato a Barcellona dal 2017. Strip show maschile, catamaran, limousine, cocktail lab e molto altro. Preventivo gratuito!",
+  "image": `${BASE}/images/2026-addio-nubilato-home-page-scaled.jpg`,
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Barcelona",
+    "addressCountry": "ES",
+  },
+  "areaServed": { "@type": "City", "name": "Barcelona" },
+};
+
 export default function NubilatoPage() {
   const c = getContent();
 
   return (
     <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(nubilatoJsonLd) }}
+      />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section style={{
