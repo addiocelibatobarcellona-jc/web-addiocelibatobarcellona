@@ -1,14 +1,28 @@
 "use client";
 
-import { useActionState, useRef } from "react";
+import { useActionState, useEffect, useRef } from "react";
+import Script from "next/script";
 import { submitContact, type FormState } from "./actions";
 import { ArrowRight } from "lucide-react";
+
+declare global {
+  interface Window {
+    turnstile?: { reset: (widgetId?: string) => void };
+  }
+}
 
 const INITIAL: FormState = { status: "idle", message: "" };
 
 export default function ContactForm() {
   const [state, action, pending] = useActionState(submitContact, INITIAL);
   const formRef = useRef<HTMLFormElement>(null);
+
+  // Reset Turnstile widget after each error so user can retry
+  useEffect(() => {
+    if (state.status === "error") {
+      window.turnstile?.reset();
+    }
+  }, [state]);
 
   if (state.status === "success") {
     return (
@@ -56,6 +70,11 @@ export default function ContactForm() {
   };
 
   return (
+    <>
+    <Script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      strategy="lazyOnload"
+    />
     <form ref={formRef} action={action} style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
       <div>
         <label htmlFor="name" style={labelStyle}>Nome e Cognome</label>
@@ -103,6 +122,13 @@ export default function ContactForm() {
         <p style={{ color: "#ff4d4d", fontSize: "0.85rem" }}>{state.message}</p>
       )}
 
+      {/* Cloudflare Turnstile — injects cf-turnstile-response hidden input */}
+      <div
+        className="cf-turnstile"
+        data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+        data-theme="dark"
+      />
+
       <button
         type="submit"
         disabled={pending}
@@ -113,5 +139,6 @@ export default function ContactForm() {
         {!pending && <ArrowRight size={16} />}
       </button>
     </form>
+    </>
   );
 }

@@ -12,6 +12,19 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const TO_EMAIL = "addiocelibatobarcellona@gmail.com";
 const FROM_EMAIL = "Addio al Celibato BCN <noreply@addioalcelibato-barcellona.it>";
 
+async function verifyTurnstile(token: string): Promise<boolean> {
+  const res = await fetch(
+    "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `secret=${process.env.TURNSTILE_SECRET_KEY}&response=${token}`,
+    }
+  );
+  const data = await res.json() as { success: boolean };
+  return data.success;
+}
+
 export async function submitContact(
   _prev: FormState,
   formData: FormData
@@ -19,6 +32,7 @@ export async function submitContact(
   const name = formData.get("name")?.toString().trim() ?? "";
   const email = formData.get("email")?.toString().trim() ?? "";
   const message = formData.get("message")?.toString().trim() ?? "";
+  const turnstileToken = formData.get("cf-turnstile-response")?.toString() ?? "";
 
   if (!name || !email || !message) {
     return { status: "error", message: "Compila tutti i campi." };
@@ -27,6 +41,15 @@ export async function submitContact(
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     return { status: "error", message: "Inserisci un indirizzo email valido." };
+  }
+
+  if (!turnstileToken) {
+    return { status: "error", message: "Completa la verifica antibot." };
+  }
+
+  const humanVerified = await verifyTurnstile(turnstileToken);
+  if (!humanVerified) {
+    return { status: "error", message: "Verifica antibot fallita. Riprova." };
   }
 
   const { error } = await resend.emails.send({
