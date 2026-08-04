@@ -1,13 +1,26 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
+import Script from "next/script";
 import { submitContact, type FormState } from "@/app/contact/actions";
 import { ArrowRight } from "lucide-react";
+
+declare global {
+  interface Window {
+    turnstile?: { reset: (widgetId?: string) => void };
+  }
+}
 
 const INITIAL: FormState = { status: "idle", message: "" };
 
 export default function ActivityContactForm({ activityName }: { activityName: string }) {
   const [state, action, pending] = useActionState(submitContact, INITIAL);
+
+  useEffect(() => {
+    if (state.status === "error") {
+      window.turnstile?.reset();
+    }
+  }, [state]);
 
   const fieldStyle: React.CSSProperties = {
     width: "100%",
@@ -51,6 +64,11 @@ export default function ActivityContactForm({ activityName }: { activityName: st
   }
 
   return (
+    <>
+    <Script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      strategy="lazyOnload"
+    />
     <form action={action} style={{ display: "flex", flexDirection: "column", gap: "1.1rem" }}>
       <input type="hidden" name="activity" value={activityName} />
 
@@ -100,6 +118,12 @@ export default function ActivityContactForm({ activityName }: { activityName: st
         <p style={{ color: "#ff4d4d", fontSize: "0.82rem" }}>{state.message}</p>
       )}
 
+      <div
+        className="cf-turnstile"
+        data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+        data-theme="dark"
+      />
+
       <button
         type="submit"
         disabled={pending}
@@ -116,5 +140,6 @@ export default function ActivityContactForm({ activityName }: { activityName: st
         {!pending && <ArrowRight size={15} />}
       </button>
     </form>
+    </>
   );
 }
