@@ -99,24 +99,7 @@ export default function NotFound() {
         </p>
 
         {/* CTA */}
-        <Link
-          href="/"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.6rem",
-            fontFamily: "var(--font-bebas)",
-            fontSize: "1rem",
-            letterSpacing: "0.18em",
-            padding: "0.9rem 2.2rem",
-            background: "var(--blue)",
-            color: "#fff",
-            textDecoration: "none",
-            transition: "opacity 0.2s",
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-          onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-        >
+        <Link href="/" className="neon-cta">
           TORNA ALLA HOME
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <path d="M7 17L17 7M17 7H7M17 7V17" />
