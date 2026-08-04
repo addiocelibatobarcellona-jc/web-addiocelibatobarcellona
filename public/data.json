@@ -356,11 +356,11 @@
     "description": "Un'agenzia di Italiani che vivono a Barcellona da più di 10 anni e conoscono la città alla perfezione. Organizziamo feste SOLO a Barcellona, dal 2017. Miglior prezzo garantito.",
     "activity_links": [
       {
-        "href": "/notturne",
+        "href": "/attivita/notturne",
         "label": "Attività Notturne"
       },
       {
-        "href": "/pomeridiane",
+        "href": "/attivita/pomeridiane",
         "label": "Attività Diurne"
       },
       {
@@ -368,7 +368,7 @@
         "label": "Addio al Nubilato"
       },
       {
-        "href": "/chi-siamo",
+        "href": "/chi-siamo-idee-per-laddio-al-celibato",
         "label": "Chi Siamo"
       },
       {
