@@ -1,7 +1,5 @@
 import { readFileSync } from "fs";
 import { join } from "path";
-import { sanityFetch } from "@/sanity/lib/fetch";
-import { SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Types
@@ -108,16 +106,5 @@ function getJsonContent(): SiteContent {
 }
 
 export async function getContent(): Promise<SiteContent> {
-  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
-    return getJsonContent();
-  }
-  try {
-    const data = await sanityFetch<SiteContent | null>({
-      query: SITE_SETTINGS_QUERY,
-      tags: ["siteSettings"],
-    });
-    return data ?? getJsonContent();
-  } catch {
-    return getJsonContent();
-  }
+  return getJsonContent();
 }
