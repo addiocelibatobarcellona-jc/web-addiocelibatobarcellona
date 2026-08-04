@@ -107,6 +107,11 @@ const nextConfig: NextConfig = {
       ...make301(`${DAY}/addio-al-celibato-paintball-indoor`,         `${DAY}/addio-al-celibato-paintball-outdoor`),
       ...make301(`${DAY}/addio-al-celibato-laser-combat-outdoor`,     CONTACT),
       ...make301(`${DAY}/addio-al-celibato-quad-revolution`,          CONTACT),
+      ...make301(`${DAY}/crazy-catamaran-party`,                      `${DAY}/addio-al-celibato-catamarano-barcellona`),
+      ...make301(`${DAY}/la-beerbike`,                                `${DAY}/addio-al-celibato-beerbike`),
+      // ── Night WP URL aliases ───────────────────────────────────────────────
+      ...make301(`${NIGHT}/cena-strip-disco`,                         `${NIGHT}/addio-al-celibato-con-spogliarellista`),
+      ...make301(`${NIGHT}/cena-limo-strip-disco`,                    `${NIGHT}/addio-al-celibato-con-spogliarellista-e-limousine`),
       // ── Night WP pages without dedicated Next.js activity page ────────────
       ...make301(`${NIGHT}/night-club-di-barcellona`,                 CONTACT),
       ...make301(`${NIGHT}/migliori-discoteche-barcellona`,           "/addio-al-nubilato/migliori-discoteche-barcellona"),
