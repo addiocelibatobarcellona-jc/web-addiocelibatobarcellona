@@ -63,13 +63,17 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const canonical = `https://www.addioalcelibato-barcellona.it/attivita/${italianCat}/${slug}/`;
   const ogImage = activity.images[0] ?? "/images/2017-ADDIO-SPICY-MIX-S.jpg";
 
+  const metaTitle = (activity as { meta_title?: string }).meta_title
+    ?? `${activity.name} | Addio al Celibato Barcellona`;
+  const metaDesc = (activity as { meta_desc?: string }).meta_desc ?? activity.intro;
+
   return {
-    title: `${activity.name} | Addio al Celibato Barcellona`,
-    description: activity.intro,
+    title: metaTitle,
+    description: metaDesc,
     alternates: { canonical },
     openGraph: {
-      title: `${activity.name} | Addio al Celibato Barcellona`,
-      description: activity.intro,
+      title: metaTitle,
+      description: metaDesc,
       url: canonical,
       locale: "it_IT",
       type: "website",
@@ -77,8 +81,8 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     },
     twitter: {
       card: "summary_large_image",
-      title: `${activity.name} | Addio al Celibato Barcellona`,
-      description: activity.intro,
+      title: metaTitle,
+      description: metaDesc,
       images: [ogImage],
     },
   };
