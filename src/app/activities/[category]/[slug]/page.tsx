@@ -164,7 +164,7 @@ export default async function ActivityDetailPage({ params }: { params: Promise<P
   if (!activity) notFound();
 
   const c = getContent();
-  const heroImage = getCardImage(category, slug, c);
+  const heroImage = getCardImage(category, slug, c) ?? activity.images[0];
   const italianCat = toItalianCategory(category);
   const backHref = `/attivita/${italianCat}`;
   const categoryLabel = italianCat === "notturne" ? "ATTIVITÀ NOTTURNE" : "ATTIVITÀ POMERIDIANE";
