@@ -1,8 +1,8 @@
 import { getContent } from "@/lib/content";
 import CookiePrefsReset from "@/components/CookiePrefsReset";
 
-export default function SiteFooter() {
-  const c = getContent();
+export default async function SiteFooter() {
+  const c = await getContent();
 
   return (
     <footer style={{ background: "#000", borderTop: "1px solid #0e0e0e", padding: "5rem 6vw 5rem" }}>

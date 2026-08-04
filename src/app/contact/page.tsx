@@ -93,8 +93,8 @@ const contactJsonLd = {
   },
 };
 
-export default function Contatti() {
-  const c = getContent();
+export default async function Contatti() {
+  const c = await getContent();
 
   return (
     <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>

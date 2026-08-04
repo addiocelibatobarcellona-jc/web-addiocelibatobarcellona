@@ -123,8 +123,8 @@ const localBusinessJsonLd = {
   ],
 };
 
-export default function HomePage() {
-  const c = getContent();
+export default async function HomePage() {
+  const c = await getContent();
 
   // Emit fetchpriority=high preload for LCP hero image (React 19 API)
   preload("/images/2017-ADDIO-SPICY-MIX-S.jpg", { as: "image", fetchPriority: "high" });

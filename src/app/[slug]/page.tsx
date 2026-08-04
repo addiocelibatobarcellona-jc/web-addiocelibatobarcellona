@@ -6,13 +6,14 @@ import { getPostBySlug, getAllPostSlugs, formatDate } from "@/lib/blog";
 
 type Params = { slug: string };
 
-export function generateStaticParams(): Params[] {
-  return getAllPostSlugs().map((slug) => ({ slug }));
+export async function generateStaticParams(): Promise<Params[]> {
+  const slugs = await getAllPostSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   if (!post) return {};
 
   const canonical = `https://www.addioalcelibato-barcellona.it/${slug}/`;
@@ -120,7 +121,7 @@ function buildArticleJsonLd(post: Awaited<ReturnType<typeof getPostBySlug>> & ob
 
 export default async function BlogPostPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   if (!post) notFound();
 
   const jsonLd = buildArticleJsonLd(post);

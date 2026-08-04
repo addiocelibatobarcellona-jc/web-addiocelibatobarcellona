@@ -56,8 +56,8 @@ La disabilitazione dei cookie di terze parti non pregiudica in alcun modo la nav
   },
 ];
 
-export default function CookiePolicy() {
-  const c = getContent();
+export default async function CookiePolicy() {
+  const c = await getContent();
 
   return (
     <div style={{ background: "#000", color: "#fff", minHeight: "100svh" }}>

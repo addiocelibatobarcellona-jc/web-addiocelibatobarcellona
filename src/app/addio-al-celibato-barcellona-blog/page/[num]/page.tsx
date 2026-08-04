@@ -6,9 +6,9 @@ import { getPaginatedPosts, getAllPosts, POSTS_PER_PAGE, formatDate } from "@/li
 
 type Params = { num: string };
 
-export function generateStaticParams(): Params[] {
-  const total = getAllPosts().length;
-  const totalPages = Math.ceil(total / POSTS_PER_PAGE);
+export async function generateStaticParams(): Promise<Params[]> {
+  const all = await getAllPosts();
+  const totalPages = Math.ceil(all.length / POSTS_PER_PAGE);
   return Array.from({ length: totalPages - 1 }, (_, i) => ({ num: String(i + 2) }));
 }
 
@@ -27,7 +27,7 @@ export default async function BlogPageNum({ params }: { params: Promise<Params> 
   const { num } = await params;
   const page = parseInt(num, 10);
 
-  const { posts, totalPages, total } = getPaginatedPosts(page);
+  const { posts, totalPages, total } = await getPaginatedPosts(page);
 
   if (!posts.length || page < 2) notFound();
 

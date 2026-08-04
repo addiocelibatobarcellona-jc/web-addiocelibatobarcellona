@@ -28,7 +28,7 @@ export function generateStaticParams() {
 // ── Metadata ─────────────────────────────────────────────────────────────────
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
-  const c = getContent();
+  const c = await getContent();
   const cat = getCategory(await params);
   const data = c.activities[cat];
   const canonical =
@@ -184,7 +184,7 @@ function FilterPill({ href, label, active }: { href: string; label: string; acti
 // ── Page ──────────────────────────────────────────────────────────────────────
 
 export default async function ActivitiesPage({ params }: { params: Promise<Params> }) {
-  const c = getContent();
+  const c = await getContent();
   const cat = getCategory(await params);
   const catData = c.activities[cat];
 

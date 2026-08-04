@@ -325,8 +325,8 @@ const nubilatoJsonLd = {
   "areaServed": { "@type": "City", "name": "Barcelona" },
 };
 
-export default function NubilatoPage() {
-  const c = getContent();
+export default async function NubilatoPage() {
+  const c = await getContent();
 
   return (
     <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>

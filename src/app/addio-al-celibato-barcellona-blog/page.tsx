@@ -24,8 +24,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogPage() {
-  const { posts, totalPages, total } = getPaginatedPosts(1);
+export default async function BlogPage() {
+  const { posts, totalPages, total } = await getPaginatedPosts(1);
 
   return (
     <div style={{ background: "#000", color: "#fff", minHeight: "100svh" }}>

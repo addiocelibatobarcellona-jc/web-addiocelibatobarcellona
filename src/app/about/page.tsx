@@ -84,8 +84,8 @@ const aboutJsonLd = {
   ],
 };
 
-export default function ChiSiamo() {
-  const c = getContent();
+export default async function ChiSiamo() {
+  const c = await getContent();
 
   return (
     <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>

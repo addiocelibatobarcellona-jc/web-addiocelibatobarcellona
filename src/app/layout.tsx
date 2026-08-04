@@ -7,8 +7,10 @@ import WhatsAppWidget from "@/components/WhatsAppWidget";
 import BottomNav from "@/components/BottomNav";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { draftMode } from "next/headers";
+import { VisualEditing } from "next-sanity/visual-editing";
 import legal from "../../public/legal.json";
-import data from "../../public/data.json";
+import { getContent } from "@/lib/content";
 
 const bebas = Bebas_Neue({
   weight: "400",
@@ -63,11 +65,13 @@ export const metadata: Metadata = {
 };
 
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const data = await getContent();
+  const { isEnabled: isDraftMode } = await draftMode();
   return (
     <html
       lang="it"
@@ -82,6 +86,7 @@ export default function RootLayout({
           whatsapp={data.site.whatsapp}
         />
         {children}
+        {isDraftMode && <VisualEditing />}
         <WhatsAppWidget phone={data.site.whatsapp} />
         <CookieBanner data={legal.cookie_banner} />
         <GoogleAnalytics />

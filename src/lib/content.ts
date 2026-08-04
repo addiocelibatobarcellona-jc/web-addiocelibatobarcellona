@@ -1,5 +1,7 @@
 import { readFileSync } from "fs";
 import { join } from "path";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Types
@@ -96,18 +98,26 @@ export interface SiteContent {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Data source
-// When you add Sanity, replace this function body with a Sanity fetch:
-//
-//   import { createClient } from 'next-sanity'
-//   const client = createClient({ projectId, dataset, apiVersion })
-//   export async function getContent(): Promise<SiteContent> {
-//     return client.fetch(`*[_type == "siteContent"][0]`)
-//   }
+// Data source — Sanity with JSON fallback
 // ─────────────────────────────────────────────────────────────────────────────
 
-export function getContent(): SiteContent {
+function getJsonContent(): SiteContent {
   const filePath = join(process.cwd(), "public", "data.json");
   const raw = readFileSync(filePath, "utf-8");
   return JSON.parse(raw) as SiteContent;
+}
+
+export async function getContent(): Promise<SiteContent> {
+  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
+    return getJsonContent();
+  }
+  try {
+    const data = await sanityFetch<SiteContent | null>({
+      query: SITE_SETTINGS_QUERY,
+      tags: ["siteSettings"],
+    });
+    return data ?? getJsonContent();
+  } catch {
+    return getJsonContent();
+  }
 }

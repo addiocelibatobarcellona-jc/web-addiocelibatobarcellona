@@ -36,7 +36,7 @@ function findActivity(category: string, slug: string): ActivityDetail | undefine
   );
 }
 
-function getCardImage(category: string, slug: string, c: ReturnType<typeof getContent>): string | undefined {
+function getCardImage(category: string, slug: string, c: Awaited<ReturnType<typeof getContent>>): string | undefined {
   const italianCat = toItalianCategory(category);
   const list = italianCat === "notturne" ? c.notturne.activities : c.pomeridiane.activities;
   const card = list.find((a) => a.href.includes(slug));
@@ -167,7 +167,7 @@ export default async function ActivityDetailPage({ params }: { params: Promise<P
   const activity = findActivity(category, slug);
   if (!activity) notFound();
 
-  const c = getContent();
+  const c = await getContent();
   const heroImage = getCardImage(category, slug, c) ?? activity.images[0];
   const italianCat = toItalianCategory(category);
   const backHref = `/attivita/${italianCat}`;
