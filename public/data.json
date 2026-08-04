@@ -27,7 +27,8 @@
           { "label": "LimoBus", "href": "/attivita/notturne/addio-al-celibato-barcellona-limobus/" },
           { "label": "Giretto in Limo", "href": "/attivita/notturne/addio-al-celibato-giretto-in-limo/" },
           { "label": "Cena Limo Disco", "href": "/attivita/notturne/addio-al-celibato-con-limousine/" },
-          { "label": "Cocktail Lab", "href": "/attivita/notturne/cocktail-lab-barcellona/" }
+          { "label": "Cocktail Lab", "href": "/attivita/notturne/cocktail-lab-barcellona/" },
+          { "label": "Disco VIP", "href": "/addio-al-nubilato/migliori-discoteche-barcellona/" }
         ]
       },
       {
@@ -42,7 +43,11 @@
           { "label": "Escape Room", "href": "/attivita/pomeridiane/escape-room-barcellona/" },
           { "label": "Vespa GPS", "href": "/attivita/pomeridiane/vespa-gps/" },
           { "label": "Camp Nou Experience", "href": "/attivita/pomeridiane/camp-nou-experience/" },
-          { "label": "Paddle Surf", "href": "/attivita/pomeridiane/addio-celibato-paddle-surf-barcellona/" }
+          { "label": "Paddle Surf", "href": "/attivita/pomeridiane/addio-celibato-paddle-surf-barcellona/" },
+          { "label": "Tutti al Mare", "href": "/attivita/pomeridiane/addio-celibato-tutti-al-mare-barcellona/" },
+          { "label": "Archery Tag", "href": "/attivita/pomeridiane/addio-al-celibato-archery-tag/" },
+          { "label": "Segway Barcellona", "href": "/attivita/pomeridiane/segway-barcellona-tour/" },
+          { "label": "Altre Attività", "href": "/attivita/pomeridiane/addio-al-celibato-altre-attivita/" }
         ]
       },
       {
@@ -184,6 +189,15 @@
         "tag": null,
         "icon": "GlassWater",
         "image": "/images/2017-cocktail-lab.jpg"
+      },
+      {
+        "name": "Disco VIP",
+        "desc": "Ingresso in lista VIP nelle migliori discoteche di Barcellona. La notte vera inizia dopo la mezzanotte.",
+        "price": "GRATIS",
+        "href": "/addio-al-nubilato/migliori-discoteche-barcellona/",
+        "tag": null,
+        "icon": "Music",
+        "image": "/images/2017-migliori-discoteche-di-barcellona-2.jpg"
       }
     ]
   },
@@ -270,6 +284,42 @@
         "tag": "Outdoor",
         "icon": "Waves",
         "image": "/images/2017-Paddle-Surf-Barcelona-S.jpg"
+      },
+      {
+        "name": "Tutti al Mare",
+        "desc": "Paddle surf, kayak, snorkeling e relax sulla spiaggia. La giornata al mare perfetta per il tuo addio al celibato.",
+        "price": "Da €20 / pers.",
+        "href": "/attivita/pomeridiane/addio-celibato-tutti-al-mare-barcellona/",
+        "tag": "Mare",
+        "icon": "Waves",
+        "image": "/images/2017-TUTTI-AL-MARE.jpg"
+      },
+      {
+        "name": "Archery Tag",
+        "desc": "Combattimento a squadre con arco e frecce imbottite. Adrenalina, risate e spirito di squadra.",
+        "price": "€25 / persona",
+        "href": "/attivita/pomeridiane/addio-al-celibato-archery-tag/",
+        "tag": "Adrenalina",
+        "icon": "Target",
+        "image": "/images/2017-archerytag.jpg"
+      },
+      {
+        "name": "Segway Barcellona",
+        "desc": "Tour di Barcellona in Segway con guida esperta. Facile, divertente e assolutamente memorabile.",
+        "price": "€45 / persona",
+        "href": "/attivita/pomeridiane/segway-barcellona-tour/",
+        "tag": null,
+        "icon": "Navigation",
+        "image": "/images/2017-BarcelonaSegway-T24-d_O.jpg"
+      },
+      {
+        "name": "Altre Attività",
+        "desc": "Quad, laser combat, paintball indoor e molto altro. Contattateci per il programma perfetto.",
+        "price": "Da €25 / pers.",
+        "href": "/attivita/pomeridiane/addio-al-celibato-altre-attivita/",
+        "tag": null,
+        "icon": "Zap",
+        "image": "/images/2017-ALTRE-ATTIVITA.jpg"
       }
     ]
   },

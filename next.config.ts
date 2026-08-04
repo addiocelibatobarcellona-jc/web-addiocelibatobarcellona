@@ -93,7 +93,7 @@ const nextConfig: NextConfig = {
 
     return [
       // ── Root-level WP pages no longer in Next.js ──────────────────────────
-      ...make301("/addio-al-celibato-tutti-al-mare",                   DAY),
+      ...make301("/addio-al-celibato-tutti-al-mare",                   `${DAY}/addio-celibato-tutti-al-mare-barcellona`),
       ...make301("/addio-al-celibato-barcellona-collettivo",           `${NIGHT}/addio-al-celibato-collettivo`),
       ...make301("/addio-celibato-barcellona-spogliarello-limousine-silver", `${NIGHT}/addio-al-celibato-con-spogliarellista-e-limousine`),
       ...make301("/addio-al-celibato-barcellona-bunny",                CONTACT),
@@ -106,10 +106,7 @@ const nextConfig: NextConfig = {
       // ── Daytime WP pages without dedicated Next.js activity page ──────────
       ...make301(`${DAY}/addio-al-celibato-paintball-indoor`,         `${DAY}/addio-al-celibato-paintball-outdoor`),
       ...make301(`${DAY}/addio-al-celibato-laser-combat-outdoor`,     CONTACT),
-      ...make301(`${DAY}/addio-al-celibato-archery-tag`,              CONTACT),
       ...make301(`${DAY}/addio-al-celibato-quad-revolution`,          CONTACT),
-      ...make301(`${DAY}/addio-al-celibato-altre-attivita`,           DAY),
-      ...make301(`${DAY}/segway-barcellona-tour`,                     CONTACT),
       // ── Night WP pages without dedicated Next.js activity page ────────────
       ...make301(`${NIGHT}/night-club-di-barcellona`,                 CONTACT),
       ...make301(`${NIGHT}/migliori-discoteche-barcellona`,           "/addio-al-nubilato/migliori-discoteche-barcellona"),

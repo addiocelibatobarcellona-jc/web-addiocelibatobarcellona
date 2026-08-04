@@ -97,7 +97,7 @@ const ACTIVITIES = [
     price: "50€ / persona",
     tag: null,
     image: "/images/2017-cocktail-lab.jpg",
-    href: CONTACT,
+    href: "/attivita/notturne/cocktail-lab-barcellona/",
   },
   {
     name: "Crazy Catamaran Party",
@@ -153,7 +153,7 @@ const ACTIVITIES = [
     price: "Da 20€ / pers.",
     tag: "Mare",
     image: "/images/2017-TUTTI-AL-MARE.jpg",
-    href: "/attivita/pomeridiane/addio-celibato-paddle-surf-barcellona/",
+    href: "/attivita/pomeridiane/addio-celibato-tutti-al-mare-barcellona/",
   },
   {
     name: "Archery Tag",
@@ -161,7 +161,7 @@ const ACTIVITIES = [
     price: "25€ / persona",
     tag: "Adrenalina",
     image: "/images/2017-archerytag.jpg",
-    href: CONTACT,
+    href: "/attivita/pomeridiane/addio-al-celibato-archery-tag/",
   },
   {
     name: "Segway Barcellona",
@@ -169,7 +169,7 @@ const ACTIVITIES = [
     price: "45€ / persona",
     tag: null,
     image: "/images/2017-BarcelonaSegway-T24-d_O.jpg",
-    href: CONTACT,
+    href: "/attivita/pomeridiane/segway-barcellona-tour/",
   },
   {
     name: "Altre Attività",
@@ -177,7 +177,7 @@ const ACTIVITIES = [
     price: "Da 25€ / pers.",
     tag: null,
     image: "/images/2017-ALTRE-ATTIVITA.jpg",
-    href: CONTACT,
+    href: "/attivita/pomeridiane/addio-al-celibato-altre-attivita/",
   },
   {
     name: "Barca a Vela Privata",
