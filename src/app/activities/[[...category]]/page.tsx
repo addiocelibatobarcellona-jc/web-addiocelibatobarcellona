@@ -146,7 +146,7 @@ function ActivityCard({ name, desc, price, href, tag, image }: Activity) {
             display: "flex", alignItems: "center", justifyContent: "space-between",
             borderTop: "1px solid rgba(255,255,255,0.12)", paddingTop: "0.75rem",
           }}>
-            <span style={{ fontFamily: "var(--font-bebas)", fontSize: "1.8rem", letterSpacing: "0.02em", color: "var(--blue)" }}>
+            <span style={{ fontFamily: "var(--font-bebas)", fontSize: "1.8rem", letterSpacing: "0.02em", color: "#fff" }}>
               {price}
             </span>
             <ArrowUpRight size={13} style={{ color: "rgba(255,255,255,0.4)" }} />

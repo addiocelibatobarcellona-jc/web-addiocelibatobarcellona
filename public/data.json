@@ -22,8 +22,6 @@
           { "label": "Spicy Mix", "href": "/attivita/notturne/addio-al-celibato-collettivo/" },
           { "label": "All Inclusive", "href": "/attivita/notturne/addio-al-celibato-con-spogliarellista-e-limousine/" },
           { "label": "Strip Show", "href": "/attivita/notturne/addio-al-celibato-spogliarellista-show/" },
-          { "label": "XXX Show", "href": "/attivita/notturne/xxx-show-trasgressione-massima/" },
-          { "label": "Body Sushi", "href": "/attivita/notturne/body-sushi/" },
           { "label": "LimoBus", "href": "/attivita/notturne/addio-al-celibato-barcellona-limobus/" },
           { "label": "Giretto in Limo", "href": "/attivita/notturne/addio-al-celibato-giretto-in-limo/" },
           { "label": "Cena Limo Disco", "href": "/attivita/notturne/addio-al-celibato-con-limousine/" },
@@ -137,27 +135,9 @@
         "image": "/images/2017-Stri-show-nubilato-S.jpg"
       },
       {
-        "name": "XXX Show",
-        "desc": "La trasgressione massima per i più audaci. Solo per chi vuole davvero alzare l'asticella.",
-        "price": "€69 / persona",
-        "href": "/attivita/notturne/xxx-show-trasgressione-massima/",
-        "tag": "Adrenalina",
-        "icon": "Zap",
-        "image": "/images/2017-XXX-SHOW-copy.jpg"
-      },
-      {
-        "name": "Body Sushi",
-        "desc": "Cena sushi servita su una modella. Un'esperienza unica che stupirà tutti i presenti.",
-        "price": "€59 / persona",
-        "href": "/attivita/notturne/body-sushi/",
-        "tag": null,
-        "icon": "UtensilsCrossed",
-        "image": "/images/2017-bodysushi2.jpg"
-      },
-      {
         "name": "LimoBus",
         "desc": "Un innovativo modo di girare Barcellona: open bar in movimento su un limo-bus esclusivo.",
-        "price": "€35 / persona",
+        "price": "€42 / persona",
         "href": "/attivita/notturne/addio-al-celibato-barcellona-limobus/",
         "tag": null,
         "icon": "Bus",
@@ -166,7 +146,7 @@
       {
         "name": "Giretto in Limo",
         "desc": "Giro panoramico di Barcellona a bordo di una limousine di lusso con open bar incluso.",
-        "price": "€25 / persona",
+        "price": "€39 / persona",
         "href": "/attivita/notturne/addio-al-celibato-giretto-in-limo/",
         "tag": null,
         "icon": "Car",
@@ -184,7 +164,7 @@
       {
         "name": "Cocktail Lab",
         "desc": "Workshop di cocktail con barman professionista. Impara a mixare, assaggia e divertiti.",
-        "price": "€29 / persona",
+        "price": "€50 / persona",
         "href": "/attivita/notturne/cocktail-lab-barcellona/",
         "tag": null,
         "icon": "GlassWater",
@@ -252,7 +232,7 @@
       {
         "name": "Escape Room",
         "desc": "Prova d'ingegno con la tua crew. 60 minuti per uscire: riuscirete a farcela?",
-        "price": "€25 / persona",
+        "price": "€35 / persona",
         "href": "/attivita/pomeridiane/escape-room-barcellona/",
         "tag": null,
         "icon": "Lock",
@@ -297,7 +277,7 @@
       {
         "name": "Archery Tag",
         "desc": "Combattimento a squadre con arco e frecce imbottite. Adrenalina, risate e spirito di squadra.",
-        "price": "€25 / persona",
+        "price": "€50 / persona",
         "href": "/attivita/pomeridiane/addio-al-celibato-archery-tag/",
         "tag": "Adrenalina",
         "icon": "Target",

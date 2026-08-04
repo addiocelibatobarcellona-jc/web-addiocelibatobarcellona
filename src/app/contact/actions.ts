@@ -32,6 +32,7 @@ export async function submitContact(
   const name = formData.get("name")?.toString().trim() ?? "";
   const email = formData.get("email")?.toString().trim() ?? "";
   const message = formData.get("message")?.toString().trim() ?? "";
+  const activity = formData.get("activity")?.toString().trim() ?? "";
   const turnstileToken = formData.get("cf-turnstile-response")?.toString() ?? "";
 
   if (!name || !email || !message) {
@@ -56,15 +57,23 @@ export async function submitContact(
     from: FROM_EMAIL,
     to: TO_EMAIL,
     replyTo: email,
-    subject: `Nuova richiesta di preventivo — ${name}`,
+    subject: activity
+      ? `Richiesta preventivo: ${activity} — ${name}`
+      : `Nuova richiesta di preventivo — ${name}`,
     html: `
       <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#111">
         <div style="background:#3a75ff;padding:24px 32px">
           <p style="color:#fff;font-size:12px;letter-spacing:3px;margin:0;text-transform:uppercase">Addio al Celibato Barcellona</p>
           <h1 style="color:#fff;font-size:28px;margin:8px 0 0">Nuova richiesta di preventivo</h1>
+          ${activity ? `<p style="color:rgba(255,255,255,0.85);font-size:14px;margin:10px 0 0">Attività: <strong>${activity}</strong></p>` : ""}
         </div>
         <div style="padding:32px;background:#fff;border:1px solid #eee;border-top:none">
           <table style="width:100%;border-collapse:collapse">
+            ${activity ? `
+            <tr>
+              <td style="padding:10px 0;border-bottom:1px solid #f0f0f0;color:#666;font-size:13px;width:120px">Attività</td>
+              <td style="padding:10px 0;border-bottom:1px solid #f0f0f0;font-weight:600;color:#3a75ff">${activity}</td>
+            </tr>` : ""}
             <tr>
               <td style="padding:10px 0;border-bottom:1px solid #f0f0f0;color:#666;font-size:13px;width:120px">Nome</td>
               <td style="padding:10px 0;border-bottom:1px solid #f0f0f0;font-weight:600">${name}</td>
