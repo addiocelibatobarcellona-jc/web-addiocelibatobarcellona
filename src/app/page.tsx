@@ -118,6 +118,8 @@ const localBusinessJsonLd = {
   },
   "sameAs": [
     "https://www.facebook.com/festaaddiocelibatobarcellona/",
+    "https://maps.app.goo.gl/oaPeRnXLkWpVScSv8",
+    "https://it.trustpilot.com/review/addioalcelibato-barcellona.it",
   ],
 };
 

@@ -83,6 +83,7 @@ ${urlEntry(`${BASE}/addio-al-nubilato/`, "2026-05-22", "weekly", "0.85", ["/imag
 ${urlEntry(`${BASE}/addio-al-celibato-barcellona-contatti/`, "2024-02-27", "monthly", "0.8")}
 ${urlEntry(`${BASE}/chi-siamo-idee-per-laddio-al-celibato/`, "2024-02-27", "monthly", "0.6", ["/images/2017-ADDIO-CLASSICO-S.jpg"])}
 ${urlEntry(`${BASE}/addio-al-celibato-barcellona-blog/`, "2026-06-10", "weekly", "0.75")}
+${urlEntry(`${BASE}/domande-frequenti-addio-al-celibato/`, "2026-08-04", "monthly", "0.65")}
 ${urlEntry(`${BASE}/addio-celibato-barcellona-cookie-policy/`, "2017-02-16", "yearly", "0.2")}
 ${urlEntry(`${BASE}/addio-al-celibato-barcellona-privacy/`, "2017-02-22", "yearly", "0.2")}
 ${activities.join("\n")}

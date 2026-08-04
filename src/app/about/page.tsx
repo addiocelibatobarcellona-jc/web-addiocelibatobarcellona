@@ -77,7 +77,11 @@ const aboutJsonLd = {
   "description": "Agenzia di italiani che vivono a Barcellona da più di 10 anni. Le migliori idee per l'addio al celibato e al nubilato a Barcellona.",
   "foundingDate": "2017",
   "areaServed": { "@type": "City", "name": "Barcelona" },
-  "sameAs": ["https://www.facebook.com/festaaddiocelibatobarcellona/"],
+  "sameAs": [
+    "https://www.facebook.com/festaaddiocelibatobarcellona/",
+    "https://maps.app.goo.gl/oaPeRnXLkWpVScSv8",
+    "https://it.trustpilot.com/review/addioalcelibato-barcellona.it",
+  ],
 };
 
 export default function ChiSiamo() {
