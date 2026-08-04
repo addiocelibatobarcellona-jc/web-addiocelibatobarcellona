@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { getContent } from "@/lib/content";
 import SiteFooter from "@/components/SiteFooter";
 import MagneticButton from "@/components/MagneticButton";
 
@@ -82,8 +81,6 @@ const faqJsonLd = {
 };
 
 export default function FAQPage() {
-  const c = getContent();
-
   return (
     <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>
       <script
@@ -213,7 +210,7 @@ export default function FAQPage() {
         </MagneticButton>
       </section>
 
-      <SiteFooter content={c} />
+      <SiteFooter />
     </div>
   );
 }
