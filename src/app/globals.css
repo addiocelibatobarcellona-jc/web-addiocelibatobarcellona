@@ -329,8 +329,15 @@ body {
 }
 .footer-contact-link:hover { color: var(--blue); }
 
-.footer-legal-link { font-size: 0.72rem; font-weight: 500; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+.footer-legal-link { font-size: 0.72rem; font-weight: 500; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; white-space: nowrap; }
 .footer-legal-link:hover { color: #fff; }
+
+@media (max-width: 767px) {
+  .footer-bottom-bar { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .footer-legal-links { flex-wrap: wrap; gap: 0.75rem 1.25rem; }
+  .footer-legal-links .footer-legal-link,
+  .footer-legal-links button { white-space: nowrap; }
+}
 
 /* ── Keyframes ── */
 @keyframes ticker {
@@ -446,6 +453,9 @@ body {
 @media (max-width: 860px) {
   .activity-detail-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
   .activity-detail-grid > div:last-child { position: static !important; }
+  /* Force grid children to respect container width (prevents min-content blowout) */
+  .activity-detail-grid > * { min-width: 0; width: 100%; }
+  .nubilato-body { min-width: 0; width: 100%; overflow-x: hidden; }
 }
 
 /* ── Footer responsive ── */

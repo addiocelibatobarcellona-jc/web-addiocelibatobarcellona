@@ -130,7 +130,7 @@ export default function BottomNav({ links, extraMobileLinks = [], logoLine1, log
           className="nav-burger"
           aria-label="Apri menu"
           style={{
-            width: 40, height: 40, borderRadius: "8px",
+            width: 40, height: 40, borderRadius: 0,
             border: "1px solid rgba(255,255,255,0.12)",
             background: "transparent", color: "#fff",
             cursor: "pointer", flexShrink: 0,
@@ -160,7 +160,7 @@ export default function BottomNav({ links, extraMobileLinks = [], logoLine1, log
               onClick={() => setOpen(false)}
               aria-label="Chiudi menu"
               style={{
-                width: 40, height: 40, borderRadius: "8px",
+                width: 40, height: 40, borderRadius: 0,
                 border: "1px solid #2a2a2a", background: "transparent",
                 color: "#fff", cursor: "pointer",
                 display: "flex", alignItems: "center", justifyContent: "center",
