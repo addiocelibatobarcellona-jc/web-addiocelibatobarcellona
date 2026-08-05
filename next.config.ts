@@ -120,7 +120,6 @@ const nextConfig: NextConfig = {
       ...make301(`${NIGHT}/cena-strip-disco`,                         `${NIGHT}/addio-al-celibato-con-spogliarellista`),
       ...make301(`${NIGHT}/cena-limo-strip-disco`,                    `${NIGHT}/addio-al-celibato-con-spogliarellista-e-limousine`),
       // ── Night WP pages without dedicated Next.js activity page ────────────
-      ...make301(`${NIGHT}/night-club-di-barcellona`,                 CONTACT),
       ...make301(`${NIGHT}/migliori-discoteche-barcellona`,           "/addio-al-nubilato/migliori-discoteche-barcellona"),
       ...make301(`${NIGHT}/addio-al-celibato-barcellona-bunny`,       CONTACT),
     ];

@@ -18,47 +18,134 @@
         "href": "/attivita/notturne",
         "label": "Notturne",
         "children": [
-          { "label": "Addio Classico", "href": "/attivita/notturne/addio-al-celibato-con-spogliarellista/" },
-          { "label": "Spicy Mix", "href": "/attivita/notturne/addio-al-celibato-collettivo/" },
-          { "label": "All Inclusive", "href": "/attivita/notturne/addio-al-celibato-con-spogliarellista-e-limousine/" },
-          { "label": "Strip Show", "href": "/attivita/notturne/addio-al-celibato-spogliarellista-show/" },
-          { "label": "LimoBus", "href": "/attivita/notturne/addio-al-celibato-barcellona-limobus/" },
-          { "label": "Giretto in Limo", "href": "/attivita/notturne/addio-al-celibato-giretto-in-limo/" },
-          { "label": "Cena Limo Disco", "href": "/attivita/notturne/addio-al-celibato-con-limousine/" },
-          { "label": "Cocktail Lab", "href": "/attivita/notturne/cocktail-lab-barcellona/" },
-          { "label": "Disco VIP", "href": "/addio-al-nubilato/migliori-discoteche-barcellona/" }
+          {
+            "label": "Addio Classico",
+            "href": "/attivita/notturne/addio-al-celibato-con-spogliarellista/"
+          },
+          {
+            "label": "Spicy Mix",
+            "href": "/attivita/notturne/addio-al-celibato-collettivo/"
+          },
+          {
+            "label": "All Inclusive",
+            "href": "/attivita/notturne/addio-al-celibato-con-spogliarellista-e-limousine/"
+          },
+          {
+            "label": "Strip Show",
+            "href": "/attivita/notturne/addio-al-celibato-spogliarellista-show/"
+          },
+          {
+            "label": "LimoBus",
+            "href": "/attivita/notturne/addio-al-celibato-barcellona-limobus/"
+          },
+          {
+            "label": "Giretto in Limo",
+            "href": "/attivita/notturne/addio-al-celibato-giretto-in-limo/"
+          },
+          {
+            "label": "Cena Limo Disco",
+            "href": "/attivita/notturne/addio-al-celibato-con-limousine/"
+          },
+          {
+            "label": "Cocktail Lab",
+            "href": "/attivita/notturne/cocktail-lab-barcellona/"
+          },
+          {
+            "label": "Disco VIP",
+            "href": "/addio-al-nubilato/migliori-discoteche-barcellona/"
+          }
         ]
       },
       {
         "href": "/attivita/pomeridiane",
         "label": "Pomeridiane",
         "children": [
-          { "label": "Crazy Catamaran Party", "href": "/attivita/pomeridiane/addio-al-celibato-catamarano-barcellona/" },
-          { "label": "Barca a Vela Privata", "href": "/attivita/pomeridiane/addio-al-celibato-in-barca-a-vela-privata/" },
-          { "label": "La Beerbike", "href": "/attivita/pomeridiane/addio-al-celibato-beerbike/" },
-          { "label": "Bubble Football", "href": "/attivita/pomeridiane/addio-al-celibato-bubble-football/" },
-          { "label": "Paintball Outdoor", "href": "/attivita/pomeridiane/addio-al-celibato-paintball-outdoor/" },
-          { "label": "Escape Room", "href": "/attivita/pomeridiane/escape-room-barcellona/" },
-          { "label": "Vespa GPS", "href": "/attivita/pomeridiane/vespa-gps/" },
-          { "label": "Camp Nou Experience", "href": "/attivita/pomeridiane/camp-nou-experience/" },
-          { "label": "Paddle Surf", "href": "/attivita/pomeridiane/addio-celibato-paddle-surf-barcellona/" },
-          { "label": "Tutti al Mare", "href": "/attivita/pomeridiane/addio-celibato-tutti-al-mare-barcellona/" },
-          { "label": "Archery Tag", "href": "/attivita/pomeridiane/addio-al-celibato-archery-tag/" },
-          { "label": "Segway Barcellona", "href": "/attivita/pomeridiane/segway-barcellona-tour/" },
-          { "label": "Altre Attività", "href": "/attivita/pomeridiane/addio-al-celibato-altre-attivita/" }
+          {
+            "label": "Crazy Catamaran Party",
+            "href": "/attivita/pomeridiane/addio-al-celibato-catamarano-barcellona/"
+          },
+          {
+            "label": "Barca a Vela Privata",
+            "href": "/attivita/pomeridiane/addio-al-celibato-in-barca-a-vela-privata/"
+          },
+          {
+            "label": "La Beerbike",
+            "href": "/attivita/pomeridiane/addio-al-celibato-beerbike/"
+          },
+          {
+            "label": "Bubble Football",
+            "href": "/attivita/pomeridiane/addio-al-celibato-bubble-football/"
+          },
+          {
+            "label": "Paintball Outdoor",
+            "href": "/attivita/pomeridiane/addio-al-celibato-paintball-outdoor/"
+          },
+          {
+            "label": "Escape Room",
+            "href": "/attivita/pomeridiane/escape-room-barcellona/"
+          },
+          {
+            "label": "Vespa GPS",
+            "href": "/attivita/pomeridiane/vespa-gps/"
+          },
+          {
+            "label": "Camp Nou Experience",
+            "href": "/attivita/pomeridiane/camp-nou-experience/"
+          },
+          {
+            "label": "Paddle Surf",
+            "href": "/attivita/pomeridiane/addio-celibato-paddle-surf-barcellona/"
+          },
+          {
+            "label": "Tutti al Mare",
+            "href": "/attivita/pomeridiane/addio-celibato-tutti-al-mare-barcellona/"
+          },
+          {
+            "label": "Archery Tag",
+            "href": "/attivita/pomeridiane/addio-al-celibato-archery-tag/"
+          },
+          {
+            "label": "Segway Barcellona",
+            "href": "/attivita/pomeridiane/segway-barcellona-tour/"
+          },
+          {
+            "label": "Altre Attività",
+            "href": "/attivita/pomeridiane/addio-al-celibato-altre-attivita/"
+          }
         ]
       },
       {
         "href": "/addio-al-nubilato",
         "label": "Nubilato",
         "children": [
-          { "label": "Cena Strip Disco", "href": "/addio-al-nubilato/addio-al-nubilato-con-spogliarellista-a-barcellona/" },
-          { "label": "Limo Strip Disco", "href": "/addio-al-nubilato/addio-nubilato-spogliarellista-limousine-barcellona/" },
-          { "label": "Spicy Mix Nubilato", "href": "/addio-al-nubilato/addio-al-nubilato-collettivo-barcellona/" },
-          { "label": "Strip Show Maschile", "href": "/addio-al-nubilato/addio-nubilato-spogliarellista-show-barcellona/" },
-          { "label": "Cocktail Lab", "href": "/attivita/pomeridiane/cocktail-lab-barcellona/" },
-          { "label": "Beerbike Nubilato", "href": "/addio-al-nubilato/addio-nubilato-beerbike-barcellona/" },
-          { "label": "Catamarano Nubilato", "href": "/addio-al-nubilato/addio-al-nubilato-in-catamarano-a-barcellona/" }
+          {
+            "label": "Cena Strip Disco",
+            "href": "/addio-al-nubilato/addio-al-nubilato-con-spogliarellista-a-barcellona/"
+          },
+          {
+            "label": "Limo Strip Disco",
+            "href": "/addio-al-nubilato/addio-nubilato-spogliarellista-limousine-barcellona/"
+          },
+          {
+            "label": "Spicy Mix Nubilato",
+            "href": "/addio-al-nubilato/addio-al-nubilato-collettivo-barcellona/"
+          },
+          {
+            "label": "Strip Show Maschile",
+            "href": "/addio-al-nubilato/addio-nubilato-spogliarellista-show-barcellona/"
+          },
+          {
+            "label": "Cocktail Lab",
+            "href": "/attivita/pomeridiane/cocktail-lab-barcellona/"
+          },
+          {
+            "label": "Beerbike Nubilato",
+            "href": "/addio-al-nubilato/addio-nubilato-beerbike-barcellona/"
+          },
+          {
+            "label": "Catamarano Nubilato",
+            "href": "/addio-al-nubilato/addio-al-nubilato-in-catamarano-a-barcellona/"
+          }
         ]
       },
       {
@@ -79,22 +166,22 @@
   },
   "activities": {
     "all": {
-      "headline": "TUTTE LE",
-      "headline_accent": "ATTIVITÀ",
+      "headline": "ADDIO AL CELIBATO BARCELLONA:",
+      "headline_accent": "COSA FARE",
       "meta_title": "Attività Addio al Celibato Barcellona | Notturne e Pomeridiane",
       "meta_desc": "Scopri tutte le attività per il tuo addio al celibato a Barcellona: strip show, catamaran, limousine, escape room e molto altro. Preventivo gratis!",
       "seo_text": "Addio al celibato attività a Barcellona: dalla vita notturna più sfrenata alle avventure diurne più adrenalinici, abbiamo tutto quello che fa per voi! Siamo degli esperti in organizzazione di feste di addio al celibato a Barcellona di qualsiasi tipo e per qualsiasi budget, offrendo svariatissime attività tanto notturne quanto pomeridiane, dateci un'occhiata. Viviamo ed organizziamo feste a Barcellona da anni, conosciamo i migliori luoghi, le migliori opzioni e proponiamo solo il meglio al miglior prezzo! Se trovate un'offerta migliore della nostra avvisateci 🙂\n\nNel caso in cui non trovaste l'opzione che fa per voi o il vostro budget sia ridotto, non vi preoccupate, possiamo creare offerte di addio al celibato personalizzate per tutti i gusti e tasche. Siamo flessibili con le proposte quindi se avete qualcosa in mente non dubitate a chiedercelo! CONTATTATECI e vedrete che riusciremo ad esaudire tutti i vostri desideri.\n\nPerché scegliere Barcellona? Perché scegliere noi? Noi ci viviamo qui quindi siamo esperti di feste di addio al celibato a Barcellona. Conosciamo la città meglio di qualsiasi altro agente che organizzi l'addio al celibato in più di una località, noi organizziamo feste di addio al celibato SOLO a Barcellona. Una volta atterrati, saremo a disposizione per qualsiasi dubbio o consiglio di cui abbiate bisogno. Desideriamo che il vostro addio al celibato a Barcellona sia INDIMENTICABILE! Non perdete altro tempo, richiedere un PREVENTIVO É GRATIS!"
     },
     "night": {
-      "headline": "ATTIVITÀ",
-      "headline_accent": "NOTTURNE",
+      "headline": "ADDIO AL CELIBATO BARCELLONA:",
+      "headline_accent": "ATTIVITÀ NOTTURNE",
       "meta_title": "Attività Notturne Addio al Celibato Barcellona",
       "meta_desc": "Strip show, discoteche, limousine e molto altro per il tuo addio al celibato notturno a Barcellona. Dal 2017. Preventivo gratis!",
       "seo_text": "Addio al celibato attività notturne perché in una festa del genere che si rispetti non può mancare qualche nottata di follia! Noi siamo degli esperti in organizzazione di feste di addio al celibato a Barcellona di qualsiasi tipo e per qualsiasi budget, offrendo svariatissime attività tanto notturne quanto pomeridiane, dateci un'occhiata. Viviamo ed organizziamo feste a Barcellona da anni, conosciamo i migliori luoghi, le migliori opzione e proponiamo solo il meglio al miglior prezzo! Se trovate un'offerta migliore della nostra avvisateci 🙂\n\nNel caso in cui in addio al celibato attività notturne non trovaste l'opzione che fa per voi o il vostro budget sia ridotto, non vi preoccupate, possiamo creare offerte di addio al celibato personalizzate per tutti i gusti e tasche. Siamo flessibili con le proposte quindi se avete qualcosa in mente non dubitate a chiedercelo! CONTATTATECI e vedrete che riusciremo ad esaudire tutti i vostri desideri.\n\nPerché scegliere Barcellona? Perché scegliere noi? Noi ci viviamo qui quindi siamo esperti di feste di addio al celibato a Barcellona. Conosciamo la città meglio di qualsiasi altro agente che organizzi l'addio al celibato in più di una località, noi organizziamo feste di addio al celibato SOLO a Barcellona. Vi consigliamo di controllare se altri portali offrono l'organizzazione solo qui o in altri luoghi, questo può compromettere la qualità dei servizi. Una volta atterrati, saremo a disposizione per qualsiasi dubbio o consiglio di cui abbiate bisogno. Desideriamo che il vostro addio al celibato a Barcellona sia INDIMENTICABILE! Non perdete altro tempo, richiedere un PREVENTIVO É GRATIS! Che sia per addio al celibato attività notturne o attività pomeridiane, vi assicuriamo che il divertimento non mancherà!"
     },
     "daytime": {
-      "headline": "ATTIVITÀ",
-      "headline_accent": "POMERIDIANE",
+      "headline": "ADDIO AL CELIBATO BARCELLONA:",
+      "headline_accent": "ATTIVITÀ POMERIDIANE",
       "meta_title": "Attività Pomeridiane Addio al Celibato Barcellona",
       "meta_desc": "Catamaran, beerbike, paddle surf, bubble football e molto altro per il tuo addio al celibato di giorno a Barcellona. Preventivo gratis!",
       "seo_text": "Addio al celibato attività pomeridiane perché in una festa del genere che si rispetti non può mancare un po' di adrenalina! E non solo, mare, sole, natura, abbiamo proposte di ogni tipo che renderanno le vostre giornate a Barcellona un'esperienza indimenticabile.\n\nSiamo degli esperti in organizzazione di feste di addio al celibato a Barcellona di qualsiasi tipo e per qualsiasi budget, offrendo svariatissime attività tanto pomeridiane quanto notturne, dateci un'occhiata. Viviamo ed organizziamo feste a Barcellona da anni, conosciamo i migliori luoghi, le migliori opzione e proponiamo solo il meglio al miglior prezzo! Se trovate un'offerta migliore della nostra avvisateci 🙂\n\nNel caso in cui in addio al celibato attività pomeridiane non trovaste l'opzione che fa per voi o il vostro budget sia più basso, non disperatevi, possiamo creare offerte di addio al celibato personalizzate per tutti i gusti e tutte le tasche. Siamo flessibili con le proposte quindi se avete qualcosa in mente non dubitate a chiedercelo! CONTATTATECI e vedrete che riusciremo ad esaudire tutti i vostri desideri.\n\nPerché scegliere Barcellona? Perché scegliere noi? Noi ci viviamo qui quindi siamo esperti di feste di addio al celibato a Barcellona. Conosciamo la città meglio di qualsiasi altro agente che organizzi l'addio al celibato in più di una località, noi organizziamo feste di addio al celibato SOLO a Barcellona. Vi consigliamo di controllare se altri portali offrono l'organizzazione solo qui o in altri luoghi, questo può compromettere la qualità dei servizi. Una volta atterrati, saremo a disposizione per qualsiasi dubbio o consiglio di cui abbiate bisogno. Desideriamo che il vostro addio al celibato a Barcellona sia INDIMENTICABILE! Non perdete altro tempo, richiedere un PREVENTIVO É GRATIS! Che sia per addio al celibato attività pomeridiane o attività notturne, vi assicuriamo che il divertimento non mancherà!"
@@ -182,6 +269,15 @@
         "tag": null,
         "icon": "Music",
         "image": "/images/2017-migliori-discoteche-di-barcellona-2.jpg"
+      },
+      {
+        "name": "Night Club",
+        "desc": "Le migliori discoteche di Barcellona a portata di mano. Accesso VIP nei club più esclusivi della città.",
+        "price": "GRATIS",
+        "href": "/attivita/notturne/night-club-di-barcellona/",
+        "tag": null,
+        "icon": "Music",
+        "image": "/images/2017-discotecas-barcelona-L-rLf7ov.jpeg"
       }
     ]
   },

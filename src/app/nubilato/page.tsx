@@ -378,7 +378,7 @@ export default async function NubilatoPage() {
             margin: "0 0 1.5rem",
           }}>
             ADDIO AL<br />
-            <span style={{ color: "var(--blue)" }}>NUBILATO</span><br />
+            <span style={{ color: "var(--blue)" }}>NUBILATO BARCELLONA</span><br />
             <span style={{ fontSize: "0.55em", color: "rgba(255,255,255,0.55)", letterSpacing: "0.01em" }}>
               NELLA CITTÀ PIÙ DIVERTENTE D&apos;EUROPA
             </span>
@@ -393,7 +393,7 @@ export default async function NubilatoPage() {
             alignItems: "center",
           }}>
             {[
-              "20+ attività disponibili: strip, catamarano, limousine e altro",
+              "Solo addii al nubilato a Barcellona dal 2017: massima specializzazione",
               "Italiane che vivono a Barcellona — zero intermediari",
               "Preventivo gratuito, risposta in poche ore",
             ].map((item) => (
@@ -540,8 +540,8 @@ export default async function NubilatoPage() {
             color: "#fff",
             margin: "0 0 1.75rem",
           }}>
-            IDEE PER UN<br />
-            <span style={{ color: "var(--blue)" }}>NUBILATO UNICO</span>
+            IDEE PER UN ADDIO<br />
+            <span style={{ color: "var(--blue)" }}>AL NUBILATO A BARCELLONA</span>
           </h2>
           <p style={{
             fontSize: "0.95rem",

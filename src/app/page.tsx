@@ -202,7 +202,7 @@ export default async function HomePage() {
               lineHeight: 0.9,
               color: "var(--blue)",
             }}>
-              A BARCELLONA
+              BARCELLONA
             </span>
           </h1>
 
@@ -226,7 +226,7 @@ export default async function HomePage() {
           }}>
             {[
               "Italiani che vivono a Barcellona: zero intermediari",
-              "Solo addii al celibato dal 2017: massima specializzazione",
+              "Solo addii al celibato a Barcellona dal 2017: massima specializzazione",
               "Preventivo gratuito in 24h — nessun impegno",
             ].map((item) => (
               <li key={item} style={{
@@ -335,7 +335,7 @@ export default async function HomePage() {
       <section style={{ background: "#000", padding: "5rem 6vw 6rem" }}>
           <div style={{ marginBottom: "3rem" }}>
             <h2 style={{ fontFamily: "var(--font-bebas)", fontSize: "clamp(2rem, 5vw, 4rem)", letterSpacing: "0.04em", lineHeight: 1, color: "#fff", margin: 0 }}>
-              TUTTE LE ATTIVITÀ
+              ADDIO AL CELIBATO BARCELLONA COSA FARE
             </h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1px" }} className="nubilato-grid">
