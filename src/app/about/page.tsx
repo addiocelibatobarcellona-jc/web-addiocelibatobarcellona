@@ -327,14 +327,14 @@ export default async function ChiSiamo() {
                 { icon: "🏖️", text: "Attività diurne uniche: paddle surf, quad, go-kart" },
                 { icon: "🎭", text: "Spettacoli ed esperienze indimenticabili" },
               ].map((item) => (
-                <div key={item.text} style={{
+                <div key={item.text} className="bcn-feature-item" style={{
                   display: "flex", alignItems: "center", gap: "1rem",
                   padding: "1rem 1.25rem",
                   border: "1px solid rgba(255,255,255,0.08)",
                   background: "#0c0c0c",
                 }}>
                   <span style={{ fontSize: "1.4rem", flexShrink: 0 }}>{item.icon}</span>
-                  <span style={{ fontSize: "0.9rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.4 }}>{item.text}</span>
+                  <span className="bcn-feature-text" style={{ fontSize: "0.9rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.4 }}>{item.text}</span>
                 </div>
               ))}
             </div>
