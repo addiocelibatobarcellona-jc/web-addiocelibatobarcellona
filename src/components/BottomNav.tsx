@@ -237,7 +237,7 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
                             textDecoration: "none",
                             borderLeft: "2px solid var(--blue)",
                             marginLeft: "0.25rem",
-                            marginBottom: "0.15rem",
+                            marginBottom: "0",
                             transition: "color 0.15s",
                           }}
                           onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "#fff"; }}

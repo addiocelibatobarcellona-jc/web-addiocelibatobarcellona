@@ -522,7 +522,7 @@ body {
 /* ── Perché grid: hide icon on mobile, add white rounded border ── */
 @media (max-width: 720px) {
   .perche-grid { gap: 0 !important; background: transparent !important; }
-  .perche-item { border: 1px solid rgba(255,255,255,0.18) !important; border-radius: 8px !important; margin-bottom: 0.75rem !important; }
+  .perche-item { border: 1px solid rgba(255,255,255,0.18) !important; border-radius: 0 !important; margin-bottom: 0.75rem !important; }
   .perche-item-icon { display: none !important; }
 }
 
