@@ -27,7 +27,7 @@ export const blogPost = defineType({
     defineField({
       name: "date",
       title: "Data pubblicazione",
-      type: "date",
+      type: "datetime",
       group: "content",
     }),
     defineField({
