@@ -7,11 +7,11 @@ import MagneticButton from "@/components/MagneticButton";
 export const metadata: Metadata = {
   title: "Chi Siamo | Idee per l'Addio al Celibato a Barcellona dal 2017",
   description:
-    "Agenzia di italiani che vivono a Barcellona da più di 10 anni. Le migliori idee per l'addio al celibato e al nubilato a Barcellona. Preventivo gratuito.",
+    "Agenzia di italiani che vivono a Barcellona da più di 20 anni. Le migliori idee per l'addio al celibato e al nubilato a Barcellona. Preventivo gratuito.",
   alternates: { canonical: "https://www.addioalcelibato-barcellona.it/chi-siamo-idee-per-laddio-al-celibato/" },
   openGraph: {
     title: "Chi Siamo | Addio al Celibato Barcellona dal 2017",
-    description: "Italiani che vivono a Barcellona da oltre 10 anni. Organizziamo addii al celibato e nubilato esclusivamente a Barcellona.",
+    description: "Italiani che vivono a Barcellona da oltre 20 anni. Organizziamo addii al celibato e nubilato esclusivamente a Barcellona.",
     locale: "it_IT",
     type: "website",
     url: "https://www.addioalcelibato-barcellona.it/chi-siamo-idee-per-laddio-al-celibato/",
@@ -62,7 +62,7 @@ const REASONS = [
 ];
 
 const STATS = [
-  { value: "10+", label: "Anni a Barcellona" },
+  { value: "20+", label: "Anni a Barcellona" },
   { value: "100%", label: "Solo Barcellona" },
   { value: "★ 4.9", label: "Rating medio" },
 ];
@@ -74,7 +74,7 @@ const aboutJsonLd = {
   "url": "https://www.addioalcelibato-barcellona.it",
   "telephone": "+34673180796",
   "email": "addiocelibatobarcellona@gmail.com",
-  "description": "Agenzia di italiani che vivono a Barcellona da più di 10 anni. Le migliori idee per l'addio al celibato e al nubilato a Barcellona.",
+  "description": "Agenzia di italiani che vivono a Barcellona da più di 20 anni. Le migliori idee per l'addio al celibato e al nubilato a Barcellona.",
   "foundingDate": "2017",
   "areaServed": { "@type": "City", "name": "Barcelona" },
   "sameAs": [
@@ -157,7 +157,7 @@ export default async function ChiSiamo() {
 
       {/* ── CHI SIAMO TEXT ── */}
       <section style={{ padding: "6rem 6vw 7rem" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "start" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "start" }} className="about-main-grid">
           <div>
             <h2 style={{
               fontFamily: "var(--font-bebas)",
@@ -175,7 +175,7 @@ export default async function ChiSiamo() {
               </p>
               <p style={{ fontSize: "1.05rem", lineHeight: 1.75, color: "rgba(255,255,255,0.75)" }}>
                 Noi di addioalcelibato-barcellona siamo un&apos;agenzia di Italiani che vivono qui da più di
-                10 anni, che conoscono la città alla perfezione e che sapranno darvi consigli ed idee su
+                20 anni, che conoscono la città alla perfezione e che sapranno darvi consigli ed idee su
                 misura per il vostro addio al celibato o nubilato a Barcellona.
               </p>
               <p style={{ fontSize: "1.05rem", lineHeight: 1.75, color: "rgba(255,255,255,0.75)" }}>
@@ -292,7 +292,7 @@ export default async function ChiSiamo() {
             <span style={{ color: "var(--blue)" }}>SIA…</span>
           </h2>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "start" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "start" }} className="about-bcn-grid">
             <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
               <p style={{ fontSize: "1.05rem", lineHeight: 1.75, color: "rgba(255,255,255,0.8)" }}>
                 Se tra le vostre idee per l&apos;addio al celibato avete incluso Barcellona, avete diverse
@@ -304,7 +304,7 @@ export default async function ChiSiamo() {
                 Questo fa in modo che l&apos;esperienza e l&apos;attenzione offerta non sia la stessa.
               </p>
               <p style={{ fontSize: "1.05rem", lineHeight: 1.75, color: "rgba(255,255,255,0.75)" }}>
-                Noi siamo qui, viviamo qui e da più di 10 anni conosciamo posti, luoghi, ristoranti,
+                Noi siamo qui, viviamo qui e da più di 20 anni conosciamo posti, luoghi, ristoranti,
                 bar, feste, discoteche e qualsiasi altra cosa che la città possa offrire. Garantiamo
                 un servizio unico e piena disponibilità per ogni richiesta o dubbio una volta sul luogo.
               </p>

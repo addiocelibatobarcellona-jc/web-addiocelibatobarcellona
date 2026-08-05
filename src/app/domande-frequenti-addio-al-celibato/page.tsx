@@ -42,7 +42,7 @@ const FAQS = [
   },
   {
     q: "Siete italiani? In che lingua parlate?",
-    a: "Sì, siamo un'agenzia di italiani che vivono a Barcellona da oltre 10 anni. Comunichiamo sempre in italiano e conoscono la città alla perfezione. Non dovrete preoccuparvi di barriere linguistiche.",
+    a: "Sì, siamo un'agenzia di italiani che vivono a Barcellona da oltre 20 anni. Comunichiamo sempre in italiano e conoscono la città alla perfezione. Non dovrete preoccuparvi di barriere linguistiche.",
   },
   {
     q: "Organizzate anche addii al nubilato?",
@@ -54,7 +54,7 @@ const FAQS = [
   },
   {
     q: "Come funziona il pagamento?",
-    a: "Una volta confermato il preventivo, vi chiederemo un acconto per bloccare la data e le attività. Il saldo può essere pagato alla vostra cheggio a Barcellona. Accettiamo pagamenti tramite bonifico bancario e altri metodi concordati.",
+    a: "Una volta confermato il preventivo, vi chiederemo un acconto per bloccare la data e le attività. Il saldo può essere pagato al vostro arrivo a Barcellona. Accettiamo pagamenti tramite bonifico bancario e altri metodi concordati.",
   },
   {
     q: "Possiamo scegliere attività singole o solo pacchetti?",
@@ -212,7 +212,7 @@ export default function FAQPage() {
             fontWeight: 500,
             marginBottom: "2.5rem",
           }}>
-            Un&apos;agenzia di Italiani che vivono a Barcellona da più di 10 anni e conoscono la città alla perfezione. Organizziamo feste SOLO a Barcellona, dal 2017. Miglior prezzo garantito.
+            Un&apos;agenzia di Italiani che vivono a Barcellona da più di 20 anni e conoscono la città alla perfezione. Organizziamo feste SOLO a Barcellona, dal 2017. Miglior prezzo garantito.
           </p>
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
             <MagneticButton

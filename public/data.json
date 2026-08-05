@@ -52,9 +52,13 @@
         "href": "/addio-al-nubilato",
         "label": "Nubilato",
         "children": [
-          { "label": "Strip Show Maschile", "href": "/attivita/nubilato/strip-show-maschile/" },
-          { "label": "Cocktail Lab", "href": "/attivita/nubilato/cocktail-lab/" },
-          { "label": "Caccia al Tesoro", "href": "/attivita/nubilato/caccia-al-tesoro/" }
+          { "label": "Cena Strip Disco", "href": "/addio-al-nubilato/addio-al-nubilato-con-spogliarellista-a-barcellona/" },
+          { "label": "Limo Strip Disco", "href": "/addio-al-nubilato/addio-nubilato-spogliarellista-limousine-barcellona/" },
+          { "label": "Spicy Mix Nubilato", "href": "/addio-al-nubilato/addio-al-nubilato-collettivo-barcellona/" },
+          { "label": "Strip Show Maschile", "href": "/addio-al-nubilato/addio-nubilato-spogliarellista-show-barcellona/" },
+          { "label": "Cocktail Lab", "href": "/attivita/pomeridiane/cocktail-lab-barcellona/" },
+          { "label": "Beerbike Nubilato", "href": "/addio-al-nubilato/addio-nubilato-beerbike-barcellona/" },
+          { "label": "Catamarano Nubilato", "href": "/addio-al-nubilato/addio-al-nubilato-in-catamarano-a-barcellona/" }
         ]
       },
       {
@@ -132,7 +136,7 @@
         "href": "/attivita/notturne/addio-al-celibato-spogliarellista-show/",
         "tag": null,
         "icon": "Music",
-        "image": "/images/2017-Stri-show-nubilato-S.jpg"
+        "image": "/images/2017-ADDIO-CLASSICO-S.jpg"
       },
       {
         "name": "LimoBus",
@@ -333,7 +337,7 @@
   "footer": {
     "logo_line1": "ADDIO AL CELIBATO BCN",
     "logo_line2": "Barcellona · Dal 2017",
-    "description": "Un'agenzia di Italiani che vivono a Barcellona da più di 10 anni e conoscono la città alla perfezione. Organizziamo feste SOLO a Barcellona, dal 2017. Miglior prezzo garantito.",
+    "description": "Un'agenzia di Italiani che vivono a Barcellona da più di 20 anni e conoscono la città alla perfezione. Organizziamo feste SOLO a Barcellona, dal 2017. Miglior prezzo garantito.",
     "activity_links": [
       {
         "href": "/attivita/notturne",

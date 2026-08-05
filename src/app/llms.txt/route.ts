@@ -15,7 +15,7 @@ export function GET() {
 
 > Agenzia italiana specializzata in addii al celibato e al nubilato a Barcellona dal 2017. Solo Barcellona, zero intermediari, preventivo gratuito.
 
-Siamo italiani che vivono a Barcellona da più di 10 anni. Organizziamo esclusivamente feste di addio al celibato e nubilato nella città, garantendo la massima qualità senza intermediari. Offriamo 20+ attività tra notturne e pomeridiane, pacchetti personalizzati e piena assistenza durante il soggiorno.
+Siamo italiani che vivono a Barcellona da più di 20 anni. Organizziamo esclusivamente feste di addio al celibato e nubilato nella città, garantendo la massima qualità senza intermediari. Offriamo 20+ attività tra notturne e pomeridiane, pacchetti personalizzati e piena assistenza durante il soggiorno.
 
 Contatti: +34 673 180 796 · addiocelibatobarcellona@gmail.com
 Sede: Avenida Paralelo Nº91 Bis Entresuelo 1ª, Barcelona 08004 (ES) · CIF: B65268237

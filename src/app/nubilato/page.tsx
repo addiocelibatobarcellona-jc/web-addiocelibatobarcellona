@@ -465,14 +465,14 @@ export default async function NubilatoPage() {
           background: "rgba(255,255,255,0.07)",
         }} className="perche-grid">
           {WHY_US.map(({ Icon, title, desc }) => (
-            <div key={title} style={{
+            <div key={title} className="perche-item" style={{
               background: "#000",
               padding: "2rem 2rem",
               display: "flex",
               flexDirection: "column",
               gap: "0.85rem",
             }}>
-              <div style={{
+              <div className="perche-item-icon" style={{
                 width: "44px", height: "44px", background: "rgba(58,117,255,0.12)",
                 display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
               }}>

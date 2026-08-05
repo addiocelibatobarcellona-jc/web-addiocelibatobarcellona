@@ -305,14 +305,14 @@ export default async function HomePage() {
             { Icon: Target, title: "FOCUS 100% BARCELLONA", desc: "Facciamo una cosa sola e la facciamo al top: addii al celibato esclusivi nella nostra città. Zero imprevisti, massimo risultato." },
             { Icon: User, title: "SUPPORTO SU MISURA", desc: "Un referente dedicato sempre al fianco del tuo gruppo. Consigli reali, dritte locali e organizzazione perfetta dall'inizio alla fine." },
           ] as const).map(({ Icon, title, desc }) => (
-            <div key={title} style={{
+            <div key={title} className="perche-item" style={{
               background: "#000",
               padding: "2rem 2rem",
               display: "flex",
               flexDirection: "column",
               gap: "0.85rem",
             }}>
-              <div style={{
+              <div className="perche-item-icon" style={{
                 width: "44px", height: "44px", background: "rgba(58,117,255,0.12)",
                 display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
               }}>

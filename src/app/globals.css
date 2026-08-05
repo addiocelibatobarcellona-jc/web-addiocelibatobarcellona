@@ -493,3 +493,23 @@ body {
   .contact-sidebar { display: none !important; }
   .contact-grid { grid-template-columns: 1fr !important; }
 }
+
+/* ── About page grids: collapse on mobile ── */
+@media (max-width: 860px) {
+  .about-main-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+  .about-bcn-grid  { grid-template-columns: 1fr !important; gap: 2rem !important; }
+}
+
+/* ── Perché grid: hide icon on mobile, add white rounded border ── */
+@media (max-width: 720px) {
+  .perche-grid { gap: 0 !important; background: transparent !important; }
+  .perche-item { border: 1px solid rgba(255,255,255,0.18) !important; border-radius: 8px !important; margin-bottom: 0.75rem !important; }
+  .perche-item-icon { display: none !important; }
+}
+
+/* ── Global mobile overflow guard ── */
+@media (max-width: 767px) {
+  section, .section, article, aside { max-width: 100vw; overflow-x: hidden; box-sizing: border-box; }
+  /* Collapse any unlabelled 2-col grid on mobile */
+  .chi-siamo-two-col { grid-template-columns: 1fr !important; gap: 2rem !important; }
+}
