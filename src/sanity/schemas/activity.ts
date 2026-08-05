@@ -101,11 +101,19 @@ export const activity = defineType({
 
     // ── MEDIA ─────────────────────────────────────────────────────────────────
     defineField({
+      name: "imageGrid",
+      title: "Immagine card (griglia)",
+      type: "string",
+      group: "media",
+      description: "Thumbnail per il grid delle attività. Se vuoto usa la prima immagine della pagina.",
+    }),
+    defineField({
       name: "images",
-      title: "Immagini (path /images/...)",
+      title: "Immagini pagina (path /images/...)",
       type: "array",
       of: [{ type: "string" }],
       group: "media",
+      description: "Prima immagine = copertina della pagina attività.",
     }),
   ],
 

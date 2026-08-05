@@ -22,8 +22,9 @@ export default defineConfig({
         S.list()
           .title("Contenuto")
           .items([
+            // ── Configurazione ──────────────────────────────────────────────
             S.listItem()
-              .title("⚙️ Impostazioni Sito")
+              .title("⚙️ Configurazione Sito")
               .id("siteSettings")
               .child(
                 S.document()
@@ -31,6 +32,28 @@ export default defineConfig({
                   .documentId("siteSettings")
               ),
             S.divider(),
+
+            // ── Pagine ───────────────────────────────────────────────────────
+            S.listItem()
+              .title("📄 Pagine")
+              .child(
+                S.list()
+                  .title("Pagine")
+                  .items([
+                    S.listItem()
+                      .title("🏠 Home")
+                      .id("homePage")
+                      .child(
+                        S.document()
+                          .schemaType("homePage")
+                          .documentId("homePage")
+                      ),
+                  ])
+              ),
+
+            S.divider(),
+
+            // ── Contenuto ────────────────────────────────────────────────────
             S.documentTypeListItem("activity").title("🎉 Attività"),
             S.documentTypeListItem("blogPost").title("📝 Articoli Blog"),
           ]),
