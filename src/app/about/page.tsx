@@ -313,7 +313,7 @@ export default async function ChiSiamo() {
                 Organizziamo feste di addio al celibato a Barcellona di qualsiasi tipo e per qualsiasi
                 budget, offrendo svariatissime attività tanto notturne quanto diurne.
               </p>
-              <a href="/notturne" className="neon-cta" style={{ alignSelf: "flex-start", marginTop: "1rem" }}>
+              <a href="/attivita" className="neon-cta" style={{ alignSelf: "flex-start", marginTop: "1rem" }}>
                 DAI UN&apos;OCCHIATA ALLE NOSTRE OFFERTE <ArrowUpRight size={15} />
               </a>
             </div>
@@ -370,7 +370,7 @@ export default async function ChiSiamo() {
           <MagneticButton href="/addio-al-celibato-barcellona-contatti" className="neon-cta">
             PREVENTIVO GRATIS <ArrowRight size={16} />
           </MagneticButton>
-          <a href="/notturne" className="neon-cta" style={{ background: "transparent", color: "#000", borderColor: "#000" }}>
+          <a href="/attivita" className="neon-cta" style={{ background: "transparent", color: "#000", borderColor: "#000" }}>
             VEDI LE ATTIVITÀ <ArrowUpRight size={16} />
           </a>
         </div>

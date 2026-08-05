@@ -6,8 +6,8 @@ export const activity = defineType({
   type: "document",
   groups: [
     { name: "content", title: "Contenuto", default: true },
-    { name: "seo", title: "SEO" },
-    { name: "media", title: "Immagini" },
+    { name: "seo",     title: "SEO" },
+    { name: "media",   title: "Immagini" },
   ],
   fields: [
     defineField({
@@ -101,27 +101,37 @@ export const activity = defineType({
 
     // ── MEDIA ─────────────────────────────────────────────────────────────────
     defineField({
-      name: "imageGrid",
-      title: "Immagine card (griglia)",
-      type: "string",
+      name: "coverImage",
+      title: "Immagine copertina (CDN Sanity)",
+      type: "image",
       group: "media",
-      description: "Thumbnail per il grid delle attività. Se vuoto usa la prima immagine della pagina.",
+      options: { hotspot: true },
+      description: "Carica qui per usare il CDN Sanity. Se vuoto usa la prima immagine legacy.",
     }),
     defineField({
+      name: "gridImage",
+      title: "Immagine card griglia (CDN Sanity)",
+      type: "image",
+      group: "media",
+      options: { hotspot: true },
+      description: "Thumbnail nel grid attività. Se vuoto usa la copertina.",
+    }),
+    // Legacy: path strings from WordPress import — kept for backward compat
+    defineField({
       name: "images",
-      title: "Immagini pagina (path /images/...)",
+      title: "Immagini pagina legacy (path /images/...)",
       type: "array",
       of: [{ type: "string" }],
       group: "media",
-      description: "Prima immagine = copertina della pagina attività.",
+      description: "Path immagini importate da WordPress. Usa i campi sopra per nuove immagini.",
     }),
   ],
 
   preview: {
-    select: { title: "name", subtitle: "category", media: "images.0" },
-    prepare({ title, subtitle }) {
+    select: { title: "name", subtitle: "category", media: "coverImage" },
+    prepare({ title, subtitle, media }) {
       const cat = subtitle === "night" ? "🌙 Notturna" : subtitle === "daytime" ? "☀️ Pomeridiana" : "💍 Nubilato";
-      return { title, subtitle: cat };
+      return { title, subtitle: cat, media };
     },
   },
 });

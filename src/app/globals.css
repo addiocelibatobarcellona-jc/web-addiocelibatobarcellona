@@ -11,7 +11,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   background: var(--bg);
@@ -544,4 +544,13 @@ body {
   .bcn-feature-text  { min-width: 0; overflow-wrap: break-word; word-break: break-word; }
   /* Collapse any unlabelled 2-col grid on mobile */
   .chi-siamo-two-col { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  /* CTA buttons: don't overflow with nowrap on narrow screens */
+  .neon-cta {
+    white-space: normal;
+    align-self: stretch !important;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
 }

@@ -7,7 +7,7 @@ import WhatsAppWidget from "@/components/WhatsAppWidget";
 import BottomNav from "@/components/BottomNav";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { draftMode } from "next/headers";
+import { draftMode, headers } from "next/headers";
 import { VisualEditing } from "next-sanity/visual-editing";
 import legal from "../../public/legal.json";
 import { getContent } from "@/lib/content";
@@ -76,6 +76,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const headersList = await headers();
+  const pathname = headersList.get("x-pathname") ?? "";
+  const isStudio = pathname.startsWith("/studio");
+
   const data = await getContent();
   const { isEnabled: isDraftMode } = await draftMode();
   return (
@@ -84,18 +88,20 @@ export default async function RootLayout({
       className={`${bebas.variable} ${jakarta.variable}`}
     >
       <body className="bg-[#080808] text-white antialiased font-jakarta">
-        <BottomNav
-          links={data.navbar.links as { href: string; label: string }[]}
-          logoLine1={data.navbar.logo_line1}
-          logoLine2={data.navbar.logo_line2}
-          ctaLabel={data.navbar.cta_label}
-          whatsapp={data.site.whatsapp}
-        />
+        {!isStudio && (
+          <BottomNav
+            links={data.navbar.links as { href: string; label: string }[]}
+            logoLine1={data.navbar.logo_line1}
+            logoLine2={data.navbar.logo_line2}
+            ctaLabel={data.navbar.cta_label}
+            whatsapp={data.site.whatsapp}
+          />
+        )}
         {children}
         {isDraftMode && <VisualEditing />}
-        <WhatsAppWidget phone={data.site.whatsapp} />
-        <CookieBanner data={legal.cookie_banner} />
-        <GoogleAnalytics />
+        {!isStudio && <WhatsAppWidget phone={data.site.whatsapp} />}
+        {!isStudio && <CookieBanner data={legal.cookie_banner} />}
+        {!isStudio && <GoogleAnalytics />}
         <Analytics />
         <SpeedInsights />
       </body>
