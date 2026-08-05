@@ -40,14 +40,32 @@ export default defineConfig({
                 S.list()
                   .title("Pagine")
                   .items([
-                    S.listItem()
-                      .title("🏠 Home")
-                      .id("homePage")
-                      .child(
-                        S.document()
-                          .schemaType("homePage")
-                          .documentId("homePage")
-                      ),
+                    S.listItem().title("🏠 Home").id("homePage")
+                      .child(S.document().schemaType("homePage").documentId("homePage")),
+                    S.listItem().title("💍 Addio al Nubilato").id("nubilatoPage")
+                      .child(S.document().schemaType("nubilatoPage").documentId("nubilatoPage")),
+                    S.listItem().title("🎉 Attività (listado)").id("activitiesPage")
+                      .child(S.document().schemaType("activitiesPage").documentId("activitiesPage")),
+                    S.listItem().title("ℹ️ Chi Siamo").id("aboutPage")
+                      .child(S.document().schemaType("aboutPage").documentId("aboutPage")),
+                    S.listItem().title("📞 Contatti").id("contactPage")
+                      .child(S.document().schemaType("contactPage").documentId("contactPage")),
+                    S.listItem().title("❓ Domande Frequenti").id("faqPage")
+                      .child(S.document().schemaType("faqPage").documentId("faqPage")),
+                  ])
+              ),
+
+            // ── Legal ─────────────────────────────────────────────────────────
+            S.listItem()
+              .title("⚖️ Legal")
+              .child(
+                S.list()
+                  .title("Legal")
+                  .items([
+                    S.listItem().title("🍪 Banner Cookie").id("cookieConsent")
+                      .child(S.document().schemaType("cookieConsent").documentId("cookieConsent")),
+                    S.divider(),
+                    S.documentTypeListItem("legalPage").title("📋 Pagine Legali"),
                   ])
               ),
 
