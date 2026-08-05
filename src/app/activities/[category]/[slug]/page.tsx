@@ -5,6 +5,8 @@ import { getContent } from "@/lib/content";
 import SiteFooter from "@/components/SiteFooter";
 import ActivityContactForm from "@/components/ActivityContactForm";
 import activitiesDetail from "../../../../../public/activities-detail.json";
+import { client } from "@/sanity/lib/client";
+import { resolveActivityImage } from "@/sanity/lib/image";
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 
@@ -43,6 +45,15 @@ function getCardImage(category: string, slug: string, c: Awaited<ReturnType<type
   return card?.image;
 }
 
+type SanityImg = { _type: string; asset?: { _ref: string; _type: string } };
+async function getSanityImages(slug: string) {
+  return client.fetch<{ coverImage?: SanityImg | null; gridImage?: SanityImg | null } | null>(
+    `*[_type == "activity" && slug.current == $slug][0]{ coverImage, gridImage }`,
+    { slug },
+    { next: { revalidate: 60 } }
+  );
+}
+
 // ── Static params ──────────────────────────────────────────────────────────────
 
 export function generateStaticParams(): Params[] {
@@ -61,7 +72,11 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
   const italianCat = toItalianCategory(category);
   const canonical = `https://www.addioalcelibato-barcellona.it/attivita/${italianCat}/${slug}/`;
-  const ogImage = activity.images[0] ?? "/images/2017-ADDIO-SPICY-MIX-S.jpg";
+  const sanityImgs = await getSanityImages(slug);
+  const ogImage = resolveActivityImage(
+    sanityImgs?.coverImage ?? sanityImgs?.gridImage,
+    activity.images[0] ?? "/images/2017-ADDIO-SPICY-MIX-S.jpg"
+  ) ?? "/images/2017-ADDIO-SPICY-MIX-S.jpg";
 
   const metaTitle = (activity as { meta_title?: string }).meta_title
     ?? `${activity.name} | Addio al Celibato Barcellona`;
@@ -168,7 +183,12 @@ export default async function ActivityDetailPage({ params }: { params: Promise<P
   if (!activity) notFound();
 
   const c = await getContent();
-  const heroImage = getCardImage(category, slug, c) ?? activity.images[0];
+  const sanityImgs = await getSanityImages(slug);
+  const legacyImage = getCardImage(category, slug, c) ?? activity.images[0];
+  const heroImage = resolveActivityImage(
+    sanityImgs?.coverImage ?? sanityImgs?.gridImage,
+    legacyImage
+  ) ?? legacyImage;
   const italianCat = toItalianCategory(category);
   const backHref = `/attivita/${italianCat}`;
   const categoryLabel = italianCat === "notturne" ? "ATTIVITÀ NOTTURNE" : "ATTIVITÀ POMERIDIANE";
