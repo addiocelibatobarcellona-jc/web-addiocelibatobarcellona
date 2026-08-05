@@ -24,10 +24,16 @@ const nextConfig: NextConfig = {
           { key: "X-Frame-Options",         value: "SAMEORIGIN" },
           { key: "Referrer-Policy",         value: "strict-origin-when-cross-origin" },
           { key: "X-DNS-Prefetch-Control",  value: "on" },
-          // HSTS — 2 years, includeSubDomains. Remove if not on HTTPS.
           { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
-          // Block browser features not used by this site
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), interest-cohort=()" },
+        ],
+      },
+      // ── Studio: allow iframe embedding (Sanity Presentation Tool) ─────────
+      {
+        source: "/studio(.*)",
+        headers: [
+          { key: "X-Frame-Options", value: "ALLOWALL" },
+          { key: "Content-Security-Policy", value: "frame-ancestors *" },
         ],
       },
 
