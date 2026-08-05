@@ -20,13 +20,14 @@ const CAP_PATH = makeScallop(60, 60, 50, 4, 14);
 
 interface Props {
   links: NavLink[];
+  extraMobileLinks?: NavLink[];
   logoLine1: string;
   logoLine2: string;
   ctaLabel: string;
   whatsapp: string;
 }
 
-export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whatsapp }: Props) {
+export default function BottomNav({ links, extraMobileLinks = [], logoLine1, logoLine2, ctaLabel, whatsapp }: Props) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -252,6 +253,33 @@ export default function BottomNav({ links, logoLine1, logoLine2, ctaLabel, whats
               );
             })}
           </nav>
+
+          {extraMobileLinks.length > 0 && (
+            <div style={{ borderTop: "1px solid #1a1a1a", padding: "0.75rem 2rem" }}>
+              {extraMobileLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  style={{
+                    display: "block",
+                    fontFamily: "var(--font-jakarta)",
+                    fontSize: "0.85rem",
+                    letterSpacing: "0.06em",
+                    textTransform: "uppercase",
+                    color: "rgba(255,255,255,0.45)",
+                    padding: "0.5rem 0",
+                    textDecoration: "none",
+                    transition: "color 0.15s",
+                  }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "#fff"; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.45)"; }}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          )}
 
           <div style={{ padding: "2rem" }}>
             <a

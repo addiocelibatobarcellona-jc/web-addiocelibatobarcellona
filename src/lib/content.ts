@@ -61,6 +61,8 @@ export interface SiteContent {
     logo_line2: string;
     cta_label: string;
     links: NavLink[];
+    mobile_cta_label?: string;
+    mobile_extra_links?: NavLink[];
   };
   hero: {
     headline_line1: string;
@@ -120,6 +122,8 @@ const SITE_SETTINGS_QUERY = `*[_id == "siteSettings"][0]{
   navbar_logo_line2,
   navbar_cta_label,
   navbar_links[]{ label, href, children[]{ label, href } },
+  mobile_cta_label,
+  mobile_extra_links[]{ label, href },
   footer_tagline,
   footer_description,
   footer_links_services[]{ label, href },
@@ -145,6 +149,8 @@ export async function getContent(): Promise<SiteContent> {
         logo_line2: s.navbar_logo_line2 ?? base.navbar.logo_line2,
         cta_label: s.navbar_cta_label ?? base.navbar.cta_label,
         links: s.navbar_links?.length ? s.navbar_links : base.navbar.links,
+        mobile_cta_label: s.mobile_cta_label ?? undefined,
+        mobile_extra_links: s.mobile_extra_links ?? [],
       },
       footer: {
         ...base.footer,

@@ -1,15 +1,16 @@
 import { defineField, defineType } from "sanity";
 
 const linkFields = [
-  defineField({ name: "label", title: "Label", type: "string" }),
-  defineField({ name: "href",  title: "URL",   type: "string" }),
+  defineField({ name: "label", title: "Label / testo", type: "string" }),
+  defineField({ name: "href",  title: "URL (es. /attivita/notturne)", type: "string" }),
 ];
 
 const navLinkFields = [
   ...linkFields,
   defineField({
     name: "children",
-    title: "Sottomenu (mobile accordion)",
+    title: "Voci sottomenu (accordion mobile)",
+    description: "Queste voci appaiono come accordion espandibile nel menu mobile sotto questo link.",
     type: "array",
     of: [{ type: "object", fields: linkFields }],
   }),
@@ -19,7 +20,6 @@ export const siteSettings = defineType({
   name: "siteSettings",
   title: "Impostazioni Sito",
   type: "document",
-  // Fixed title in Studio — no longer shows the email
   preview: {
     prepare() {
       return { title: "Impostazioni Sito" };
@@ -27,7 +27,8 @@ export const siteSettings = defineType({
   },
   groups: [
     { name: "site",   title: "📞 Contatti",    default: true },
-    { name: "navbar", title: "🔗 Menu / Navbar" },
+    { name: "navbar", title: "🖥️ Menu Desktop" },
+    { name: "mobile", title: "📱 Menu Mobile" },
     { name: "footer", title: "📄 Footer" },
   ],
   fields: [
@@ -37,17 +38,34 @@ export const siteSettings = defineType({
     defineField({ name: "site_instagram", title: "Instagram URL", type: "string", group: "site" }),
     defineField({ name: "site_facebook",  title: "Facebook URL",  type: "string", group: "site" }),
 
-    // ── NAVBAR + MENU MOBILE ─────────────────────────────────────────────────
+    // ── NAVBAR DESKTOP ────────────────────────────────────────────────────────
     defineField({ name: "navbar_logo_line1", title: "Logo riga 1", type: "string", group: "navbar" }),
     defineField({ name: "navbar_logo_line2", title: "Logo riga 2", type: "string", group: "navbar" }),
-    defineField({ name: "navbar_cta_label",  title: "CTA bottone (desktop + mobile)", type: "string", group: "navbar" }),
+    defineField({ name: "navbar_cta_label",  title: "Testo bottone CTA", type: "string", group: "navbar" }),
     defineField({
       name: "navbar_links",
-      title: "Link menu (desktop e mobile — stessa lista)",
-      description: "I link appaiono nel menu desktop e nel menu mobile a tutto schermo. Ogni link può avere un sottomenu che si mostra come accordion nel mobile.",
+      title: "Voci menu",
+      description: "Il desktop mostra le prime 5 voci. Tutte le voci appaiono nel menu mobile. Aggiungi 'Sottomenu' a ogni voce per creare l'accordion nel mobile.",
       type: "array",
       group: "navbar",
       of: [{ type: "object", fields: navLinkFields }],
+    }),
+
+    // ── MENU MOBILE (read-only info + mobile-specific CTA) ─────────────────────
+    defineField({
+      name: "mobile_cta_label",
+      title: "Testo bottone CTA mobile",
+      description: "Se vuoto usa lo stesso testo del CTA desktop. Appare in fondo al menu mobile come bottone WhatsApp.",
+      type: "string",
+      group: "mobile",
+    }),
+    defineField({
+      name: "mobile_extra_links",
+      title: "Link aggiuntivi solo mobile",
+      description: "Link che appaiono SOLO nel menu mobile (non in navbar desktop). Es. link a social, telefono, orari.",
+      type: "array",
+      group: "mobile",
+      of: [{ type: "object", fields: linkFields }],
     }),
 
     // ── FOOTER ────────────────────────────────────────────────────────────────

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import type { NavLink } from "@/lib/content";
 import { Bebas_Neue, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import CookieBanner from "@/components/CookieBanner";
@@ -90,10 +91,11 @@ export default async function RootLayout({
       <body className="bg-[#080808] text-white antialiased font-jakarta">
         {!isStudio && (
           <BottomNav
-            links={data.navbar.links as { href: string; label: string }[]}
+            links={data.navbar.links as NavLink[]}
+            extraMobileLinks={(data.navbar.mobile_extra_links ?? []) as NavLink[]}
             logoLine1={data.navbar.logo_line1}
             logoLine2={data.navbar.logo_line2}
-            ctaLabel={data.navbar.cta_label}
+            ctaLabel={data.navbar.mobile_cta_label ?? data.navbar.cta_label}
             whatsapp={data.site.whatsapp}
           />
         )}
