@@ -24,6 +24,7 @@ interface ActivityDetail {
   body_html?: string;
   meta_title?: string;
   meta_desc?: string;
+  keywords?: string[];
 }
 
 type SanityImg = { _type: string; asset?: { _ref: string; _type: string } };
@@ -41,6 +42,7 @@ interface SanityActivity {
   body_html?: string;
   meta_title?: string;
   meta_desc?: string;
+  keywords?: string[];
   coverImage?: SanityImg | null;
   gridImage?: SanityImg | null;
 }
@@ -111,6 +113,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   return {
     title: metaTitle,
     description: metaDesc,
+    ...(activity.keywords?.length ? { keywords: activity.keywords.join(", ") } : {}),
     alternates: { canonical },
     openGraph: {
       title: metaTitle,

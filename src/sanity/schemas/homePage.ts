@@ -40,7 +40,8 @@ export const homePage = defineType({
     }),
 
     // ── SEO ───────────────────────────────────────────────────────────────────
-    defineField({ name: "metaTitle", title: "Meta title", type: "string", group: "seo", validation: (r) => r.max(70) }),
-    defineField({ name: "metaDesc",  title: "Meta desc",  type: "text",   group: "seo", rows: 2, validation: (r) => r.max(160) }),
+    defineField({ name: "metaTitle",    title: "Meta title",              type: "string", group: "seo", validation: (r) => r.max(70) }),
+    defineField({ name: "metaDesc",     title: "Meta descrizione",        type: "text",   group: "seo", rows: 2, validation: (r) => r.max(160) }),
+    defineField({ name: "metaKeywords", title: "Parole chiave (keywords)", type: "array",  group: "seo", of: [{ type: "string" }], options: { layout: "tags" }, description: "Es: addio al celibato barcellona, spogliarellista, limousine" }),
   ],
 });

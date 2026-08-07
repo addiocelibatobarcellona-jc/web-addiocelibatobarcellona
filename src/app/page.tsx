@@ -13,12 +13,14 @@ import SiteFooter from "@/components/SiteFooter";
 
 const DEFAULT_TITLE = "Addio al Celibato Barcellona | Dal 2017 – Miglior Prezzo Garantito";
 const DEFAULT_DESC = "Organizziamo addii al celibato e al nubilato a Barcellona dal 2017. Spogliarellista, limousine, catamarano, discoteche, paddle surf e molto altro. Preventivo gratuito!";
+const DEFAULT_KEYWORDS = "addio al celibato barcellona, addio al nubilato barcellona, pacchetti celibato barcellona, festa addio celibato barcellona, spogliarellista barcellona, limousine barcellona, party boat barcellona, catamarano barcellona";
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await fetchPageSeo("homePage");
   return {
     title: seo.metaTitle ?? DEFAULT_TITLE,
     description: seo.metaDesc ?? DEFAULT_DESC,
+    keywords: seo.metaKeywords ? seo.metaKeywords.join(", ") : DEFAULT_KEYWORDS,
     alternates: {
       canonical: "https://www.addioalcelibato-barcellona.it/",
       languages: {

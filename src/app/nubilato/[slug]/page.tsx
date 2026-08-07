@@ -20,6 +20,7 @@ interface NubilatoActivity {
   body_html?: string;
   meta_title?: string;
   meta_desc?: string;
+  keywords?: string[];
 }
 
 type Params = { slug: string };
@@ -35,7 +36,7 @@ async function getActivity(slug: string): Promise<NubilatoActivity | undefined> 
       slug: string; name: string; tag?: string | null; price: string;
       intro: string; description: string; includes: string[];
       notes?: string | null; images?: string[]; body_html?: string;
-      meta_title?: string; meta_desc?: string;
+      meta_title?: string; meta_desc?: string; keywords?: string[];
     } | null>(ACTIVITY_BY_SLUG_QUERY, { slug }, { next: { revalidate: 60 } });
     if (sanity) {
       return {
@@ -66,6 +67,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   return {
     title,
     description,
+    ...(activity.keywords?.length ? { keywords: activity.keywords.join(", ") } : {}),
     alternates: { canonical },
     openGraph: {
       title,

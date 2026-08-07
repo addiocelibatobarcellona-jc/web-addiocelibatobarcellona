@@ -5,14 +5,18 @@ const REVALIDATE = { next: { revalidate: 60 } } as const;
 
 // ── SEO helper ────────────────────────────────────────────────────────────────
 
-/** Fetch metaTitle + metaDesc from any singleton page document. Returns nulls if not set. */
-export async function fetchPageSeo(type: string): Promise<{ metaTitle: string | null; metaDesc: string | null }> {
-  const data = await client.fetch<{ metaTitle?: string; metaDesc?: string } | null>(
-    groq`*[_type == $type][0]{ metaTitle, metaDesc }`,
+/** Fetch metaTitle + metaDesc + metaKeywords from any singleton page document. */
+export async function fetchPageSeo(type: string): Promise<{ metaTitle: string | null; metaDesc: string | null; metaKeywords: string[] | null }> {
+  const data = await client.fetch<{ metaTitle?: string; metaDesc?: string; metaKeywords?: string[] } | null>(
+    groq`*[_type == $type][0]{ metaTitle, metaDesc, metaKeywords }`,
     { type },
     REVALIDATE
   );
-  return { metaTitle: data?.metaTitle ?? null, metaDesc: data?.metaDesc ?? null };
+  return {
+    metaTitle: data?.metaTitle ?? null,
+    metaDesc: data?.metaDesc ?? null,
+    metaKeywords: data?.metaKeywords?.length ? data.metaKeywords : null,
+  };
 }
 
 // ── Site Settings ─────────────────────────────────────────────────────────────
@@ -40,7 +44,8 @@ export const HOME_PAGE_QUERY = groq`
     perche_headline,
     perche_items,
     metaTitle,
-    metaDesc
+    metaDesc,
+    metaKeywords
   }
 `;
 
@@ -60,7 +65,8 @@ const ACTIVITY_FIELDS = groq`
   gridImage,
   body_html,
   meta_title,
-  meta_desc
+  meta_desc,
+  keywords
 `;
 
 export const ALL_ACTIVITIES_QUERY = groq`
