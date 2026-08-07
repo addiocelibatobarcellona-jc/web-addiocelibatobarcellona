@@ -78,11 +78,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: "/icon.png",
-    apple: "/apple-icon.png",
-    shortcut: "/favicon.ico",
-  },
 };
 
 export default async function RootLayout({
@@ -94,7 +89,10 @@ export default async function RootLayout({
     getContent(),
     fetchCookieBanner(),
   ]);
-  const legalData = cookieBanner ?? legalJson.cookie_banner;
+  const json = legalJson.cookie_banner;
+  const legalData = cookieBanner?.btn_accept
+    ? cookieBanner
+    : json;
 
   return (
     <html
