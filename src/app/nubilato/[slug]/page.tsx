@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import SiteFooter from "@/components/SiteFooter";
 import nubilatoActivities from "../../../../public/nubilato-activities.json";
+import { client } from "@/sanity/lib/client";
+import { ACTIVITY_BY_SLUG_QUERY } from "@/sanity/lib/queries";
 
 interface NubilatoActivity {
   slug: string;
@@ -16,12 +18,35 @@ interface NubilatoActivity {
   notes: string | null;
   image: string | null;
   body_html?: string;
+  meta_title?: string;
+  meta_desc?: string;
 }
 
 type Params = { slug: string };
 
-function find(slug: string): NubilatoActivity | undefined {
+function findJson(slug: string): NubilatoActivity | undefined {
   return (nubilatoActivities as NubilatoActivity[]).find((a) => a.slug === slug);
+}
+
+/** Fetch from Sanity (category "nubilato"); fall back to JSON. */
+async function getActivity(slug: string): Promise<NubilatoActivity | undefined> {
+  try {
+    const sanity = await client.fetch<{
+      slug: string; name: string; tag?: string | null; price: string;
+      intro: string; description: string; includes: string[];
+      notes?: string | null; images?: string[]; body_html?: string;
+      meta_title?: string; meta_desc?: string;
+    } | null>(ACTIVITY_BY_SLUG_QUERY, { slug }, { next: { revalidate: 60 } });
+    if (sanity) {
+      return {
+        ...sanity,
+        tag: sanity.tag ?? null,
+        notes: sanity.notes ?? null,
+        image: sanity.images?.[0] ?? null,
+      };
+    }
+  } catch { /* fall through */ }
+  return findJson(slug);
 }
 
 export function generateStaticParams(): Params[] {
@@ -30,19 +55,21 @@ export function generateStaticParams(): Params[] {
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug } = await params;
-  const activity = find(slug);
+  const activity = await getActivity(slug);
   if (!activity) return {};
 
   const canonical = `https://www.addioalcelibato-barcellona.it/addio-al-nubilato/${slug}/`;
   const ogImage = activity.image ?? "/images/2026-addio-nubilato-home-page-scaled.jpg";
+  const title = activity.meta_title ?? `${activity.name} | Addio al Nubilato Barcellona`;
+  const description = activity.meta_desc ?? activity.intro;
 
   return {
-    title: `${activity.name} | Addio al Nubilato Barcellona`,
-    description: activity.intro,
+    title,
+    description,
     alternates: { canonical },
     openGraph: {
-      title: `${activity.name} | Addio al Nubilato Barcellona`,
-      description: activity.intro,
+      title,
+      description,
       url: canonical,
       locale: "it_IT",
       type: "website",
@@ -51,8 +78,8 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     },
     twitter: {
       card: "summary_large_image",
-      title: `${activity.name} | Addio al Nubilato Barcellona`,
-      description: activity.intro,
+      title,
+      description,
       images: [ogImage],
     },
   };
@@ -102,7 +129,7 @@ function buildJsonLd(activity: NubilatoActivity) {
 
 export default async function NubilatoActivityPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
-  const activity = find(slug);
+  const activity = await getActivity(slug);
   if (!activity) notFound();
 
   const jsonLd = buildJsonLd(activity);

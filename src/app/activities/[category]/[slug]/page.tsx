@@ -6,6 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 import ActivityContactForm from "@/components/ActivityContactForm";
 import activitiesDetail from "../../../../../public/activities-detail.json";
 import { client } from "@/sanity/lib/client";
+import { ACTIVITY_BY_SLUG_QUERY } from "@/sanity/lib/queries";
 import { resolveActivityImage } from "@/sanity/lib/image";
 
 // ── Types ──────────────────────────────────────────────────────────────────────
@@ -21,6 +22,27 @@ interface ActivityDetail {
   notes: string | null;
   images: string[];
   body_html?: string;
+  meta_title?: string;
+  meta_desc?: string;
+}
+
+type SanityImg = { _type: string; asset?: { _ref: string; _type: string } };
+
+interface SanityActivity {
+  slug: string;
+  category: "night" | "daytime" | "nubilato";
+  name: string;
+  price: string | null;
+  intro: string;
+  includes: string[];
+  description: string;
+  notes: string | null;
+  images: string[];
+  body_html?: string;
+  meta_title?: string;
+  meta_desc?: string;
+  coverImage?: SanityImg | null;
+  gridImage?: SanityImg | null;
 }
 
 type Params = { category: string; slug: string };
@@ -31,8 +53,23 @@ function toItalianCategory(category: string) {
   return category === "night" ? "notturne" : "pomeridiane";
 }
 
-function findActivity(category: string, slug: string): ActivityDetail | undefined {
-  const italianCat = toItalianCategory(category);
+/** Fetch from Sanity; falls back to JSON if not found or Sanity unavailable. */
+async function getActivity(urlCategory: string, slug: string): Promise<(ActivityDetail & { coverImage?: SanityImg | null; gridImage?: SanityImg | null }) | undefined> {
+  try {
+    const sanity = await client.fetch<SanityActivity | null>(
+      ACTIVITY_BY_SLUG_QUERY,
+      { slug },
+      { next: { revalidate: 60 } }
+    );
+    if (sanity && sanity.category !== "nubilato") {
+      return {
+        ...sanity,
+        category: sanity.category === "night" ? "notturne" : "pomeridiane",
+      };
+    }
+  } catch { /* fall through to JSON */ }
+
+  const italianCat = toItalianCategory(urlCategory);
   return (activitiesDetail as ActivityDetail[]).find(
     (a) => a.category === italianCat && a.slug === slug
   );
@@ -43,15 +80,6 @@ function getCardImage(category: string, slug: string, c: Awaited<ReturnType<type
   const list = italianCat === "notturne" ? c.notturne.activities : c.pomeridiane.activities;
   const card = list.find((a) => a.href.includes(slug));
   return card?.image;
-}
-
-type SanityImg = { _type: string; asset?: { _ref: string; _type: string } };
-async function getSanityImages(slug: string) {
-  return client.fetch<{ coverImage?: SanityImg | null; gridImage?: SanityImg | null } | null>(
-    `*[_type == "activity" && slug.current == $slug][0]{ coverImage, gridImage }`,
-    { slug },
-    { next: { revalidate: 60 } }
-  );
 }
 
 // ── Static params ──────────────────────────────────────────────────────────────
@@ -67,20 +95,18 @@ export function generateStaticParams(): Params[] {
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { category, slug } = await params;
-  const activity = findActivity(category, slug);
+  const activity = await getActivity(category, slug);
   if (!activity) return {};
 
   const italianCat = toItalianCategory(category);
   const canonical = `https://www.addioalcelibato-barcellona.it/attivita/${italianCat}/${slug}/`;
-  const sanityImgs = await getSanityImages(slug);
   const ogImage = resolveActivityImage(
-    sanityImgs?.coverImage ?? sanityImgs?.gridImage,
+    activity.coverImage ?? activity.gridImage,
     activity.images[0] ?? "/images/2017-ADDIO-SPICY-MIX-S.jpg"
   ) ?? "/images/2017-ADDIO-SPICY-MIX-S.jpg";
 
-  const metaTitle = (activity as { meta_title?: string }).meta_title
-    ?? `${activity.name} | Addio al Celibato Barcellona`;
-  const metaDesc = (activity as { meta_desc?: string }).meta_desc ?? activity.intro;
+  const metaTitle = activity.meta_title ?? `${activity.name} | Addio al Celibato Barcellona`;
+  const metaDesc = activity.meta_desc ?? activity.intro;
 
   return {
     title: metaTitle,
@@ -171,14 +197,12 @@ function Wave({ from, to }: { from: string; to: string }) {
 
 export default async function ActivityDetailPage({ params }: { params: Promise<Params> }) {
   const { category, slug } = await params;
-  const activity = findActivity(category, slug);
+  const [activity, c] = await Promise.all([getActivity(category, slug), getContent()]);
   if (!activity) notFound();
 
-  const c = await getContent();
-  const sanityImgs = await getSanityImages(slug);
   const legacyImage = getCardImage(category, slug, c) ?? activity.images[0];
   const heroImage = resolveActivityImage(
-    sanityImgs?.coverImage ?? sanityImgs?.gridImage,
+    activity.coverImage ?? activity.gridImage,
     legacyImage
   ) ?? legacyImage;
   const italianCat = toItalianCategory(category);

@@ -4,6 +4,7 @@
  */
 import { createClient } from "@sanity/client";
 import activities from "../public/activities-detail.json" assert { type: "json" };
+import nubilatoActivities from "../public/nubilato-activities.json" assert { type: "json" };
 import dotenv from "dotenv";
 
 dotenv.config({ path: ".env.local" });
@@ -23,12 +24,22 @@ function mapCategory(cat) {
   return "nubilato";
 }
 
+// Merge all activities: celibato (notturne/pomeridiane) + nubilato
+const allActivities = [
+  ...activities,
+  ...nubilatoActivities.map((a) => ({
+    ...a,
+    category: "nubilato",
+    images: a.image ? [a.image] : [],
+  })),
+];
+
 async function run() {
-  console.log(`Migrando ${activities.length} actividades...`);
+  console.log(`Migrando ${allActivities.length} actividades (${activities.length} celibato + ${nubilatoActivities.length} nubilato)...`);
   let ok = 0;
   let skip = 0;
 
-  for (const act of activities) {
+  for (const act of allActivities) {
     const existing = await client.fetch(
       `*[_type == "activity" && slug.current == $slug][0]._id`,
       { slug: act.slug }

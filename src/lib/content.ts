@@ -1,6 +1,7 @@
 import { readFileSync } from "fs";
 import { join } from "path";
 import { client } from "@/sanity/lib/client";
+import { HOME_PAGE_QUERY } from "@/sanity/lib/queries";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Types
@@ -134,32 +135,45 @@ export async function getContent(): Promise<SiteContent> {
   const base = getJsonContent();
 
   try {
-    const s = await client.fetch(SITE_SETTINGS_QUERY, {}, { next: { revalidate: 60 } });
-    if (!s) return base;
+    const [s, h] = await Promise.all([
+      client.fetch(SITE_SETTINGS_QUERY, {}, { next: { revalidate: 60 } }),
+      client.fetch(HOME_PAGE_QUERY, {}, { next: { revalidate: 60 } }),
+    ]);
 
     return {
       ...base,
       site: {
         ...base.site,
-        email: s.site_email ?? base.site.email,
-        whatsapp: s.site_whatsapp ?? base.site.whatsapp,
+        email: s?.site_email ?? base.site.email,
+        whatsapp: s?.site_whatsapp ?? base.site.whatsapp,
       },
       navbar: {
-        logo_line1: s.navbar_logo_line1 ?? base.navbar.logo_line1,
-        logo_line2: s.navbar_logo_line2 ?? base.navbar.logo_line2,
-        cta_label: s.navbar_cta_label ?? base.navbar.cta_label,
-        links: s.navbar_links?.length ? s.navbar_links : base.navbar.links,
-        mobile_cta_label: s.mobile_cta_label ?? undefined,
-        mobile_extra_links: s.mobile_extra_links ?? [],
+        logo_line1: s?.navbar_logo_line1 ?? base.navbar.logo_line1,
+        logo_line2: s?.navbar_logo_line2 ?? base.navbar.logo_line2,
+        cta_label: s?.navbar_cta_label ?? base.navbar.cta_label,
+        links: s?.navbar_links?.length ? s.navbar_links : base.navbar.links,
+        mobile_cta_label: s?.mobile_cta_label ?? undefined,
+        mobile_extra_links: s?.mobile_extra_links ?? [],
+      },
+      hero: {
+        ...base.hero,
+        headline_line1: h?.hero_headline ?? base.hero.headline_line1,
+        headline_accent: h?.hero_headline_accent ?? base.hero.headline_accent,
+        subheadline: h?.hero_subheadline ?? base.hero.subheadline,
+      },
+      perche: {
+        ...base.perche,
+        section_title_line1: h?.perche_headline ?? base.perche.section_title_line1,
+        items: h?.perche_items?.length ? h.perche_items : base.perche.items,
       },
       footer: {
         ...base.footer,
-        logo_line1: s.footer_tagline ?? base.footer.logo_line1,
-        description: s.footer_description ?? base.footer.description,
-        activity_links: s.footer_links_services?.length
+        logo_line1: s?.footer_tagline ?? base.footer.logo_line1,
+        description: s?.footer_description ?? base.footer.description,
+        activity_links: s?.footer_links_services?.length
           ? s.footer_links_services
           : base.footer.activity_links,
-        legal_links: s.footer_links_info?.length
+        legal_links: s?.footer_links_info?.length
           ? s.footer_links_info
           : base.footer.legal_links,
       },

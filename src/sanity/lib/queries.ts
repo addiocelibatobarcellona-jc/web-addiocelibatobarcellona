@@ -1,14 +1,16 @@
 import { groq } from "next-sanity";
 import { client } from "./client";
 
-const SEO_REVALIDATE = { next: { revalidate: 60 } } as const;
+const REVALIDATE = { next: { revalidate: 60 } } as const;
+
+// ── SEO helper ────────────────────────────────────────────────────────────────
 
 /** Fetch metaTitle + metaDesc from any singleton page document. Returns nulls if not set. */
 export async function fetchPageSeo(type: string): Promise<{ metaTitle: string | null; metaDesc: string | null }> {
   const data = await client.fetch<{ metaTitle?: string; metaDesc?: string } | null>(
     groq`*[_type == $type][0]{ metaTitle, metaDesc }`,
     { type },
-    SEO_REVALIDATE
+    REVALIDATE
   );
   return { metaTitle: data?.metaTitle ?? null, metaDesc: data?.metaDesc ?? null };
 }
@@ -28,43 +30,54 @@ export const SITE_SETTINGS_QUERY = groq`
   }
 `;
 
+// ── Home Page ─────────────────────────────────────────────────────────────────
+
+export const HOME_PAGE_QUERY = groq`
+  *[_type == "homePage"][0] {
+    hero_headline,
+    hero_headline_accent,
+    hero_subheadline,
+    perche_headline,
+    perche_items,
+    metaTitle,
+    metaDesc
+  }
+`;
+
 // ── Activities ────────────────────────────────────────────────────────────────
 
+const ACTIVITY_FIELDS = groq`
+  "slug": slug.current,
+  category,
+  name,
+  price,
+  intro,
+  includes,
+  description,
+  notes,
+  images,
+  coverImage,
+  gridImage,
+  body_html,
+  meta_title,
+  meta_desc
+`;
+
 export const ALL_ACTIVITIES_QUERY = groq`
-  *[_type == "activity"] | order(name asc) {
-    "slug": slug.current,
-    category,
-    name,
-    price,
-    intro,
-    includes,
-    description,
-    notes,
-    images,
-    coverImage,
-    gridImage,
-    body_html,
-    meta_title,
-    meta_desc
+  *[_type == "activity" && category in ["night", "daytime"]] | order(name asc) {
+    ${ACTIVITY_FIELDS}
+  }
+`;
+
+export const ALL_NUBILATO_ACTIVITIES_QUERY = groq`
+  *[_type == "activity" && category == "nubilato"] | order(name asc) {
+    ${ACTIVITY_FIELDS}
   }
 `;
 
 export const ACTIVITY_BY_SLUG_QUERY = groq`
   *[_type == "activity" && slug.current == $slug][0] {
-    "slug": slug.current,
-    category,
-    name,
-    price,
-    intro,
-    includes,
-    description,
-    notes,
-    images,
-    coverImage,
-    gridImage,
-    body_html,
-    meta_title,
-    meta_desc
+    ${ACTIVITY_FIELDS}
   }
 `;
 
@@ -72,7 +85,48 @@ export const ACTIVITY_SLUGS_QUERY = groq`
   *[_type == "activity"] { "slug": slug.current, category }
 `;
 
-// ── Blog ─────────────────────────────────────────────────────────────────────
+// ── Cookie Banner ─────────────────────────────────────────────────────────────
+
+export const COOKIE_BANNER_QUERY = groq`
+  *[_type == "cookieConsent"][0] {
+    title,
+    description,
+    policy_label,
+    policy_href,
+    btn_configure,
+    btn_reject,
+    btn_accept
+  }
+`;
+
+export async function fetchCookieBanner(): Promise<{
+  title: string; description: string; policy_label: string;
+  policy_href: string; btn_configure: string; btn_reject: string; btn_accept: string;
+} | null> {
+  try {
+    return await client.fetch(COOKIE_BANNER_QUERY, {}, REVALIDATE);
+  } catch {
+    return null;
+  }
+}
+
+// ── Activities Page ───────────────────────────────────────────────────────────
+
+export const ACTIVITIES_PAGE_QUERY = groq`
+  *[_type == "activitiesPage"][0] {
+    all_meta_title,
+    all_meta_desc,
+    all_seo_text,
+    night_meta_title,
+    night_meta_desc,
+    night_seo_text,
+    daytime_meta_title,
+    daytime_meta_desc,
+    daytime_seo_text,
+  }
+`;
+
+// ── Blog ──────────────────────────────────────────────────────────────────────
 
 export const ALL_BLOG_POSTS_QUERY = groq`
   *[_type == "blogPost"] | order(date desc) {

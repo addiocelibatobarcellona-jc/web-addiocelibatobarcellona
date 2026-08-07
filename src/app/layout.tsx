@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getContent } from "@/lib/content";
 import SiteChrome from "@/components/SiteChrome";
+import { fetchCookieBanner } from "@/sanity/lib/queries";
 import legalJson from "../../public/legal.json";
 
 const bebas = Bebas_Neue({
@@ -82,7 +83,11 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const data = await getContent();
+  const [data, cookieBanner] = await Promise.all([
+    getContent(),
+    fetchCookieBanner(),
+  ]);
+  const legalData = cookieBanner ?? legalJson.cookie_banner;
 
   return (
     <html
@@ -102,7 +107,7 @@ export default async function RootLayout({
           logoLine2={data.navbar.logo_line2}
           ctaLabel={data.navbar.mobile_cta_label ?? data.navbar.cta_label}
           whatsapp={data.site.whatsapp}
-          legalData={legalJson.cookie_banner}
+          legalData={legalData}
         />
         {children}
         <Analytics />

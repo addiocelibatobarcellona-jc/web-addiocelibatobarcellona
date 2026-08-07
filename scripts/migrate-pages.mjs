@@ -166,20 +166,13 @@ async function run() {
   await upsert({
     _id: "cookieConsent",
     _type: "cookieConsent",
-    title:           cb.title ?? "La tua privacy ci interessa",
-    description:     cb.description ?? "Utilizziamo cookie per migliorare la tua esperienza. Puoi accettare tutti i cookie o gestire le tue preferenze.",
-    btnAcceptAll:    cb.btn_accept ?? "Accetta tutto",
-    btnRejectAll:    cb.btn_reject ?? "Rifiuta tutto",
-    btnSavePrefs:    "Salva preferenze",
-    btnManage:       cb.btn_configure ?? "Gestisci",
-    categoryNecessary:     "Cookie necessari",
-    categoryNecessaryDesc: "Necessari per il funzionamento del sito. Non possono essere disabilitati.",
-    categoryAnalytics:     "Cookie analitici",
-    categoryAnalyticsDesc: "Ci aiutano a capire come gli utenti interagiscono con il sito (Google Analytics).",
-    categoryMarketing:     "Cookie di marketing",
-    categoryMarketingDesc: "Utilizzati per mostrarti annunci pertinenti su altre piattaforme.",
-    linkCookiePolicy:  cb.policy_href ?? "/addio-celibato-barcellona-cookie-policy",
-    linkPrivacyPolicy: "/addio-al-celibato-barcellona-privacy",
+    title:          cb.title ?? "La tua privacy ci interessa",
+    description:    cb.description ?? "Utilizziamo cookie per migliorare la tua esperienza. Puoi accettare tutti i cookie o gestire le tue preferenze.",
+    policy_label:   cb.policy_label ?? "Cookie Policy",
+    policy_href:    cb.policy_href ?? "/addio-celibato-barcellona-cookie-policy",
+    btn_configure:  cb.btn_configure ?? "Configura",
+    btn_reject:     cb.btn_reject ?? "Rifiuta tutto",
+    btn_accept:     cb.btn_accept ?? "Accetta tutto",
   });
 
   // ── legalPage: Cookie Policy ───────────────────────────────────────────────

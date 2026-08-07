@@ -4,107 +4,14 @@ export const cookieConsent = defineType({
   name: "cookieConsent",
   title: "Banner Cookie",
   type: "document",
-  groups: [
-    { name: "banner",     title: "Testi Banner",   default: true },
-    { name: "categories", title: "Categorie" },
-    { name: "links",      title: "Link" },
-  ],
+  preview: { prepare() { return { title: "Banner Cookie" }; } },
   fields: [
-    // ── TESTI BANNER ─────────────────────────────────────────────────────────
-    defineField({
-      name: "title",
-      title: "Titolo banner",
-      type: "string",
-      group: "banner",
-      description: 'Es. "Utilizziamo i cookie"',
-    }),
-    defineField({
-      name: "description",
-      title: "Testo descrittivo",
-      type: "text",
-      rows: 4,
-      group: "banner",
-      description: "Spiegazione breve dell'uso dei cookie.",
-    }),
-    defineField({
-      name: "btnAcceptAll",
-      title: "Bottone Accetta tutti",
-      type: "string",
-      group: "banner",
-    }),
-    defineField({
-      name: "btnRejectAll",
-      title: "Bottone Rifiuta tutti",
-      type: "string",
-      group: "banner",
-    }),
-    defineField({
-      name: "btnSavePrefs",
-      title: "Bottone Salva preferenze",
-      type: "string",
-      group: "banner",
-    }),
-    defineField({
-      name: "btnManage",
-      title: "Link gestione preferenze",
-      type: "string",
-      group: "banner",
-      description: 'Es. "Gestisci preferenze"',
-    }),
-
-    // ── CATEGORIE ────────────────────────────────────────────────────────────
-    defineField({
-      name: "categoryNecessary",
-      title: "Necessari — Titolo",
-      type: "string",
-      group: "categories",
-    }),
-    defineField({
-      name: "categoryNecessaryDesc",
-      title: "Necessari — Descrizione",
-      type: "text",
-      rows: 3,
-      group: "categories",
-    }),
-    defineField({
-      name: "categoryAnalytics",
-      title: "Analitici — Titolo",
-      type: "string",
-      group: "categories",
-    }),
-    defineField({
-      name: "categoryAnalyticsDesc",
-      title: "Analitici — Descrizione",
-      type: "text",
-      rows: 3,
-      group: "categories",
-    }),
-    defineField({
-      name: "categoryMarketing",
-      title: "Marketing — Titolo",
-      type: "string",
-      group: "categories",
-    }),
-    defineField({
-      name: "categoryMarketingDesc",
-      title: "Marketing — Descrizione",
-      type: "text",
-      rows: 3,
-      group: "categories",
-    }),
-
-    // ── LINK ─────────────────────────────────────────────────────────────────
-    defineField({
-      name: "linkCookiePolicy",
-      title: "URL Cookie Policy",
-      type: "string",
-      group: "links",
-    }),
-    defineField({
-      name: "linkPrivacyPolicy",
-      title: "URL Privacy Policy",
-      type: "string",
-      group: "links",
-    }),
+    defineField({ name: "title",          title: "Titolo banner",          type: "string", description: 'Es. "La tua privacy ci interessa"' }),
+    defineField({ name: "description",    title: "Testo descrittivo",      type: "text", rows: 3 }),
+    defineField({ name: "policy_label",   title: "Label link Cookie Policy", type: "string", description: 'Es. "Cookie Policy"' }),
+    defineField({ name: "policy_href",    title: "URL Cookie Policy",      type: "string", description: "Es. /addio-celibato-barcellona-cookie-policy" }),
+    defineField({ name: "btn_configure",  title: "Bottone Configura",      type: "string", description: 'Es. "Configura"' }),
+    defineField({ name: "btn_reject",     title: "Bottone Rifiuta",        type: "string", description: 'Es. "Rifiuta Tutto"' }),
+    defineField({ name: "btn_accept",     title: "Bottone Accetta",        type: "string", description: 'Es. "Accetta Tutto"' }),
   ],
 });
