@@ -61,6 +61,13 @@ export const metadata: Metadata = {
       "La tua festa leggendaria a Barcellona. Miglior prezzo garantito dal 2017.",
     images: ["/images/2017-ADDIO-SPICY-MIX-S.jpg"],
   },
+  alternates: {
+    canonical: "https://www.addioalcelibato-barcellona.it/",
+    languages: {
+      "it": "https://www.addioalcelibato-barcellona.it/",
+      "x-default": "https://www.addioalcelibato-barcellona.it/",
+    },
+  },
   robots: {
     index: true,
     follow: true,

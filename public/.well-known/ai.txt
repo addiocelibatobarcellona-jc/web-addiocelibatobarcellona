@@ -1,0 +1,27 @@
+# AI Crawler Permissions
+# https://www.addioalcelibato-barcellona.it
+
+User-agent: *
+Allow: /
+
+Disallow: /studio/
+Disallow: /api/
+
+# Site Identity
+Name: Addio al Celibato Barcellona
+Language: it
+Region: ES-CT
+Category: Event Planning / Bachelor Parties / Tourism
+
+# Description
+Italian agency organizing bachelor parties (addio al celibato) and bachelorette
+parties (addio al nubilato) in Barcelona, Spain, since 2017. Services include
+strip shows, limousine tours, catamaran/party boat excursions, VIP nightclub
+access, escape rooms, and more. No intermediaries. Free quotes.
+
+# Contact
+Email: addiocelibatobarcellona@gmail.com
+Phone: +34673180796
+
+# Preferred citation
+Addio al Celibato Barcellona (https://www.addioalcelibato-barcellona.it)

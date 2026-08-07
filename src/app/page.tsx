@@ -19,7 +19,13 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: seo.metaTitle ?? DEFAULT_TITLE,
     description: seo.metaDesc ?? DEFAULT_DESC,
-    alternates: { canonical: "https://www.addioalcelibato-barcellona.it/" },
+    alternates: {
+      canonical: "https://www.addioalcelibato-barcellona.it/",
+      languages: {
+        "it": "https://www.addioalcelibato-barcellona.it/",
+        "x-default": "https://www.addioalcelibato-barcellona.it/",
+      },
+    },
   };
 }
 
@@ -138,6 +144,13 @@ const homeJsonLd = {
         "https://maps.app.goo.gl/oaPeRnXLkWpVScSv8",
         "https://it.trustpilot.com/review/addioalcelibato-barcellona.it",
       ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "ratingCount": "98",
+        "reviewCount": "98",
+      },
     },
     {
       "@type": "WebSite",
@@ -146,6 +159,18 @@ const homeJsonLd = {
       "name": "Addio al Celibato Barcellona",
       "publisher": { "@id": ORG_ID },
       "inLanguage": "it",
+      "potentialAction": {
+        "@type": "ReserveAction",
+        "name": "Richiedi Preventivo Gratuito",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": `${BASE_URL}/addio-al-celibato-barcellona-contatti/`,
+          "actionPlatform": [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform",
+          ],
+        },
+      },
     },
   ],
 };
