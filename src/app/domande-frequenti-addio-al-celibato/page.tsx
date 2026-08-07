@@ -157,7 +157,7 @@ export default function FAQPage() {
                   color: "var(--blue)",
                   flexShrink: 0,
                   fontFamily: "var(--font-jakarta)",
-                  fontWeight: 300,
+                  fontWeight: 400,
                   lineHeight: 1,
                 }}>+</span>
               </summary>

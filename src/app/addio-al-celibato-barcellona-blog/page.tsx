@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import SiteFooter from "@/components/SiteFooter";
 import { getPaginatedPosts, formatDate } from "@/lib/blog";
@@ -91,15 +92,12 @@ export default async function BlogPage() {
             >
               {post.featuredImage ? (
                 <>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={post.featuredImage}
                     alt={post.title}
-                    style={{
-                      position: "absolute", inset: 0,
-                      width: "100%", height: "100%",
-                      objectFit: "cover", objectPosition: "center",
-                    }}
+                    fill
+                    sizes="(max-width: 480px) 100vw, (max-width: 900px) 50vw, 33vw"
+                    style={{ objectFit: "cover", objectPosition: "center" }}
                   />
                   <div style={{
                     position: "absolute", inset: 0,

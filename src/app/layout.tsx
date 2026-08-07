@@ -2,16 +2,11 @@ import type { Metadata, Viewport } from "next";
 import type { NavLink } from "@/lib/content";
 import { Bebas_Neue, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import CookieBanner from "@/components/CookieBanner";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
-import WhatsAppWidget from "@/components/WhatsAppWidget";
-import BottomNav from "@/components/BottomNav";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { draftMode, headers } from "next/headers";
-import { VisualEditing } from "next-sanity/visual-editing";
-import legal from "../../public/legal.json";
 import { getContent } from "@/lib/content";
+import SiteChrome from "@/components/SiteChrome";
+import legalJson from "../../public/legal.json";
 
 const bebas = Bebas_Neue({
   weight: "400",
@@ -22,7 +17,7 @@ const bebas = Bebas_Neue({
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-jakarta",
   display: "swap",
 });
@@ -82,39 +77,34 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const headersList = await headers();
-  const pathname = headersList.get("x-pathname") ?? "";
-  const isStudio = pathname.startsWith("/studio");
-
   const data = await getContent();
-  const { isEnabled: isDraftMode } = await draftMode();
+
   return (
     <html
       lang="it"
       className={`${bebas.variable} ${jakarta.variable}`}
     >
+      <head>
+        {/* Preconnect for Sanity CDN image delivery */}
+        <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
+      </head>
       <body className="bg-[#080808] text-white antialiased font-jakarta">
-        {!isStudio && (
-          <BottomNav
-            links={data.navbar.links as NavLink[]}
-            extraMobileLinks={(data.navbar.mobile_extra_links ?? []) as NavLink[]}
-            logoLine1={data.navbar.logo_line1}
-            logoLine2={data.navbar.logo_line2}
-            ctaLabel={data.navbar.mobile_cta_label ?? data.navbar.cta_label}
-            whatsapp={data.site.whatsapp}
-          />
-        )}
+        <SiteChrome
+          links={data.navbar.links as NavLink[]}
+          extraMobileLinks={(data.navbar.mobile_extra_links ?? []) as NavLink[]}
+          logoLine1={data.navbar.logo_line1}
+          logoLine2={data.navbar.logo_line2}
+          ctaLabel={data.navbar.mobile_cta_label ?? data.navbar.cta_label}
+          whatsapp={data.site.whatsapp}
+          legalData={legalJson.cookie_banner}
+        />
         {children}
-        {isDraftMode && <VisualEditing />}
-        {!isStudio && <WhatsAppWidget phone={data.site.whatsapp} />}
-        {!isStudio && <CookieBanner data={legal.cookie_banner} />}
-        {!isStudio && <GoogleAnalytics />}
         <Analytics />
         <SpeedInsights />
       </body>

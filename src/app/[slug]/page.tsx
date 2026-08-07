@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import SiteFooter from "@/components/SiteFooter";
 import { getPostBySlug, getAllPostSlugs, formatDate } from "@/lib/blog";
@@ -144,15 +145,13 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
         background: post.featuredImage ? undefined : "var(--blue)",
       }}>
         {post.featuredImage && (
-          /* eslint-disable-next-line @next/next/no-img-element */
-          <img
+          <Image
             src={post.featuredImage}
             alt={post.title}
-            style={{
-              position: "absolute", inset: 0,
-              width: "100%", height: "100%",
-              objectFit: "cover", objectPosition: "center",
-            }}
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectFit: "cover", objectPosition: "center" }}
           />
         )}
         {post.featuredImage && (

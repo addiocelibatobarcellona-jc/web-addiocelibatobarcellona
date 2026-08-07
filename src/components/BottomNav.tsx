@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { X, Menu, MessageCircle, ChevronDown } from "lucide-react";
 import type { NavLink } from "@/lib/content";
 
@@ -92,9 +93,12 @@ export default function BottomNav({ links, extraMobileLinks = [], logoLine1, log
             >
               <path d={CAP_PATH} fill="#fff" />
             </svg>
-            <img
+            <Image
               src="/images/2017-logoaddioalcelibatoblancohori2-1.png"
               alt="Addio al Celibato Barcellona"
+              width={120}
+              height={40}
+              priority
               style={{
                 position: "absolute", top: "50%", left: "50%",
                 transform: "translate(-50%,-50%)",
