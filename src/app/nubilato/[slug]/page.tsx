@@ -132,7 +132,7 @@ export default async function NubilatoActivityPage({ params }: { params: Promise
         {activity.image && (
           <Image
             src={activity.image}
-            alt={activity.name}
+            alt={`${activity.name} – Addio al Nubilato Barcellona`}
             fill
             priority
             sizes="100vw"

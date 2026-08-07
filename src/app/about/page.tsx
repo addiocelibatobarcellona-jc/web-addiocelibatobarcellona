@@ -129,7 +129,7 @@ export default async function ChiSiamo() {
             margin: "0 0 2rem",
             maxWidth: "18ch",
           }}>
-            VI MANCANO IDEE PER L&apos; ADDIO AL CELIBATO?
+            VI MANCANO IDEE PER L&apos;ADDIO AL CELIBATO A BARCELLONA?
           </h1>
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem", maxWidth: "60ch" }}>
             <p style={{
@@ -172,7 +172,7 @@ export default async function ChiSiamo() {
               color: "var(--blue)",
               margin: "0 0 2rem",
             }}>
-              CHI<br />SIAMO?
+              CHI SIAMO –<br />AGENZIA ITALIANA<br />A BARCELLONA
             </h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
               <p style={{ fontSize: "1.05rem", lineHeight: 1.75, color: "rgba(255,255,255,0.85)" }}>
@@ -181,7 +181,7 @@ export default async function ChiSiamo() {
               <p style={{ fontSize: "1.05rem", lineHeight: 1.75, color: "rgba(255,255,255,0.75)" }}>
                 Noi di addioalcelibato-barcellona siamo un&apos;agenzia di Italiani che vivono qui da più di
                 20 anni, che conoscono la città alla perfezione e che sapranno darvi consigli ed idee su
-                misura per il vostro addio al celibato o nubilato a Barcellona.
+                misura per il vostro <a href="/attivita" style={{ color: "var(--blue)", textDecoration: "underline" }}>addio al celibato</a> o <a href="/addio-al-nubilato" style={{ color: "var(--blue)", textDecoration: "underline" }}>nubilato a Barcellona</a>.
               </p>
               <p style={{ fontSize: "1.05rem", lineHeight: 1.75, color: "rgba(255,255,255,0.75)" }}>
                 Scopri cosa dicono di noi i nostri clienti leggendo le loro{" "}

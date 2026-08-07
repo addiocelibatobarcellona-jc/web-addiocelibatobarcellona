@@ -62,8 +62,8 @@ export default async function BlogPageNum({ params }: { params: Promise<Params> 
           color: "#fff",
           margin: "0 0 1rem",
         }}>
-          BLOG &<br />
-          <span style={{ color: "#000" }}>CONSIGLI</span>
+          BLOG ADDIO<br />AL CELIBATO<br />
+          <span style={{ color: "#000" }}>BARCELLONA</span>
         </h1>
         <p style={{ fontSize: "0.9rem", color: "rgba(0,0,0,0.6)", fontWeight: 400 }}>
           {total} articoli su addio al celibato e nubilato a Barcellona

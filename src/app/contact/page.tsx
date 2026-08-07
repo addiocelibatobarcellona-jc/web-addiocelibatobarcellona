@@ -111,8 +111,9 @@ export default async function Contatti() {
               color: "#fff",
               margin: "0 0 0.75rem",
             }}>
-              RICHIEDI UN<br />
-              <span style={{ color: "var(--blue)" }}>PREVENTIVO!</span>
+              ADDIO AL CELIBATO<br />
+              <span style={{ color: "var(--blue)" }}>BARCELLONA</span><br />
+              <span style={{ fontSize: "0.65em", letterSpacing: "0.1em" }}>PREVENTIVO GRATUITO</span>
             </h1>
             <p style={{ fontSize: "0.9rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.6, marginBottom: "2.5rem", maxWidth: "46ch" }}>
               Compila il form con le informazioni sul tuo gruppo e ti prepariamo

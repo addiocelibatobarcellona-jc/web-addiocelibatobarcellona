@@ -5,8 +5,8 @@ import SiteFooter from "@/components/SiteFooter";
 import { getPaginatedPosts, formatDate } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog | Addio al Celibato Barcellona",
-  description: "Idee, consigli e ispirazione per organizzare il perfetto addio al celibato a Barcellona.",
+  title: "Blog Addio al Celibato Barcellona – Idee, Consigli e Attività",
+  description: "Idee, consigli e ispirazione per organizzare il perfetto addio al celibato o nubilato a Barcellona. Attività, prezzi, suggerimenti pratici.",
   alternates: { canonical: "https://www.addioalcelibato-barcellona.it/addio-al-celibato-barcellona-blog/" },
   openGraph: {
     title: "Blog Addio al Celibato Barcellona – Idee e Consigli",
@@ -57,8 +57,8 @@ export default async function BlogPage() {
           color: "#fff",
           margin: "0 0 1rem",
         }}>
-          BLOG &<br />
-          <span style={{ color: "#000" }}>CONSIGLI</span>
+          BLOG ADDIO<br />AL CELIBATO<br />
+          <span style={{ color: "#000" }}>BARCELLONA</span>
         </h1>
         <p style={{ fontSize: "0.9rem", color: "rgba(0,0,0,0.6)", fontWeight: 400 }}>
           {total} articoli su addio al celibato e nubilato a Barcellona

@@ -212,7 +212,7 @@ export default async function ActivityDetailPage({ params }: { params: Promise<P
         {heroImage && (
           <Image
             src={heroImage}
-            alt={activity.name}
+            alt={`${activity.name} – Addio al Celibato Barcellona`}
             fill
             priority
             sizes="100vw"

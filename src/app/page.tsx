@@ -13,7 +13,7 @@ import SiteFooter from "@/components/SiteFooter";
 export const metadata: Metadata = {
   title: "Addio al Celibato Barcellona | Dal 2017 – Miglior Prezzo Garantito",
   description:
-    "Organizziamo addii al celibato e al nubilato a Barcellona dal 2017. Strip show, discoteche, limousine, paddle surf e molto altro. Preventivo gratuito!",
+    "Organizziamo addii al celibato e al nubilato a Barcellona dal 2017. Spogliarellista, limousine, catamarano, discoteche, paddle surf e molto altro. Preventivo gratuito!",
   alternates: { canonical: "https://www.addioalcelibato-barcellona.it/" },
 };
 
@@ -112,7 +112,7 @@ const homeJsonLd = {
         "url": `${BASE_URL}/images/2017-logoaddioalcelibatoblancohori2-1.png`,
       },
       "image": `${BASE_URL}/images/2017-ADDIO-SPICY-MIX-S.jpg`,
-      "description": "Organizziamo addii al celibato e al nubilato a Barcellona dal 2017. Strip show, discoteche, limousine, paddle surf e molto altro. Preventivo gratuito!",
+      "description": "Organizziamo addii al celibato e al nubilato a Barcellona dal 2017. Spogliarellista, limousine, catamarano, discoteche, paddle surf e molto altro. Preventivo gratuito!",
       "foundingDate": "2017",
       "priceRange": "€€",
       "address": {
@@ -494,8 +494,8 @@ export default async function HomePage() {
               color: "#fff",
               margin: "0 0 2rem",
             }}>
-              IDEE PER UN<br />
-              <span style={{ color: "var(--blue)" }}>CELIBATO UNICO</span>
+              IDEE PER UN ADDIO<br />
+              <span style={{ color: "var(--blue)" }}>AL CELIBATO A BARCELLONA</span>
             </h2>
           </div>
           <div>

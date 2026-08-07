@@ -111,7 +111,7 @@ export default function FAQPage() {
           marginBottom: "1.5rem",
           textWrap: "balance",
         }}>
-          DOMANDE<br />FREQUENTI
+          DOMANDE FREQUENTI<br />ADDIO AL CELIBATO<br /><span style={{ color: "rgba(255,255,255,0.6)" }}>BARCELLONA</span>
         </h1>
         <p style={{
           fontFamily: "var(--font-jakarta)",

@@ -32,9 +32,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.addioalcelibato-barcellona.it"),
   title: "Addio al Celibato Barcellona | Dal 2017 – Miglior Prezzo Garantito",
   description:
-    "Organizziamo addii al celibato e al nubilato a Barcellona dal 2017. Strip show, discoteche, limousine, paddle surf e molto altro. Preventivo gratuito!",
+    "Organizziamo addii al celibato e al nubilato a Barcellona dal 2017. Spogliarellista, limousine, catamarano, discoteche, paddle surf e molto altro. Preventivo gratuito!",
   keywords:
-    "addio al celibato barcellona, addio al nubilato barcellona, pacchetti celibato barcellona, festa addio celibato barcellona",
+    "addio al celibato barcellona, addio al nubilato barcellona, pacchetti celibato barcellona, festa addio celibato barcellona, spogliarellista barcellona, limousine barcellona, party boat barcellona, catamarano barcellona",
   authors: [{ name: "Addio al Celibato Barcellona" }],
   openGraph: {
     title: "Addio al Celibato Barcellona | Dal 2017",

@@ -7,7 +7,7 @@ import SiteFooter from "@/components/SiteFooter";
 export const metadata: Metadata = {
   title: "Addio al Nubilato a Barcellona | Attività ed Idee dal 2017",
   description:
-    "Organizziamo addii al nubilato a Barcellona dal 2017. Strip show maschile, catamaran, limousine, cocktail lab e molto altro. Preventivo gratuito senza impegno.",
+    "Organizziamo addii al nubilato a Barcellona dal 2017. Spogliarellista maschile, catamarano, limousine, cocktail lab e molto altro. Preventivo gratuito senza impegno.",
   alternates: { canonical: "https://www.addioalcelibato-barcellona.it/addio-al-nubilato/" },
   openGraph: {
     title: "Addio al Nubilato a Barcellona | Dal 2017",
@@ -506,7 +506,7 @@ export default async function NubilatoPage() {
               color: "#fff",
               margin: 0,
             }}>
-              TUTTE LE ATTIVITÀ
+              ATTIVITÀ PER L&apos;ADDIO AL NUBILATO A BARCELLONA
             </h2>
             <p style={{ fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", fontWeight: 600 }}>
               {ACTIVITIES.length} attività disponibili
