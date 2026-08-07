@@ -28,6 +28,8 @@ export const ALL_ACTIVITIES_QUERY = groq`
     description,
     notes,
     images,
+    coverImage,
+    gridImage,
     body_html,
     meta_title,
     meta_desc
@@ -45,6 +47,8 @@ export const ACTIVITY_BY_SLUG_QUERY = groq`
     description,
     notes,
     images,
+    coverImage,
+    gridImage,
     body_html,
     meta_title,
     meta_desc

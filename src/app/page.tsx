@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Addio al Celibato Barcellona | Dal 2017 – Miglior Prezzo Garantito",
   description:
     "Organizziamo addii al celibato e al nubilato a Barcellona dal 2017. Strip show, discoteche, limousine, paddle surf e molto altro. Preventivo gratuito!",
-  alternates: { canonical: "https://www.addioalcelibato-barcellona.it" },
+  alternates: { canonical: "https://www.addioalcelibato-barcellona.it/" },
 };
 
 

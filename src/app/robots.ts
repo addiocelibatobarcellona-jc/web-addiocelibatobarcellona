@@ -38,7 +38,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       })),
     ],
-    sitemap: `${BASE}/sitemap_index.xml`,
-    host: BASE,
+    sitemap: `${BASE}/sitemap.xml`,
   };
 }

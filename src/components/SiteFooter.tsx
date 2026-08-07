@@ -52,9 +52,9 @@ export default async function SiteFooter() {
           </div>
         </div>
 
-        <div style={{ borderTop: "1px solid #222", marginTop: "4rem", paddingTop: "1.5rem", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
+        <div className="footer-bottom-bar" style={{ borderTop: "1px solid #222", marginTop: "4rem", paddingTop: "1.5rem", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
           <p style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.5)", fontWeight: 500 }}>© {new Date().getFullYear()} {c.footer.copyright}</p>
-          <div style={{ display: "flex", gap: "1.5rem" }}>
+          <div className="footer-legal-links" style={{ display: "flex", gap: "1.5rem" }}>
             {c.footer.legal_links.map((l) => (
               <a key={l.href} href={l.href} className="footer-legal-link">{l.label}</a>
             ))}

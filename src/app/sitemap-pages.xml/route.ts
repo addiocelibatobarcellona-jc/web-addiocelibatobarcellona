@@ -28,6 +28,11 @@ const ACTIVITY_DATES: Record<string, string> = {
   "addio-celibato-paddle-surf-barcellona":         "2024-03-31",
   "addio-al-nubilato-in-catamarano-a-barcellona":  "2026-05-22",
   "addio-nubilato-beerbike-barcellona":            "2026-05-22",
+  "night-club-di-barcellona":                      "2026-08-05",
+  "addio-al-celibato-archery-tag":                 "2026-05-06",
+  "segway-barcellona-tour":                        "2026-05-06",
+  "addio-al-celibato-altre-attivita":              "2026-05-06",
+  "addio-celibato-tutti-al-mare-barcellona":       "2026-08-05",
 };
 
 // ── Extra images (for activities whose JSON images array is empty) ──────────
@@ -65,12 +70,15 @@ function urlEntry(
 export const dynamic = "force-static";
 
 export function GET() {
-  const activities = (activitiesDetail as ActivityDetail[]).map((a) => {
-    const loc = `${BASE}/attivita/${a.category}/${a.slug}/`;
-    const lastmod = ACTIVITY_DATES[a.slug] ?? "2024-02-27";
-    const images = a.images.length > 0 ? a.images : (EXTRA_IMAGES[a.slug] ?? []);
-    return urlEntry(loc, lastmod, "monthly", "0.7", images);
-  });
+  const EXCLUDED_SLUGS = new Set(["xxx-show-trasgressione-massima", "body-sushi"]);
+  const activities = (activitiesDetail as ActivityDetail[])
+    .filter((a) => !EXCLUDED_SLUGS.has(a.slug))
+    .map((a) => {
+      const loc = `${BASE}/attivita/${a.category}/${a.slug}/`;
+      const lastmod = ACTIVITY_DATES[a.slug] ?? "2026-08-05";
+      const images = a.images.length > 0 ? a.images : (EXTRA_IMAGES[a.slug] ?? []);
+      return urlEntry(loc, lastmod, "monthly", "0.7", images);
+    });
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -85,7 +93,6 @@ ${urlEntry(`${BASE}/chi-siamo-idee-per-laddio-al-celibato/`, "2024-02-27", "mont
 ${urlEntry(`${BASE}/addio-al-celibato-barcellona-blog/`, "2026-06-10", "weekly", "0.75")}
 ${urlEntry(`${BASE}/domande-frequenti-addio-al-celibato/`, "2026-08-04", "monthly", "0.65")}
 ${urlEntry(`${BASE}/addio-celibato-barcellona-cookie-policy/`, "2017-02-16", "yearly", "0.2")}
-${urlEntry(`${BASE}/addio-al-celibato-barcellona-privacy/`, "2017-02-22", "yearly", "0.2")}
 ${activities.join("\n")}
 </urlset>`;
 
