@@ -3,6 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Pagina non trovata | Addio al Celibato Barcellona",
+  robots: { index: false, follow: false },
 };
 
 export default function NotFound() {

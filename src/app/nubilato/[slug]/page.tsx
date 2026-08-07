@@ -46,6 +46,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
       url: canonical,
       locale: "it_IT",
       type: "website",
+      siteName: "Addio al Celibato Barcellona",
       images: [{ url: ogImage, width: 1200, height: 630, alt: activity.name }],
     },
     twitter: {

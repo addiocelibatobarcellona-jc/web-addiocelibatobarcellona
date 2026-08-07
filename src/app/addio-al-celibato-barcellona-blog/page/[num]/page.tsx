@@ -18,8 +18,9 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   return {
     title: `Blog — Pagina ${page} | Addio al Celibato Barcellona`,
     alternates: {
-      canonical: `https://www.addioalcelibato-barcellona.it/addio-al-celibato-barcellona-blog/page/${page}/`,
+      canonical: `https://www.addioalcelibato-barcellona.it/addio-al-celibato-barcellona-blog/`,
     },
+    robots: { index: false, follow: true },
   };
 }
 
