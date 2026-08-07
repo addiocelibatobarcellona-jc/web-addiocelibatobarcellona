@@ -1,4 +1,17 @@
 import { groq } from "next-sanity";
+import { client } from "./client";
+
+const SEO_REVALIDATE = { next: { revalidate: 60 } } as const;
+
+/** Fetch metaTitle + metaDesc from any singleton page document. Returns nulls if not set. */
+export async function fetchPageSeo(type: string): Promise<{ metaTitle: string | null; metaDesc: string | null }> {
+  const data = await client.fetch<{ metaTitle?: string; metaDesc?: string } | null>(
+    groq`*[_type == $type][0]{ metaTitle, metaDesc }`,
+    { type },
+    SEO_REVALIDATE
+  );
+  return { metaTitle: data?.metaTitle ?? null, metaDesc: data?.metaDesc ?? null };
+}
 
 // ── Site Settings ─────────────────────────────────────────────────────────────
 

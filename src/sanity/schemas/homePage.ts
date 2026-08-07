@@ -9,6 +9,7 @@ export const homePage = defineType({
     { name: "notturne",   title: "Grid Notturne" },
     { name: "pomeridiane",title: "Grid Pomeridiane" },
     { name: "perche",     title: "Perché noi" },
+    { name: "seo",        title: "SEO" },
   ],
   fields: [
     // ── HERO ─────────────────────────────────────────────────────────────────
@@ -37,5 +38,9 @@ export const homePage = defineType({
         defineField({ name: "desc",  type: "text",   title: "Descrizione", rows: 2 }),
       ]}],
     }),
+
+    // ── SEO ───────────────────────────────────────────────────────────────────
+    defineField({ name: "metaTitle", title: "Meta title", type: "string", group: "seo", validation: (r) => r.max(70) }),
+    defineField({ name: "metaDesc",  title: "Meta desc",  type: "text",   group: "seo", rows: 2, validation: (r) => r.max(160) }),
   ],
 });

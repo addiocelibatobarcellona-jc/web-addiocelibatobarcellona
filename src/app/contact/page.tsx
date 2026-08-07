@@ -3,28 +3,37 @@ import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
 import { getContent } from "@/lib/content";
 import SiteFooter from "@/components/SiteFooter";
 import ContactForm from "./ContactForm";
+import { fetchPageSeo } from "@/sanity/lib/queries";
 
-export const metadata: Metadata = {
-  title: "Contatti | Preventivo Gratis per il tuo Addio al Celibato a Barcellona",
-  description:
-    "Contattaci per un preventivo gratuito e senza impegno. Email, WhatsApp o telefono — ti rispondiamo in poche ore. Addio al celibato a Barcellona dal 2017.",
-  alternates: { canonical: "https://www.addioalcelibato-barcellona.it/addio-al-celibato-barcellona-contatti/" },
-  openGraph: {
-    title: "Contatti | Preventivo Gratis – Addio al Celibato Barcellona",
-    description: "Contattaci per un preventivo gratuito e senza impegno. Ti rispondiamo in poche ore.",
-    locale: "it_IT",
-    type: "website",
-    url: "https://www.addioalcelibato-barcellona.it/addio-al-celibato-barcellona-contatti/",
-    siteName: "Addio al Celibato Barcellona",
-    images: [{ url: "/images/2017-ADDIO-SPICY-MIX-S.jpg", width: 1200, height: 630, alt: "Addio al Celibato Barcellona – Contatti" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Preventivo Gratis – Addio al Celibato Barcellona",
-    description: "Contattaci per un preventivo gratuito. Ti rispondiamo in poche ore.",
-    images: ["/images/2017-ADDIO-SPICY-MIX-S.jpg"],
-  },
-};
+const DEFAULT_TITLE = "Contatti | Preventivo Gratis per il tuo Addio al Celibato a Barcellona";
+const DEFAULT_DESC = "Contattaci per un preventivo gratuito e senza impegno. Email, WhatsApp o telefono — ti rispondiamo in poche ore. Addio al celibato a Barcellona dal 2017.";
+const CANONICAL = "https://www.addioalcelibato-barcellona.it/addio-al-celibato-barcellona-contatti/";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await fetchPageSeo("contactPage");
+  const title = seo.metaTitle ?? DEFAULT_TITLE;
+  const description = seo.metaDesc ?? DEFAULT_DESC;
+  return {
+    title,
+    description,
+    alternates: { canonical: CANONICAL },
+    openGraph: {
+      title,
+      description,
+      locale: "it_IT",
+      type: "website",
+      url: CANONICAL,
+      siteName: "Addio al Celibato Barcellona",
+      images: [{ url: "/images/2017-ADDIO-SPICY-MIX-S.jpg", width: 1200, height: 630, alt: "Addio al Celibato Barcellona – Contatti" }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/images/2017-ADDIO-SPICY-MIX-S.jpg"],
+    },
+  };
+}
 
 function Wave({ from, to, flip }: { from: string; to: string; flip?: boolean }) {
   return (

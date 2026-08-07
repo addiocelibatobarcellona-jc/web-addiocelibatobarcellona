@@ -3,28 +3,37 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getContent } from "@/lib/content";
 import SiteFooter from "@/components/SiteFooter";
 import MagneticButton from "@/components/MagneticButton";
+import { fetchPageSeo } from "@/sanity/lib/queries";
 
-export const metadata: Metadata = {
-  title: "Chi Siamo | Idee per l'Addio al Celibato a Barcellona dal 2017",
-  description:
-    "Agenzia di italiani che vivono a Barcellona da più di 20 anni. Le migliori idee per l'addio al celibato e al nubilato a Barcellona. Preventivo gratuito.",
-  alternates: { canonical: "https://www.addioalcelibato-barcellona.it/chi-siamo-idee-per-laddio-al-celibato/" },
-  openGraph: {
-    title: "Chi Siamo | Addio al Celibato Barcellona dal 2017",
-    description: "Italiani che vivono a Barcellona da oltre 20 anni. Organizziamo addii al celibato e nubilato esclusivamente a Barcellona.",
-    locale: "it_IT",
-    type: "website",
-    url: "https://www.addioalcelibato-barcellona.it/chi-siamo-idee-per-laddio-al-celibato/",
-    siteName: "Addio al Celibato Barcellona",
-    images: [{ url: "/images/2017-ADDIO-SPICY-MIX-S.jpg", width: 1200, height: 630, alt: "Chi Siamo – Addio al Celibato Barcellona" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Chi Siamo | Addio al Celibato Barcellona dal 2017",
-    description: "Italiani a Barcellona da 10+ anni. Solo Barcellona, massima qualità.",
-    images: ["/images/2017-ADDIO-SPICY-MIX-S.jpg"],
-  },
-};
+const DEFAULT_TITLE = "Chi Siamo | Idee per l'Addio al Celibato a Barcellona dal 2017";
+const DEFAULT_DESC = "Agenzia di italiani che vivono a Barcellona da più di 20 anni. Le migliori idee per l'addio al celibato e al nubilato a Barcellona. Preventivo gratuito.";
+const CANONICAL = "https://www.addioalcelibato-barcellona.it/chi-siamo-idee-per-laddio-al-celibato/";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await fetchPageSeo("aboutPage");
+  const title = seo.metaTitle ?? DEFAULT_TITLE;
+  const description = seo.metaDesc ?? DEFAULT_DESC;
+  return {
+    title,
+    description,
+    alternates: { canonical: CANONICAL },
+    openGraph: {
+      title,
+      description,
+      locale: "it_IT",
+      type: "website",
+      url: CANONICAL,
+      siteName: "Addio al Celibato Barcellona",
+      images: [{ url: "/images/2017-ADDIO-SPICY-MIX-S.jpg", width: 1200, height: 630, alt: "Chi Siamo – Addio al Celibato Barcellona" }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/images/2017-ADDIO-SPICY-MIX-S.jpg"],
+    },
+  };
+}
 
 function Wave({ from, to, flip }: { from: string; to: string; flip?: boolean }) {
   return (

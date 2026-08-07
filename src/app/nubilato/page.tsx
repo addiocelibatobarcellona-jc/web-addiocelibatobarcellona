@@ -3,28 +3,38 @@ import Image from "next/image";
 import { ArrowUpRight, ArrowRight, MessageCircle, MapPin, Target, User } from "lucide-react";
 import { getContent } from "@/lib/content";
 import SiteFooter from "@/components/SiteFooter";
+import { fetchPageSeo } from "@/sanity/lib/queries";
 
-export const metadata: Metadata = {
-  title: "Addio al Nubilato a Barcellona | Attività ed Idee dal 2017",
-  description:
-    "Organizziamo addii al nubilato a Barcellona dal 2017. Spogliarellista maschile, catamarano, limousine, cocktail lab e molto altro. Preventivo gratuito senza impegno.",
-  alternates: { canonical: "https://www.addioalcelibato-barcellona.it/addio-al-nubilato/" },
-  openGraph: {
-    title: "Addio al Nubilato a Barcellona | Dal 2017",
-    description: "20+ attività per il tuo addio al nubilato a Barcellona. Strip show maschile, catamaran, limousine e molto altro. Preventivo gratuito!",
-    locale: "it_IT",
-    type: "website",
-    url: "https://www.addioalcelibato-barcellona.it/addio-al-nubilato/",
-    siteName: "Addio al Celibato Barcellona",
-    images: [{ url: "/images/2026-addio-nubilato-home-page-scaled.jpg", width: 1200, height: 630, alt: "Addio al Nubilato Barcellona" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Addio al Nubilato a Barcellona | Dal 2017",
-    description: "20+ attività per il tuo addio al nubilato a Barcellona. Preventivo gratuito!",
-    images: ["/images/2026-addio-nubilato-home-page-scaled.jpg"],
-  },
-};
+const DEFAULT_TITLE = "Addio al Nubilato a Barcellona | Attività ed Idee dal 2017";
+const DEFAULT_DESC = "Organizziamo addii al nubilato a Barcellona dal 2017. Spogliarellista maschile, catamarano, limousine, cocktail lab e molto altro. Preventivo gratuito senza impegno.";
+const CANONICAL = "https://www.addioalcelibato-barcellona.it/addio-al-nubilato/";
+const OG_IMAGE = "/images/2026-addio-nubilato-home-page-scaled.jpg";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await fetchPageSeo("nubilatoPage");
+  const title = seo.metaTitle ?? DEFAULT_TITLE;
+  const description = seo.metaDesc ?? DEFAULT_DESC;
+  return {
+    title,
+    description,
+    alternates: { canonical: CANONICAL },
+    openGraph: {
+      title,
+      description,
+      locale: "it_IT",
+      type: "website",
+      url: CANONICAL,
+      siteName: "Addio al Celibato Barcellona",
+      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "Addio al Nubilato Barcellona" }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [OG_IMAGE],
+    },
+  };
+}
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 

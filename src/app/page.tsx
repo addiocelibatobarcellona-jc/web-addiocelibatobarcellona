@@ -6,16 +6,22 @@ import {
   MapPin, Target, User,
 } from "lucide-react";
 import { getContent } from "@/lib/content";
+import { fetchPageSeo } from "@/sanity/lib/queries";
 
 import MagneticButton from "@/components/MagneticButton";
 import SiteFooter from "@/components/SiteFooter";
 
-export const metadata: Metadata = {
-  title: "Addio al Celibato Barcellona | Dal 2017 – Miglior Prezzo Garantito",
-  description:
-    "Organizziamo addii al celibato e al nubilato a Barcellona dal 2017. Spogliarellista, limousine, catamarano, discoteche, paddle surf e molto altro. Preventivo gratuito!",
-  alternates: { canonical: "https://www.addioalcelibato-barcellona.it/" },
-};
+const DEFAULT_TITLE = "Addio al Celibato Barcellona | Dal 2017 – Miglior Prezzo Garantito";
+const DEFAULT_DESC = "Organizziamo addii al celibato e al nubilato a Barcellona dal 2017. Spogliarellista, limousine, catamarano, discoteche, paddle surf e molto altro. Preventivo gratuito!";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await fetchPageSeo("homePage");
+  return {
+    title: seo.metaTitle ?? DEFAULT_TITLE,
+    description: seo.metaDesc ?? DEFAULT_DESC,
+    alternates: { canonical: "https://www.addioalcelibato-barcellona.it/" },
+  };
+}
 
 
 // ── Wave divider between sections ────────────────────────────────────────────

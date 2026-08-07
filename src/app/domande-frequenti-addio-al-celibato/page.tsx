@@ -1,31 +1,38 @@
 import type { Metadata } from "next";
 import SiteFooter from "@/components/SiteFooter";
 import MagneticButton from "@/components/MagneticButton";
+import { fetchPageSeo } from "@/sanity/lib/queries";
 
 const BASE = "https://www.addioalcelibato-barcellona.it";
 const CANONICAL = `${BASE}/domande-frequenti-addio-al-celibato/`;
+const DEFAULT_TITLE = "FAQ – Domande Frequenti | Addio al Celibato Barcellona";
+const DEFAULT_DESC = "Tutte le risposte alle domande più comuni sull'organizzazione di un addio al celibato o al nubilato a Barcellona: prezzi, prenotazione, pagamento, attività e altro.";
 
-export const metadata: Metadata = {
-  title: "FAQ – Domande Frequenti | Addio al Celibato Barcellona",
-  description:
-    "Tutte le risposte alle domande più comuni sull'organizzazione di un addio al celibato o al nubilato a Barcellona: prezzi, prenotazione, pagamento, attività e altro.",
-  alternates: { canonical: CANONICAL },
-  openGraph: {
-    title: "FAQ – Domande Frequenti | Addio al Celibato Barcellona",
-    description: "Risposte alle domande più comuni su addio al celibato e nubilato a Barcellona.",
-    locale: "it_IT",
-    type: "website",
-    url: CANONICAL,
-    siteName: "Addio al Celibato Barcellona",
-    images: [{ url: "/images/2017-ADDIO-SPICY-MIX-S.jpg", width: 1200, height: 630, alt: "FAQ – Addio al Celibato Barcellona" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "FAQ | Addio al Celibato Barcellona",
-    description: "Tutto quello che devi sapere sull'organizzazione del tuo addio al celibato a Barcellona.",
-    images: ["/images/2017-ADDIO-SPICY-MIX-S.jpg"],
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await fetchPageSeo("faqPage");
+  const title = seo.metaTitle ?? DEFAULT_TITLE;
+  const description = seo.metaDesc ?? DEFAULT_DESC;
+  return {
+    title,
+    description,
+    alternates: { canonical: CANONICAL },
+    openGraph: {
+      title,
+      description,
+      locale: "it_IT",
+      type: "website",
+      url: CANONICAL,
+      siteName: "Addio al Celibato Barcellona",
+      images: [{ url: "/images/2017-ADDIO-SPICY-MIX-S.jpg", width: 1200, height: 630, alt: "FAQ – Addio al Celibato Barcellona" }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/images/2017-ADDIO-SPICY-MIX-S.jpg"],
+    },
+  };
+}
 
 const FAQS = [
   {
