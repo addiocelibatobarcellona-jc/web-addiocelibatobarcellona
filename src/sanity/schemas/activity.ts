@@ -85,18 +85,29 @@ export const activity = defineType({
     // ── SEO ───────────────────────────────────────────────────────────────────
     defineField({
       name: "meta_title",
-      title: "Titolo SEO (Yoast)",
+      title: "Titolo SEO",
       type: "string",
       group: "seo",
+      description: "Max 70 caratteri. Es: «Spicy Mix Barcellona | Addio al Celibato»",
       validation: (r) => r.max(70),
     }),
     defineField({
       name: "meta_desc",
-      title: "Meta descrizione SEO",
+      title: "Meta descrizione",
       type: "text",
-      rows: 2,
+      rows: 3,
       group: "seo",
+      description: "Max 160 caratteri. Appare nel risultato Google sotto il titolo.",
       validation: (r) => r.max(160),
+    }),
+    defineField({
+      name: "keywords",
+      title: "Parole chiave (keywords)",
+      type: "array",
+      of: [{ type: "string" }],
+      group: "seo",
+      description: "Es: addio al celibato barcellona, spogliarellista, limousine",
+      options: { layout: "tags" },
     }),
 
     // ── MEDIA ─────────────────────────────────────────────────────────────────
