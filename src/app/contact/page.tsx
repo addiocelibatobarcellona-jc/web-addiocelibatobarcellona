@@ -80,17 +80,7 @@ const contactJsonLd = {
   "name": "Contatti – Addio al Celibato Barcellona",
   "url": "https://www.addioalcelibato-barcellona.it/addio-al-celibato-barcellona-contatti/",
   "description": "Contattaci per un preventivo gratuito. Risposta in poche ore. Addio al celibato e al nubilato a Barcellona dal 2017.",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "Addio al Celibato Barcellona",
-    "telephone": "+34673180796",
-    "email": "addiocelibatobarcellona@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Barcelona",
-      "addressCountry": "ES",
-    },
-  },
+  "provider": { "@id": "https://www.addioalcelibato-barcellona.it/#organization" },
 };
 
 export default async function Contatti() {

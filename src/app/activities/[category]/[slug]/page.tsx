@@ -114,7 +114,7 @@ function buildBreadcrumbJsonLd(activity: ActivityDetail, category: string) {
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE}/` },
       { "@type": "ListItem", "position": 2, "name": catLabel, "item": catUrl },
-      { "@type": "ListItem", "position": 3, "name": activity.name, "item": `${catUrl.replace("/attivita/", "/attivita/")}${activity.slug}/` },
+      { "@type": "ListItem", "position": 3, "name": activity.name, "item": `${catUrl}${activity.slug}/` },
     ],
   };
 }
@@ -125,26 +125,18 @@ function buildActivityJsonLd(activity: ActivityDetail, category: string, cardIma
   const url = `${BASE}/attivita/${italianCat}/${activity.slug}/`;
   const imgRaw = cardImage ?? activity.images[0] ?? "/images/2017-ADDIO-SPICY-MIX-S.jpg";
   const image = imgRaw.startsWith("http") ? imgRaw : `${BASE}${imgRaw.startsWith("/") ? imgRaw : "/" + imgRaw}`;
+  const serviceType = italianCat === "notturne" ? "Attività Notturna per Addio al Celibato" : "Attività Pomeridiana per Addio al Celibato";
 
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": "TouristAttraction",
+    "@type": "Service",
     "name": activity.name,
     "description": activity.intro,
     "url": url,
     "image": image,
-    "touristType": "https://schema.org/Party",
-    "provider": {
-      "@type": "Organization",
-      "name": "Addio al Celibato Barcellona",
-      "url": "https://www.addioalcelibato-barcellona.it",
-      "telephone": "+34673180796",
-    },
-    "location": {
-      "@type": "City",
-      "name": "Barcelona",
-      "addressCountry": "ES",
-    },
+    "serviceType": serviceType,
+    "provider": { "@id": `${BASE}/#organization` },
+    "areaServed": { "@type": "City", "name": "Barcelona", "addressCountry": "ES" },
   };
 
   if (activity.price) {

@@ -79,19 +79,14 @@ function buildJsonLd(activity: NubilatoActivity) {
 
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": "TouristAttraction",
+    "@type": "Service",
     "name": activity.name,
     "description": activity.intro,
     "url": url,
     "image": image,
-    "touristType": "https://schema.org/Party",
-    "provider": {
-      "@type": "Organization",
-      "name": "Addio al Celibato Barcellona",
-      "url": BASE,
-      "telephone": "+34673180796",
-    },
-    "location": { "@type": "City", "name": "Barcelona", "addressCountry": "ES" },
+    "serviceType": "Addio al Nubilato",
+    "provider": { "@id": `${BASE}/#organization` },
+    "areaServed": { "@type": "City", "name": "Barcelona", "addressCountry": "ES" },
   };
   if (priceMatch) {
     jsonLd["offers"] = {

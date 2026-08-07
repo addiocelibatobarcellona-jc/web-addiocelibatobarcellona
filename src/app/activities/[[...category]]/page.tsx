@@ -199,12 +199,14 @@ export default async function ActivitiesPage({ params }: { params: Promise<Param
 
   const BASE = "https://www.addioalcelibato-barcellona.it";
   const italianCat = cat === "night" ? "notturne" : cat === "daytime" ? "pomeridiane" : undefined;
+  const pageUrl = italianCat ? `${BASE}/attivita/${italianCat}/` : `${BASE}/attivita/`;
+
   const itemListJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": catData.meta_title,
     "description": catData.meta_desc,
-    "url": italianCat ? `${BASE}/attivita/${italianCat}/` : `${BASE}/attivita/`,
+    "url": pageUrl,
     "itemListElement": activities.map((a, i) => ({
       "@type": "ListItem",
       "position": i + 1,
@@ -213,11 +215,29 @@ export default async function ActivitiesPage({ params }: { params: Promise<Param
     })),
   };
 
+  const breadcrumbItems: { "@type": string; position: number; name: string; item: string }[] = [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
+    { "@type": "ListItem", position: 2, name: "Tutte le Attività", item: `${BASE}/attivita/` },
+  ];
+  if (italianCat) {
+    const catLabel = italianCat === "notturne" ? "Attività Notturne" : "Attività Pomeridiane";
+    breadcrumbItems.push({ "@type": "ListItem", position: 3, name: catLabel, item: pageUrl });
+  }
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbItems,
+  };
+
   return (
     <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       {/* ── HERO ─────────────────────────────────────────────────────── */}

@@ -94,32 +94,53 @@ function GridCard({ name, desc, price, href, tag, image }: {
 
 // ── Page ─────────────────────────────────────────────────────────────────────
 
-const localBusinessJsonLd = {
+const BASE_URL = "https://www.addioalcelibato-barcellona.it";
+const ORG_ID = `${BASE_URL}/#organization`;
+
+const homeJsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Addio al Celibato Barcellona",
-  "url": "https://www.addioalcelibato-barcellona.it",
-  "telephone": "+34673180796",
-  "email": "addiocelibatobarcellona@gmail.com",
-  "image": "/images/2017-ADDIO-SPICY-MIX-S.jpg",
-  "description": "Organizziamo addii al celibato e al nubilato a Barcellona dal 2017. Strip show, discoteche, limousine, paddle surf e molto altro. Preventivo gratuito!",
-  "foundingDate": "2017",
-  "priceRange": "€€",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Avenida del Paral·lel 91 Bis",
-    "addressLocality": "Barcelona",
-    "postalCode": "08004",
-    "addressCountry": "ES",
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Barcelona",
-  },
-  "sameAs": [
-    "https://www.facebook.com/festaaddiocelibatobarcellona/",
-    "https://maps.app.goo.gl/oaPeRnXLkWpVScSv8",
-    "https://it.trustpilot.com/review/addioalcelibato-barcellona.it",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": ORG_ID,
+      "name": "Addio al Celibato Barcellona",
+      "url": `${BASE_URL}/`,
+      "telephone": "+34673180796",
+      "email": "addiocelibatobarcellona@gmail.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/2017-logoaddioalcelibatoblancohori2-1.png`,
+      },
+      "image": `${BASE_URL}/images/2017-ADDIO-SPICY-MIX-S.jpg`,
+      "description": "Organizziamo addii al celibato e al nubilato a Barcellona dal 2017. Strip show, discoteche, limousine, paddle surf e molto altro. Preventivo gratuito!",
+      "foundingDate": "2017",
+      "priceRange": "€€",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Avenida del Paral·lel 91 Bis",
+        "addressLocality": "Barcelona",
+        "postalCode": "08004",
+        "addressCountry": "ES",
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Barcelona",
+        "addressCountry": "ES",
+      },
+      "sameAs": [
+        "https://www.facebook.com/festaaddiocelibatobarcellona/",
+        "https://maps.app.goo.gl/oaPeRnXLkWpVScSv8",
+        "https://it.trustpilot.com/review/addioalcelibato-barcellona.it",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${BASE_URL}/#website`,
+      "url": `${BASE_URL}/`,
+      "name": "Addio al Celibato Barcellona",
+      "publisher": { "@id": ORG_ID },
+      "inLanguage": "it",
+    },
   ],
 };
 
@@ -133,7 +154,7 @@ export default async function HomePage() {
     <div style={{ background: "#000", color: "#fff", overflowX: "hidden" }}>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
       />
 
       {/* ════════════════════════════════════════════════════════════════

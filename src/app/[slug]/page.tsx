@@ -102,11 +102,13 @@ function buildArticleJsonLd(post: Awaited<ReturnType<typeof getPostBySlug>> & ob
       : "https://www.addioalcelibato-barcellona.it/images/2017-ADDIO-SPICY-MIX-S.jpg",
     "author": {
       "@type": "Organization",
+      "@id": "https://www.addioalcelibato-barcellona.it/#organization",
       "name": "Addio al Celibato Barcellona",
       "url": "https://www.addioalcelibato-barcellona.it/",
     },
     "publisher": {
       "@type": "Organization",
+      "@id": "https://www.addioalcelibato-barcellona.it/#organization",
       "name": "Addio al Celibato Barcellona",
       "url": "https://www.addioalcelibato-barcellona.it/",
       "logo": {

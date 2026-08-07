@@ -70,13 +70,18 @@ const STATS = [
 const aboutJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://www.addioalcelibato-barcellona.it/#organization",
   "name": "Addio al Celibato Barcellona",
-  "url": "https://www.addioalcelibato-barcellona.it",
+  "url": "https://www.addioalcelibato-barcellona.it/",
   "telephone": "+34673180796",
   "email": "addiocelibatobarcellona@gmail.com",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.addioalcelibato-barcellona.it/images/2017-logoaddioalcelibatoblancohori2-1.png",
+  },
   "description": "Agenzia di italiani che vivono a Barcellona da più di 20 anni. Le migliori idee per l'addio al celibato e al nubilato a Barcellona.",
   "foundingDate": "2017",
-  "areaServed": { "@type": "City", "name": "Barcelona" },
+  "areaServed": { "@type": "City", "name": "Barcelona", "addressCountry": "ES" },
   "sameAs": [
     "https://www.facebook.com/festaaddiocelibatobarcellona/",
     "https://maps.app.goo.gl/oaPeRnXLkWpVScSv8",
